@@ -79,7 +79,7 @@ for (const [variable, profile] of [
         },
       });
       const unrelated = await run(
-        ["setup", "--client", "qwen_code", "--yes", "--json"],
+        ["setup", "--client", "cursor", "--yes", "--json"],
         "Bad Name",
       );
       expect(unrelated.exitCode).toBe(0);

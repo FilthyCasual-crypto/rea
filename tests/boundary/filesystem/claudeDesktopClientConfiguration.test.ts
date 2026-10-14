@@ -361,7 +361,7 @@ describe("MSIX Claude Desktop uninstall", () => {
     await writeJson(join(dirname(privateConfig), "Preferences"), {});
     await mkdir(dirname(dirname(appDataConfig)), { recursive: true });
     await symlink(dirname(privateConfig), dirname(appDataConfig), "dir");
-    const agents = join(env.APPDATA, "dsh", "agents");
+    const agents = join(env.APPDATA, "hermes");
     const manifest = join(
       agents,
       "skills",
@@ -373,7 +373,7 @@ describe("MSIX Claude Desktop uninstall", () => {
       manifest,
       "---\nname: reverse-engineer-anything\n---\nmanaged fixture\n",
     );
-    const environment = { ...env, DSH_AGENTS_HOME: agents };
+    const environment = { ...env, HERMES_HOME: agents };
     const result = await runUninstall(
       false,
       systemUninstallHost(home, undefined, environment, "win32"),

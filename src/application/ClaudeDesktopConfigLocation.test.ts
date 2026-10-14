@@ -312,7 +312,7 @@ describe("writes from a redirected AppData view", () => {
       [target],
       "uninstall",
       (path) => {
-        if (path === alias) return join(env.APPDATA, "dsh");
+        if (path === alias) return join(env.APPDATA, "agent-data");
         if (path.startsWith(`${alias}${sep}`)) throw failure("ENOENT");
         return path;
       },

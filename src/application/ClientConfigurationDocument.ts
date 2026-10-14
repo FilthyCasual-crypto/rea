@@ -2,12 +2,6 @@ import { parse as parseToml, stringify as stringifyToml } from "smol-toml";
 import { isDeepStrictEqual } from "node:util";
 
 import {
-  parseDshCordisDocument,
-  serializeDshDocument,
-  editDshDocument,
-  dshClientRegistrationEntry,
-} from "./DshCordisPatch.js";
-import {
   editHermesConfigurationYaml,
   parseHermesConfigurationYaml,
   stringifyHermesConfigurationYaml,
@@ -86,7 +80,6 @@ export const clientConfigurationServersKey = (
     case "hermes":
       return "mcp_servers";
     case "opencode":
-    case "zcode":
       return "mcp";
     case "vscode":
       return "servers";
@@ -111,11 +104,8 @@ const parseDocument = (
   // Pi loads `mcp.json` with a strict `JSON.parse` and no BOM tolerance, so
   // comments, trailing commas, a BOM, or an empty existing file must be
   // rejected instead of registering into a document the client cannot load.
-  // Kimi also reads mcp.json with JSON.parse and an empty-file fallback.
-  if (format === "pi" || format === "kimi") {
-    if (format === "kimi" && text.trim().length === 0) return {};
+  if (format === "pi")
     return requireObject(JSON.parse(text), "The configuration root");
-  }
   // An empty file, which some clients create before any server is added,
   // holds no settings to preserve.
   if (isEmptyClientConfigurationText(text)) return {};
@@ -125,9 +115,6 @@ const parseDocument = (
       parseHermesConfigurationYaml(text),
       "The configuration root",
     );
-  // ZCode loads nonempty native files with strict JSON.parse.
-  if (format === "zcode")
-    return requireObject(JSON.parse(text), "The configuration root");
   const errors: ParseError[] = [];
   // Accept a UTF-8 BOM without shifting diagnostics or editing the original text.
   const jsonText = text.startsWith("\uFEFF") ? ` ${text.slice(1)}` : text;
@@ -155,23 +142,6 @@ const requireObject = (
   });
 };
 
-/** ZCode reads the same-scope fallback as strict JSON with a mcpServers table. */
-export const parseZcodeFallbackConfiguration = (
-  text: string,
-): ClientConfigurationDocument => {
-  const document = requireObject(JSON.parse(text), "ZCode fallback root");
-  return {
-    document,
-    servers:
-      document.mcpServers === undefined
-        ? {}
-        : requireObject(document.mcpServers, "ZCode fallback mcpServers"),
-    serversPath: ["mcpServers"],
-    dialect: "zcode_fallback",
-    legacyServers: {},
-  };
-};
-
 /** Members of OpenCode V2's `mcp` object that are not server names. */
 const OPENCODE_V2_MCP_SETTINGS = new Set(["servers", "timeout"]);
 
@@ -182,29 +152,11 @@ export const parseClientConfiguration = (
 ): ClientConfigurationDocument => {
   if (format === undefined || format === "unsupported")
     throw new TypeError("client does not have a supported MCP config format");
-  // DeepSeek Harness stores a Cordis patch list, not a server table.
-  if (format === "zcode_fallback") return parseZcodeFallbackConfiguration(text);
-  if (format === "dsh") return parseDshCordisDocument(text);
   const document = parseDocument(text, format);
   const serversKey = clientConfigurationServersKey(format);
   const value = document[serversKey];
   const servers =
     value === undefined ? {} : requireObject(value, `"${serversKey}"`);
-  // ZCode reads stdio servers from the nested `mcp.servers` table of
-  // `~/.zcode/cli/config.json`; entries carry `command`, `args`, and `env`.
-  if (format === "zcode") {
-    const nested = servers.servers;
-    return {
-      document,
-      servers:
-        nested === undefined
-          ? {}
-          : requireObject(nested, `"${serversKey}.servers"`),
-      serversPath: [serversKey, "servers"],
-      dialect: format,
-      legacyServers: {},
-    };
-  }
   const native = servers.servers;
   // A V1 server named `servers` has a string `type` discriminator; the V2
   // table may instead hold a server object named `type`.
@@ -254,18 +206,9 @@ export const withClientServers = (
   servers: Record<string, unknown>,
   removeLegacy?: string,
 ): Record<string, unknown> => {
-  // The Harness patch list upserts or removes by entry id, not by table.
-  if (parsed.dialect === "dsh")
-    return Object.hasOwn(servers, PRODUCT_IDENTITY.mcpServerKey)
-      ? editDshDocument(
-          parsed,
-          objectSchema.parse(servers[PRODUCT_IDENTITY.mcpServerKey]),
-        )
-      : editDshDocument(parsed);
   const [key = "", nested] = parsed.serversPath;
   if (nested === undefined) return { ...parsed.document, [key]: servers };
-  // A fresh document may not hold the outer table yet (for example a new
-  // ZCode `config.json` without an `mcp` object), so treat absence as empty.
+  // A fresh document may not hold the outer table yet, so treat absence as empty.
   const outerValue = parsed.document[key];
   const outer =
     outerValue === undefined ? {} : { ...objectSchema.parse(outerValue) };
@@ -1366,7 +1309,6 @@ export const serializeClientConfiguration = (
     return serializeGrokConfiguration(document, originalText);
   if (format === "hermes")
     return serializeHermesConfiguration(document, originalText);
-  if (format === "dsh") return serializeDshDocument(document);
   // An empty original holds no comments or settings to preserve. Writing a
   // fresh document also keeps a lone BOM from shifting past the closing brace.
   if (
@@ -1450,13 +1392,6 @@ export const clientRegistrationEntry = (
           ? {}
           : { environment: { ...environment } }),
       };
-    case "kimi":
-      // Kimi infers stdio from command; it uses `transport`, not `type`.
-      return {
-        command: executable,
-        args,
-        ...(Object.keys(environment).length === 0 ? {} : { env: environment }),
-      };
     case "opencode_v2":
       // V2 connects servers unless `disabled` is true.
       return {
@@ -1491,8 +1426,6 @@ export const clientRegistrationEntry = (
         args,
         ...(Object.keys(environment).length === 0 ? {} : { env: environment }),
       };
-    case "dsh":
-      return dshClientRegistrationEntry(command, environment);
     case "hermes":
       // Hermes reads stdio servers from `mcp_servers.<name>` and connects them
       // unless `enabled` is false, so the entry states it explicitly.

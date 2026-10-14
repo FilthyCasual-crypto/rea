@@ -28,8 +28,6 @@ export interface SetupClient {
   };
   /** Unresolved path evidence only; consumers must not perform I/O on it. */
   readonly configPathError?: string;
-  /** Same-scope fallback ZCode stops loading after its first native server. */
-  readonly zcodeFallbackPath?: string;
   readonly markerPath?: string;
   /** MSIX package storage that decides which configuration the client reads. */
   readonly msixPackage?: MsixPackageView;
@@ -45,11 +43,7 @@ export interface SetupClient {
     | "grok"
     | "omp"
     | "pi"
-    | "kimi"
     | "hermes"
-    | "zcode_fallback"
-    | "zcode"
-    | "dsh"
     | "unsupported";
 }
 
@@ -98,7 +92,6 @@ interface ClientDefinitionBase {
   readonly displayName: string;
   readonly format: NonNullable<SetupClient["format"]>;
   readonly quitBeforeSetup?: boolean;
-  readonly zcodeFallbackPath?: (context: ClientPathContext) => string;
   readonly skillPath?: ClientPath;
   readonly configPaths?: (context: ClientPathContext) => readonly string[];
   readonly geminiSettings?: (
@@ -126,22 +119,6 @@ const vscodeUserDirectory = ({
   return join(xdgConfigHome({ home, platform, env }), "Code", "User");
 };
 
-const traeUserDirectory = ({
-  home,
-  platform,
-  env,
-}: ClientPathContext): string => {
-  if (platform === "win32")
-    return join(
-      env.APPDATA ?? join(home, "AppData", "Roaming"),
-      "Trae",
-      "User",
-    );
-  if (platform === "darwin")
-    return join(home, "Library", "Application Support", "Trae", "User");
-  return join(xdgConfigHome({ home, platform, env }), "Trae", "User");
-};
-
 /** Windows packaging decides which file Claude Desktop reads; see its resolver. */
 const claudeDesktopLocation = (
   context: ClientPathContext,
@@ -167,62 +144,11 @@ const claudeCodeMarkerDirectory = ({ home, env }: ClientPathContext): string =>
 const codexDirectory = ({ home, env }: ClientPathContext): string =>
   env.CODEX_HOME || join(home, ".codex");
 
-/** Kimi Code stores MCP declarations beside the rest of its home data. */
-const kimiDirectory = ({ home, env }: ClientPathContext): string =>
-  env.KIMI_CODE_HOME || join(home, ".kimi-code");
-
-const qoderDirectory = ({ home, env }: ClientPathContext): string =>
-  env.QODER_CONFIG_DIR || join(home, ".qoder");
-
 const factoryDirectory = ({ home }: ClientPathContext): string =>
   join(home, ".factory");
 
-/** Match Qwen Code's home override, including tilde and cwd-relative paths. */
-const qwenCodeDirectory = ({ home, env }: ClientPathContext): string => {
-  const override = env.QWEN_HOME;
-  if (!override) return join(home, ".qwen");
-  const expanded =
-    override === "~"
-      ? home
-      : override.startsWith("~/") || override.startsWith("~\\")
-        ? join(
-            home,
-            ...override
-              .slice(2)
-              .split(/[/\\]+/)
-              .filter(Boolean),
-          )
-        : override;
-  return isAbsolute(expanded) ? expanded : resolve(expanded);
-};
-
 const grokDirectory = ({ home, env }: ClientPathContext): string =>
   env.GROK_HOME || join(home, ".grok");
-
-/** Match Harness home-paths for both independent roots; trim only to detect blanks. */
-const dshDirectory = (
-  home: string,
-  override: string | undefined,
-  fallback: string,
-): string => {
-  const selected =
-    override !== undefined && override.trim().length > 0
-      ? override
-      : join(home, fallback);
-  const expanded =
-    selected === "~"
-      ? home
-      : selected.startsWith("~/") || selected.startsWith("~\\")
-        ? join(home, selected.slice(2))
-        : selected;
-  return resolve(expanded);
-};
-
-const dshHomeDirectory = ({ home, env }: ClientPathContext): string =>
-  dshDirectory(home, env.DSH_HOME, ".dsh");
-
-const dshPatchDirectory = (context: ClientPathContext): string =>
-  join(dshHomeDirectory(context), "cordis.patch.yml");
 
 const hermesDirectory = ({ home, platform, env }: ClientPathContext): string =>
   resolveHermesClientHome(home, platform, env);
@@ -575,45 +501,12 @@ export const SUPPORTED_CLIENT_DEFINITIONS = [
     format: "commandcode",
   },
   {
-    name: "qwen_code",
-    displayName: "Qwen Code",
-    configPath: (context: ClientPathContext) =>
-      join(qwenCodeDirectory(context), "settings.json"),
-    markerPath: qwenCodeDirectory,
-    format: "json",
-  },
-  {
-    name: "kimi",
-    displayName: "Kimi Code",
-    configPath: (context: ClientPathContext) =>
-      join(kimiDirectory(context), "mcp.json"),
-    markerPath: kimiDirectory,
-    format: "kimi",
-  },
-  {
     name: "vscode",
     displayName: "VS Code",
     configPath: (context: ClientPathContext) =>
       join(vscodeUserDirectory(context), "mcp.json"),
     markerPath: vscodeUserDirectory,
     format: "vscode",
-  },
-  {
-    name: "trae",
-    displayName: "Trae",
-    skillPath: [".trae", "skills"],
-    configPath: (context: ClientPathContext) =>
-      join(traeUserDirectory(context), "mcp.json"),
-    markerPath: traeUserDirectory,
-    format: "json",
-  },
-  {
-    name: "workbuddy",
-    displayName: "WorkBuddy",
-    skillPath: [".workbuddy", "skills"],
-    configPath: [".workbuddy", "mcp.json"],
-    markerPath: [".workbuddy"],
-    format: "json",
   },
   {
     name: "grok_build",
@@ -655,16 +548,6 @@ export const SUPPORTED_CLIENT_DEFINITIONS = [
     format: "hermes",
   },
   {
-    name: "qoder",
-    displayName: "Qoder",
-    skillPath: (context: ClientPathContext) =>
-      join(qoderDirectory(context), "skills"),
-    configPath: (context: ClientPathContext) =>
-      join(qoderDirectory(context), "settings.json"),
-    markerPath: qoderDirectory,
-    format: "json",
-  },
-  {
     name: "droid",
     displayName: "Factory Droid",
     skillPath: (context: ClientPathContext) =>
@@ -673,27 +556,6 @@ export const SUPPORTED_CLIENT_DEFINITIONS = [
       join(factoryDirectory(context), "mcp.json"),
     markerPath: factoryDirectory,
     format: "json",
-  },
-  {
-    name: "zcode",
-    zcodeFallbackPath: ({ home }: ClientPathContext) =>
-      join(home, ".agents", "mcp.json"),
-    displayName: "ZCode",
-    configPath: [".zcode", "cli", "config.json"],
-    markerPath: [".zcode", "cli"],
-    skillPath: [".zcode", "skills"],
-    format: "zcode",
-  },
-  {
-    name: "dsh",
-    displayName: "DeepSeek Harness",
-    // The home Cordis patch applies to every profile; the skill directory is
-    // shared agent storage Harness discovers.
-    skillPath: ({ home, env }: ClientPathContext) =>
-      join(dshDirectory(home, env.DSH_AGENTS_HOME, ".agents"), "skills"),
-    configPath: dshPatchDirectory,
-    markerPath: dshHomeDirectory,
-    format: "dsh",
   },
   {
     name: "grok_bot",
@@ -777,9 +639,6 @@ export const supportedClients = (
                 ...new Set([...definition.configPaths(context), configPath]),
               ],
             }),
-        ...(definition.zcodeFallbackPath === undefined
-          ? {}
-          : { zcodeFallbackPath: definition.zcodeFallbackPath(context) }),
         markerPath,
         ...(msixPackage === undefined ? {} : { msixPackage }),
         ...(definition.quitBeforeSetup === true

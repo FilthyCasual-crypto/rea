@@ -266,7 +266,7 @@ describe("MCP compact schema constraints", () => {
     registerCatalog(server);
     const tools = await listToolsThroughTransport(server);
     for (const tool of tools) {
-      // Kimi Code 2.1.1 expands references and defaults description-only
+      // Some clients expand references and defaults description-only
       // properties to string. Inline schemas with explicit shallow types
       // avoid both conversions for the structurally oversized tools.
       expect(JSON.stringify(tool.inputSchema), tool.name).not.toContain(

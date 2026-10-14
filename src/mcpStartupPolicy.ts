@@ -7,8 +7,6 @@
  */
 export const MCP_STARTUP_POLICY = {
   codexStartupTimeoutSeconds: 30,
-  kimiStartupTimeoutMs: 30_000,
-  kimiToolTimeoutMs: 120_000,
   initializeBudgetMs: 15_000,
   toolsListBudgetMs: 5_000,
   firstCatalogBudgetMs: 20_000,

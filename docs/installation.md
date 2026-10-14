@@ -72,9 +72,7 @@ setting before setup writes files. Repair the named setting in the client
 configuration; setup does not silently discard the rest of the map.
 This includes malformed loader/exclusion JSON arrays and a Ghidra compiler
 specification without its required language identifier. Valid overrides keep
-their original strings, including empty Hopper arguments. DeepSeek Harness
-`!!js` environment expressions remain unevaluated and preserved; registration
-alignment does not verify the runtime values those expressions will produce.
+their original strings, including empty Hopper arguments.
 For layered OpenCode files, each file's values are checked before merging, while
 setting dependencies are checked against the effective merged environment.
 Setup preserves each layer's overrides instead of copying inherited settings
@@ -397,9 +395,8 @@ running server or its registration.
 The npm release checked on **2026-10-11** was **6.4.0**, published from
 [`a56f7bb6`](https://github.com/morluto/rea/commit/a56f7bb668ab23fec8d33f7af353ac7ed2fe1895).
 The actual registry package accepted dry-run setup plans for the 17 client IDs
-in that release, including Qwen Code, Pi and Hermes. DeepSeek Harness (`dsh`)
-is on main and is not in npm 6.4.0; `rea setup --client dsh` against `@latest`
-reports an unsupported client until a release containing it is published.
+in that release, including Pi and Hermes. This fork removes the Qwen Code,
+Kimi Code, Trae, WorkBuddy, Qoder, ZCode and DeepSeek Harness integrations.
 OpenCode's plan selected
 `OPENCODE_CONFIG_DIR` even when that directory did not yet exist. These checks
 used an isolated home on macOS with Node 24; they verify planning and argument
@@ -466,29 +463,15 @@ hosted connector; see [its configuration](client-configuration.md#other-client-s
 | Antigravity        | `antigravity`    |
 | GitHub Copilot CLI | `copilot_cli`    |
 | Command Code       | `commandcode`    |
-| Qwen Code          | `qwen_code`      |
-| Kimi Code          | `kimi`           |
 | VS Code            | `vscode`         |
 | Grok Build         | `grok_build`     |
 | OMP                | `omp`            |
 | Pi                 | `pi`             |
 | Hermes             | `hermes`         |
-| Qoder              | `qoder`          |
 | Factory Droid      | `droid`          |
-| Trae               | `trae`           |
-| WorkBuddy          | `workbuddy`      |
-| ZCode              | `zcode`          |
-| DeepSeek Harness   | `dsh`            |
-
-`dsh`, `kimi`, and `workbuddy` require a release containing them. The registry
-check above does not cover them.
 
 See [client configuration and troubleshooting](client-configuration.md) for
 configuration paths, profiles, trust policies, and schema-limit workarounds.
-
-### DeepSeek Harness
-
-See [the Cordis patch and launcher setup](client-configuration.md#deepseek-harness).
 
 ### Other client settings
 

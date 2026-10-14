@@ -1,7 +1,6 @@
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { expect } from "vitest";
-import { stringify } from "yaml";
 
 import {
   effectiveClientServer,
@@ -20,17 +19,6 @@ const scenarios = [
     invalid: { HOPPER_LOADER_ARGS_JSON: "{" },
     repaired: { HOPPER_LOADER_ARGS_JSON: '["", "--loader", "Mach-O"]' },
   },
-  {
-    client: "dsh",
-    format: "dsh",
-    path: ".dsh/cordis.patch.yml",
-    setting: "REA_GHIDRA_COMPILER_SPEC_ID",
-    invalid: { REA_GHIDRA_COMPILER_SPEC_ID: "borlandcpp" },
-    repaired: {
-      REA_GHIDRA_COMPILER_SPEC_ID: "borlandcpp",
-      REA_GHIDRA_LANGUAGE_ID: "x86:LE:32:default",
-    },
-  },
 ] as const;
 
 for (const scenario of scenarios)
@@ -44,7 +32,6 @@ for (const scenario of scenarios)
         HOME: home,
         USERPROFILE: home,
         XDG_CONFIG_HOME: join(home, ".config"),
-        DSH_HOME: join(home, ".dsh"),
       };
       const registration = (env: Readonly<Record<string, string>>) => {
         const server = {
@@ -52,23 +39,7 @@ for (const scenario of scenarios)
           args: ["mcp"],
           env: { CALLER_SETTING: "keep exactly", ...env },
         };
-        return scenario.client === "dsh"
-          ? stringify([
-              {
-                insert: [
-                  {
-                    id: "rea-mcp",
-                    name: "@deepseek-ai/dsh-mcp-client",
-                    config: {
-                      serverName: "rea",
-                      transport: "stdio",
-                      ...server,
-                    },
-                  },
-                ],
-              },
-            ])
-          : JSON.stringify({ mcpServers: { rea: server } });
+        return JSON.stringify({ mcpServers: { rea: server } });
       };
       const original = registration(scenario.invalid);
       await writeFile(config, original);

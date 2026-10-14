@@ -85,13 +85,6 @@ const cases = [
     diagnostic: "Configuration is not valid YAML",
     syntax: "YAML",
   },
-  {
-    client: "dsh",
-    path: ".dsh/cordis.patch.yml",
-    text: "- insert: [\n",
-    diagnostic: "Configuration is not valid YAML",
-    syntax: "YAML",
-  },
 ] as const;
 
 for (const scenario of cases)
@@ -111,7 +104,6 @@ for (const scenario of cases)
         USERPROFILE: home,
         XDG_CONFIG_HOME: join(home, ".config"),
         HERMES_HOME: join(home, ".hermes"),
-        DSH_HOME: join(home, ".dsh"),
       };
       const setup = await cli.run({
         arguments: [

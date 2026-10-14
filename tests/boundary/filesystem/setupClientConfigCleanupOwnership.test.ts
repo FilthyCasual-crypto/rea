@@ -119,53 +119,6 @@ it("retains invalid UTF-8 diagnostics and the uninstall read owner when close fa
   }
 });
 
-describe("ZCode fallback cleanup ownership", () => {
-  it.each(["preflight", "configure"])(
-    "retains a failed ZCode fallback close during %s until host cleanup",
-    async (operation) => {
-      const home = await createTestTempDirectory("rea-zcode-fallback-close-");
-      const host = systemSetupHost(
-        { platform: "linux", homeDirectory: home } as DoctorHost,
-        { HOME: home },
-      );
-      const client = (await host.supportedClients()).find(
-        ({ name }) => name === "zcode",
-      );
-      if (client?.zcodeFallbackPath === undefined)
-        throw new Error("ZCode fallback path missing");
-      const fallback = client.zcodeFallbackPath;
-      await mkdir(dirname(fallback), { recursive: true });
-      const original = '{"mcpServers":{"other":{"command":"other"}}}\n';
-      await writeFile(fallback, original);
-      const { closeAttempts, release } = holdReadHandle(
-        fallback,
-        "held fallback handle",
-      );
-      try {
-        const action =
-          operation === "preflight"
-            ? host.inspectClientConfiguration?.(client, {}, ["rea", "mcp"])
-            : host.configureClient(client, {}, ["rea", "mcp"]);
-        if (action === undefined) throw new Error("setup preflight missing");
-        await expect(action).rejects.toMatchObject({
-          _tag: "ConfigurationError",
-          cause: expect.any(RegularFileCleanupFailure),
-          cleanup: { resources: [fallback] },
-        });
-        expect(closeAttempts).toHaveLength(2);
-        expect(closeAttempts[0]).toBe(closeAttempts[1]);
-        expect(await readFile(fallback, "utf8")).toBe(original);
-        await expect(readFile(client.configPath)).rejects.toMatchObject({
-          code: "ENOENT",
-        });
-        await expectCloseReclaimsHandle(host, closeAttempts, release);
-      } finally {
-        await cleanupHeldHandle(host, release);
-      }
-    },
-  );
-});
-
 describe("setup client configuration cleanup ownership", () => {
   it.each([
     ["valid UTF-8", Buffer.from('{"servers": {"other": {}}}\n')],

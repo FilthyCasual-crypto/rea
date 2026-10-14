@@ -86,7 +86,6 @@ export async function verifyPackageEnvironment({
     PI_CODING_AGENT_DIR: undefined,
     PI_CONFIG_DIR: undefined,
     PI_PROFILE: undefined,
-    QWEN_HOME: undefined,
     OPENCODE_CONFIG: undefined,
     OPENCODE_CONFIG_DIR: undefined,
     GEMINI_CLI_HOME: undefined,

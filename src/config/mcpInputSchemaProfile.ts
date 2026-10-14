@@ -3,11 +3,10 @@ import { z } from "zod";
 import { ConfigurationError } from "../domain/configurationErrors.js";
 import { err, ok, type Result } from "../domain/result.js";
 
-// Moonshot's function-calling API rejects requests while any single tool
-// parameters schema exceeds its literal serialized size cap. Community
-// measurements bound the cap between ~13.7 KB (accepted) and ~15 KB
-// (rejected); 13 KiB leaves margin under the lower bound. See
-// https://github.com/morluto/rea/issues/1484 for the measured evidence.
+// Some function-calling providers reject a request when any single tool's
+// parameters schema exceeds a serialized size cap. Measured caps fall between
+// ~13.7 KB (accepted) and ~15 KB (rejected); 13 KiB leaves margin under the
+// lower bound. See https://github.com/morluto/rea/issues/1484.
 export const COMPACT_INPUT_SCHEMA_BUDGET_BYTES = 13 * 1024;
 
 export const mcpInputSchemaProfileSchema = z.enum(["full", "compact"]);

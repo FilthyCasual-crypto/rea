@@ -27,7 +27,6 @@ import {
 } from "./SupportedClients.js";
 import type { SetupClient } from "./SupportedClients.js";
 import { compareUnicodeCodePoints } from "../domain/unicodeCodePointOrder.js";
-import { dshDocument } from "./DshCordisPatch.js";
 import type { ArtifactResourceScope } from "../artifacts/ArtifactResourceScope.js";
 
 interface ClientRegistrationStatusBase {
@@ -73,11 +72,8 @@ const registrationSchema = z
     command: z.string().min(1),
     args: z.array(z.string()).default([]),
     startup_timeout_sec: z.number().positive().optional(),
-    startupTimeoutMs: z.number().positive().optional(),
-    toolTimeoutMs: z.number().positive().optional(),
     type: z.string().optional(),
     transport: z.string().optional(),
-    serverName: z.string().optional(),
     tools: z.array(z.string()).optional(),
     disabled: z.boolean().optional(),
     enabled: z.boolean().optional(),
@@ -188,33 +184,10 @@ export const readClientRegistrationInspections = async (
       const policyBlock = policy.value;
       const raw = effectiveClientServer(parsed, PRODUCT_IDENTITY.mcpServerKey);
       if (raw === undefined) {
-        const editabilityError =
-          parsed.dialect === "dsh"
-            ? dshDocument(parsed.document).editabilityError
-            : undefined;
-        if (editabilityError !== undefined) {
-          record({
-            client: client.name,
-            config_path: configPath,
-            command: [],
-            state: "invalid",
-            remediation: editabilityError.message,
-          });
-          continue;
-        }
         record(unavailableStatus(client, "missing", configPath));
         continue;
       }
-      const effectiveClient: SetupClient =
-        parsed.dialect === "zcode_fallback"
-          ? {
-              ...client,
-              configPath,
-              configPaths: [configPath],
-              format: "zcode_fallback",
-            }
-          : client;
-      const registration = parseRegistration(raw, effectiveClient);
+      const registration = parseRegistration(raw, client);
       const command: RegistrationCommand = [
         registration.command,
         ...registration.args,
@@ -227,21 +200,19 @@ export const readClientRegistrationInspections = async (
         packageVersion !== PRODUCT_IDENTITY.packageVersion;
       const alignment = registrationAligned(
         registration,
-        effectiveClient,
+        client,
         currentCommandPath,
         options.platform ?? process.platform,
       );
       record(
         configuredStatus(
-          effectiveClient,
+          client,
           command,
           alignment === "unknown"
             ? "unknown"
             : activation === "enabled" &&
                 !packageVersionDrift &&
                 alignment === "aligned" &&
-                (parsed.dialect !== "dsh" ||
-                  dshDocument(parsed.document).ready) &&
                 policyBlock === undefined
               ? "aligned"
               : "stale",
@@ -278,8 +249,6 @@ const registrationActivation = (
   (client.format !== "grok" && registration.disabled === true) ||
   (registration.enabled === false &&
     !clientServerForcedEnabled(parsed, PRODUCT_IDENTITY.mcpServerKey)) ||
-  ((parsed.dialect === "zcode" || parsed.dialect === "zcode_fallback") &&
-    registration.enable === false) ||
   clientServerListedDisabled(parsed, PRODUCT_IDENTITY.mcpServerKey)
     ? "disabled"
     : "enabled";
@@ -304,28 +273,12 @@ const registrationAligned = (
   )
     return "stale";
   if (
-    client.name === "kimi" &&
-    (registration.startupTimeoutMs !==
-      MCP_STARTUP_POLICY.kimiStartupTimeoutMs ||
-      registration.toolTimeoutMs !== MCP_STARTUP_POLICY.kimiToolTimeoutMs)
-  )
-    return "stale";
-  if (
-    (client.format === "kimi" ||
-      client.format === "omp" ||
-      client.format === "pi") &&
+    (client.format === "omp" || client.format === "pi") &&
     registration.type !== undefined &&
     registration.type !== "stdio"
   )
     return "stale";
   if (client.format === "vscode" && registration.type !== "stdio")
-    return "stale";
-  // A Harness registration only connects as the rea stdio server; another
-  // server name or transport leaves the session without REA tools.
-  if (
-    client.format === "dsh" &&
-    (registration.serverName !== "rea" || registration.transport !== "stdio")
-  )
     return "stale";
   if (
     client.format === "copilot_cli" &&
@@ -372,11 +325,6 @@ const parseRegistration = (
   value: unknown,
   client: SetupClient,
 ): z.output<typeof registrationSchema> => {
-  if (client.format === "dsh")
-    return registrationSchema
-      .pick({ command: true, args: true, serverName: true, transport: true })
-      .strip()
-      .parse(value);
   if (client.format === "opencode") {
     const entry = z
       .object({
@@ -395,12 +343,6 @@ const parseRegistration = (
   }
   const registration = registrationSchema.parse(value);
   if (
-    client.format === "kimi" &&
-    registration.transport !== undefined &&
-    registration.transport !== "stdio"
-  )
-    throw new TypeError("Expected an stdio registration");
-  if (
     (client.format === "vscode" || client.format === "copilot_cli") &&
     registration.type !== "stdio"
   )
@@ -408,9 +350,7 @@ const parseRegistration = (
   if (client.format === "commandcode" && registration.transport !== "stdio")
     throw new TypeError("Expected an stdio registration");
   if (
-    (client.format === "kimi" ||
-      client.format === "omp" ||
-      client.format === "pi") &&
+    (client.format === "omp" || client.format === "pi") &&
     registration.type !== undefined &&
     registration.type !== "stdio"
   )

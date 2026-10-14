@@ -77,7 +77,7 @@ reads the same file from either kind of process.
 The same process also writes everything under `%APPDATA%` and
 `%LOCALAPPDATA%` into the package's private storage, where other apps never
 read it. From that redirected view, setup and uninstall refuse to change other
-clients' files there (VS Code, Trae, Devin and Hermes) and skill directories
+clients' files there (VS Code, Devin and Hermes) and skill directories
 there. `npm install -g` run from such a process installs into the package's
 `LocalCache\Roaming\npm`, which other processes cannot see at the `%APPDATA%`
 path. Setup refuses to register a launcher stored in any MSIX package's
@@ -102,8 +102,8 @@ app is unverified.
 
 Claude Code normally defers MCP tool definitions through tool search. It
 [turns tool search off](https://code.claude.com/docs/en/mcp#configure-tool-search)
-when `ANTHROPIC_BASE_URL` points to a non-first-party host, such as DeepSeek's
-Anthropic-compatible endpoint. It then sends every REA tool's name, description
+when `ANTHROPIC_BASE_URL` points to a non-first-party Anthropic-compatible
+endpoint. It then sends every REA tool's name, description
 and input schema with every request
 ([#2019](https://github.com/morluto/rea/issues/2019)). On main at 04089d5be,
 with 172 tools, that payload measured about 496 KB with the default profile and
@@ -112,40 +112,25 @@ about 290 KB with `compact`. By the o200k and cl100k tokenizers, that is roughly
 fill the window Claude Code assumes, the context refills after every compaction
 and Claude Code reports that autocompact is thrashing. To avoid this:
 
-- Make Claude Code assume the model's actual context window. DeepSeek's Claude
-  Code guide selects `deepseek-flash[1m]`; the `[1m]` suffix makes Claude Code
-  assume a one-million-token window. For other unrecognized model IDs, set
-  `CLAUDE_CODE_MAX_CONTEXT_TOKENS` to the window the provider documents.
+- Make Claude Code assume the model's actual context window. For unrecognized
+  model IDs, set `CLAUDE_CODE_MAX_CONTEXT_TOKENS` to the window the provider
+  documents.
 - If the endpoint forwards `tool_reference` blocks, set `ENABLE_TOOL_SEARCH=true`
-  to restore deferred loading. DeepSeek's Anthropic API guide does not list
-  `tool_reference` among its supported content blocks, so this setting may cause
-  its requests to fail.
+  to restore deferred loading. Endpoints that do not support `tool_reference`
+  content blocks will fail requests with this setting.
 - To shrink the upfront catalog, add
   `"REA_MCP_INPUT_SCHEMA_PROFILE": "compact"` to the `env` object of the
   `mcpServers.rea` entry in `~/.claude.json` (`$CLAUDE_CONFIG_DIR/.claude.json`
   when that variable is set), then restart Claude Code. Setup keeps this
   override.
 
-The sizes above come from REA's own `tools/list`. A live Claude Code session
-against DeepSeek's API is unverified.
+The sizes above come from REA's own `tools/list`.
 
 For a client whose stdio reader rejects the complete catalog frame, add
 `"REA_MCP_OUTPUT_SCHEMA_PROFILE": "off"` to REA's `env` object and restart the
 client. This omits only advertised output schemas; REA still validates complete
 structured results against its canonical contracts. See [MCP output schema
 profiles](mcp-contracts.md#output-schemas).
-
-## Kimi Code
-
-Setup registers `rea` in `~/.kimi-code/mcp.json`, or
-`$KIMI_CODE_HOME/mcp.json` when set, while preserving unrelated settings and
-creating a `.rea.backup` before updating an existing file. Kimi Code infers
-stdio from the `command` entry, so setup does not add a `type` field. The
-registration includes `startupTimeoutMs = 30000` and `toolTimeoutMs = 120000`.
-Kimi Code also discovers personal skills in `~/.agents/skills` and project-local
-`.agents/skills`, so no separate skill root is required; setup still installs
-and verifies the matching skill files through the normal shared-skill flow.
-Start a new Kimi Code session to pick up MCP and skill changes.
 
 ## Pi
 
@@ -175,14 +160,6 @@ enabled state and exposure. Check that file if the user registration is aligned
 but unavailable in a project. An extension that registers `/mcp` can replace
 Pi's built-in MCP support and use its own configuration instead. Run `/reload`
 in an existing Pi session after changing servers outside the session.
-
-## Qwen Code
-
-For Qwen Code, setup registers `rea` in the `mcpServers` table of the
-user-level `~/.qwen/settings.json`, or `$QWEN_HOME/settings.json` when configured.
-Setup and doctor follow Qwen Code's tilde and working-directory-relative home
-overrides. Qwen Code also discovers personal skills in `~/.agents/skills`,
-where setup installs the bundled workflow.
 
 ## Antigravity
 
@@ -239,15 +216,6 @@ REA follows `HERMES_HOME` whitespace trimming, environment-variable expansion,
 and home expansion before resolving that profile. Setup previews the resolved
 configuration and skill destinations; doctor and uninstall use those same paths.
 
-## Qoder CLI
-
-For [Qoder](https://docs.qoder.com/cli/mcp-reference), setup writes
-`mcpServers.rea` into the user-level `~/.qoder/settings.json` (the
-`QODER_CONFIG_DIR` override is honored). Entries carry `command`, `args`, and
-`env`; stdio is the default transport. Qoder CLI discovers personal skills
-from `~/.qoder/skills` (following `QODER_CONFIG_DIR` when set), so setup
-installs its skill copy there.
-
 ## Factory Droid
 
 For [Factory Droid](https://docs.factory.com/harness/mcp), setup writes
@@ -255,110 +223,6 @@ For [Factory Droid](https://docs.factory.com/harness/mcp), setup writes
 `command`, `args`, and `env`. Droid discovers personal skills from
 `~/.factory/skills` ([skills](https://docs.factory.com/harness/skills)), so
 setup installs its skill copy there.
-
-## Trae
-
-For [Trae](https://docs.trae.ai/ide/add-mcp-servers), setup writes
-`mcpServers.rea` into the user-scope `mcp.json` under Trae's VS Code-style
-user directory (`%APPDATA%\Trae\User` on Windows,
-`~/Library/Application Support/Trae/User` on macOS, and
-`~/.config/Trae/User` elsewhere). Entries carry `command`, `args`, and
-`env`; stdio is the default transport. Trae discovers personal skills from
-`~/.trae/skills` (`%userprofile%\.trae\skills` on Windows), so setup
-installs its skill copy there.
-
-The user-level MCP paths follow the editor's VS Code layout. Trae's official
-documentation describes the raw JSON editor without specifying those paths;
-loading this registration in Trae remains unverified.
-
-## WorkBuddy
-
-For [WorkBuddy](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/MCP-Guide), setup writes `mcpServers.rea` into the
-global `~/.workbuddy/mcp.json` (a standard `mcpServers` JSON file at the user
-home root on every platform). Entries carry `command`, `args`, and `env`;
-stdio is the default transport. WorkBuddy discovers personal skills from
-`~/.workbuddy/skills` (`%userprofile%\.workbuddy\skills` on Windows), so
-setup installs its skill copy there.
-
-The global MCP path is a plain JSON file; setup preserves every other server
-and top-level key when it upserts `rea`. WorkBuddy also reads a project-level
-`<project>/.workbuddy/mcp.json`, which setup does not touch: it registers the
-user-level file only. Loading this registration and real REA tool calls
-through WorkBuddy are verified.
-
-## ZCode
-
-For [ZCode](https://zcode.z.ai/en/docs/mcp-services), setup registers `rea` in the nested `mcp.servers` table of the
-user-level `~/.zcode/cli/config.json`. Entries carry `command`, `args`, and
-`env` without a transport discriminator. ZCode discovers personal skills from
-`~/.zcode/skills` rather than the shared directory, so setup installs its
-skill copy there.
-
-ZCode reads the user-scope `~/.agents/mcp.json` fallback only while the native
-`.zcode` config defines no servers at all, with no merging. When setup writes
-the first native server into an empty table, it copies the fallback's
-`mcpServers` entries into the native table so they keep loading, and leaves
-the fallback file untouched. Existing REA environment overrides are preserved
-when refreshing its command. A malformed or unreadable fallback file fails setup instead of
-being silently suppressed; repair or remove it and rerun. Uninstall removes an
-REA-owned `rea` entry from both the native table and the fallback, backing up
-each changed file, so an emptied native table cannot load a leftover fallback
-registration; other fallback servers, settings and a foreign `rea` entry are
-kept. ZCode disables a
-server with `enable: false` on its entry; doctor reports such a registration
-as stale, and rerunning setup removes the flag to repair it. Native configuration
-uses strict JSON; setup refuses comments, trailing commas and a BOM rather than
-writing a registration ZCode cannot load.
-
-## DeepSeek Harness
-
-DeepSeek Harness registers MCP clients through a Cordis YAML patch sequence
-rather than a `mcpServers` object. `rea setup --client dsh` appends (or
-replaces) the REA entry in the home patch `$DSH_HOME/cordis.patch.yml`
-(`~/.dsh/cordis.patch.yml` when `DSH_HOME` is unset), preserving unrelated
-patches and comments. `rea doctor --client dsh` checks that same entry id.
-`rea uninstall` removes it by scanning supported clients; uninstall takes no
-`--client` flag. The home patch applies to every Harness profile, so the
-registration is written once and no per-profile edit is needed.
-
-Setup, doctor and uninstall resolve `DSH_HOME` and `DSH_AGENTS_HOME` as Harness
-does: unset, empty or whitespace-only values use `~/.dsh` and `~/.agents`,
-respectively. Bare `~`, `~/` and `~\` expand to the user home; other relative
-values resolve against the command's working directory. Nonblank values retain
-their original spaces, and the agents root is independent of the Harness home.
-Run REA and Harness from the same working directory when using relative overrides.
-The written entry is:
-
-```yaml
-- insert:
-    - id: rea-mcp
-      name: "@deepseek-ai/dsh-mcp-client"
-      config:
-        serverName: rea
-        transport: stdio
-        command: /absolute/path/to/node
-        args: ["/absolute/path/to/rea/scripts/rea.mjs", mcp]
-```
-
-Setup preserves caller-owned Cordis expressions and replaces launcher fields
-with literal values that doctor can verify. It refuses to edit an expression
-that produces the entire REA config, or a group-targeted REA insertion. Use a
-literal config and a root-level insertion as shown above.
-
-For a global npm installation, the launcher is under
-`$(npm root -g)/rea-agents/scripts/rea.mjs`. Restart Harness after setup; it
-exposes tools as `mcp__rea__<tool_name>`. Run `rea setup --skill --dry-run`,
-review the destination, then `rea setup --skill --yes` to install the workflow
-in `~/.agents/skills` (`$DSH_AGENTS_HOME/skills` when configured); Harness
-discovers that directory, and its native `skill` tool can load
-`reverse-engineer-anything`.
-
-REA's optional [native client verification](testing.md#end-to-end-integration-and-golden-evidence)
-checks headless chat, skill loading, all tool input schemas and actual analysis
-using the installed Harness and a local model fixture. This establishes the
-Harness integration, with live DeepSeek API compatibility remaining unverified.
-See the [Harness MCP guide](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/README.md)
-for its native configuration contract.
 
 ## Other client settings
 

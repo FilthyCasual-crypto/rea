@@ -8,35 +8,22 @@ not establish live model-service acceptance.
 
 ## End-to-end, integration and golden evidence
 
-The optional `verify:qwen-client`, `verify:pi-client`, and `verify:hermes-client`
+The optional `verify:pi-client` and `verify:hermes-client`
 lanes require an installed native client. Select its executable with
-`REA_VERIFY_QWEN_COMMAND`, `REA_VERIFY_PI_COMMAND`, or `REA_VERIFY_HERMES_COMMAND`.
+`REA_VERIFY_PI_COMMAND` or `REA_VERIFY_HERMES_COMMAND`.
 They configure disposable profiles through the public REA CLI, preserve caller
 settings and backups, and exercise real stdio MCP calls and skill loading. The
 `call` mode checks complete catalog discovery and actual JavaScript Evidence;
-pass `-- chat` to check plain chat with REA enabled. Qwen also reads the full
-result that its client offloads, and Pi exercises default codemode execution.
+pass `-- chat` to check plain chat with REA enabled. Pi exercises default codemode execution.
 Use `REA_VERIFY_RUNTIME_ROOT` to select a production-only installed REA package.
 Receipts retain client versions, result digests, host coverage and owned-process
 cleanup. These lanes use a deterministic loopback model and do not prove live
-model-provider compatibility. Pi and Hermes remain POSIX-only. Qwen, Pi and Hermes
-bind both `HOME` and `USERPROFILE` to the disposable account. Qwen and Pi discover
+model-provider compatibility. Pi and Hermes remain POSIX-only. Both
+bind both `HOME` and `USERPROFILE` to the disposable account. Pi discovers
 the shared personal skill through their default search paths without an explicit
 skill setting; Hermes discovers it through the selected `HERMES_HOME`.
 Set `REA_VERIFY_HERMES_STICKY_PROFILE=1` to exercise native Hermes selection of
 a named sticky profile with `HERMES_HOME` still pointing to its root.
-
-The Qwen lane also supports native Windows (verified with Qwen Code 0.25.1 and
-Node 24.19.0 for both `chat` and `call`). With Node 24.18.0, the same `call`
-journey reached full Evidence readback but the client aborted during exit with
-`UV_HANDLE_CLOSING`; that run remains a failure, not a compatibility claim.
-Select the npm install's
-`node_modules/@qwen-code/qwen-code/cli-entry.js` with `REA_VERIFY_QWEN_COMMAND`,
-because `execFile` cannot launch the `qwen.cmd` shim directly. A selected `.js`,
-`.mjs` or `.cjs` entry point runs under the verifier's Node. Windows path checks
-use native separators; persisted output is read through Qwen's real shell tool
-with a shell-independent encoded Node payload. Windows receipts report process
-lineage as unavailable when the verifier has no retained native Job Object lease.
 
 `verify:gemini-client` requires an installed Gemini CLI (verified with
 `@google/gemini-cli@0.63.0` on POSIX and native Windows); select it with
@@ -195,32 +182,6 @@ installed package. The loopback OpenAI completions/SSE model fixture declares a
 one-million-token context and synthetic usage. Live model APIs, native Windows,
 named-profile native execution and default OS-home skill discovery are
 unverified; skill discovery uses an explicit isolated custom directory.
-
-`verify:deepseek-client` requires an installed DeepSeek Harness (`dsh`;
-verified with `@deepseek-ai/dsh@0.2.0-rc.2`) and Git. Set
-`REA_VERIFY_DEEPSEEK_COMMAND` to select its executable. This optional POSIX lane
-seeds caller model settings and a stale Cordis registration in an isolated
-`DSH_HOME`, then runs public `setup --client dsh` dry-run, setup, repeated setup,
-and scoped doctor. It checks the backup and unrelated patches before booting
-Harness with the generated registration. After native execution it uninstalls
-through the public CLI and checks that only caller patches remain. `HOME` and
-`USERPROFILE` point to the disposable account. The native default
-`~/.agents/skills` search path discovers
-the installed skill without a `DSH_AGENTS_HOME` override. A separate Git root prevents inherited project skills from
-masking a missing installation. The default `call` mode checks skill loading,
-complete catalog discovery, the actual forwarded input schemas and regexes,
-and full JavaScript Evidence for a Unicode path. Use `-- chat` for ordinary
-chat with REA enabled, or `REA_VERIFY_RUNTIME_ROOT` for an installed package.
-The fixture uses Harness's custom OpenAI adapter and the one-million-token
-context capacity declared by its default DeepSeek Flash model; it does not
-establish live DeepSeek API or native Windows coverage. Receipts include
-request artifacts, result digests and owned-process lineage.
-
-The DSH acceptance journey also exercises public setup, approval, doctor,
-generated-launcher MCP startup and uninstall without an installed Harness.
-That journey proves REA workflow behavior, not native Cordis expression
-evaluation. Filesystem regressions retain tagged values and unrelated rows
-across alias dependencies and check refusal of unsafe YAML without mutation.
 
 Full E2E tests invoke the production command dispatcher and real providers,
 without fake launchers, runners or responses. `verify:keyed-archive` writes

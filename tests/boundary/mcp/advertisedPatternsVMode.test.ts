@@ -78,7 +78,7 @@ it("advertises portable NUL escapes and patterns that compile in all JS modes", 
     patterns.filter(({ pattern }) => /\(\?<?[=!]|\\[1-9]|\\k</u.test(pattern)),
   ).toEqual([]);
 
-  // DeepSeek rejects the short NUL escape even though V8 accepts it in all
+  // Some providers reject the short NUL escape even though V8 accepts it in all
   // three modes. Keep the shared hex spelling across the advertised catalog;
   // actual provider acceptance is verified separately from JS compilation.
   expect(

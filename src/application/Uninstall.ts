@@ -24,7 +24,6 @@ import {
 } from "./SetupSkill.js";
 import { isOwnedClientRegistrationCommand } from "./ClientRegistrationIdentity.js";
 import { CURRENT_ENTRYPOINT_PATH } from "../process/CurrentEntrypointPath.js";
-import { dshDocument } from "./DshCordisPatch.js";
 import { resolveClientConfigTransactionPath } from "./ClientConfigPath.js";
 import {
   InvalidUtf8FileError,
@@ -232,21 +231,12 @@ export const systemUninstallHost = (
       const clients = supportedClients(home, platform, environment);
       redirection = appDataRedirection(clients);
       return Promise.resolve(
-        clients.flatMap((client) => [
-          ...uninstallConfigPaths(client).map((configPath) => ({
+        clients.flatMap((client) =>
+          uninstallConfigPaths(client).map((configPath) => ({
             ...client,
             configPath,
           })),
-          ...(client.zcodeFallbackPath === undefined
-            ? []
-            : [
-                {
-                  ...client,
-                  configPath: client.zcodeFallbackPath,
-                  format: "zcode_fallback" as const,
-                },
-              ]),
-        ]),
+        ),
       );
     },
     inspectClient: async (client) => {
@@ -327,10 +317,7 @@ const registrationPresent = (parsed: ClientConfigurationDocument): boolean => {
   return (
     Object.hasOwn(parsed.servers, name) ||
     // Beside a native OpenCode V2 table, OpenCode also loads a V1 `mcp.rea`.
-    legacyClientServerPath(parsed, name) !== undefined ||
-    // Harness ownership is the stable entry id. A stale or malformed launcher
-    // still belongs to that id, and so does a direct patch that projects no row.
-    (parsed.dialect === "dsh" && dshDocument(parsed.document).carriesEntry)
+    legacyClientServerPath(parsed, name) !== undefined
   );
 };
 
@@ -389,7 +376,7 @@ const readClientConfiguration = async (
         "failed",
         cause instanceof ClientConfigurationShapeError
           ? `Configuration was not changed: ${cause.message}. Repair it, then rerun uninstall.`
-          : `Configuration is not valid ${client.format === "toml" || client.format === "grok" ? "TOML" : client.format === "opencode" ? "JSONC" : client.format === "hermes" || client.format === "dsh" ? "YAML" : "JSON"} and was not changed. Repair it, then rerun uninstall.`,
+          : `Configuration is not valid ${client.format === "toml" || client.format === "grok" ? "TOML" : client.format === "opencode" ? "JSONC" : client.format === "hermes" ? "YAML" : "JSON"} and was not changed. Repair it, then rerun uninstall.`,
       ),
     );
   }
@@ -413,17 +400,11 @@ const clientRegistrationRemoval = (
   readonly legacyPath: readonly string[] | undefined;
 } => {
   const name = PRODUCT_IDENTITY.mcpServerKey;
-  if (
-    parsed.dialect === "dsh" &&
-    dshDocument(parsed.document).hasUnknownStructure
-  )
-    return { removeNative: false, legacyPath: undefined };
   const legacyPath = legacyClientServerPath(parsed, name);
   return {
     removeNative:
-      (parsed.dialect === "dsh" && dshDocument(parsed.document).carriesEntry) ||
-      (Object.hasOwn(parsed.servers, name) &&
-        isOwnedRegistration(parsed.servers[name], client)),
+      Object.hasOwn(parsed.servers, name) &&
+      isOwnedRegistration(parsed.servers[name], client),
     legacyPath:
       legacyPath !== undefined &&
       isOwnedRegistration(parsed.legacyServers[name], client)
@@ -441,15 +422,6 @@ const removeClient = async (
   if (read.kind === "item") return read.item;
   const { transactionPath, original, parsed } = read;
   const name = PRODUCT_IDENTITY.mcpServerKey;
-  if (
-    parsed.dialect === "dsh" &&
-    dshDocument(parsed.document).hasUnknownStructure
-  )
-    return item(
-      client.name,
-      "retained",
-      "A Cordis expression may produce registration rows, so the patch was retained without changes.",
-    );
   if (!registrationPresent(parsed))
     return item(client.name, "skipped", "REA registration is absent.");
   const { removeNative, legacyPath } = clientRegistrationRemoval(
@@ -503,8 +475,6 @@ const removeClient = async (
     );
     if (
       (removeNative && Object.hasOwn(readback.servers, name)) ||
-      (readback.dialect === "dsh" &&
-        dshDocument(readback.document).carriesEntry) ||
       (removeLegacy && Object.hasOwn(readback.legacyServers, name))
     )
       throw new Error("registration readback mismatch");

@@ -4,9 +4,9 @@ import {
   schemaMaps,
 } from "./inputSchemaPresentation.js";
 
-// Kimi expands schema-local references before sending tools to Moonshot.
-// Compact advertisements must fit after expansion, independently of client
-// reference handling. Canonical server-side validation remains unchanged.
+// Some clients expand schema-local references before sending tools to their
+// provider. Compact advertisements must fit after expansion, independently of
+// client reference handling. Canonical server-side validation remains unchanged.
 
 /** Annotation keys that carry guidance but no validation semantics. */
 const annotationKeys = new Set(["description", "examples", "default", "title"]);
@@ -14,7 +14,7 @@ const annotationKeys = new Set(["description", "examples", "default", "title"]);
 /** Keys whose values are literal data, never nested schemas to rewrite. */
 const dataKeys = new Set(["const", "enum", "examples", "default"]);
 const definitionKeys = new Set(["$defs", "definitions"]);
-// An empty schema accepts every JSON value. Kimi otherwise infers string.
+// An empty schema accepts every JSON value. Some clients otherwise infer string.
 const jsonValueTypes = [
   "null",
   "boolean",

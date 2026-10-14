@@ -675,19 +675,19 @@ captures can exceed ten structural levels.
 ### Compact input schema profile
 
 Some function-calling providers reject a request while any single tool's
-`parameters` schema exceeds a literal serialized size cap; Moonshot clients
-such as kimi-cli fail every request while the default catalog is attached
+`parameters` schema exceeds a literal serialized size cap; such clients fail
+every request while the default catalog is attached
 ([#1484](https://github.com/morluto/rea/issues/1484)). Setting the server's
 `REA_MCP_INPUT_SCHEMA_PROFILE` environment variable to `compact` renders every
 advertised input schema within a 13,312-byte budget, measured to sit below
-Moonshot's observed cap (community measurements: a 13.7 KB schema is accepted
+the smallest observed cap (community measurements: a 13.7 KB schema is accepted
 while a ~15 KB one is rejected). The setting is read at startup; restart the
 server to apply changes, as with `REA_MCP_MAX_RESPONSE_BYTES`. The default
 value `full` keeps the complete advertisement unchanged. Compact presentation
 also reduces schemas whose expanded JSON tree exceeds ten levels, the limit
 reported by strict-depth MCP clients in [#2813](https://github.com/morluto/rea/issues/2813).
-WorkBuddy/CodeBuddy gateways have also rejected full REA catalogs with an
-opaque `11133` error while accepting the compact profile
+Some hosted gateways have also rejected full REA catalogs with opaque errors
+while accepting the compact profile
 ([#2999](https://github.com/morluto/rea/issues/2999)); compatibility depends on
 the selected gateway and model.
 
@@ -698,11 +698,11 @@ JSON Schema:
 - Annotation prose leaves the advertised form: nested property descriptions,
   literal examples, defaults, and titles are dropped. The root keeps its
   description because it states the accepted input groups.
-- Schema-local references are inlined within the budget. Kimi Code expands
+- Schema-local references are inlined within the budget. Some clients expand
   references before sending provider requests, so sharing definitions cannot
   establish the provider-facing size. Expansion stops at the budget before
   allocating an oversized presentation. Unconstrained JSON fields advertise
-  all JSON value types explicitly so Kimi cannot infer string for Evidence
+  all JSON value types explicitly so clients cannot infer string for Evidence
   objects or arrays.
 - The few schemas whose validation structure alone exceeds the budget
   (`compare_web_captures`, `build_reconstruction_obligation_ledger`,
@@ -719,9 +719,8 @@ JSON Schema:
   server continues to enforce the full canonical input contract.
 
 Boundary tests pin every advertised compact schema to the budget, keep them
-valid JSON Schema that still accepts every canonical example. Client verification
-also checks provider-facing sizes and canonical examples after conversion by
-the actual Kimi Code CLI; local captures do not establish Moonshot acceptance.
+valid JSON Schema that still accepts every canonical example. Local captures do
+not establish acceptance by any particular hosted provider.
 
 ### Output schemas
 

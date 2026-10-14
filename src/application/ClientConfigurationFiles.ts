@@ -173,7 +173,7 @@ export const effectiveClientConfiguration = (
   return { ...last, servers, legacyServers: {} };
 };
 
-/** Read the configuration ZCode will load, preserving its same-scope fallback rule. */
+/** Read the configuration the client will load for registration checks. */
 export const readEffectiveClientRegistrationConfiguration = async (
   client: SetupClient,
   resources?: ArtifactResourceScope,
@@ -186,33 +186,10 @@ export const readEffectiveClientRegistrationConfiguration = async (
     ClientConfigurationFileError
   >
 > => {
-  const nativeSources = await readClientConfigurationFiles(client, resources);
-  if (!nativeSources.ok) return nativeSources;
-  const nativeDocument = effectiveClientConfiguration(nativeSources.value);
-  const fallbackPath =
-    client.format === "zcode" ? client.zcodeFallbackPath : undefined;
-  if (
-    fallbackPath === undefined ||
-    (nativeDocument !== undefined &&
-      Object.keys(nativeDocument.servers).length > 0)
-  )
-    return ok({ document: nativeDocument, configPath: client.configPath });
-
-  const fallbackClient: SetupClient = {
-    ...client,
-    configPath: fallbackPath,
-    configPaths: [fallbackPath],
-    format: "zcode_fallback",
-  };
-  const fallbackSources = await readClientConfigurationFiles(
-    fallbackClient,
-    resources,
-  );
-  if (!fallbackSources.ok) return fallbackSources;
-  const fallbackDocument = effectiveClientConfiguration(fallbackSources.value);
-  return ok(
-    fallbackDocument === undefined
-      ? { document: nativeDocument, configPath: client.configPath }
-      : { document: fallbackDocument, configPath: fallbackPath },
-  );
+  const sources = await readClientConfigurationFiles(client, resources);
+  if (!sources.ok) return sources;
+  return ok({
+    document: effectiveClientConfiguration(sources.value),
+    configPath: client.configPath,
+  });
 };
