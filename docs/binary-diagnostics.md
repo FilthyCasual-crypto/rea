@@ -195,6 +195,55 @@ instructions are not detected.
 The same scan runs over every successful result from tools that return target
 content; see [MCP contracts](mcp-contracts.md#untrusted-target-content).
 
+## Exact decoding and number conversion
+
+Models get base64 alphabets, XOR keys, byte orders and two's-complement
+arithmetic wrong often enough that Ghostwire does this work exactly.
+
+`decode_bytes` / `decode-bytes` takes inline hex, base64 or text, or a byte
+range of one explicit file, and applies up to 32 steps in order:
+
+| Step            | Parameters                                                   |
+| --------------- | ------------------------------------------------------------ |
+| `base64_decode` | optional 64-character custom `alphabet`                      |
+| `base32_decode` |                                                              |
+| `hex_decode`    | accepts spaces, commas, `0x` and `\x` separators             |
+| `xor`           | repeating `key_hex`                                          |
+| `rc4`           | `key_hex`, optional keystream `drop`                         |
+| `aes_decrypt`   | `mode` (`ecb`, `cbc`, `ctr`), `key_hex`, `iv_hex`, `padding` |
+| `inflate`       | `format` (`zlib`, `raw`, `gzip`)                             |
+| `reverse`       |                                                              |
+| `not`           |                                                              |
+| `add`           | `value` added to every byte modulo 256                       |
+| `rotate_bits`   | `direction`, `bits`                                          |
+| `slice`         | `offset`, optional `length`                                  |
+
+```sh
+ghostwire decode-bytes '{"input":{"kind":"file","path":"./sample.bin","offset":4096,"length":256},"steps":[{"op":"xor","key_hex":"5a"}]}' --json
+```
+
+After every step the result reports size, SHA-256, entropy, printable ratio
+and recognized magic (gzip, zlib, zip, ELF, PE, Mach-O, DEX, WASM, PNG, PDF
+and others), so a correct key shows up as a recognizable format or readable
+text. The final output comes back as a bounded hex and text preview. The first
+step that fails, for example AES with the wrong key or padding, stops the chain
+and is reported with its reason next to the last good output. `max_bytes`
+bounds the input and every step, including decompression. Decoded output is
+also scanned for analyst-directed text. File-backed Evidence is bound to the
+whole file's SHA-256; inline input has no file identity. Results are `derived`:
+a readable output does not by itself prove the key or algorithm was the one
+the program uses.
+
+`convert_number` / `convert-number` shows one integer in every form an analyst
+compares against: unsigned and signed decimal, hex, octal, binary, both byte
+orders, their ASCII text when printable, and the IEEE-754 float with the same
+bits.
+
+```sh
+ghostwire convert-number 0xdeadbeef --json
+ghostwire convert-number efbeadde --byte-order little --json
+```
+
 ## Portable PE resources
 
 `inspect_pe_resources` / `inspect-pe-resources` inspects an explicit PE32 or

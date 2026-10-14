@@ -22,6 +22,12 @@ import {
   binaryTriageSchema,
   inspectBinaryTriageInputSchema,
 } from "../../domain/native/binaryTriage.js";
+import {
+  convertNumberInputSchema,
+  convertNumberResultSchema,
+  decodeBytesInputSchema,
+  decodeBytesResultSchema,
+} from "../../domain/native/byteDecoding.js";
 
 /** Caller-selected delivery of completed binary layout Evidence. */
 export const inspectBinaryLayoutRequestSchema =
@@ -64,6 +70,55 @@ export const BINARY_DIAGNOSTICS_TOOL_CONTRACTS = [
           min_string_length: 4,
           max_findings: 1024,
         },
+      },
+    ],
+  },
+  {
+    name: "decode_bytes",
+    ...toolContractMetadata("decode_bytes"),
+    kind: "native-provider",
+    description:
+      "Decode bytes exactly instead of reasoning about them. Takes inline hex, base64 or text, or a byte range of one explicit local file, and applies an ordered chain of up to 32 deterministic steps: base64 (standard, URL-safe or a custom 64-character alphabet), base32, hex, repeating-key XOR, RC4 (with optional keystream drop), AES-ECB/CBC/CTR decryption, zlib/raw-deflate/gzip inflation, reverse, bitwise NOT, byte addition, bit rotation and slicing. Returns size, SHA-256, entropy, printable ratio and recognized magic (gzip, zip, ELF, PE, PNG, PDF and others) after every step, a bounded hex and text preview of the final bytes, and any analyst-directed text in the output. The first failing step stops the chain and is reported with its reason, for example a wrong AES key or padding, alongside the last good output. Every output is bounded by max_bytes, which also stops decompression bombs. The source is never executed; no external tool required.",
+    inputSchema: decodeBytesInputSchema,
+    outputSchema: evidenceResultOf(decodeBytesResultSchema),
+    examples: [
+      {
+        title: "Decode a base64 blob and inflate it",
+        input: {
+          input: { kind: "text", value: "eJzLSM3JyVcozy/KSQEAGgsEXQ==" },
+          steps: [{ op: "base64_decode" }, { op: "inflate", format: "zlib" }],
+        },
+      },
+      {
+        title: "XOR-decode a byte range of a file",
+        input: {
+          input: {
+            kind: "file",
+            path: "/artifacts/sample.bin",
+            offset: 4096,
+            length: 256,
+          },
+          steps: [{ op: "xor", key_hex: "5a" }],
+        },
+      },
+    ],
+  },
+  {
+    name: "convert_number",
+    ...toolContractMetadata("convert_number"),
+    kind: "native-provider",
+    description:
+      "Convert one integer exactly, so base, width, sign and byte-order arithmetic is never done by hand. Accepts a decimal, 0x hexadecimal, 0b binary or 0o octal value, or 1/2/4/8 bytes with an explicit byte order, at an optional 8/16/32/64-bit width. Returns unsigned and two's-complement signed decimal, hex, octal, binary, the little- and big-endian byte sequences, their ASCII text when printable, and the IEEE-754 float with the same bits at 32 or 64 bits.",
+    inputSchema: convertNumberInputSchema,
+    outputSchema: evidenceResultOf(convertNumberResultSchema),
+    examples: [
+      {
+        title: "Show a constant in every representation",
+        input: { value: "0xdeadbeef" },
+      },
+      {
+        title: "Read four little-endian bytes as an integer",
+        input: { bytes_hex: "efbeadde", byte_order: "little" },
       },
     ],
   },

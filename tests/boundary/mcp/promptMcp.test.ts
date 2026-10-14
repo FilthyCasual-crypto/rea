@@ -690,6 +690,8 @@ const MINIMUM_PROMPT_ARGUMENTS: Readonly<
     executable: "/usr/bin/true",
     working_directory: "/tmp",
   },
+  triage_unknown_binary: { target_path: "/tmp/sample.bin" },
+  name_functions_bottom_up: { procedure: "main" },
 };
 
 const lifecycleClient = (

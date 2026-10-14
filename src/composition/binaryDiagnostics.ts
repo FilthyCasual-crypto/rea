@@ -6,6 +6,8 @@ import { PeResourcesService } from "../application/binaryDiagnostics/PeResources
 import { BinaryTriageService } from "../application/binaryDiagnostics/BinaryTriageService.js";
 import { BinaryTriageProvider } from "../native/triage/BinaryTriageProvider.js";
 import { PeResourcesProvider } from "../native/pe/PeResourcesProvider.js";
+import { ByteDecodingService } from "../application/binaryDiagnostics/ByteDecodingService.js";
+import { ByteDecodingProvider } from "../native/decode/ByteDecodingProvider.js";
 
 /** Portable PE inspection with no engine, installation or target acquisition. */
 export const createPeResourcesService = (): PeResourcesService =>
@@ -26,3 +28,7 @@ export const createRecordedCrashService = (
 /** Portable byte-level triage with no engine, installation or execution. */
 export const createBinaryTriageService = (): BinaryTriageService =>
   new BinaryTriageService(new BinaryTriageProvider());
+
+/** Deterministic byte decoding and number conversion with no installation. */
+export const createByteDecodingService = (): ByteDecodingService =>
+  new ByteDecodingService(new ByteDecodingProvider());

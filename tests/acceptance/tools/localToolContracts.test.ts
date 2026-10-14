@@ -117,6 +117,10 @@ const pathRequests: readonly [string, Record<string, unknown>][] = [
   ],
   ["inspect_pe_resources", { path: nul }],
   ["inspect_binary_triage", { path: nul }],
+  [
+    "decode_bytes",
+    { input: { kind: "file", path: nul }, steps: [{ op: "reverse" }] },
+  ],
   ["inspect_binary_layout", { path: nul }],
   ["inspect_recorded_crash", { path: nul }],
   ["inspect_wasm_artifact", { path: nul }],

@@ -5,6 +5,7 @@ import {
   createBinaryLayoutService,
   createPeResourcesService,
   createBinaryTriageService,
+  createByteDecodingService,
 } from "../composition/binaryDiagnostics.js";
 import { CLI_COMMANDS } from "../cliCommandNames.js";
 import { logCliCommand } from "../cliLogging.js";
@@ -15,6 +16,8 @@ import { inspectPeResourcesInputSchema } from "../domain/native/peResources.js";
 import { inspectBinaryTriageInputSchema } from "../domain/native/binaryTriage.js";
 import { projectAnalysisError } from "../domain/analysisErrorProjection.js";
 import { finishAnalysisCommand } from "./finishAnalysisCommand.js";
+import { parseCliJsonInput } from "../cliJsonInput.js";
+import { convertNumberInputSchema } from "../domain/native/byteDecoding.js";
 
 /** Inspect operator-selected files through the same shared workflow as MCP. */
 export const registerBinaryDiagnosticsCommands = (
@@ -84,6 +87,92 @@ export const registerBinaryDiagnosticsCommands = (
               triage,
               "rea-binary-triage",
               "inspect_binary_triage",
+            ),
+        );
+      }),
+  });
+  cli.command(CLI_COMMANDS.decodeBytes, {
+    description:
+      "Decode inline bytes or a file range through a deterministic step chain (base64, XOR, RC4, AES, inflate, ...)",
+    args: z.object({
+      input: z
+        .string()
+        .describe(
+          "Inline JSON or a JSON file with the decode_bytes input: {input, steps, max_bytes?, preview_bytes?}",
+        ),
+    }),
+    run: ({ args }) =>
+      withCommandCancellation(async (signal) => {
+        const decoding = createByteDecodingService();
+        return await logCliCommand(
+          logger,
+          CLI_COMMANDS.decodeBytes,
+          async () => {
+            const input = await parseCliJsonInput(args.input, "decode_bytes");
+            if (!input.ok) return input.error;
+            const value = input.value;
+            if (
+              typeof value === "object" &&
+              value !== null &&
+              "input" in value &&
+              typeof value.input === "object" &&
+              value.input !== null &&
+              "path" in value.input &&
+              typeof value.input.path === "string"
+            )
+              value.input.path = resolve(value.input.path);
+            return finishAnalysisCommand(
+              () => decoding.decode(value, { signal }),
+              decoding,
+              "rea-byte-decoding",
+              "decode_bytes",
+            );
+          },
+        );
+      }),
+  });
+  cli.command(CLI_COMMANDS.convertNumber, {
+    description:
+      "Show an integer in every base, width, byte order, ASCII and float form",
+    args: z.object({
+      value: z
+        .string()
+        .describe(
+          "Integer (0x.., 0b.., 0o.., decimal), or hex bytes when --byte-order is given",
+        ),
+    }),
+    options: z.object({
+      width: z
+        .enum(["8", "16", "32", "64"])
+        .optional()
+        .describe("Bit width; omitted uses the smallest that holds the value"),
+      byteOrder: convertNumberInputSchema.shape.byte_order,
+    }),
+    run: ({ args, options }) =>
+      withCommandCancellation(async () => {
+        const decoding = createByteDecodingService();
+        return await logCliCommand(
+          logger,
+          CLI_COMMANDS.convertNumber,
+          async () =>
+            finishAnalysisCommand(
+              () =>
+                Promise.resolve(
+                  decoding.convert({
+                    ...(options.byteOrder === undefined
+                      ? { value: args.value }
+                      : {
+                          bytes_hex: args.value,
+                          byte_order: options.byteOrder,
+                        }),
+                    ...(options.width === undefined
+                      ? {}
+                      : { width: Number(options.width) }),
+                  }),
+                ),
+              decoding,
+              "rea-byte-decoding",
+              "convert_number",
             ),
         );
       }),

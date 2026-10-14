@@ -11,12 +11,15 @@ import { snapshotEnvironment } from "../process/snapshotEnvironment.js";
 import { captureProviderEnvironment } from "./providerEnvironment.js";
 import {
   createBinaryTriageService,
+  createByteDecodingService,
   createPeResourcesService,
 } from "../composition/binaryDiagnostics.js";
 import type { PeResourcesService } from "../application/binaryDiagnostics/PeResourcesService.js";
 import type { BinaryTriageService } from "../application/binaryDiagnostics/BinaryTriageService.js";
+import type { ByteDecodingService } from "../application/binaryDiagnostics/ByteDecodingService.js";
 import { registerPeResourcesTool } from "./registerPeResourcesTool.js";
 import { registerBinaryTriageTool } from "./registerBinaryTriageTool.js";
+import { registerByteDecodingTools } from "./registerByteDecodingTools.js";
 import type { EvmInterfaceService } from "../application/evm/EvmInterfaceService.js";
 import { evmInterfaceModule } from "../composition/evm.js";
 import { registerEvmTools } from "./registerEvmTools.js";
@@ -315,6 +318,7 @@ export const createServer = (
   const goBinary = options.goBinary ?? createGoBinaryService();
   const peResources = createPeResourcesService();
   const binaryTriage = createBinaryTriageService();
+  const byteDecoding = createByteDecodingService();
   const webNetworkCapture =
     options.webNetworkCapture ?? createWebNetworkCaptureService(environment);
   const javascriptRecovery =
@@ -392,6 +396,7 @@ export const createServer = (
       goBinary.close(),
       peResources.close(),
       binaryTriage.close(),
+      byteDecoding.close(),
       webNetworkCapture.close(),
       javascriptRecovery.close?.() ?? Promise.resolve(),
       artifactResources.close(),
@@ -445,6 +450,7 @@ export const createServer = (
     goBinary,
     peResources,
     binaryTriage,
+    byteDecoding,
     webNetworkCapture,
   };
   registerBinaryAnalysisTools(toolContext);
@@ -638,6 +644,7 @@ const registerConfiguredAnalysisTools = (
     goBinary,
     peResources,
     binaryTriage,
+    byteDecoding,
     webNetworkCapture,
   }: ServerToolContext,
   android: AndroidAnalysisPort,
@@ -686,6 +693,13 @@ const registerConfiguredAnalysisTools = (
   registerBinaryTriageTool(
     server,
     binaryTriage,
+    toolLogger,
+    recordEvidence,
+    withAdmittedAnalysis,
+  );
+  registerByteDecodingTools(
+    server,
+    byteDecoding,
     toolLogger,
     recordEvidence,
     withAdmittedAnalysis,
@@ -812,6 +826,7 @@ interface ServerToolContext extends ReturnType<typeof createSessionRecorders> {
   readonly goBinary: GoBinaryService;
   readonly peResources: PeResourcesService;
   readonly binaryTriage: BinaryTriageService;
+  readonly byteDecoding: ByteDecodingService;
   readonly webNetworkCapture: WebNetworkCaptureService;
   readonly artifactResources: ArtifactResourceScope;
   readonly server: EvidenceMcpServer;

@@ -13,6 +13,7 @@ export class ArtifactOperationError extends AnalysisError {
       | "inspect_artifact"
       | "inspect_pe_resources"
       | "inspect_binary_triage"
+      | "decode_bytes"
       | "extract_artifact"
       | "decode_interface_builder"
       | "inspect_asset_catalog"

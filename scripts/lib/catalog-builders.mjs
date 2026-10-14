@@ -227,7 +227,12 @@ export const providerCatalog = (sources) => {
       contracts:
         sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
           ({ name }) =>
-            name !== "inspect_pe_resources" && name !== "inspect_binary_triage",
+            ![
+              "inspect_pe_resources",
+              "inspect_binary_triage",
+              "decode_bytes",
+              "convert_number",
+            ].includes(name),
         ),
     },
     {
@@ -235,6 +240,13 @@ export const providerCatalog = (sources) => {
       contracts:
         sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
           ({ name }) => name === "inspect_binary_triage",
+        ),
+    },
+    {
+      identity: sources.artifactProviders.BYTE_DECODING_PROVIDER,
+      contracts:
+        sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
+          ({ name }) => name === "decode_bytes" || name === "convert_number",
         ),
     },
     {

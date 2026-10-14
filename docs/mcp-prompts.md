@@ -1,6 +1,6 @@
 # Guided MCP prompts and completion
 
-Ghostwire exposes six provider-neutral investigation workflows through the MCP
+Ghostwire exposes eight provider-neutral investigation workflows through the MCP
 `prompts` capability. They complement the generated tool catalog; they do not add, remove, or
 invoke tools by themselves.
 
@@ -14,6 +14,8 @@ invoke tools by themselves.
 | `trace_crash`                     | Correlate a crash symptom with static paths and optional process capture evidence.   |
 | `audit_residual_unknowns`         | Audit current residual-unknown heads and evidence-qualified resolution.              |
 | `prepare_bounded_process_capture` | Design a bounded controlled process experiment before execution.                     |
+| `triage_unknown_binary`           | Identify, route and shortlist an unfamiliar file before deep analysis.               |
+| `name_functions_bottom_up`        | Name a call tree leaf-first from cited evidence, keeping names as drafts.            |
 
 Every rendered prompt provides optional starting points using current Ghostwire tool
 names. Agents can call tools directly, skip irrelevant suggestions, and inspect
@@ -126,3 +128,20 @@ unverified identifier.
 Suggestions are starting points, not tool calls. A tool acts on the target,
 operation, and lifecycle fields in its own request; selecting a suggestion does
 not execute it or broaden those fields.
+
+## Expert triage and naming
+
+`triage_unknown_binary` follows the order observational studies of reverse
+engineers report: identify the file, unpack before reading code, skim strings
+and imports, and work backward from relevant ones to a short ranked list of
+functions, with a reason for every lead dismissed. It starts with
+`inspect_binary_triage`, routes managed, Go, Rust, Android, WASM and firmware
+targets to their own tools, and uses `decode_bytes` and `convert_number` for
+exact decoding and arithmetic. It does not presuppose that a file is malicious.
+
+`name_functions_bottom_up` names leaf functions first, reads each function once
+with caller and callee names in view, explains a function from cited strings,
+constants and calls before naming it, and marks names as drafts. Studies of
+LLM-assisted reverse engineering found that model-proposed names did not track
+analyst understanding and that repeated querying drifted, so names stay drafts
+until another kind of evidence confirms them.

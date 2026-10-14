@@ -427,7 +427,12 @@ const workflowAvailabilityFor = ({
           remediation:
             "Supply WABT 1.0.42 via absolute REA_WABT_BIN_DIRECTORY. No active binary target is required; tools are checked at execution.",
         };
-  if (name === "inspect_pe_resources" || name === "inspect_binary_triage")
+  if (
+    name === "inspect_pe_resources" ||
+    name === "inspect_binary_triage" ||
+    name === "decode_bytes" ||
+    name === "convert_number"
+  )
     return { reason: "available", remediation: null };
   if (name === "inspect_evm_interface")
     return policy.evmInterfaceEnabled === true
