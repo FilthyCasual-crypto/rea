@@ -32,7 +32,7 @@ describe("documented process CLI workflow", () => {
         new URL("../../../docs/process-capture.md", import.meta.url),
         "utf8",
       );
-      const recipe = /```sh\nrea capture-process ([^\n]+)\n```/u.exec(
+      const recipe = /```sh\nghostwire capture-process ([^\n]+)\n```/u.exec(
         guide,
       )?.[1];
       if (recipe === undefined)

@@ -369,7 +369,7 @@ describe("JSON client configuration shape diagnostics", () => {
       const document = JSON.parse(await readFile(configPath, "utf8"));
       expect(Object.hasOwn(document, serversKey)).toBe(true);
       expect(Object.hasOwn(document[serversKey], "ghostwire")).toBe(true);
-      expect(document[serversKey].rea.command).toEqual(
+      expect(document[serversKey].ghostwire.command).toEqual(
         format === "json" ? "ghostwire" : ["ghostwire", "mcp"],
       );
       const originalDocument = JSON.parse(original);

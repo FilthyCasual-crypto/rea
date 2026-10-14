@@ -110,7 +110,7 @@ it("keeps main pushes proposal-only and gates merged-release automation", async 
   });
   expect(action?.with?.["skip-github-pull-request"]).not.toBe(true);
   expect(action?.if).toBe("steps.editorial.outputs.frozen != 'true'");
-  expect(proposal.steps[0]?.run).toContain("ghostwire:release-notes-finalized");
+  expect(proposal.steps[0]?.run).toContain("rea:release-notes-finalized");
   expect(proposal.steps[0]?.run).toContain("--paginate");
   const merged = workflow.jobs["merged-release"];
   expect(merged.if).toContain("github.event.pull_request.merged == true");

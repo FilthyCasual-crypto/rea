@@ -127,7 +127,7 @@ describe("client configuration filesystem lifecycle", () => {
     await mkdir(dirname(configPath), { recursive: true });
     await writeFile(
       configPath,
-      `[mcp_servers.ghostwire]\ncommand = "ghostwire"\nargs = ["mcp"]\nstartup_timeout_sec = 30\n\n[mcp_servers.rea.env]\nJAVA_HOME = "/opt/jdk-21"\nHOPPER_LAUNCHER_PATH = "/Hopper Path"\nGHIDRA_INSTALL_DIR = "/opt/ghidra"\n`,
+      `[mcp_servers.ghostwire]\ncommand = "ghostwire"\nargs = ["mcp"]\nstartup_timeout_sec = 30\n\n[mcp_servers.ghostwire.env]\nJAVA_HOME = "/opt/jdk-21"\nHOPPER_LAUNCHER_PATH = "/Hopper Path"\nGHIDRA_INSTALL_DIR = "/opt/ghidra"\n`,
     );
 
     const original = await readFile(configPath, "utf8");
@@ -214,7 +214,7 @@ describe("Grok Build server table edits", () => {
       'command = "old"',
       'args = ["mcp"]',
       "",
-      "[mcp_servers.rea.env]",
+      "[mcp_servers.ghostwire.env]",
       'OLD = "1"',
       "",
       "[[marketplace.sources]]",
@@ -307,7 +307,7 @@ describe("Grok Build disabled server list", () => {
       [
         "disabled_mcp_servers = [",
         '  "other",',
-        '  "r\\u0065a",',
+        '  "g\\u0068ostwire",',
         '  "ghostwire", # was off',
         '  "github",',
         "]",
@@ -392,7 +392,7 @@ describe("Grok Build disabled server list", () => {
     ).toMatchObject({ status: "configured" });
     const configured = await readFile(configPath, "utf8");
     expect(parseToml(configured)).toMatchObject({
-      disabled_mcp_servers: ["rea\n", "github"],
+      disabled_mcp_servers: ["ghostwire\n", "github"],
       mcp_servers: { ghostwire: { command: "ghostwire", args: ["mcp"] } },
     });
     await writeFile(
@@ -511,7 +511,7 @@ describe("Grok Build text that resembles a server table", () => {
         'command = "old"',
         'args = ["mcp"]',
         "",
-        '[mcp_servers."\\u0072ea".env]',
+        '[mcp_servers."\\u0067hostwire".env]',
         'OLD = "1"',
         "",
       ].join("\n"),
@@ -525,7 +525,7 @@ describe("Grok Build text that resembles a server table", () => {
     ).toMatchObject({ status: "configured" });
     const configured = await readFile(configPath, "utf8");
     expect(configured).not.toContain("mcp_servers . ghostwire");
-    expect(configured).not.toContain("\\u0072ea");
+    expect(configured).not.toContain("\\u0067hostwire");
     expect(configured).toContain('OLD = "1"');
     expect(
       configured
@@ -615,7 +615,7 @@ describe("Grok Build multiline and escaped headers", () => {
     const configPath = join(home, ".grok/config.toml");
     await mkdir(dirname(configPath), { recursive: true });
     const original = [
-      '[mcp_servers."\\x72ea"]',
+      '[mcp_servers."\\x67hostwire"]',
       'command = "ghostwire"',
       'args = ["mcp"]',
       "",
@@ -754,8 +754,8 @@ describe("Grok Build inline and dotted assignments", () => {
       configPath,
       [
         "[mcp_servers]",
-        'rea.command = "old"',
-        'rea.args = ["old"]',
+        'ghostwire.command = "old"',
+        'ghostwire.args = ["old"]',
         'other.command = "other"',
         "",
       ].join("\n"),
@@ -769,7 +769,7 @@ describe("Grok Build inline and dotted assignments", () => {
     ).toMatchObject({ status: "configured" });
     const configuredDotted = await readFile(configPath, "utf8");
     expect(configuredDotted).toContain('other.command = "other"');
-    expect(configuredDotted).not.toContain('rea.command = "old"');
+    expect(configuredDotted).not.toContain('ghostwire.command = "old"');
     expect(parseToml(configuredDotted)).toMatchObject({
       mcp_servers: {
         other: { command: "other" },
@@ -791,7 +791,7 @@ describe("Grok Build closed inline tables", () => {
     await mkdir(dirname(configPath), { recursive: true });
     const original = [
       "# preamble",
-      'mcp_servers = { other = { command = "other" }, "\\x72ea" = { command = "old", args = ["old"] } }',
+      'mcp_servers = { other = { command = "other" }, "\\x67hostwire" = { command = "old", args = ["old"] } }',
       "",
       "# next table",
       "[privacy]",
@@ -959,7 +959,7 @@ describe("Grok Build scalar and nested values", () => {
     await mkdir(dirname(configPath), { recursive: true });
     await writeFile(
       configPath,
-      'mcp_servers = { rea.command = "ghostwire", rea.args = ["mcp"], rea.startup_timeout_sec = 10 }\n',
+      'mcp_servers = { ghostwire.command = "ghostwire", ghostwire.args = ["mcp"], ghostwire.startup_timeout_sec = 10 }\n',
     );
     expect(
       await configureClientConfiguration(
