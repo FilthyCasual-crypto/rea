@@ -70,7 +70,7 @@ try {
   const entry = join(
     prefix,
     "node_modules",
-    "rea-agents",
+    "ghostwire-agent",
     "scripts",
     "rea.mjs",
   );
@@ -165,10 +165,10 @@ try {
     const config = parseJsonc(text);
     const registration =
       id === "opencode"
-        ? config.mcp?.rea
+        ? config.mcp?.ghostwire
         : id === "vscode"
-          ? config.servers?.rea
-          : config.mcpServers?.rea;
+          ? config.servers?.ghostwire
+          : config.mcpServers?.ghostwire;
     const actualCommand =
       id === "opencode"
         ? registration?.command
@@ -217,8 +217,8 @@ try {
     prefix,
     packageRoot:
       process.platform === "win32"
-        ? join(prefix, "node_modules", "rea-agents")
-        : join(prefix, "lib", "node_modules", "rea-agents"),
+        ? join(prefix, "node_modules", "ghostwire-agent")
+        : join(prefix, "lib", "node_modules", "ghostwire-agent"),
     tarball,
     workspace,
     environment,

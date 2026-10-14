@@ -151,12 +151,12 @@ const EXPECTED: Readonly<Record<string, ComparisonIdentity>> = {
   compare_artifacts: [
     "rea.artifact-comparison",
     "rea-artifact-comparison",
-    "REA artifact comparison",
+    "Ghostwire artifact comparison",
   ],
   compare_functions: [
     "rea.function-comparison",
     "rea-function-comparison",
-    "REA function comparison",
+    "Ghostwire function comparison",
   ],
   compare_process_captures: [
     "rea.process-comparison",

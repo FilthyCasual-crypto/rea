@@ -1,11 +1,11 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.morluto/rea",
-  "title": "REA",
+  "name": "io.github.FilthyCasual-crypto/rea",
+  "title": "Ghostwire",
   "description": "Reverse engineer anything from your terminal or agent with one CLI and MCP server.",
-  "websiteUrl": "https://github.com/morluto/rea",
+  "websiteUrl": "https://github.com/FilthyCasual-crypto/rea",
   "repository": {
-    "url": "https://github.com/morluto/rea",
+    "url": "https://github.com/FilthyCasual-crypto/rea",
     "source": "github"
   },
   "version": "6.4.0",
@@ -13,7 +13,7 @@
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
-      "identifier": "rea-agents",
+      "identifier": "ghostwire-agent",
       "version": "6.4.0",
       "runtimeHint": "npx",
       "transport": {

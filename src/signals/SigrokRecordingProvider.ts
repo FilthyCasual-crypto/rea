@@ -58,7 +58,7 @@ import { PrivateRuntimeRoot } from "../process/PrivateRuntimeRoot.js";
 const OPERATION = "decode_signal_recording";
 export const SIGROK_PROVIDER_IDENTITY = {
   id: "sigrok-recording",
-  name: "REA sigrok recording adapter",
+  name: "Ghostwire sigrok recording adapter",
   version: "sigrok-cli@0.7.2",
 } as const;
 type Launcher = NonNullable<Parameters<typeof runOwnedCommand>[2]>["launcher"];

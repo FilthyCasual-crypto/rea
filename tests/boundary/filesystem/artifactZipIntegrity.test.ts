@@ -403,7 +403,7 @@ it("preserves encrypted-member and corrupt-CRC observations", async () => {
       hash_status: "unavailable",
     }),
   );
-  // REA does not decrypt entries, so complete extraction is unsupported.
+  // Ghostwire does not decrypt entries, so complete extraction is unsupported.
   const extractionRoot = join(root, "encrypted-output");
   const extraction = await withArtifactClient(encryptedTarget.value, (client) =>
     client.execute("extract_artifact", { output_root: extractionRoot }),
@@ -462,7 +462,7 @@ it("reports an unsupported ZIP compression method as unavailable", async () => {
   const writer = new ZipWriter(new Uint8ArrayWriter());
   await writer.add("data.txt", new TextReader("member bytes"), { level: 0 });
   const bytes = Buffer.from(await writer.close());
-  // Declare LZMA (14) in both headers; REA reads only stored and Deflate data.
+  // Declare LZMA (14) in both headers; Ghostwire reads only stored and Deflate data.
   const localHeader = bytes.indexOf(Buffer.from([0x50, 0x4b, 0x03, 0x04]));
   const centralHeader = bytes.indexOf(Buffer.from([0x50, 0x4b, 0x01, 0x02]));
   if (localHeader < 0 || centralHeader < 0)

@@ -552,7 +552,7 @@ describe("function comparison ordering controls", () => {
           sha256: digit.repeat(64),
           format: "mach-o",
         },
-        { id: "rea-workflow", name: "REA workflow", version: "1" },
+        { id: "rea-workflow", name: "Ghostwire workflow", version: "1" },
         {
           operation: "analyze_function",
           parameters: enhancedInputSchemas.analyze_function.parse({

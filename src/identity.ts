@@ -4,14 +4,14 @@
  * the npm package or executable exposed in package.json.
  */
 export const PRODUCT_IDENTITY = {
-  displayName: "REA",
+  displayName: "Ghostwire",
   packageName: PACKAGE_METADATA.name,
   packageSpecifier: `${PACKAGE_METADATA.name}@latest`,
   registrationPackageSpecifier: `${PACKAGE_METADATA.name}@${PACKAGE_METADATA.version}`,
   packageVersion: PACKAGE_METADATA.version,
-  cliBinary: "rea",
+  cliBinary: "ghostwire",
   mcpCommand: `npx -y ${PACKAGE_METADATA.name}@${PACKAGE_METADATA.version} mcp`,
-  mcpServerKey: "rea",
+  mcpServerKey: "ghostwire",
   skillName: "reverse-engineer-anything",
   skillVersion: PACKAGE_METADATA.skillVersion,
   configFileName: "rea.json",

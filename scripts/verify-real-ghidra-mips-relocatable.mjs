@@ -106,7 +106,7 @@ async function verifyFixture(byteOrder, kernelModule) {
   assert.deepEqual(
     resolved.value.mips,
     independent.mips,
-    "REA ELF/ABI interpretation disagrees with GNU readelf",
+    "Ghostwire ELF/ABI interpretation disagrees with GNU readelf",
   );
   assert.equal(resolved.value.sha256, fixture.sha256);
   const label = `${byteOrder}${kernelModule ? "-module" : ""}`;

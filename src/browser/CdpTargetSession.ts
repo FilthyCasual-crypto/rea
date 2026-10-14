@@ -110,7 +110,7 @@ export const attachCdpTargetSession = async (
   }
 };
 
-/** Disable enabled domains, detach browser sessions, and close REA's socket. */
+/** Disable enabled domains, detach browser sessions, and close Ghostwire's socket. */
 export const closeCdpTargetSession = async (
   targetSession: CdpTargetSession,
   enabledDomains: readonly string[],

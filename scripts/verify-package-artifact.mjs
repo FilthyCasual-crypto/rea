@@ -79,11 +79,11 @@ const verifyPackagedElectronApplication = async ({
   );
   await writeFile(
     join(applicationRoot, "main.js"),
-    'const { BrowserWindow, ipcMain } = require("electron");\nnew BrowserWindow({ webPreferences: { preload: path.join(__dirname, "preload.js"), contextIsolation: true } });\nipcMain.handle("rea:ping", () => true);\n',
+    'const { BrowserWindow, ipcMain } = require("electron");\nnew BrowserWindow({ webPreferences: { preload: path.join(__dirname, "preload.js"), contextIsolation: true } });\nipcMain.handle("ghostwire:ping", () => true);\n',
   );
   await writeFile(
     join(applicationRoot, "preload.js"),
-    'const { contextBridge, ipcRenderer } = require("electron");\ncontextBridge.exposeInMainWorld("rea", { ping: () => ipcRenderer.invoke("rea:ping") });\n',
+    'const { contextBridge, ipcRenderer } = require("electron");\ncontextBridge.exposeInMainWorld("ghostwire", { ping: () => ipcRenderer.invoke("ghostwire:ping") });\n',
   );
   const applicationAnalysis = json(
     await run(

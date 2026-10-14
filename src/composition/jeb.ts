@@ -21,7 +21,7 @@ export const createJebAnalysisProvider = (
         ? endpoint.error.cause
         : endpoint.error.message;
     return unconfiguredJebProvider(
-      new ConfigurationError("Invalid REA environment configuration", {
+      new ConfigurationError("Invalid Ghostwire environment configuration", {
         cause: endpoint.error,
         settings: [{ setting: "REA_JEB_MCP_URL", constraint }],
       }),

@@ -80,7 +80,7 @@ interface LinuxDistributionIdentity {
  * Parsed Linux distribution information used for package selection.
  *
  * `hopperSetupSupported` is the automated Hopper installer's tested list. It is
- * narrower than the hosts where REA itself runs, which {@link supportsReaHost}
+ * narrower than the hosts where Ghostwire itself runs, which {@link supportsReaHost}
  * answers from the package family.
  */
 export type LinuxDistribution = LinuxDistributionIdentity &
@@ -96,7 +96,7 @@ export type LinuxDistribution = LinuxDistributionIdentity &
   );
 
 /**
- * Whether REA's analysis providers run on this distribution. A recognized
+ * Whether Ghostwire's analysis providers run on this distribution. A recognized
  * package family means a glibc host with a known package layout, which is what
  * the providers need; downloading and installing the official Hopper package
  * additionally requires a distribution on its tested list.
@@ -339,7 +339,7 @@ export const installLinuxHopper = async (
 export const linuxHopperLauncherPath = (home: string): string =>
   join(home, ".local/share/rea/hopper/bin/Hopper");
 
-/** REA's managed Linux install path, preferred when no explicit launcher is set. */
+/** Ghostwire's managed Linux install path, preferred when no explicit launcher is set. */
 export const REA_MANAGED_LINUX_HOPPER_LAUNCHER = "/opt/hopper/bin/Hopper";
 
 /** Other system-wide Hopper paths used by package installations. */
@@ -348,7 +348,7 @@ export const systemLinuxHopperLauncherCandidates: readonly string[] = [
   "/usr/bin/hopper",
 ];
 
-/** Probe REA-managed and user-local installs before arbitrary system builds. */
+/** Probe Ghostwire-managed and user-local installs before arbitrary system builds. */
 export const linuxHopperLauncherCandidates = (
   home: string,
 ): readonly string[] => [

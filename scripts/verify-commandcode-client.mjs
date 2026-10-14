@@ -24,7 +24,7 @@ assert(
 );
 assert.equal(
   await readFile(join(account, ".rea-client-verification"), "utf8"),
-  "Disposable REA client verification account\n",
+  "Disposable Ghostwire client verification account\n",
 );
 const repo = fileURLToPath(new URL("..", import.meta.url));
 const runtimeRoot = process.env.REA_VERIFY_RUNTIME_ROOT ?? repo;
@@ -71,7 +71,7 @@ const environment = {
   REA_PROCESS_RUN_ID: verifier.run_id,
 };
 const expectedNames = TOOL_CONTRACTS.map(
-  (tool) => "mcp__rea__" + tool.name,
+  (tool) => "mcp__ghostwire__" + tool.name,
 ).sort();
 const schemaValidator = new Ajv2020({ strict: false, validateFormats: false });
 const textValues = (value) =>
@@ -108,13 +108,13 @@ const call = (name, args) => ({
 const validateCatalog = async (text) => {
   const entries = [
     ...text.matchAll(
-      /^### (mcp__rea__[A-Za-z0-9_]+)\n[\s\S]*?\nParameters:\n```json\n([\s\S]*?)\n```/gm,
+      /^### (mcp__ghostwire__[A-Za-z0-9_]+)\n[\s\S]*?\nParameters:\n```json\n([\s\S]*?)\n```/gm,
     ),
   ];
   assert.deepEqual(
     entries.map((entry) => entry[1]).sort(),
     expectedNames,
-    "Native exact-name search must return every REA input schema",
+    "Native exact-name search must return every Ghostwire input schema",
   );
   for (const entry of entries) {
     const schema = JSON.parse(entry[2]);
@@ -137,17 +137,17 @@ const fixture = await createOpenAiModelFixture({
       const names = [
         ...new Set(
           strings.flatMap(
-            (text) => text.match(/mcp__rea__[A-Za-z0-9_]+/g) ?? [],
+            (text) => text.match(/mcp__ghostwire__[A-Za-z0-9_]+/g) ?? [],
           ),
         ),
       ].sort();
       assert.deepEqual(
         names,
         expectedNames,
-        "Default native deferred-tool prompt must advertise the complete REA inventory",
+        "Default native deferred-tool prompt must advertise the complete Ghostwire inventory",
       );
       assert.equal(
-        tools.filter((tool) => tool.name.startsWith("mcp__rea__")).length,
+        tools.filter((tool) => tool.name.startsWith("mcp__ghostwire__")).length,
         0,
         "Keep native lazy schema delivery enabled",
       );
@@ -201,14 +201,14 @@ const fixture = await createOpenAiModelFixture({
         await validateCatalog(text);
         catalogProjection = { schemas: schemasChecked, sha256: catalogDigest };
         const query =
-          "const fs=require('node:fs'),crypto=require('node:crypto');const text=fs.readFileSync(process.argv[1],'utf8');const schemas=[...text.matchAll(/^### (mcp__rea__[A-Za-z0-9_]+)\\n/gm)].length;console.log(JSON.stringify({rea_catalog:{schemas,sha256:crypto.createHash('sha256').update(text).digest('hex')}}));";
+          "const fs=require('node:fs'),crypto=require('node:crypto');const text=fs.readFileSync(process.argv[1],'utf8');const schemas=[...text.matchAll(/^### (mcp__ghostwire__[A-Za-z0-9_]+)\\n/gm)].length;console.log(JSON.stringify({rea_catalog:{schemas,sha256:crypto.createHash('sha256').update(text).digest('hex')}}));";
         return call("shell_command", {
           command: process.execPath,
           args: ["-e", query, catalogArtifact],
         });
       }
       await validateCatalog(last);
-      return call("mcp__rea__analyze_javascript_application", {
+      return call("mcp__ghostwire__analyze_javascript_application", {
         input_path: target,
         format: "directory",
       });
@@ -220,7 +220,7 @@ const fixture = await createOpenAiModelFixture({
       assert(line, "Native shell must return the selected saved-catalog facts");
       assert.deepEqual(JSON.parse(line).rea_catalog, catalogProjection);
       artifactProjectionSeen = true;
-      return call("mcp__rea__analyze_javascript_application", {
+      return call("mcp__ghostwire__analyze_javascript_application", {
         input_path: target,
         format: "directory",
       });
@@ -293,7 +293,7 @@ const original =
     2,
   ) + "\n";
 await writeFile(configPath, original);
-const rea = (args) =>
+const ghostwire = (args) =>
   exec(
     process.execPath,
     [join(runtimeRoot, "scripts/rea.mjs"), ...args, "--json"],
@@ -312,7 +312,7 @@ try {
     ["setup", "--client", "commandcode", "--yes"],
     ["doctor", "--client", "commandcode", "--skill"],
   ]) {
-    const response = await rea(args);
+    const response = await ghostwire(args);
     await writeFile(
       join(lab, `${args[0]}${args.includes("--dry-run") ? "-plan" : ""}.json`),
       response.stdout,
@@ -347,7 +347,7 @@ try {
     "unrelated-server",
   );
   const repeated = JSON.parse(
-    (await rea(["setup", "--client", "commandcode", "--yes"])).stdout,
+    (await ghostwire(["setup", "--client", "commandcode", "--yes"])).stdout,
   );
   assert.deepEqual(repeated.appliedActions, []);
   assert.equal(await readFile(configPath, "utf8"), configured);
@@ -361,7 +361,7 @@ try {
       "-p",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use the REA skill to analyze ${target}.`,
+        : `Use the Ghostwire skill to analyze ${target}.`,
       "-m",
       "rea-local/rea-client-fixture",
       "--local-only",

@@ -77,7 +77,7 @@ describe("setup with configured but unavailable providers", () => {
     const configured = await readFile(client.configPath, "utf8");
     expect(JSON.parse(configured)).toMatchObject({
       theme: "dark",
-      mcpServers: { rea: { env: environment } },
+      mcpServers: { ghostwire: { env: environment } },
     });
     await expect(
       readFile(`${client.configPath}.rea.backup`, "utf8"),

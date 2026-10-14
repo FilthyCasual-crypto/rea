@@ -157,7 +157,7 @@ export async function verifyScenarioEnvironment(endpoint, targetId, origin) {
     const provider = createBrowserScenarioProvider(process.env);
     const initializationFailure = await provider.captureScenario({
       ...scenario,
-      environment: { ...scenario.environment, timezone: "REA/Invalid" },
+      environment: { ...scenario.environment, timezone: "Ghostwire/Invalid" },
     });
     assert.equal(initializationFailure.ok, false);
     await assertRestored();

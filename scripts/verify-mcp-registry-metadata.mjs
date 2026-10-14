@@ -13,11 +13,11 @@ const packageJson = await readJson("package.json");
 const serverJson = await readJson("server.json");
 const registryPackage = serverJson.packages?.[0];
 
-if (packageJson.name !== "rea-agents") fail("unexpected npm package name");
+if (packageJson.name !== "ghostwire-agent") fail("unexpected npm package name");
 if (typeof packageJson.version !== "string")
   fail("package.json is missing a string version");
-if (packageJson.mcpName !== "io.github.morluto/rea")
-  fail("package.json mcpName does not identify io.github.morluto/rea");
+if (packageJson.mcpName !== "io.github.FilthyCasual-crypto/rea")
+  fail("package.json mcpName does not identify io.github.FilthyCasual-crypto/rea");
 if (serverJson.name !== packageJson.mcpName)
   fail("server.json name does not match package.json mcpName");
 if (serverJson.version !== packageJson.version)

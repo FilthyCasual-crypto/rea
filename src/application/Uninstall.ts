@@ -87,7 +87,7 @@ export interface UninstallItem {
   readonly detail: string;
 }
 
-/** Structured, idempotent result of removing REA-owned state. */
+/** Structured, idempotent result of removing Ghostwire-owned state. */
 export interface UninstallResult {
   readonly status: "complete" | "failed";
   readonly items: readonly UninstallItem[];
@@ -106,7 +106,7 @@ export interface UninstallHost {
 }
 
 /**
- * Remove only REA-owned registrations and managed files, optionally including
+ * Remove only Ghostwire-owned registrations and managed files, optionally including
  * local state. A client configuration that cannot be read safely stops the
  * operation before anything is removed; one that fails during removal stops
  * the remaining removals.
@@ -134,14 +134,14 @@ export const runUninstall = async (
             item(
               "uninstall",
               "skipped",
-              "No REA registration, skill, or data was removed. Repair each failed configuration, then rerun uninstall.",
+              "No Ghostwire registration, skill, or data was removed. Repair each failed configuration, then rerun uninstall.",
             ),
           ]
         : await removeAll(clients, purgeData, host);
     items.push({
       name: "analysis_engine",
       status: "retained",
-      detail: "Hopper is not owned by REA uninstall.",
+      detail: "Hopper is not owned by Ghostwire uninstall.",
     });
     const reported = collapseUninstallItems(items);
     result = {
@@ -207,7 +207,7 @@ const removeAll = async (
   return items;
 };
 
-/** Create uninstall effects contained to detected client configs and REA-owned paths. */
+/** Create uninstall effects contained to detected client configs and Ghostwire-owned paths. */
 export const systemUninstallHost = (
   selectedHome: string | undefined = undefined,
   selectedFileSystem: UninstallFileSystem | undefined = undefined,
@@ -295,9 +295,9 @@ export const systemUninstallHost = (
 };
 
 /**
- * Every user file that can hold REA's registration for one client. An MSIX
+ * Every user file that can hold Ghostwire's registration for one client. An MSIX
  * package can read either its private copy or the AppData file, and earlier
- * setups wrote the AppData file, so both lose REA's entry.
+ * setups wrote the AppData file, so both lose Ghostwire's entry.
  */
 const uninstallConfigPaths = (client: SetupClient): readonly string[] => [
   ...new Set([
@@ -316,7 +316,7 @@ const registrationPresent = (parsed: ClientConfigurationDocument): boolean => {
   const name = PRODUCT_IDENTITY.mcpServerKey;
   return (
     Object.hasOwn(parsed.servers, name) ||
-    // Beside a native OpenCode V2 table, OpenCode also loads a V1 `mcp.rea`.
+    // Beside a native OpenCode V2 table, OpenCode also loads a V1 `mcp.ghostwire`.
     legacyClientServerPath(parsed, name) !== undefined
   );
 };
@@ -423,7 +423,7 @@ const removeClient = async (
   const { transactionPath, original, parsed } = read;
   const name = PRODUCT_IDENTITY.mcpServerKey;
   if (!registrationPresent(parsed))
-    return item(client.name, "skipped", "REA registration is absent.");
+    return item(client.name, "skipped", "Ghostwire registration is absent.");
   const { removeNative, legacyPath } = clientRegistrationRemoval(
     parsed,
     client,
@@ -433,7 +433,7 @@ const removeClient = async (
     return item(
       client.name,
       "retained",
-      "The rea-named registration is not REA-owned.",
+      "The rea-named registration is not Ghostwire-owned.",
     );
   const blocker = writeBlocker?.();
   if (blocker !== undefined) return item(client.name, "failed", blocker);
@@ -524,7 +524,7 @@ const resolveUninstallConfigPath = async (
   );
 };
 
-/** Ownership rule for persistent MCP registrations created by REA setup. */
+/** Ownership rule for persistent MCP registrations created by Ghostwire setup. */
 const isOwnedRegistration = (value: unknown, client: SetupClient): boolean => {
   if (client.format === "opencode") {
     const parsed = z
@@ -557,7 +557,7 @@ const purgeManagedData = async (
         item(
           name,
           "retained",
-          `REA did not remove this item because its managed data root ${root} is ${linked ? "a symbolic link" : "not a directory"}. Verify the root before removing its data manually.`,
+          `Ghostwire did not remove this item because its managed data root ${root} is ${linked ? "a symbolic link" : "not a directory"}. Verify the root before removing its data manually.`,
         ),
       );
   } catch (cause: unknown) {
@@ -588,7 +588,7 @@ const removeManagedPath = async (
       return item(
         name,
         "retained",
-        "REA did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
+        "Ghostwire did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
       );
     await fileSystem.remove(path);
     return item(name, "removed", `Removed ${path}.`);
@@ -690,7 +690,7 @@ const inspectManagedSkill = async (
       : item(name, "failed", "Skill manifest could not be read.");
   }
   if (!isManagedSkillManifest(content))
-    return item(name, "retained", "Skill manifest is not REA-owned.");
+    return item(name, "retained", "Skill manifest is not Ghostwire-owned.");
 
   return undefined;
 };
@@ -722,7 +722,7 @@ const removeManagedSkill = async (
       item(
         name,
         "retained",
-        "REA ownership manifest was retained because a managed file could not be safely removed.",
+        "Ghostwire ownership manifest was retained because a managed file could not be safely removed.",
       ),
     );
   else {
@@ -752,7 +752,7 @@ const removeManagedSkill = async (
   return item(
     name,
     removed ? "removed" : "skipped",
-    "REA-managed skill files were removed; other files were preserved.",
+    "Ghostwire-managed skill files were removed; other files were preserved.",
   );
 };
 

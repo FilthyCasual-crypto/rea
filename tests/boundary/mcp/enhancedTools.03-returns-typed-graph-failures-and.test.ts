@@ -45,7 +45,7 @@ describe("enhanced MCP tools", () => {
               error: {
                 category: "execution_failure",
                 message:
-                  "Analysis returned an unreadable result. Run `rea doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
+                  "Analysis returned an unreadable result. Run `ghostwire doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
               },
             },
           ],

@@ -55,7 +55,7 @@ describe("JSON client configuration transaction: writing configuration through s
       theme: "dark",
       mcpServers: {
         other: { command: "other" },
-        rea: {
+        ghostwire: {
           command: "npx",
           args: ["-y", pinnedPackage, "mcp"],
         },
@@ -83,7 +83,7 @@ describe("JSON client configuration transaction: writing configuration through s
     expect(JSON.parse(await readFile(targetPath, "utf8"))).toMatchObject({
       theme: "dark",
       mcpServers: {
-        rea: {
+        ghostwire: {
           command: "npx",
           args: ["-y", pinnedPackage, "mcp"],
         },
@@ -128,7 +128,7 @@ describe("JSON client configuration transaction: keeping matching configuration 
     const configPath = join(directory, "mcp.json");
     await writeFile(
       configPath,
-      `${JSON.stringify({ mcpServers: { rea: { command: "npx", args: ["-y", pinnedPackage, "mcp"] } } })}\n`,
+      `${JSON.stringify({ mcpServers: { ghostwire: { command: "npx", args: ["-y", pinnedPackage, "mcp"] } } })}\n`,
     );
     expect(
       await configureClientConfiguration({
@@ -151,7 +151,7 @@ describe("JSON client configuration transaction: keeping matching configuration 
       configPath,
       `${JSON.stringify({
         mcpServers: {
-          rea: {
+          ghostwire: {
             env: {
               JAVA_HOME: "/usr/lib/jvm/jdk-21",
               GHIDRA_INSTALL_DIR: "/opt/ghidra",
@@ -183,7 +183,7 @@ describe("JSON client configuration migration and provider paths", () => {
     const directory = await createTestTempDirectory("rea-setup-");
     const configPath = join(directory, "mcp.json");
     const original =
-      '{"theme":"dark","mcpServers":{"rea":{"command":"npx","args":["-y","rea-agents","mcp"]},"other":{"command":"other"}}}\n';
+      '{"theme":"dark","mcpServers":{"ghostwire":{"command":"npx","args":["-y","ghostwire-agent","mcp"]},"other":{"command":"other"}}}\n';
     await writeFile(configPath, original);
 
     expect(
@@ -197,7 +197,7 @@ describe("JSON client configuration migration and provider paths", () => {
     expect(JSON.parse(await readFile(configPath, "utf8"))).toEqual({
       theme: "dark",
       mcpServers: {
-        rea: {
+        ghostwire: {
           command: "npx",
           args: ["-y", pinnedPackage, "mcp"],
         },
@@ -223,7 +223,7 @@ describe("JSON client configuration migration and provider paths", () => {
     });
     expect(JSON.parse(await readFile(configPath, "utf8"))).toMatchObject({
       mcpServers: {
-        rea: {
+        ghostwire: {
           command: "npx",
           args: ["-y", pinnedPackage, "mcp"],
           env: { HOPPER_LAUNCHER_PATH: hopperPath },
@@ -261,7 +261,7 @@ describe("JSON client configuration migration and provider paths", () => {
     });
     expect(JSON.parse(await readFile(configPath, "utf8"))).toMatchObject({
       mcpServers: {
-        rea: {
+        ghostwire: {
           env: {
             GHIDRA_INSTALL_DIR: environment.GHIDRA_INSTALL_DIR,
             JAVA_HOME: environment.JAVA_HOME,
@@ -340,13 +340,13 @@ describe("JSON client configuration shape diagnostics", () => {
     {
       format: "json" as const,
       original:
-        '{"__proto__":{"mcpServers":{"rea":{"command":"rea","args":["mcp"]}}}}',
+        '{"__proto__":{"mcpServers":{"ghostwire":{"command":"ghostwire","args":["mcp"]}}}}',
       serversKey: "mcpServers",
     },
     {
       format: "opencode" as const,
       original:
-        '{"mcp":{"__proto__":{"servers":{"rea":{"type":"local","command":["rea","mcp"]}}}}}',
+        '{"mcp":{"__proto__":{"servers":{"ghostwire":{"type":"local","command":["ghostwire","mcp"]}}}}}',
       serversKey: "mcp",
     },
   ])(
@@ -361,16 +361,16 @@ describe("JSON client configuration shape diagnostics", () => {
       };
       await writeFile(configPath, original);
       expect(
-        await inspectClientConfiguration(client, {}, ["rea", "mcp"]),
+        await inspectClientConfiguration(client, {}, ["ghostwire", "mcp"]),
       ).toMatchObject({ status: "update" });
       expect(
-        await configureClientConfiguration(client, {}, ["rea", "mcp"]),
+        await configureClientConfiguration(client, {}, ["ghostwire", "mcp"]),
       ).toMatchObject({ status: "configured" });
       const document = JSON.parse(await readFile(configPath, "utf8"));
       expect(Object.hasOwn(document, serversKey)).toBe(true);
-      expect(Object.hasOwn(document[serversKey], "rea")).toBe(true);
+      expect(Object.hasOwn(document[serversKey], "ghostwire")).toBe(true);
       expect(document[serversKey].rea.command).toEqual(
-        format === "json" ? "rea" : ["rea", "mcp"],
+        format === "json" ? "ghostwire" : ["ghostwire", "mcp"],
       );
       const originalDocument = JSON.parse(original);
       expect(
@@ -382,7 +382,7 @@ describe("JSON client configuration shape diagnostics", () => {
       );
       expect(await readFile(`${configPath}.rea.backup`, "utf8")).toBe(original);
       expect(
-        await inspectClientConfiguration(client, {}, ["rea", "mcp"]),
+        await inspectClientConfiguration(client, {}, ["ghostwire", "mcp"]),
       ).toMatchObject({ status: "already_current" });
     },
   );
@@ -409,7 +409,7 @@ describe("JSON client configuration shape diagnostics", () => {
         `Configuration ${configPath} is malformed: ${problem}`,
       );
       expect(
-        await inspectClientConfiguration(client, {}, ["rea", "mcp"]),
+        await inspectClientConfiguration(client, {}, ["ghostwire", "mcp"]),
       ).toEqual({
         status: "invalid",
         remediation: `Configuration ${configPath} is malformed: ${problem}`,

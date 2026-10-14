@@ -55,7 +55,7 @@ const lines = [
   "1!",
 ];
 let tick = 1000;
-for (const byte of Buffer.from("REA")) {
+for (const byte of Buffer.from("Ghostwire")) {
   for (const bit of [
     0,
     ...Array.from({ length: 8 }, (_, i) => (byte >> i) & 1),

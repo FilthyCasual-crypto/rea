@@ -119,7 +119,7 @@ export class DarwinProcessOwnershipInspectionError extends Error {
   readonly compilerOutcome: DarwinCompilerOutcome | undefined;
 }
 
-/** Explicit, bounded outcome from compiling REA's Darwin ownership helper. */
+/** Explicit, bounded outcome from compiling Ghostwire's Darwin ownership helper. */
 export interface DarwinCompilerOutcome {
   readonly outcome:
     | "exited"
@@ -272,7 +272,7 @@ export type DarwinProcessReaderCompiler =
       readonly sdkRoot: string;
     };
 
-/** Compile and retain the narrow Darwin sysctl reader for this REA process. */
+/** Compile and retain the narrow Darwin sysctl reader for this Ghostwire process. */
 export const createDarwinProcessRunTokenReader = (
   options: {
     readonly compiler?: DarwinProcessReaderCompiler;
@@ -343,7 +343,7 @@ export const createDarwinProcessRunTokenReader = (
       if (compiler.kind === "swiftc")
         compilerEnvironment.SDKROOT = compiler.sdkRoot;
       if (moduleCachePath === "") {
-        // Use Swift's reusable default cache for REA's internal helper compilation.
+        // Use Swift's reusable default cache for Ghostwire's internal helper compilation.
         delete compilerEnvironment.CLANG_MODULE_CACHE_PATH;
       } else {
         await mkdir(moduleCachePath, { recursive: true });

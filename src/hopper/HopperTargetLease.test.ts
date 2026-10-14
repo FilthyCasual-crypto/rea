@@ -111,7 +111,7 @@ describe.skipIf(process.platform === "win32")(
 );
 
 describe("Hopper target leases", () => {
-  it("reports the owning REA session for a duplicate target and profile", async () => {
+  it("reports the owning Ghostwire session for a duplicate target and profile", async () => {
     const directory = await temporaryDirectory();
     const targetPath = await temporaryTarget();
     const first = await acquireHopperTargetLease({

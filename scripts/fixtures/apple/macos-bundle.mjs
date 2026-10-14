@@ -263,7 +263,7 @@ const buildLaunchItems = async (root, contents) => {
 };
 
 /**
- * Build `MacFixture.app` with every bundle role and dylib-loading shape REA
+ * Build `MacFixture.app` with every bundle role and dylib-loading shape Ghostwire
  * projects. The main executable prints which `libchain.dylib` copy dyld
  * selected, so callers can compare static resolution with a real load.
  */

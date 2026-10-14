@@ -1,16 +1,16 @@
 {
-  "name": "rea-agents",
-  "mcpName": "io.github.morluto/rea",
+  "name": "ghostwire-agent",
+  "mcpName": "io.github.FilthyCasual-crypto/rea",
   "version": "6.4.0",
   "description": "Reverse engineer anything from your terminal or agent with one CLI and MCP server.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/morluto/rea.git"
+    "url": "git+https://github.com/FilthyCasual-crypto/rea.git"
   },
-  "homepage": "https://github.com/morluto/rea#readme",
+  "homepage": "https://github.com/FilthyCasual-crypto/rea#readme",
   "bugs": {
-    "url": "https://github.com/morluto/rea/issues"
+    "url": "https://github.com/FilthyCasual-crypto/rea/issues"
   },
   "keywords": [
     "reverse-engineering",
@@ -21,7 +21,7 @@
     "mcp-server",
     "model-context-protocol",
     "static-analysis",
-    "rea",
+    "ghostwire",
     "decompiler",
     "mcp",
     "hopper",
@@ -38,8 +38,9 @@
     "#javascript-analysis-worker": "./dist/composition/javascriptAnalysisWorkerProcess.js"
   },
   "bin": {
-    "rea": "scripts/rea.mjs",
-    "rea-agents": "scripts/rea.mjs"
+    "ghostwire": "scripts/rea.mjs",
+    "ghostwire-agent": "scripts/rea.mjs",
+    "rea": "scripts/rea.mjs"
   },
   "engines": {
     "node": "^22.19.0 || ^24.11.0 || >=26.0.0"

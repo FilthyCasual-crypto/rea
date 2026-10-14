@@ -58,7 +58,7 @@ describe("additional client configuration dialects", () => {
     };
     await writeFile(
       cursor.configPath,
-      JSON.stringify({ mcpServers: { rea: registration } }),
+      JSON.stringify({ mcpServers: { ghostwire: registration } }),
     );
 
     expect(
@@ -74,7 +74,7 @@ describe("additional client configuration dialects", () => {
     const after = parseJsonc(await readFile(cursor.configPath, "utf8")) as {
       readonly mcpServers: Readonly<Record<string, unknown>>;
     };
-    expect(after.mcpServers.rea).toEqual(registration);
+    expect(after.mcpServers.ghostwire).toEqual(registration);
   });
 
   it("treats an empty XDG config home as unset for OpenCode setup", async () => {
@@ -219,7 +219,7 @@ describe("OpenCode JSONC registration edits", () => {
     expect(removedErrors).toEqual([]);
     expect(removedText).toContain("// Client-wide preferences stay intact.");
     expect(removedText).toContain("// An independently managed server.");
-    expect((removed.mcp as Record<string, unknown>).rea).toBeUndefined();
+    expect((removed.mcp as Record<string, unknown>).ghostwire).toBeUndefined();
     expect((removed.mcp as Record<string, unknown>).other).toBeDefined();
   });
 
@@ -228,7 +228,7 @@ describe("OpenCode JSONC registration edits", () => {
     const client = getClients(home).find(({ name }) => name === "opencode");
     if (client === undefined) throw new Error("missing OpenCode client");
     await mkdir(client.markerPath ?? home, { recursive: true });
-    const invalid = '{ "mcp": { /* broken */ "rea": [ }';
+    const invalid = '{ "mcp": { /* broken */ "ghostwire": [ }';
     await writeFile(client.configPath, invalid);
 
     expect(await configureClientConfiguration(client, {}, command)).toEqual({
@@ -259,7 +259,7 @@ const openCodeClient = async (prefix: string) => {
 const legacyEntry = JSON.stringify({ type: "local", command, enabled: true });
 
 describe("OpenCode V2 native server table", () => {
-  it("registers in mcp.servers, replaces REA's V1 entry, and uninstalls", async () => {
+  it("registers in mcp.servers, replaces Ghostwire's V1 entry, and uninstalls", async () => {
     const { home, client } = await openCodeClient("rea-opencode-v2-");
     await writeFile(
       client.configPath,
@@ -271,7 +271,7 @@ describe("OpenCode V2 native server table", () => {
       // An independently managed server.
       "other": { "type": "local", "command": ["node", "other.js"] },
     },
-    "rea": ${legacyEntry},
+    "ghostwire": ${legacyEntry},
   },
 }\n`,
     );
@@ -289,7 +289,7 @@ describe("OpenCode V2 native server table", () => {
       timeout: { catalog: 30000 },
       servers: {
         other: { type: "local", command: ["node", "other.js"] },
-        rea: { type: "local", command: [...command] },
+        ghostwire: { type: "local", command: [...command] },
       },
     });
     expect(await readClientRegistrationStatuses(home)).toEqual(
@@ -313,12 +313,12 @@ describe("OpenCode V2 native server table", () => {
     });
   });
 
-  it("updates and removes REA's entry after OpenCode migrates it to mcp.servers", async () => {
+  it("updates and removes Ghostwire's entry after OpenCode migrates it to mcp.servers", async () => {
     const { home, client } = await openCodeClient("rea-opencode-migrated-");
     const stale = ["npx", "-y", `${PRODUCT_IDENTITY.packageName}@3.2.0`, "mcp"];
     await writeFile(
       client.configPath,
-      `${JSON.stringify({ mcp: { servers: { rea: { type: "local", command: stale } } } })}\n`,
+      `${JSON.stringify({ mcp: { servers: { ghostwire: { type: "local", command: stale } } } })}\n`,
     );
 
     expect(await readClientRegistrationStatuses(home)).toEqual(
@@ -332,7 +332,7 @@ describe("OpenCode V2 native server table", () => {
     expect(
       parseOpenCode(await readFile(client.configPath, "utf8")).mcp,
     ).toEqual({
-      servers: { rea: { type: "local", command: [...command] } },
+      servers: { ghostwire: { type: "local", command: [...command] } },
     });
     expect((await systemUninstallHost(home).removeClient(client)).status).toBe(
       "removed",
@@ -348,7 +348,7 @@ describe("OpenCode V2 native server table", () => {
     const { home, client } = await openCodeClient("rea-opencode-mixed-");
     await writeFile(
       client.configPath,
-      `{ "mcp": { "servers": {}, "rea": ${legacyEntry} } }\n`,
+      `{ "mcp": { "servers": {}, "ghostwire": ${legacyEntry} } }\n`,
     );
 
     expect(await readClientRegistrationStatuses(home)).toEqual(
@@ -375,7 +375,7 @@ describe("OpenCode V2 native server table", () => {
     const typeServer = { type: "local", command: ["node", "type.js"] };
     await writeFile(
       client.configPath,
-      `${JSON.stringify({ mcp: { servers: { type: typeServer, rea: { type: "local", command } } } })}\n`,
+      `${JSON.stringify({ mcp: { servers: { type: typeServer, ghostwire: { type: "local", command } } } })}\n`,
     );
 
     expect(await readClientRegistrationStatuses(home)).toEqual(
@@ -412,7 +412,7 @@ describe("OpenCode V2 native server table", () => {
       parseOpenCode(await readFile(client.configPath, "utf8")).mcp,
     ).toEqual({
       servers,
-      rea: { type: "local", command: [...command], enabled: true },
+      ghostwire: { type: "local", command: [...command], enabled: true },
     });
   });
 });
@@ -534,10 +534,10 @@ describe("platform-aware client config paths", () => {
 });
 
 describe("client registration command ownership", () => {
-  it("recognizes prior exact REA releases while rejecting foreign package commands", () => {
-    expect(isOwnedClientRegistrationCommand(["rea", "mcp"], undefined)).toBe(
-      true,
-    );
+  it("recognizes prior exact Ghostwire releases while rejecting foreign package commands", () => {
+    expect(
+      isOwnedClientRegistrationCommand(["ghostwire", "mcp"], undefined),
+    ).toBe(true);
     const cwdMatchingEntry = resolve("./rea");
     expect(
       classifyClientRegistrationCommand(["./rea", "mcp"], cwdMatchingEntry),

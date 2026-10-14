@@ -147,13 +147,13 @@ class WebsiteMaintenanceChecks(unittest.TestCase):
             original = page.read_text()
             body = original.split('<main id="main"', 1)[1].split("</main>", 1)[0]
             template = root / "website/templates/header.html.tmpl"
-            template.write_text(template.read_text().replace("Reverse Engineer Anything", "REA test navigation"))
+            template.write_text(template.read_text().replace("Reverse Engineer Anything", "Ghostwire test navigation"))
             with self.assertRaisesRegex(ValueError, "Shared HTML is stale"):
                 WEBSITE.sync_pages(root, check=True)
             self.assertEqual(page.read_text(), original)
             WEBSITE.sync_pages(root)
             updated = page.read_text()
-            self.assertIn("REA test navigation", updated)
+            self.assertIn("Ghostwire test navigation", updated)
             self.assertEqual(updated.split('<main id="main"', 1)[1].split("</main>", 1)[0], body)
             self.assertEqual(WEBSITE.sync_pages(root), [])
             page.write_text(updated.replace('    <!-- website:header:end -->', '', 1))
@@ -209,7 +209,7 @@ class WebsiteMaintenanceChecks(unittest.TestCase):
             root = Path(directory)
             (root / "website/public").mkdir(parents=True)
             (root / "docs").mkdir()
-            (root / "docs/guide.md").write_text("# Guide\n## Set up REA\n")
+            (root / "docs/guide.md").write_text("# Guide\n## Set up Ghostwire\n")
             page = root / "website/README.md"
             page.write_text("[Guide](../docs/guide.md#set-up-rea)\n")
             (root / "website/.venv").mkdir()
@@ -263,7 +263,7 @@ class WebsiteTranslationChecks(unittest.TestCase):
             for item in inventory:
                 destination = root / item["readme"]
                 destination.parent.mkdir(parents=True, exist_ok=True)
-                destination.write_text("# REA\n")
+                destination.write_text("# Ghostwire\n")
             WEBSITE.sync_pages(root)
             extract_catalogs(root)
             yield root
@@ -272,19 +272,19 @@ class WebsiteTranslationChecks(unittest.TestCase):
         with self.translated_project() as root:
             path = root / "website/locales/zh-CN/messages.po"
             catalog = polib.pofile(path)
-            old = catalog.find("How do I install REA?", msgctxt="page:faq/index.html")
+            old = catalog.find("How do I install Ghostwire?", msgctxt="page:faq/index.html")
             old.tcomment = "Reviewed installation wording."
             old_translation = old.msgstr
             catalog.save(path)
             page = root / "website/public/faq/index.html"
-            page.write_text(page.read_text().replace("How do I install REA?", "How do I install REA today?"))
+            page.write_text(page.read_text().replace("How do I install Ghostwire?", "How do I install Ghostwire today?"))
             with self.assertRaisesRegex(ValueError, "Translation sources changed"):
                 extract_catalogs(root, check=True)
             extract_catalogs(root)
             updated = polib.pofile(path)
             archived = next(entry for entry in updated if entry.obsolete and entry.msgid == old.msgid)
             self.assertEqual((archived.msgstr, archived.tcomment), (old_translation, old.tcomment))
-            new = updated.find("How do I install REA today?", msgctxt=old.msgctxt)
+            new = updated.find("How do I install Ghostwire today?", msgctxt=old.msgctxt)
             self.assertEqual(new.msgstr, "")
             build_translations(root, root / "website/_site")
             site = root / "website/_site"
@@ -296,7 +296,7 @@ class WebsiteTranslationChecks(unittest.TestCase):
             self.assertEqual(fallback.lang, "en")
             self.assertNotIn("https://rea.tools/zh-CN/faq/", (site / "sitemap.xml").read_text())
             self.assertNotIn('hreflang="zh-CN"', (site / "faq/index.html").read_text())
-            new.msgstr = "现在如何安装 REA？"
+            new.msgstr = "现在如何安装 Ghostwire？"
             new.flags.append("fuzzy")
             updated.save(path)
             build_translations(root, site)
@@ -306,7 +306,7 @@ class WebsiteTranslationChecks(unittest.TestCase):
             build_translations(root, site)
             PREPARE.prepare_sitemap(site)
             result = (site / "zh-CN/faq/index.html").read_text()
-            self.assertIn("现在如何安装 REA？", result)
+            self.assertIn("现在如何安装 Ghostwire？", result)
             self.assertNotIn("data-translation-fallback", result)
             self.assertIn('href="../assets/styles.css"', (site / "zh-CN/index.html").read_text())
             self.assertIn('hreflang="zh-CN"', (site / "faq/index.html").read_text())

@@ -60,7 +60,7 @@ const createPackedRefRepository = async () => {
     "git",
     [
       "-c",
-      "user.name=REA fixture",
+      "user.name=Ghostwire fixture",
       "-c",
       "user.email=fixture@example.invalid",
       "-c",

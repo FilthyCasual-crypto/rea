@@ -69,7 +69,7 @@ const processComparison = (
     undefined,
     {
       id: "rea-process",
-      name: "REA deterministic process harness",
+      name: "Ghostwire deterministic process harness",
       version: "3",
     },
     {

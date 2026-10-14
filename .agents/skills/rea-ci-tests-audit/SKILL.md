@@ -1,9 +1,9 @@
 ---
 name: rea-ci-tests-audit
-description: Audit REA CI and test suites for correctness, fixture drift, false passes, and measured performance; use for suite or workflow investigations and efficiency changes, rather than ordinary feature testing or a single test failure.
+description: Audit Ghostwire CI and test suites for correctness, fixture drift, false passes, and measured performance; use for suite or workflow investigations and efficiency changes, rather than ordinary feature testing or a single test failure.
 ---
 
-# REA CI and tests audit
+# Ghostwire CI and tests audit
 
 Establish which checks still catch real regressions and which costs can be
 removed without losing that protection. The outcome may be a verified fix,

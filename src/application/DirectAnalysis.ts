@@ -501,7 +501,7 @@ const withProcessCancellation = async <Value>(
   if (suppliedSignal !== undefined) return operation(suppliedSignal);
   const controller = new AbortController();
   const cancel = (): void => controller.abort();
-  // Package runners can forward a terminal interrupt after REA already received
+  // Package runners can forward a terminal interrupt after Ghostwire already received
   // it directly. Keep both guards installed until provider cleanup has settled.
   process.on("SIGINT", cancel);
   process.on("SIGTERM", cancel);

@@ -126,7 +126,10 @@ describe("static Electron application analysis", () => {
       },
       utility_processes: 1,
     });
-    expect(handledChannels.sort()).toEqual(["rea:read", "rea:write"]);
+    expect(handledChannels.sort()).toEqual([
+      "ghostwire:read",
+      "ghostwire:write",
+    ]);
   });
 
   it("maps unchanged var and let require aliases while excluding reassigned bindings", async () => {
@@ -540,7 +543,7 @@ const expectElectronBoundaries = (graph: ApplicationGraph): void => {
   expect(pairingEdges).toHaveLength(4);
   expect(
     pairingEdges.some(
-      ({ properties }) => properties.channel === "rea:ambiguous",
+      ({ properties }) => properties.channel === "ghostwire:ambiguous",
     ),
   ).toBe(false);
   expect(graph.limitations.join(" ")).toMatch(/dynamic IPC|ambiguous/iu);
@@ -567,29 +570,29 @@ const requireAliasFixtureDirectory = async (): Promise<string> => {
       String.raw`
 var { ipcMain: main } = require("electron");
 let listener = require("electron/main").ipcMain;
-main.handle("rea:read", async () => "value");
-listener.on("rea:write", () => undefined);
+main.handle("ghostwire:read", async () => "value");
+listener.on("ghostwire:write", () => undefined);
 
 let replaced = require("electron").ipcMain;
 replaced = { handle() {} };
-replaced.handle("rea:reassigned", () => undefined);
+replaced.handle("ghostwire:reassigned", () => undefined);
 
 var assignedLater;
-assignedLater.handle("rea:before-assignment", () => undefined);
+assignedLater.handle("ghostwire:before-assignment", () => undefined);
 assignedLater = require("electron").ipcMain;
 
 if (globalThis.registerIpc) {
   var conditional = require("electron").ipcMain;
 }
-conditional.handle("rea:conditional", () => undefined);
+conditional.handle("ghostwire:conditional", () => undefined);
 `,
     ),
     writeFile(
       join(root, "preload.cjs"),
       String.raw`
 const { ipcRenderer } = require("electron");
-ipcRenderer.invoke("rea:read");
-ipcRenderer.send("rea:write", "value");
+ipcRenderer.invoke("ghostwire:read");
+ipcRenderer.send("ghostwire:write", "value");
 `,
     ),
   ]);
@@ -611,11 +614,11 @@ import { BrowserWindow as BrowserWindow2, ipcMain as ipcMain2 } from "electron";
 import { ipcMain as ipcMain3, utilityProcess as utility } from "electron/main";
 
 new BrowserWindow2({ webPreferences: { preload: "./preload.cjs" } });
-ipcMain2.handle("rea:read", async () => "value");
-ipcMain3.on("rea:write", () => undefined);
+ipcMain2.handle("ghostwire:read", async () => "value");
+ipcMain3.on("ghostwire:write", () => undefined);
 utility.fork("./worker.js");
 function register(ipcMain2) {
-  ipcMain2.handle("rea:shadowed", async () => "local");
+  ipcMain2.handle("ghostwire:shadowed", async () => "local");
 }
 export { register };
 `,
@@ -625,8 +628,8 @@ export { register };
       String.raw`
 const { contextBridge: bridge, ipcRenderer: ipc } = require("electron");
 bridge.exposeInMainWorld("reaApi", {
-  read: () => ipc.invoke("rea:read"),
-  write: (value) => ipc.send("rea:write", value),
+  read: () => ipc.invoke("ghostwire:read"),
+  write: (value) => ipc.send("ghostwire:write", value),
 });
 `,
     ),

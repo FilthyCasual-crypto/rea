@@ -1,5 +1,5 @@
-// REA's packaged, read-only Ghidra headless bridge.
-// @category REA
+// Ghostwire's packaged, read-only Ghidra headless bridge.
+// @category Ghostwire
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -184,7 +184,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
     public void run() throws Exception {
         String[] arguments = getScriptArgs();
         if (arguments.length != 1) {
-            throw new IllegalArgumentException("REA bridge requires one session descriptor");
+            throw new IllegalArgumentException("Ghostwire bridge requires one session descriptor");
         }
         Path descriptorPath = Path.of(arguments[0]);
         SessionDescriptor descriptor = readDescriptor(descriptorPath);
@@ -197,19 +197,19 @@ public final class ReaGhidraBridge extends HeadlessScript {
             Files.deleteIfExists(descriptorPath);
         }
         if (currentProgram == null) {
-            throw new IllegalStateException("REA bridge requires an imported program");
+            throw new IllegalStateException("Ghostwire bridge requires an imported program");
         }
         sessionDefaultAddressSpace =
             currentProgram.getAddressFactory().getDefaultAddressSpace();
         if (currentProgram.getExecutableFormat().equals("Raw Binary")) {
             boolean dosCom = currentProgram.getLanguageID().getIdAsString()
                 .equals("x86:LE:16:Real Mode");
-            String preparation = dosCom ? "REA DOS COM prepared" : "REA raw binary prepared";
+            String preparation = dosCom ? "Ghostwire DOS COM prepared" : "Ghostwire raw binary prepared";
             if (!currentProgram.getOptions(ghidra.program.model.listing.Program.PROGRAM_INFO)
                 .getBoolean(preparation, false)) {
                 throw new IllegalStateException(
-                    dosCom ? "REA DOS COM entry/context preparation failed" :
-                        "REA raw binary entry preparation failed"
+                    dosCom ? "Ghostwire DOS COM entry/context preparation failed" :
+                        "Ghostwire raw binary entry preparation failed"
                 );
             }
         }
@@ -255,7 +255,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
             serveLoopbackTcp(descriptor);
             return;
         }
-        throw new IllegalArgumentException("REA bridge transport is invalid");
+        throw new IllegalArgumentException("Ghostwire bridge transport is invalid");
     }
 
     private void serveUnixSocket(SessionDescriptor descriptor) throws Exception {
@@ -497,7 +497,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
         target.addProperty("sha256", descriptor.targetSha256);
 
         JsonObject result = new JsonObject();
-        result.addProperty("name", "REA Ghidra bridge");
+        result.addProperty("name", "Ghostwire Ghidra bridge");
         result.addProperty("run_id", descriptor.runId);
         result.addProperty("profile_digest", descriptor.profileDigest);
         result.add("provider", provider);
@@ -515,15 +515,15 @@ public final class ReaGhidraBridge extends HeadlessScript {
         result.add("pdb", pdbObservation());
         JsonArray extensions = analysisExtensions.reports();
         if (extensions.size() > 0) result.add("analysis_extensions", extensions);
-        // Written by ReaGhidraApplySeeds before auto-analysis; REA checks it
+        // Written by ReaGhidraApplySeeds before auto-analysis; Ghostwire checks it
         // against the committed profile.
         String seeds = currentProgram.getOptions(ghidra.program.model.listing.Program.PROGRAM_INFO)
-            .getString("REA analysis seeds", null);
+            .getString("Ghostwire analysis seeds", null);
         if (seeds != null) result.add("analysis_seeds", JsonParser.parseString(seeds));
-        // Written by ReaGhidraMipsSoftFloat after analysis; REA requires it
+        // Written by ReaGhidraMipsSoftFloat after analysis; Ghostwire requires it
         // exactly when the committed profile declares soft-float storage.
         String softFloat = currentProgram.getOptions(ghidra.program.model.listing.Program.PROGRAM_INFO)
-            .getString("REA MIPS soft-float storage", null);
+            .getString("Ghostwire MIPS soft-float storage", null);
         if (softFloat != null) result.add("mips_soft_float_storage", JsonParser.parseString(softFloat));
         return result;
     }
@@ -994,14 +994,14 @@ public final class ReaGhidraBridge extends HeadlessScript {
         if (candidates.isEmpty())
             throw new RequestFailure("not_found", "File offset " + coordinate +
                 " has no loaded source mapping for the admitted target file; Ghidra image base: " + canonicalAddress(currentProgram.getImageBase()) +
-                ". Inspect mappings with rea inspect-native-load-image <path> --provider ghidra --json or MCP inspect_native_load_image.");
+                ". Inspect mappings with ghostwire inspect-native-load-image <path> --provider ghidra --json or MCP inspect_native_load_image.");
         Address mapped = candidates.get(0);
         Function function = functionAtOrContaining(mapped);
         if (function == null)
             throw new RequestFailure("not_found", "File offset " + coordinate +
                 " maps to analysis address " + canonicalAddress(mapped) +
                 ", but no procedure starts at or contains that address in the current Ghidra analysis. " +
-                "Choose an observed procedure with CLI rea search <path> . --kind procedures --mode regex --provider ghidra --json or MCP list_procedures.");
+                "Choose an observed procedure with CLI ghostwire search <path> . --kind procedures --mode regex --provider ghidra --json or MCP list_procedures.");
         selection.addProperty("file_offset", offset);
         selection.addProperty("mapped_address", canonicalAddress(mapped));
         selection.addProperty("procedure_address", canonicalAddress(function.getEntryPoint()));
@@ -1441,7 +1441,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
         for (String field : List.of("name", "comment", "inline_comment")) {
             if (params.has(field)) validateAnnotationText(requireText(params, field), field);
         }
-        int transaction = currentProgram.startTransaction("REA function annotations");
+        int transaction = currentProgram.startTransaction("Ghostwire function annotations");
         boolean commit = false;
         try {
             String leafName = params.has("name")
@@ -1891,7 +1891,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
         if (!currentProgram.getMemory().contains(address))
             throw new RequestFailure("invalid_request", "Address is not mapped: " + canonicalAddress(address));
         validateAnnotationText(name, "name");
-        int transaction = currentProgram.startTransaction("REA address name");
+        int transaction = currentProgram.startTransaction("Ghostwire address name");
         boolean commit = false;
         try {
             Function function = currentProgram.getFunctionManager().getFunctionAt(address);
@@ -2228,9 +2228,9 @@ public final class ReaGhidraBridge extends HeadlessScript {
             // Other procedure operations retain their analysis-address semantics.
             throw new RequestFailure("not_found", "No procedure exists at the requested address: " + value +
                 "; Ghidra image base: " + canonicalAddress(currentProgram.getImageBase()) +
-                ". Choose an observed analysis address. CLI: rea search <path> . --kind procedures --mode regex --provider ghidra --json; " +
-                "MCP: list_procedures. Inspect the loaded base and source mappings with CLI rea analyze <path> --provider ghidra --json " +
-                "and rea inspect-native-load-image <path> --provider ghidra --json, or MCP binary_overview and inspect_native_load_image. " +
+                ". Choose an observed analysis address. CLI: ghostwire search <path> . --kind procedures --mode regex --provider ghidra --json; " +
+                "MCP: list_procedures. Inspect the loaded base and source mappings with CLI ghostwire analyze <path> --provider ghidra --json " +
+                "and ghostwire inspect-native-load-image <path> --provider ghidra --json, or MCP binary_overview and inspect_native_load_image. " +
                 "Repeat the original target options. For decompile, select source coordinates explicitly with --file-offset=0x... or MCP procedure file-offset:0x....");
         return function;
     }
@@ -2558,7 +2558,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
         // index, selector, #10). Do not merge those distinct value identities.
         if (recoveredAArch64 != null && recoveredAArch64.priorSelectorDefinition != null) {
             typedCases.limitations.add(
-                "REA decoded the relative table, but the compared selector has an earlier register definition at " +
+                "Ghostwire decoded the relative table, but the compared selector has an earlier register definition at " +
                 canonicalAddress(recoveredAArch64.priorSelectorDefinition) + "; its table indices are not proven to use the typed switch selector's case values. Ghidra's typed labels are retained and additional case labels remain unknown."
             );
             recoveredAArch64 = null;
@@ -2704,7 +2704,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
             );
         }
         if (recoveredAArch64 == null && loadTables.length == 0 && currentProgram.getLanguageID().getIdAsString().startsWith("AARCH64:")) {
-            limitations.add("REA did not verify a supported signed or unsigned byte/halfword relative dispatch chain with exact unsigned bounds and register definitions; unsupported encodings and ambiguous bounds remain unknown.");
+            limitations.add("Ghostwire did not verify a supported signed or unsigned byte/halfword relative dispatch chain with exact unsigned bounds and register definitions; unsupported encodings and ambiguous bounds remain unknown.");
         }
         if (targets.length == 0) {
             limitations.add(
@@ -2756,7 +2756,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
             if (ambiguousDispatch) {
                 result.unknownTargets.add(target);
                 result.limitations.add(
-                    "A typed case/default block has multiple indirect dispatch predecessors; REA cannot attribute its label to one switch."
+                    "A typed case/default block has multiple indirect dispatch predecessors; Ghostwire cannot attribute its label to one switch."
                 );
                 continue;
             }
@@ -4642,7 +4642,7 @@ public final class ReaGhidraBridge extends HeadlessScript {
 
     private static SessionDescriptor readDescriptor(Path path) throws IOException {
         if (!Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS)) {
-            throw new IllegalArgumentException("REA session descriptor is invalid");
+            throw new IllegalArgumentException("Ghostwire session descriptor is invalid");
         }
         JsonElement parsed = JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8));
         Set<String> keys = new HashSet<>(DESCRIPTOR_KEYS);

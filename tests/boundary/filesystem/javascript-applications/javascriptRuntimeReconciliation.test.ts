@@ -265,7 +265,7 @@ it("reconciles active Electron as a partial target-only runtime capture", async 
     createElectronActiveObservationFixtureResult(applicationPath),
     {
       id: "rea-playwright-electron-active",
-      name: "REA Playwright active Electron observation provider",
+      name: "Ghostwire Playwright active Electron observation provider",
       version: "1",
     },
   );
@@ -314,7 +314,7 @@ it("commits complete Electron actions independently from selected arguments", as
   });
   const provider = {
     id: "rea-playwright-electron-active",
-    name: "REA Playwright active Electron observation provider",
+    name: "Ghostwire Playwright active Electron observation provider",
     version: "1",
   };
   const first = createElectronActiveEvidence(

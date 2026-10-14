@@ -20,14 +20,14 @@ const gdbCommandResult = z.strictObject({
   completion_status: z.enum(["complete", "unknown"]),
 });
 
-/** Persistent GDB/MI session contracts hosted by the existing REA MCP server. */
+/** Persistent GDB/MI session contracts hosted by the existing Ghostwire MCP server. */
 export const GDB_TOOL_CONTRACTS = [
   {
     name: "start_gdb_session",
     ...toolContractMetadata("start_gdb_session"),
     kind: "native-provider",
     description:
-      "Start a BYO GDB process in MI3 mode when available, suppress startup files, and disable auto-loading. Persistent GDB sessions are available only on Linux, where REA can verify live inferior output descriptors through /proc before detaching; macOS descriptor verification is not implemented, and Windows Job Object cleanup can terminate debugger inferiors. Optionally set inferior_tty to a caller-selected terminal for future inferior runs; REA verifies the setting through GDB/MI before the session becomes ready. The selected terminal must remain available after GDB exits. A live inferior can be detached during close only while this durable output sink remains verified. The session persists in this REA MCP server process and receives an explicit session ID.",
+      "Start a BYO GDB process in MI3 mode when available, suppress startup files, and disable auto-loading. Persistent GDB sessions are available only on Linux, where Ghostwire can verify live inferior output descriptors through /proc before detaching; macOS descriptor verification is not implemented, and Windows Job Object cleanup can terminate debugger inferiors. Optionally set inferior_tty to a caller-selected terminal for future inferior runs; Ghostwire verifies the setting through GDB/MI before the session becomes ready. The selected terminal must remain available after GDB exits. A live inferior can be detached during close only while this durable output sink remains verified. The session persists in this Ghostwire MCP server process and receives an explicit session ID.",
     inputSchema: z.strictObject({
       inferior_tty: z
         .string()
@@ -69,7 +69,7 @@ export const GDB_TOOL_CONTRACTS = [
     ...toolContractMetadata("gdb_session_status"),
     kind: "native-provider",
     description:
-      "Return the observed lifecycle state and bounded recent MI records and process diagnostics for one persistent REA GDB session; truncation and invalid-UTF-8 fields report discarded or lossy data.",
+      "Return the observed lifecycle state and bounded recent MI records and process diagnostics for one persistent Ghostwire GDB session; truncation and invalid-UTF-8 fields report discarded or lossy data.",
     inputSchema: z.strictObject({ session_id: sessionId }),
     outputSchema: z.strictObject({
       session_id: sessionId,
@@ -98,7 +98,7 @@ export const GDB_TOOL_CONTRACTS = [
     ...toolContractMetadata("close_gdb_session"),
     kind: "native-provider",
     description:
-      "Close the owned GDB process after verifying the inferior state. When one live thread group has a verified durable output TTY, REA automatically detaches it, which may resume target execution; otherwise close reports that a disposition is required. REA never kills attached or remote targets as part of debugger cleanup. In a shared MCP server, this admitted close retires any active binary-analysis session; after target effects have settled, call open_binary before further analysis. Close an active Ghidra session explicitly first.",
+      "Close the owned GDB process after verifying the inferior state. When one live thread group has a verified durable output TTY, Ghostwire automatically detaches it, which may resume target execution; otherwise close reports that a disposition is required. Ghostwire never kills attached or remote targets as part of debugger cleanup. In a shared MCP server, this admitted close retires any active binary-analysis session; after target effects have settled, call open_binary before further analysis. Close an active Ghidra session explicitly first.",
     inputSchema: z.strictObject({ session_id: sessionId }),
     outputSchema: z.strictObject({
       target_state: z.enum(["none_observed", "unknown"]),

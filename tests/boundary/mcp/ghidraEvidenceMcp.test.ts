@@ -193,7 +193,9 @@ it("retains terminal-call qualifications across function views and snapshot repl
       expect(replay.value.result, name).toEqual(value);
       expect(replay.value.limitations, name).toContain(limitation);
       expect(replay.value.limitations, name).toContainEqual(
-        expect.stringContaining("Loaded from a local REA analysis snapshot"),
+        expect.stringContaining(
+          "Loaded from a local Ghostwire analysis snapshot",
+        ),
       );
     }
     expect(harness.calls).toEqual([...values.keys()]);

@@ -129,7 +129,7 @@ describe("production stdio runtime", () => {
     );
     expect(records).toContainEqual(
       expect.objectContaining({
-        application: "rea",
+        application: "ghostwire",
         mode: "mcp",
         layer: "server",
         tool: "current_document",
@@ -158,7 +158,7 @@ describe("production stdio runtime", () => {
       expect(evidence.raw_result).toBeNull();
       expect(records).toContainEqual(
         expect.objectContaining({
-          application: "rea",
+          application: "ghostwire",
           mode: "mcp",
           layer: "server",
           tool: "current_document",

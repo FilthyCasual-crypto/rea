@@ -1,6 +1,6 @@
 # Windows native controls
 
-REA ships one Windows x64 Node-API 8 addon. Users do not compile it or install
+Ghostwire ships one Windows x64 Node-API 8 addon. Users do not compile it or install
 another runtime. Ghidra and a full JDK remain bring-your-own prerequisites.
 The addon uses Windows 10+ APIs and admits fixed local NTFS volumes only.
 
@@ -65,7 +65,7 @@ without this lane reports Windows native controls as unavailable.
   after a JavaScript out-of-memory exception or 3 after a panic), so callers
   classify by the notification. `inspect` reports `jobMemoryLimit` only after
   creating such a job and port. An artifact without that capability refuses a
-  requested limit rather than launching an unlimited process. REA requests
+  requested limit rather than launching an unlimited process. Ghostwire requests
   limits only for its JavaScript helpers when running on Bun, which ignores
   their V8 heap flags; Node.js launches are unchanged.
 - Only the suspended child's default file owner is normalized. Caller token
@@ -108,7 +108,7 @@ text do not establish a safe retry. Analysis errors propagate the producer's
 retry disposition through JavaScript, source-map and WABT workflows; transient
 failures report `category: unavailable` and retain the original reason.
 Incomplete cleanup blocks an operation retry until its owned resources settle.
-REA adds no automatic retry loop or new analysis cache for this behavior.
+Ghostwire adds no automatic retry loop or new analysis cache for this behavior.
 
 Ordinary drive-absolute paths accept backslashes, forward slashes, or mixed
 separators. File identity retains the original requested spelling. Separator

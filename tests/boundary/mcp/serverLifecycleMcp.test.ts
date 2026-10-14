@@ -281,7 +281,7 @@ it.each(["handle", "stdin"] as const)(
       const [reply] = await response;
       expect(JSON.parse(String(reply))).toMatchObject({
         id: 1,
-        result: { serverInfo: { name: "rea" } },
+        result: { serverInfo: { name: "ghostwire" } },
       });
       if (shutdown === "stdin") {
         stdin.end();

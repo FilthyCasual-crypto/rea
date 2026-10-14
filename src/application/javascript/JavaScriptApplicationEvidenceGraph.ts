@@ -81,7 +81,7 @@ export const rememberOwnedApplicationGraphEvidence = (
   return evidence;
 };
 
-/** Parse and authenticate one REA-produced JavaScript Application Graph Evidence. */
+/** Parse and authenticate one Ghostwire-produced JavaScript Application Graph Evidence. */
 export const parseApplicationGraphEvidence = (
   input: unknown,
   path: readonly (string | number)[] = [],

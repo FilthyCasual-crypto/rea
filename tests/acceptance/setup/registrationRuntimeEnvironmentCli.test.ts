@@ -39,7 +39,7 @@ for (const scenario of scenarios)
           args: ["mcp"],
           env: { CALLER_SETTING: "keep exactly", ...env },
         };
-        return JSON.stringify({ mcpServers: { rea: server } });
+        return JSON.stringify({ mcpServers: { ghostwire: server } });
       };
       const original = registration(scenario.invalid);
       await writeFile(config, original);
@@ -98,7 +98,7 @@ for (const scenario of scenarios)
       expect(configured.exitCode, configured.stdout).toBe(0);
       const text = await readFile(config, "utf8");
       const parsed = parseClientConfiguration(text, scenario.format);
-      expect(effectiveClientServer(parsed, "rea")).toMatchObject({
+      expect(effectiveClientServer(parsed, "ghostwire")).toMatchObject({
         env: { CALLER_SETTING: "keep exactly", ...scenario.repaired },
       });
       expect(await readFile(`${config}.rea.backup`, "utf8")).toBe(repaired);
@@ -129,7 +129,7 @@ cliTest(
     const content = (env: Record<string, string>) =>
       JSON.stringify({
         mcp: {
-          rea: clientRegistrationEntry(
+          ghostwire: clientRegistrationEntry(
             "opencode",
             [resolve("scripts/rea.mjs"), "mcp"],
             env,

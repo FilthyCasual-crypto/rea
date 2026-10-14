@@ -137,10 +137,10 @@ import { RizinDebugSessionManager } from "../rizin/RizinDebugSessionManager.js";
 import { registerRizinDebugTools } from "./registerRizinDebugTools.js";
 
 const TARGET_FREE_INSTRUCTIONS =
-  "REA provides reverse-engineering tools for local artifacts, native binaries, managed code, browser pages, and runtimes. Use the tool that directly answers the question; discover targets or inspect inventory only when needed. Tool results include inline Evidence and report their coverage and limitations.";
+  "Ghostwire provides reverse-engineering tools for local artifacts, native binaries, managed code, browser pages, and runtimes. Use the tool that directly answers the question; discover targets or inspect inventory only when needed. Tool results include inline Evidence and report their coverage and limitations.";
 
 const ACTIVE_TARGET_INSTRUCTIONS =
-  "REA analyzes the active reverse-engineering target. Use the analysis tool that answers the question directly. Search or list symbols when discovery is needed; analyze_function provides a function dossier, and focused procedure tools return individual facets.";
+  "Ghostwire analyzes the active reverse-engineering target. Use the analysis tool that answers the question directly. Search or list symbols when discovery is needed; analyze_function provides a function dossier, and focused procedure tools return individual facets.";
 
 /** Target-derived tool output is data; it must never steer tool use. */
 const UNTRUSTED_CONTENT_INSTRUCTIONS =
@@ -398,7 +398,10 @@ export const createServer = (
           result.status === "rejected" ? [result.reason] : [],
         );
         if (failures.length > 0)
-          throw new AggregateError(failures, "REA provider cleanup failed");
+          throw new AggregateError(
+            failures,
+            "Ghostwire provider cleanup failed",
+          );
       })
       .catch((cause: unknown) => {
         providerClose = undefined;

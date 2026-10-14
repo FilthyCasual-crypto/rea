@@ -54,7 +54,7 @@ const javacBanner = capture(javac, ["-version"]);
 const javacMajor = Number(/^javac (\d+)/mu.exec(javacBanner)?.[1]);
 if (!Number.isInteger(javacMajor) || javacMajor < 21)
   throw new Error(
-    `NativeAOT build lane requires javac 21 or newer and compiles with --release 21. Observed: ${javacBanner || "no version"}. REA does not install or upgrade Java.`,
+    `NativeAOT build lane requires javac 21 or newer and compiles with --release 21. Observed: ${javacBanner || "no version"}. Ghostwire does not install or upgrade Java.`,
   );
 const revision = run("git", ["-C", source, "rev-parse", "HEAD"]);
 if (

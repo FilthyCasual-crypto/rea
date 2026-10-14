@@ -122,7 +122,7 @@ it("reports a failed config rollback and retains its backup path", async () => {
   const result = await configureClientConfiguration(
     { name: "cursor", configPath: path, format: "json" },
     {},
-    ["rea", "mcp"],
+    ["ghostwire", "mcp"],
   );
 
   expect(result).toEqual({
@@ -137,7 +137,7 @@ it("reports a failed config rollback and retains its backup path", async () => {
   });
   expect(await readFile(`${path}.rea.backup`, "utf8")).toBe(original);
   expect(JSON.parse(await readFile(path, "utf8"))).toMatchObject({
-    mcpServers: { rea: { command: "rea", args: ["mcp"] } },
+    mcpServers: { ghostwire: { command: "ghostwire", args: ["mcp"] } },
   });
 });
 
@@ -160,7 +160,7 @@ it("preserves the first backup and reports a verified backup of the current orig
   const result = await configureClientConfiguration(
     { name: "cursor", configPath: path, format: "json" },
     {},
-    ["rea", "mcp"],
+    ["ghostwire", "mcp"],
   );
   state.rejectRestore = false;
 
@@ -201,7 +201,7 @@ it("does not write config when a recovery copy disappears before verification", 
   const result = await configureClientConfiguration(
     { name: "cursor", configPath: path, format: "json" },
     {},
-    ["rea", "mcp"],
+    ["ghostwire", "mcp"],
   );
   state.removeCopiedRecovery = false;
 
@@ -233,7 +233,7 @@ it("does not roll back or remove config when its initial read cleanup fails", as
     configureClientConfiguration(
       { name: "cursor", configPath: path, format: "json" },
       {},
-      ["rea", "mcp"],
+      ["ghostwire", "mcp"],
     ),
   ).rejects.toBe(failure);
   expect(await readFile(path, "utf8")).toBe(original);
@@ -252,7 +252,7 @@ it("reports first-run rollback removal failure without a backup", async () => {
   const result = await configureClientConfiguration(
     { name: "cursor", configPath: path, format: "json" },
     {},
-    ["rea", "mcp"],
+    ["ghostwire", "mcp"],
   );
   state.rejectRemove = false;
 
@@ -267,7 +267,7 @@ it("reports first-run rollback removal failure without a backup", async () => {
   });
   expect(result).not.toHaveProperty("backupPath");
   expect(JSON.parse(await readFile(path, "utf8"))).toMatchObject({
-    mcpServers: { rea: { command: "rea", args: ["mcp"] } },
+    mcpServers: { ghostwire: { command: "ghostwire", args: ["mcp"] } },
   });
 });
 
@@ -301,7 +301,7 @@ it("retains readback cleanup ownership when rollback also fails", async () => {
     await host.configureClient(
       { name: "cursor", configPath: path, format: "json" },
       {},
-      ["rea", "mcp"],
+      ["ghostwire", "mcp"],
     );
   } catch (cause: unknown) {
     caught = cause;

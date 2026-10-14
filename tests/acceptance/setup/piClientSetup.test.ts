@@ -20,9 +20,9 @@ for (const profile of ["", "bogus"])
       const config = join(agent, "mcp.json");
       const original = JSON.stringify({
         mcpServers: {
-          rea: {
+          ghostwire: {
             type: "stdio",
-            command: "rea",
+            command: "ghostwire",
             args: ["mcp"],
             env: { REA_MCP_INPUT_SCHEMA_PROFILE: profile },
           },
@@ -87,10 +87,10 @@ cliTest(
     };
     const original = JSON.stringify({
       mcpServers: {
-        rea: {
+        ghostwire: {
           type: "stdio",
           command: "npx",
-          args: ["-y", "rea-agents@1.0.0", "mcp"],
+          args: ["-y", "ghostwire-agent@1.0.0", "mcp"],
           env: custom,
         },
       },
@@ -143,14 +143,14 @@ cliTest(
     const registration = z
       .object({
         mcpServers: z.object({
-          rea: z.object({
+          ghostwire: z.object({
             command: z.string(),
             args: z.array(z.string()),
             env: z.record(z.string(), z.string()).optional(),
           }),
         }),
       })
-      .parse(JSON.parse(configured)).mcpServers.rea;
+      .parse(JSON.parse(configured)).mcpServers.ghostwire;
     const transport = new StdioClientTransport({
       command: registration.command,
       args: registration.args,
@@ -273,7 +273,7 @@ cliTest(
     expect(JSON.parse(configured)).toMatchObject({
       mcpServers: {
         other: { command: "other-server" },
-        rea: {
+        ghostwire: {
           type: "stdio",
           command: process.platform === "win32" ? process.execPath : cliPath,
           args: process.platform === "win32" ? [cliPath, "mcp"] : ["mcp"],
@@ -349,7 +349,7 @@ cliTest(
     const text = await readFile(config, "utf8");
     expect(() => JSON.parse(text)).not.toThrow();
     expect(JSON.parse(text)).toMatchObject({
-      mcpServers: { rea: { type: "stdio" } },
+      mcpServers: { ghostwire: { type: "stdio" } },
     });
     const doctor = await run(["doctor", "--client", "pi", "--json"]);
     expect(doctor.exitCode).toBe(0);
@@ -363,7 +363,7 @@ cliTest(
     });
     await run(["uninstall", "--json"]);
     expect(
-      JSON.parse(await readFile(config, "utf8")).mcpServers.rea,
+      JSON.parse(await readFile(config, "utf8")).mcpServers.ghostwire,
     ).toBeUndefined();
 
     const blocked = await createTestTempDirectory("rea-pi-cli-malformed-");

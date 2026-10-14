@@ -23,7 +23,7 @@ const compositeProviderIdentity = (
     .map(({ id }) => id)
     .sort()
     .join("+")}`,
-  name: "REA composite analysis provider",
+  name: "Ghostwire composite analysis provider",
   version: null,
 });
 

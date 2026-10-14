@@ -155,7 +155,7 @@ export async function verifyBrowserRuntime(
     assert.equal(
       stillOpen.result.value,
       true,
-      "REA must preserve the externally owned page",
+      "Ghostwire must preserve the externally owned page",
     );
     const location = await action.send("Runtime.evaluate", {
       expression: "location.href",

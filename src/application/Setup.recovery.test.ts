@@ -106,7 +106,7 @@ describe("setup workflow", () => {
     );
     expect(result.status).toBe("needs_human");
     expect(result.code).toBe("skill_install_failed");
-    expect(result.remediation).toContain("REA skill write failed at");
+    expect(result.remediation).toContain("Ghostwire skill write failed at");
     expect(result.remediation).toContain("injected skill write failure");
     expect(result.remediation).toContain("Check permissions and rerun setup.");
     expect(progress.at(-1)).toMatchObject({
@@ -124,7 +124,7 @@ describe("setup workflow", () => {
       host,
     );
     expect(result.remediation).toBe(
-      "Run rea doctor and apply each reported remediation.",
+      "Run ghostwire doctor and apply each reported remediation.",
     );
   });
 
@@ -264,7 +264,7 @@ describe("setup scoped readiness", () => {
       {
         client: "codex",
         config_path: "/codex.toml",
-        command: ["rea", "mcp"],
+        command: ["ghostwire", "mcp"],
         state: "aligned",
         remediation: null,
       },

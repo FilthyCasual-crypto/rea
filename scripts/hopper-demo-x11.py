@@ -711,7 +711,7 @@ def run_launch(args: argparse.Namespace) -> int:
                 "XDG_SESSION_TYPE": "x11",
             }
         )
-        # Children must not consume or retain REA's lifetime pipe.
+        # Children must not consume or retain Ghostwire's lifetime pipe.
         child = subprocess.Popen(
             command, env=hopper_environment, stdin=subprocess.DEVNULL
         )

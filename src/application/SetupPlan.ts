@@ -294,7 +294,7 @@ const setupPlan = (input: {
               : "system package manager",
           detail:
             input.platform === "linux"
-              ? "Download, verify, and install Hopper plus its Xvfb demo-session dependencies. For the supported demo build, REA uses a private display and selects Hopper's offered demo mode for each analysis session."
+              ? "Download, verify, and install Hopper plus its Xvfb demo-session dependencies. For the supported demo build, Ghostwire uses a private display and selects Hopper's offered demo mode for each analysis session."
               : "Download the official Hopper package, verify it, and install it. Hopper may show its demo or license prompt when first opened.",
           external: true,
           operation: "install" as const,
@@ -332,13 +332,13 @@ const setupPlan = (input: {
         kind: "install_skill",
         label:
           client === "claude_code"
-            ? "REA skill for Claude Code"
-            : "REA reverse-engineering skill",
+            ? "Ghostwire skill for Claude Code"
+            : "Ghostwire reverse-engineering skill",
         target: path,
         detail:
           client === "claude_code"
-            ? "Install or update the REA skill in Claude Code's personal skill directory."
-            : "Install or update the bundled REA reverse-engineering skill and on-demand references.",
+            ? "Install or update the Ghostwire skill in Claude Code's personal skill directory."
+            : "Install or update the bundled Ghostwire reverse-engineering skill and on-demand references.",
         external: false,
         operation: "install",
       }))
@@ -375,9 +375,9 @@ const clientConfigurationDetail = (
       : ` Detected provider environment: ${entries.join(", ")}. Existing server environment overrides are retained; detected values replace matching keys.`;
   const hopperDetail = installHopper
     ? environment.HOPPER_LAUNCHER_PATH === undefined
-      ? " If this plan installs Hopper, REA will add HOPPER_LAUNCHER_PATH using the launcher path reported by that installation."
-      : " The HOPPER_LAUNCHER_PATH value shown above is the current fallback; if this plan installs Hopper, REA will replace it with the launcher path reported by that installation."
+      ? " If this plan installs Hopper, Ghostwire will add HOPPER_LAUNCHER_PATH using the launcher path reported by that installation."
+      : " The HOPPER_LAUNCHER_PATH value shown above is the current fallback; if this plan installs Hopper, Ghostwire will replace it with the launcher path reported by that installation."
     : "";
   const persistence = registrationPersistenceDetail(client);
-  return `Add the REA MCP registration for ${client.displayName ?? client.name}; preserve unrelated configuration. The backup path reflects the configuration inspected for this plan; if that file changes before execution, setup will select a recovery path for its current contents. Command: ${command.map((part) => JSON.stringify(part)).join(" ")}.${environmentDetail}${hopperDetail}${persistence === undefined ? "" : ` ${persistence}`}`;
+  return `Add the Ghostwire MCP registration for ${client.displayName ?? client.name}; preserve unrelated configuration. The backup path reflects the configuration inspected for this plan; if that file changes before execution, setup will select a recovery path for its current contents. Command: ${command.map((part) => JSON.stringify(part)).join(" ")}.${environmentDetail}${hopperDetail}${persistence === undefined ? "" : ` ${persistence}`}`;
 };

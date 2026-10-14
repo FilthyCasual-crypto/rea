@@ -85,7 +85,7 @@ const dnsQuery = Buffer.from(
   "hex",
 );
 const source = pcap(1, [
-  udp(5554, Buffer.from("REA")),
+  udp(5554, Buffer.from("Ghostwire")),
   udp(5555, dnsQuery),
   udp(5555, dnsQuery),
 ]);

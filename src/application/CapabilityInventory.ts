@@ -300,7 +300,7 @@ const availabilityFor = (context: AvailabilityContext): Availability => {
   if (failure !== undefined)
     return {
       reason: "provider_unavailable",
-      remediation: `Adapter ${failure.providerId} could not load: ${failure.reason}. Repair the adapter installation and restart REA; other capabilities remain available.`,
+      remediation: `Adapter ${failure.providerId} could not load: ${failure.reason}. Repair the adapter installation and restart Ghostwire; other capabilities remain available.`,
     };
   const workflowAvailability = workflowAvailabilityFor(context);
   if (workflowAvailability !== null) return workflowAvailability;
@@ -480,7 +480,7 @@ const workflowAvailabilityFor = ({
           reason: "provider_missing",
           remediation:
             policy.jebAnalysisAvailability?.reason ??
-            "Start a JEB client serving MCP (GUI client, or headless via its programmatic launcher) and point REA_JEB_MCP_URL at it (default http://127.0.0.1:8425/mcp). REA does not install or launch JEB.",
+            "Start a JEB client serving MCP (GUI client, or headless via its programmatic launcher) and point REA_JEB_MCP_URL at it (default http://127.0.0.1:8425/mcp). Ghostwire does not install or launch JEB.",
         };
   const browser = browserProviderAvailability(name, kind, policy);
   if (browser !== null) return browser;
@@ -500,7 +500,7 @@ const workflowAvailabilityFor = ({
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with its JavaScript runtime provider available.",
+            "Start Ghostwire with its JavaScript runtime provider available.",
         };
   if (kind === "session") return { reason: "available", remediation: null };
   return null;
@@ -518,14 +518,14 @@ const electronProviderAvailability = (
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with the Electron scenario provider available.",
+            "Start Ghostwire with the Electron scenario provider available.",
         };
   return policy.electronObservationEnabled === true
     ? { reason: "available", remediation: null }
     : {
         reason: "provider_missing",
         remediation:
-          "Start REA with its Electron observation provider available.",
+          "Start Ghostwire with its Electron observation provider available.",
       };
 };
 
@@ -540,7 +540,7 @@ const browserProviderAvailability = (
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with its browser scenario provider available.",
+            "Start Ghostwire with its browser scenario provider available.",
         };
   if (kind !== "browser-provider") return null;
   return policy.browserObservationEnabled === true
@@ -548,7 +548,7 @@ const browserProviderAvailability = (
     : {
         reason: "provider_missing",
         remediation:
-          "Start REA with its browser observation provider available.",
+          "Start Ghostwire with its browser observation provider available.",
       };
 };
 

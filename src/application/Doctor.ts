@@ -266,7 +266,8 @@ const doctorReportWithCleanup = (
     ok: false,
     classification: "config_drift",
     detail,
-    remediation: "Resolve the reported cleanup failure, then rerun rea doctor.",
+    remediation:
+      "Resolve the reported cleanup failure, then rerun ghostwire doctor.",
   };
   return {
     ...report,
@@ -359,8 +360,8 @@ const skillIdentityRemediation = (
 ): string => {
   const issues = identity?.issues;
   if (issues !== undefined && issues.length > 0)
-    return `${issues.map(({ path, detail }) => `${detail} (${path})`).join(" ")} Verify the reported paths and use regular skill directories, or run rea setup with --skill=false to configure the client without installing the skill.`;
-  return "Run rea setup to update the installed REA skill.";
+    return `${issues.map(({ path, detail }) => `${detail} (${path})`).join(" ")} Verify the reported paths and use regular skill directories, or run ghostwire setup with --skill=false to configure the client without installing the skill.`;
+  return "Run ghostwire setup to update the installed Ghostwire skill.";
 };
 
 const skillIdentityCheck = (
@@ -375,8 +376,8 @@ const skillIdentityCheck = (
       issues !== undefined && issues.length > 0
         ? `Selected skill identity is ${skillIdentityState(identity)}: ${issues.map(({ path }) => path).join(", ")}.`
         : identity === undefined
-          ? "Installed REA skill identity is missing."
-          : "Installed REA skill identity is stale.",
+          ? "Installed Ghostwire skill identity is missing."
+          : "Installed Ghostwire skill identity is stale.",
     remediation: skillIdentityRemediation(identity),
   };
 };
@@ -544,7 +545,8 @@ export const systemDoctorHost = (
     async installationPaths() {
       try {
         const command = platform === "win32" ? "where" : "which";
-        const arguments_ = platform === "win32" ? ["rea"] : ["-a", "rea"];
+        const arguments_ =
+          platform === "win32" ? ["ghostwire"] : ["-a", "ghostwire"];
         return uniqueLines(
           (await hostExecFileOutput(command, arguments_, commandEnvironment))
             .stdout,
@@ -618,7 +620,7 @@ const uncomposedLinuxDemoRuntimeCheck = (): Promise<DoctorCheck> =>
     ok: false,
     classification: "config_drift",
     detail: "Linux Hopper private-display diagnostics were not composed",
-    remediation: "Run rea doctor through the production CLI adapter.",
+    remediation: "Run ghostwire doctor through the production CLI adapter.",
   });
 
 const manualHopperPaths = async (home: string): Promise<readonly string[]> => {

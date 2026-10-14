@@ -183,7 +183,10 @@ const fixture = await createOpenAiModelFixture({
   onRequest: async ({ body, tools }) => {
     // Native title/summary requests cannot execute the analyst workflow.
     if (!tools.some((tool) => tool.name === "search_tool"))
-      return { role: "assistant", content: "REA fixture auxiliary response" };
+      return {
+        role: "assistant",
+        content: "Ghostwire fixture auxiliary response",
+      };
     turn++;
     assert(
       containsText(body.messages, skillDirectory),
@@ -238,7 +241,7 @@ const fixture = await createOpenAiModelFixture({
         return call("run_terminal_command", {
           command: `${diagnostic} > ${shellQuote(diagnosticFile)} && ${projection}`,
           description:
-            "Diagnose REA registration while native MCP discovery is pending",
+            "Diagnose Ghostwire registration while native MCP discovery is pending",
         });
       }
       if (lastTool === "run_terminal_command") {
@@ -247,7 +250,7 @@ const fixture = await createOpenAiModelFixture({
           .find((item) => item.startsWith('{"rea_client_diagnostic":'));
         assert(
           line,
-          "Native REA diagnostics failed or did not return the selected status",
+          "Native Ghostwire diagnostics failed or did not return the selected status",
         );
         const diagnostic = JSON.parse(line).rea_client_diagnostic;
         assert.equal(diagnostic.healthy, true);
@@ -262,14 +265,14 @@ const fixture = await createOpenAiModelFixture({
         diagnosticsVerified = true;
       }
       if (discovery?.status !== "ready")
-        return call("search_tool", { query: "rea", limit: 255 });
+        return call("search_tool", { query: "ghostwire", limit: 255 });
       const inventory = discovery.results
-        .filter((result) => result.server === "rea")
+        .filter((result) => result.server === "ghostwire")
         .flatMap((result) => result.tools);
       assert.deepEqual(
         inventory.map((tool) => tool.tool_name).sort(),
         expectedNames,
-        "Native search_tool must discover the complete REA catalog",
+        "Native search_tool must discover the complete Ghostwire catalog",
       );
       for (const tool of inventory) {
         assert(tool.input_schema, `${tool.tool_name}: missing input schema`);
@@ -317,7 +320,7 @@ const fixture = await createOpenAiModelFixture({
           .map(shellQuote)
           .join(" "),
         description:
-          "Query full saved REA Evidence while preserving artifact identity",
+          "Query full saved Ghostwire Evidence while preserving artifact identity",
       });
     }
     const line = last
@@ -340,7 +343,7 @@ const fixture = await createOpenAiModelFixture({
 });
 const q = JSON.stringify;
 const original = `# Keep unrelated settings and server state.
-disabled_mcp_servers = ["rea", "other"]
+disabled_mcp_servers = ["ghostwire", "other"]
 [cli]
 auto_update = false
 [features]
@@ -360,7 +363,7 @@ command = "unrelated-server"
 enabled = false
 `;
 await writeFile(configPath, original);
-const rea = async (args) =>
+const ghostwire = async (args) =>
   exec(
     process.execPath,
     [join(runtimeRoot, "scripts/rea.mjs"), ...args, "--json"],
@@ -375,7 +378,7 @@ try {
     ["setup", "--client", "grok_build", "--yes"],
     ["doctor", "--client", "grok_build", "--skill"],
   ]) {
-    const result = await rea(args);
+    const result = await ghostwire(args);
     await writeFile(
       join(lab, `${args[0]}${args.includes("--dry-run") ? "-plan" : ""}.json`),
       result.stdout,
@@ -415,7 +418,7 @@ try {
       configured.includes("# Keep unrelated settings"),
   );
   const repeated = JSON.parse(
-    (await rea(["setup", "--client", "grok_build", "--yes"])).stdout,
+    (await ghostwire(["setup", "--client", "grok_build", "--yes"])).stdout,
   );
   assert.deepEqual(repeated.appliedActions, []);
   assert.equal(await readFile(configPath, "utf8"), configured);
@@ -434,7 +437,7 @@ try {
       "-p",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use the REA skill to analyze ${target}.`,
+        : `Use the Ghostwire skill to analyze ${target}.`,
       "-m",
       "rea-client-fixture",
       "--output-format",
@@ -461,9 +464,11 @@ try {
   const init = events.find(
     (event) => event.type === "system" && event.subtype === "init",
   );
-  assert(init?.mcp_servers?.some((server) => server.name === "rea"));
+  assert(init?.mcp_servers?.some((server) => server.name === "ghostwire"));
   assert(
-    init.mcp_servers.every((server) => ["rea", "other"].includes(server.name)),
+    init.mcp_servers.every((server) =>
+      ["ghostwire", "other"].includes(server.name),
+    ),
     "Do not inherit foreign MCP configuration",
   );
   assert(
@@ -511,7 +516,7 @@ try {
     discovery:
       "native GROK_HOME, isolated additional skill directory, disabled foreign compatibility sources; default OS-home skill discovery and Windows unverified",
     interface:
-      "default native search_tool/use_tool with a complete explicit inventory query; asynchronous partial discovery may trigger native REA diagnosis; large MCP outputs are queried via native terminal",
+      "default native search_tool/use_tool with a complete explicit inventory query; asynchronous partial discovery may trigger native Ghostwire diagnosis; large MCP outputs are queried via native terminal",
     catalogChecked,
     catalogSize: catalogChecked ? expectedNames.length : 0,
     schemasChecked,

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 
 export const isolatedFixtureUrl = "rea-isolated-fixture.js";
 
-/** Create an explicitly owned native isolated-world fixture outside REA's public operations. */
+/** Create an explicitly owned native isolated-world fixture outside Ghostwire's public operations. */
 export async function createRuntimeIsolatedWorld(connection) {
   const tree = await connection.send("Page.getFrameTree");
   const world = await connection.send("Page.createIsolatedWorld", {
@@ -20,7 +20,7 @@ export async function createRuntimeIsolatedWorld(connection) {
   return contextId;
 }
 
-/** Invoke a known isolated callback and the selected site's callback after actual REA arming. */
+/** Invoke a known isolated callback and the selected site's callback after actual Ghostwire arming. */
 export async function triggerRuntimeFixtureAction(connection, contextId) {
   const proof = await connection.send("Runtime.evaluate", {
     contextId,

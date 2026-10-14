@@ -23,7 +23,7 @@ it("reads a linked worktree's own branch and detached HEAD through shared Git re
   const commit = () =>
     git(
       "-c",
-      "user.name=REA fixture",
+      "user.name=Ghostwire fixture",
       "-c",
       "user.email=fixture@example.invalid",
       "-c",
@@ -41,7 +41,7 @@ it("reads a linked worktree's own branch and detached HEAD through shared Git re
     "git",
     [
       "-c",
-      "user.name=REA fixture",
+      "user.name=Ghostwire fixture",
       "-c",
       "user.email=fixture@example.invalid",
       "-c",

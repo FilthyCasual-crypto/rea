@@ -1,4 +1,4 @@
-"""Authenticated REA adapter executed on Hopper's dedicated Python thread.
+"""Authenticated Ghostwire adapter executed on Hopper's dedicated Python thread.
 
 The bootstrap injects ``REA_SOCKET`` and a random ``REA_TOKEN`` before executing
 this file with Hopper's supported ``--python`` launcher option. Keep all Hopper
@@ -85,7 +85,7 @@ def _api():
 
 
 def _session_document():
-    """Return the exact document bound to this authenticated REA session."""
+    """Return the exact document bound to this authenticated Ghostwire session."""
     global _rea_session_document
     documents = _api().documents()
     if _rea_session_document is not None:
@@ -121,7 +121,7 @@ def _bind_session_document(documents=None):
         return matching[0]
     if len(matching) > 1:
         raise CapabilityUnavailableError(
-            "The REA session document is ambiguous; Hopper did not identify the launched document"
+            "The Ghostwire session document is ambiguous; Hopper did not identify the launched document"
         )
     return None
 
@@ -176,11 +176,11 @@ def _json_safe(value):
 
 
 def _document(name=None):
-    """Keep observations and mutations bound to the active REA target."""
+    """Keep observations and mutations bound to the active Ghostwire target."""
     documents = _api().documents()
     session_document = _session_document()
     if session_document is None:
-        raise CapabilityUnavailableError("The active REA target's Hopper document is no longer open; reopen the target with open_binary")
+        raise CapabilityUnavailableError("The active Ghostwire target's Hopper document is no longer open; reopen the target with open_binary")
     if name is not None:
         # A document name is display metadata; scope it to the bound native
         # handle even when another open target happens to have the same name.
@@ -546,7 +546,7 @@ def _search_results(document, kind, params):
         needle = pattern if case_sensitive else pattern.casefold()
         matches = lambda value: needle in (value if case_sensitive else value.casefold())
     else:
-        raise CapabilityUnavailableError("Regex matching requires REA's supervised worker; the native bridge only executes literal searches")
+        raise CapabilityUnavailableError("Regex matching requires Ghostwire's supervised worker; the native bridge only executes literal searches")
 
     selected = []
     for item in _search_inventory(document, kind):
@@ -734,10 +734,10 @@ def _analyze_function(document, params):
 
 
 def _dispatch(method, params):
-    """Dispatch only the closed operation set implemented by REA's public tools."""
+    """Dispatch only the closed operation set implemented by Ghostwire's public tools."""
     if method == "health":
         return {
-            "name": "REA Hopper bridge",
+            "name": "Ghostwire Hopper bridge",
             "version": "1.0.0",
             "run_id": REA_RUN_ID,
             "process_id": os.getpid(),
@@ -1157,7 +1157,7 @@ def _run():
             connection.settimeout(None)
             if _serve_connection(connection):
                 break
-            # Match REA's cleanup handshake budget without pinning Hopper's
+            # Match Ghostwire's cleanup handshake budget without pinning Hopper's
             # Python thread indefinitely after a client disappears.
             server.settimeout(REA_RECONNECT_TIMEOUT_SECONDS)
     finally:

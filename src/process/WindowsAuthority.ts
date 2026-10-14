@@ -26,7 +26,7 @@ export type WindowsNativeCapability =
       readonly remediation: string;
     };
 
-/** Security controls required before REA may claim Windows isolation. */
+/** Security controls required before Ghostwire may claim Windows isolation. */
 export interface WindowsNativeCapabilitySet {
   readonly job_object_process_ownership: WindowsNativeCapability;
   readonly private_runtime_dacl: WindowsNativeCapability;
@@ -35,7 +35,7 @@ export interface WindowsNativeCapabilitySet {
 
 /** Stable explanation used whenever the native Windows authority is absent. */
 export const WINDOWS_NATIVE_AUTHORITY_UNAVAILABLE_REASON =
-  "Windows native controls are unavailable in this runtime; use the Windows x64 REA package with its matching bundled native artifact.";
+  "Windows native controls are unavailable in this runtime; use the Windows x64 Ghostwire package with its matching bundled native artifact.";
 
 /** One readiness observation, shared by diagnostics and security controls. */
 export type WindowsNativeReadiness =
@@ -89,10 +89,10 @@ export const inspectWindowsNativeReadiness = (
       failureStage === "host"
         ? "Use a Windows x64 host and a supported Node.js runtime with Node-API 8 or newer."
         : failureStage === "artifact"
-          ? "Install the matching Windows x64 REA package with its bundled native addon; check the reported artifact load or integrity failure."
+          ? "Install the matching Windows x64 Ghostwire package with its bundled native addon; check the reported artifact load or integrity failure."
           : failureStage === "inspection"
-            ? "Install the matching Windows x64 REA package; its native inspection must prove every required security control."
-            : "Inspect the preserved native self-test error. Check that the process's temporary directory is writable local NTFS and that its filesystem, DACL, Job Object, and cleanup operations are permitted. Resolve the reported constraint, then rerun rea doctor; reinstalling Ghidra or Java cannot fix this self-test.",
+            ? "Install the matching Windows x64 Ghostwire package; its native inspection must prove every required security control."
+            : "Inspect the preserved native self-test error. Check that the process's temporary directory is writable local NTFS and that its filesystem, DACL, Job Object, and cleanup operations are permitted. Resolve the reported constraint, then rerun ghostwire doctor; reinstalling Ghidra or Java cannot fix this self-test.",
   };
 };
 

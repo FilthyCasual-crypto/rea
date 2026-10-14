@@ -1,25 +1,25 @@
 # Website observation with CDP
 
-Captured Debugger sources can be exported for REA's existing static JavaScript
+Captured Debugger sources can be exported for Ghostwire's existing static JavaScript
 analysis with `export_web_scripts`. See [captured website scripts](website-script-export.md)
 for the capture options, source mappings, and browser/local resolution limits.
 Use [captured module relationships](website-module-trace.md) to resolve one
 exported script's native imports under an explicit URL/import-map context.
 
-REA can attach to a user-owned Chrome-family browser through the Chrome DevTools Protocol (CDP) and produce bounded Evidence about an existing page. This is a passive reverse-engineering capability, not a general browser automation or remote-control surface.
+Ghostwire can attach to a user-owned Chrome-family browser through the Chrome DevTools Protocol (CDP) and produce bounded Evidence about an existing page. This is a passive reverse-engineering capability, not a general browser automation or remote-control surface.
 
 For request/response bodies and traffic debugging, see
 [Fiddler Everywhere captures and MCP](web-network-captures.md#reading-fiddler-captures-saz).
-Inspect native SAZ or HAR 1.2 offline with REA, or connect Everywhere's separate MCP server.
+Inspect native SAZ or HAR 1.2 offline with Ghostwire, or connect Everywhere's separate MCP server.
 
 ## Shipped surfaces
 
-- `list_browser_targets` / `rea list-browser-targets` discovers all eligible page targets at the endpoint by default, with an optional exact-origin filter.
-- `inspect_web_page` / `rea inspect-web-page` captures DOM structure, accessibility nodes, scripts, resources, safe response/DOM metadata, attach-window network and console metadata, WebSocket frame sizes, workers, quota, and optionally selected storage key names, redacted storage-content fingerprints, or script sources.
-- `analyze_web_bundle` / `rea analyze-web-bundle` parses selected script artifacts without execution and derives chunk edges, route and endpoint candidates, vendor fingerprints, static WebMCP declarations, and optionally source-map/original-source evidence.
-- `observe_web_session` / `rea observe-web-session` arms an observation window of the requested duration for an external user action and records ordered reload, SPA navigation, redirect, failure, lifecycle, and target-termination metadata.
-- `discover_webmcp_tools` / `rea discover-webmcp-tools` uses the experimental CDP WebMCP domain to return every in-scope registration and its complete observed `input_schema` declaration and canonical `input_schema_sha256` digest inline. Declarations are untrusted JSON data, including declared types, required fields, enums, examples and reference URLs. REA does not resolve schema references. These fields replace `input_schema_shape`. Registrations with the same name and URL in distinct observed frames retain separate identities. `tool_key` includes the observed frame ID; it is not a stable identity across navigation or browser sessions. Same-frame registration updates replace that owner only, and removal leaves other owners intact. Declared `readOnly`, `untrustedContent`, `consequential`, and `autosubmit` annotation hints are reported per registration: `true`/`false` are declared values, `null` means the declaration did not provide the hint in that capture, and a missing `consequential` key means the hint was not recorded, either in a historical capture or because the observed annotation was invalid. Consult discovery completeness and exclusions to distinguish these cases. Malformed annotation values retain the registration with incomplete coverage and an `invalid_protocol_value` exclusion. Other malformed protocol payloads can fail discovery explicitly. REA never exposes `WebMCP.invokeTool`.
-- `compare_web_captures` / `rea compare-web-captures` compares passive captures or exact-step-aligned browser scenarios. Scenario results commit reproducible literal normalization and expose alignment failures plus artifact-level action, screenshot, DOM, accessibility, URL, history, storage, and event differences. Missing or truncated evidence is never treated as equivalence.
+- `list_browser_targets` / `ghostwire list-browser-targets` discovers all eligible page targets at the endpoint by default, with an optional exact-origin filter.
+- `inspect_web_page` / `ghostwire inspect-web-page` captures DOM structure, accessibility nodes, scripts, resources, safe response/DOM metadata, attach-window network and console metadata, WebSocket frame sizes, workers, quota, and optionally selected storage key names, redacted storage-content fingerprints, or script sources.
+- `analyze_web_bundle` / `ghostwire analyze-web-bundle` parses selected script artifacts without execution and derives chunk edges, route and endpoint candidates, vendor fingerprints, static WebMCP declarations, and optionally source-map/original-source evidence.
+- `observe_web_session` / `ghostwire observe-web-session` arms an observation window of the requested duration for an external user action and records ordered reload, SPA navigation, redirect, failure, lifecycle, and target-termination metadata.
+- `discover_webmcp_tools` / `ghostwire discover-webmcp-tools` uses the experimental CDP WebMCP domain to return every in-scope registration and its complete observed `input_schema` declaration and canonical `input_schema_sha256` digest inline. Declarations are untrusted JSON data, including declared types, required fields, enums, examples and reference URLs. Ghostwire does not resolve schema references. These fields replace `input_schema_shape`. Registrations with the same name and URL in distinct observed frames retain separate identities. `tool_key` includes the observed frame ID; it is not a stable identity across navigation or browser sessions. Same-frame registration updates replace that owner only, and removal leaves other owners intact. Declared `readOnly`, `untrustedContent`, `consequential`, and `autosubmit` annotation hints are reported per registration: `true`/`false` are declared values, `null` means the declaration did not provide the hint in that capture, and a missing `consequential` key means the hint was not recorded, either in a historical capture or because the observed annotation was invalid. Consult discovery completeness and exclusions to distinguish these cases. Malformed annotation values retain the registration with incomplete coverage and an `invalid_protocol_value` exclusion. Other malformed protocol payloads can fail discovery explicitly. Ghostwire never exposes `WebMCP.invokeTool`.
+- `compare_web_captures` / `ghostwire compare-web-captures` compares passive captures or exact-step-aligned browser scenarios. Scenario results commit reproducible literal normalization and expose alignment failures plus artifact-level action, screenshot, DOM, accessibility, URL, history, storage, and event differences. Missing or truncated evidence is never treated as equivalence.
 
 Passive DOM comparison checks complete node inventories and complete frame
 parent/child structure independently. Frame IDs and sibling enumeration order
@@ -31,8 +31,8 @@ from a protocol omission. Rejected DOM facts also mark derived URL and agent-hin
 metadata incomplete, while valid facts from other nodes and documents remain
 available in the capture.
 
-- `capture_web_screenshot` / `rea capture-web-screenshot` returns a content-addressed visible-viewport PNG.
-- `compare_web_screenshots` / `rea compare-web-screenshots` performs bounded local PNG pixel comparison without OCR or external services.
+- `capture_web_screenshot` / `ghostwire capture-web-screenshot` returns a content-addressed visible-viewport PNG.
+- `compare_web_screenshots` / `ghostwire compare-web-screenshots` performs bounded local PNG pixel comparison without OCR or external services.
 - The CLI comparison commands accept each capture, screenshot artifact or normalization policy as inline JSON or a JSON file path. Use files for screenshot artifacts and scenario captures, whose embedded PNG bytes can exceed the host's command-line length limit.
 - Every surface has equivalent CLI and MCP contracts and returns Evidence provenance.
 - MCP tools return complete results inline and include the Evidence ID. Session evidence can be exported with `export_evidence_bundle`.
@@ -89,7 +89,7 @@ google-chrome \
   http://127.0.0.1:3000
 ```
 
-REA does not launch, own, or terminate this browser. Use a dedicated profile and stop it yourself when the investigation is complete. Do not expose the debugging port on a non-loopback interface.
+Ghostwire does not launch, own, or terminate this browser. Use a dedicated profile and stop it yourself when the investigation is complete. Do not expose the debugging port on a non-loopback interface.
 
 Other Chromium-family browsers, such as Chromium or Brave, work the same way
 with the same two flags. On macOS, run the executable inside the application
@@ -98,7 +98,7 @@ bundle, for example
 `"/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"`. Fedora installs
 Chromium as `chromium-browser`.
 
-REA needs the browser's HTTP discovery endpoint on a loopback port. A browser
+Ghostwire needs the browser's HTTP discovery endpoint on a loopback port. A browser
 driven over `--remote-debugging-pipe` or a private channel, for example by an
 automation SDK, exposes no such endpoint, so `list_browser_targets` has nothing
 to attach to. Connection failures report `endpoint_unreachable`; a reachable
@@ -115,7 +115,7 @@ restart the browser.
 On Linux, a reachable but locked desktop keyring can stall Chrome before its
 first navigation. For a dedicated investigation profile, add
 `--password-store=basic` to bypass that keyring. Empty or placeholder frame URLs
-then describe an unloaded page; REA continues to require an allowed, committed
+then describe an unloaded page; Ghostwire continues to require an allowed, committed
 URL. See [the startup investigation](https://github.com/morluto/rea/issues/1384#issuecomment-6093781686).
 
 ### Browsers without HTTP discovery
@@ -130,11 +130,11 @@ in an existing profile.
 For such a browser, pass the browser socket instead of the HTTP endpoint:
 
 ```bash
-rea list-browser-targets ws://127.0.0.1:9222/devtools/browser/<id>
+ghostwire list-browser-targets ws://127.0.0.1:9222/devtools/browser/<id>
 ```
 
 Chrome writes the port and the `/devtools/browser/<id>` path to the
-`DevToolsActivePort` file in its user data directory. REA does not read that
+`DevToolsActivePort` file in its user data directory. Ghostwire does not read that
 file for you.
 
 - Only `list_browser_targets`, `inspect_web_page`, `analyze_web_bundle`,
@@ -157,7 +157,7 @@ file for you.
   the origins you are investigating.
 
 A browser driven only through `--remote-debugging-pipe` or a vendor's private
-automation channel has neither endpoint, and REA cannot attach to it.
+automation channel has neither endpoint, and Ghostwire cannot attach to it.
 
 ## Request boundary
 
@@ -184,8 +184,8 @@ Pass the endpoint and selected target for each call. An origin filter is
 optional and narrows the target set.
 
 ```bash
-rea list-browser-targets http://127.0.0.1:9222 --json
-rea inspect-web-page http://127.0.0.1:9222 TARGET_ID \
+ghostwire list-browser-targets http://127.0.0.1:9222 --json
+ghostwire inspect-web-page http://127.0.0.1:9222 TARGET_ID \
   --observation-ms 1000 \
   --json
 ```
@@ -193,11 +193,11 @@ rea inspect-web-page http://127.0.0.1:9222 TARGET_ID \
 Static bundle analysis and a user-driven observation window are separate operations:
 
 ```bash
-rea analyze-web-bundle http://127.0.0.1:9222 TARGET_ID \
+ghostwire analyze-web-bundle http://127.0.0.1:9222 TARGET_ID \
   --json
-rea observe-web-session http://127.0.0.1:9222 TARGET_ID \
+ghostwire observe-web-session http://127.0.0.1:9222 TARGET_ID \
   --observation-ms 10000 --json
-rea discover-webmcp-tools http://127.0.0.1:9222 TARGET_ID \
+ghostwire discover-webmcp-tools http://127.0.0.1:9222 TARGET_ID \
   --json
 ```
 
@@ -234,7 +234,7 @@ registered tools reflect the document as loaded.
 Accessibility names/descriptions, console primitive text, JSON body shapes, WebSocket shapes, script content, and storage key names are selected independently:
 
 ```bash
-rea inspect-web-page http://127.0.0.1:9222 TARGET_ID \
+ghostwire inspect-web-page http://127.0.0.1:9222 TARGET_ID \
   --include-accessibility-text \
   --include-console-text \
   --include-json-body-shapes \
@@ -249,7 +249,7 @@ Accessibility text, script content, query values, and explicitly requested primi
 Screenshot capture returns the complete visible viewport as an inline image artifact:
 
 ```bash
-rea capture-web-screenshot http://127.0.0.1:9222 TARGET_ID \
+ghostwire capture-web-screenshot http://127.0.0.1:9222 TARGET_ID \
   --json
 ```
 
@@ -268,13 +268,13 @@ Collection counts are not capped. Per-value validation, the selected observation
 window, and CDP protocol limits still apply; any incomplete or truncated values
 are reported in the result.
 
-Call `list_browser_targets` first because target IDs are browser-instance-specific. REA rechecks the selected target's current type and origin immediately before attaching. Without an origin filter, discovery lists all eligible pages; an individual capture defaults to the selected page's current origin.
+Call `list_browser_targets` first because target IDs are browser-instance-specific. Ghostwire rechecks the selected target's current type and origin immediately before attaching. Without an origin filter, discovery lists all eligible pages; an individual capture defaults to the selected page's current origin.
 
-REA establishes a main-frame origin boundary before enabling Runtime, Debugger, or Network observation, rechecks it before document capture, and validates it again afterward. If the main frame navigates during final capture, REA discards the mixed result and returns `target_changed`.
+Ghostwire establishes a main-frame origin boundary before enabling Runtime, Debugger, or Network observation, rechecks it before document capture, and validates it again afterward. If the main frame navigates during final capture, Ghostwire discards the mixed result and returns `target_changed`.
 
 ## Data minimization
 
-REA retains local observation data and removes only URL userinfo credentials, explicitly declared scenario secrets, and values from structured credential/storage fields:
+Ghostwire retains local observation data and removes only URL userinfo credentials, explicitly declared scenario secrets, and values from structured credential/storage fields:
 
 - URL observations preserve the complete local URL, including query values, fragments, duplicate parameters, and their order. Only username/password userinfo is removed; malformed original URL strings remain available with `origin: null`.
 - DOM snapshots retain node types, node names, value lengths, and attribute names, but not text or attribute values.
@@ -319,7 +319,7 @@ are preserved.
 
 CDP discovery, connection, and commands wait for the peer or caller cancellation;
 a stalled peer can leave an operation waiting. WebSocket messages remain subject
-to the [64 MiB limit](#request-boundary). REA does not impose a message-count or
+to the [64 MiB limit](#request-boundary). Ghostwire does not impose a message-count or
 pending-command quota. On cancellation, it closes only its own WebSocket,
 waiting up to one second before terminating it. Malformed unsolicited events
 and malformed replies to pending commands poison the connection so later
@@ -327,7 +327,7 @@ commands fail closed. A correlated reply's session ID must match the command's
 selected session. An optional method is unavailable only when the browser
 rejects it as unknown; other command rejections retain their reported failure.
 
-Network and console coverage starts only after REA attaches and enables the relevant CDP domains. `prior_activity_available` is always `false`; absence from these arrays is not evidence that an event never occurred. Scripts are different: scripts the page parsed before REA attached are still reported under `scripts`. A page that loaded before attach can therefore list its scripts while `network.requests` lacks the requests that fetched them. If CDP reuses a request ID without supplying redirect metadata, REA retains the predecessor observation and marks network coverage incomplete.
+Network and console coverage starts only after Ghostwire attaches and enables the relevant CDP domains. `prior_activity_available` is always `false`; absence from these arrays is not evidence that an event never occurred. Scripts are different: scripts the page parsed before Ghostwire attached are still reported under `scripts`. A page that loaded before attach can therefore list its scripts while `network.requests` lacks the requests that fetched them. If CDP reuses a request ID without supplying redirect metadata, Ghostwire retains the predecessor observation and marks network coverage incomplete.
 
 Source maps are not fetched by inspection. Bundle analysis fetches them only when `fetch_source_maps` is selected, with exact-origin redirect checks and no credentials, cookies, or referrer. Each fetch operation has a 30-second deadline and a 64 MiB aggregate streamed-response budget across redirects. A deadline or byte-limit failure remains explicitly unavailable and makes bundle completeness partial. Source-map decoding also bounds raw resolved identities to 64 MiB and aggregate inline evidence to 32 MiB. Failed maps preserve their failure context when it fits; if another context cannot fit, collection stops with the full requested count, the returned processed count, and an explicit unknown-results limitation. Retained mappings and original sources are returned inline. See [source-location limits](web-source-location.md) for the structural decoder bounds. Original source artifacts with `.ts`, `.tsx`, `.mts`, or `.cts` suffixes carry `text/typescript`; other source names retain `text/javascript`.
 
@@ -344,8 +344,8 @@ cleanup context and resource constraint.
 
 ## Non-goals and threat model
 
-The browser provider deliberately does not expose generic CDP commands, `Runtime.evaluate`, WebMCP invocation, navigation, input, downloads, page closure, or browser closure. Screenshot capture is the sole pixel surface and returns an image only when requested. REA disables the domains it enabled, detaches the target session, and closes only its own WebSocket.
+The browser provider deliberately does not expose generic CDP commands, `Runtime.evaluate`, WebMCP invocation, navigation, input, downloads, page closure, or browser closure. Screenshot capture is the sole pixel surface and returns an image only when requested. Ghostwire disables the domains it enabled, detaches the target session, and closes only its own WebSocket.
 
-This feature is not a browser sandbox or network containment mechanism. The attached page and browser continue running with their existing privileges and may make external requests independently of REA. CDP gives deep access to the selected browser profile, so use a dedicated profile, include only origins you intend to inspect, and treat other same-user processes as outside this boundary.
+This feature is not a browser sandbox or network containment mechanism. The attached page and browser continue running with their existing privileges and may make external requests independently of Ghostwire. CDP gives deep access to the selected browser profile, so use a dedicated profile, include only origins you intend to inspect, and treat other same-user processes as outside this boundary.
 
 Response metadata normalizes a `Referrer-Policy` fallback list to its last recognized nonempty policy, including mixed-case tokens. Unknown policy names are skipped; malformed token syntax and lists without a recognized policy remain `null`. This reports the response's declared policy, not the effective policy of a document or an inferred browser default.

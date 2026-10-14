@@ -216,7 +216,7 @@ const persistClientConfiguration = async ({
       return { status: "failed", reason: "backup" };
     recoveryBackupPath = verified.value.backupPath;
   }
-  // A native OpenCode V2 entry replaces REA's legacy V1 entry, which would
+  // A native OpenCode V2 entry replaces Ghostwire's legacy V1 entry, which would
   // otherwise conflict with it.
   const legacyPath = legacyClientServerPath(
     parsed,
@@ -538,7 +538,7 @@ const rollbackOrReadbackFailure = async (
 const errorDetail = (cause: unknown): string =>
   cause instanceof Error ? cause.message : String(cause);
 
-/** Whether REA's entry matches, no legacy entry remains, and no client disable list suppresses it. */
+/** Whether Ghostwire's entry matches, no legacy entry remains, and no client disable list suppresses it. */
 const registrationCurrent = (
   parsed: ClientConfigurationDocument,
   desired: unknown,

@@ -1241,7 +1241,7 @@ it.skipIf(process.platform === "win32")(
 );
 
 it.skipIf(process.platform === "win32")(
-  "preserves inferior output written to its selected PTY after the REA probe exits",
+  "preserves inferior output written to its selected PTY after the Ghostwire probe exits",
   async () => {
     const inferiorSource = [
       "process.stdout.write(`inferior-ready=${process.pid}\\n`);",
@@ -1308,7 +1308,7 @@ it.skipIf(process.platform === "win32")(
       inferiorPid = await ready;
       await new Promise<void>((resolve, reject) => {
         const timeout = setTimeout(
-          () => reject(new Error("REA probe did not exit")),
+          () => reject(new Error("Ghostwire probe did not exit")),
           3_000,
         );
         void probeExit.then(() => {

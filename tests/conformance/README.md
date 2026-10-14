@@ -1,6 +1,6 @@
 # Source-built conformance fixtures
 
-These sources are deliberately small semantic oracles for REA providers. Run
+These sources are deliberately small semantic oracles for Ghostwire providers. Run
 `npm run verify:fixtures` on macOS or Linux to compile them into the ignored
 `build/conformance/` directory, emit a hash-and-toolchain manifest, and verify
 their platform-native symbols and strings with local command-line tools. The

@@ -3,7 +3,7 @@ import type { BinaryTarget } from "../domain/binaryTargetTypes.js";
 /**
  * Report unapplied PE companion PDB symbols when CodeView debug information is present.
  *
- * Ghidra does not automatically locate or apply sidecar PDBs in REA's isolated
+ * Ghidra does not automatically locate or apply sidecar PDBs in Ghostwire's isolated
  * runtime directories without companion admission. When the PE target header
  * references debug symbols, surface this limitation so callers understand that
  * procedure names remain analysis-generated.

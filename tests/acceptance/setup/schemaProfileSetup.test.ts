@@ -8,9 +8,9 @@ import { cliTest } from "../../support/cli/cliFixture.js";
 
 const registeredProfile = async (config: string): Promise<unknown> => {
   const document = JSON.parse(await readFile(config, "utf8")) as {
-    mcpServers?: { rea?: { env?: Record<string, string> } };
+    mcpServers?: { ghostwire?: { env?: Record<string, string> } };
   };
-  return document.mcpServers?.rea?.env?.REA_MCP_INPUT_SCHEMA_PROFILE;
+  return document.mcpServers?.ghostwire?.env?.REA_MCP_INPUT_SCHEMA_PROFILE;
 };
 
 cliTest(

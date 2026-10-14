@@ -106,7 +106,7 @@ const fixture = await createAnthropicModelFixture({
   directory: lab,
   onRequest: async ({ body, tools, requestIndex }) => {
     if (tools.length === 0)
-      return [{ type: "text", text: "REA fixture title" }];
+      return [{ type: "text", text: "Ghostwire fixture title" }];
     assert(requestIndex <= 8, "Local model workflow exceeded its turn budget");
     const call = (name, input) => [
       { type: "tool_use", id: `toolu_rea_${requestIndex}`, name, input },
@@ -119,10 +119,10 @@ const fixture = await createAnthropicModelFixture({
       const wait = tools.find((t) => t.name === "WaitForMcpServers");
       assert(
         wait,
-        "Claude must expose REA tools or its native pending-server wait",
+        "Claude must expose Ghostwire tools or its native pending-server wait",
       );
       pendingServerWaits++;
-      return call(wait.name, { servers: ["rea"] });
+      return call(wait.name, { servers: ["ghostwire"] });
     }
     const prefix = analysis.name.slice(
       0,
@@ -135,7 +135,7 @@ const fixture = await createAnthropicModelFixture({
     assert.deepEqual(
       sortVerifierNames(reaTools.map((t) => t.name)),
       expected,
-      "Claude must forward the complete REA catalog after connection",
+      "Claude must forward the complete Ghostwire catalog after connection",
     );
     catalogSize = expected.length;
     if (schemasChecked === 0) {
@@ -191,7 +191,7 @@ const fixture = await createAnthropicModelFixture({
         const session = tools.find(
           (tool) => tool.name === `${prefix}binary_session`,
         );
-        assert(session, "Claude must expose the REA binary_session tool");
+        assert(session, "Claude must expose the Ghostwire binary_session tool");
         sessionRequested = true;
         return call(session.name, {});
       }
@@ -251,7 +251,7 @@ const fixture = await createAnthropicModelFixture({
     }
     assert(
       skillLoaded,
-      "Claude must load the complete installed personal REA skill",
+      "Claude must load the complete installed personal Ghostwire skill",
     );
     return call(analysis.name, { input_path: target, format: "directory" });
   },
@@ -348,14 +348,14 @@ try {
           allow: [
             "Skill",
             "WaitForMcpServers",
-            "mcp__rea__analyze_javascript_application",
-            ...(mode === "call" ? ["mcp__rea__binary_session"] : []),
+            "mcp__ghostwire__analyze_javascript_application",
+            ...(mode === "call" ? ["mcp__ghostwire__binary_session"] : []),
           ],
         },
       }),
       mode === "chat"
         ? "Say hello briefly."
-        : `Use the REA skill and tools to analyze the JavaScript directory ${target}. Report the result.`,
+        : `Use the Ghostwire skill and tools to analyze the JavaScript directory ${target}. Report the result.`,
     ],
     {
       env: {

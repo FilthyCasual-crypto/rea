@@ -86,7 +86,7 @@ export class NativeModuleResolver implements WebModuleResolutionPort {
           "missing_browser_executable",
           {
             userMessage:
-              "Provide an absolute REA_BROWSER_EXECUTABLE for a caller-supplied Chromium browser supporting import.meta.resolve. REA installs no browser.",
+              "Provide an absolute REA_BROWSER_EXECUTABLE for a caller-supplied Chromium browser supporting import.meta.resolve. Ghostwire installs no browser.",
           },
         ),
       );

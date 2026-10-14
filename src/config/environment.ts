@@ -95,7 +95,7 @@ export const parseEnvironmentValues = (
       constraint: issue.message,
     }));
     return err(
-      new ConfigurationError("Invalid REA environment configuration", {
+      new ConfigurationError("Invalid Ghostwire environment configuration", {
         cause: parsed.error,
         settings,
       }),
@@ -136,7 +136,7 @@ export const parseEnvironment = (
     !unresolvedSettings.has("REA_GHIDRA_LANGUAGE_ID")
   )
     return err(
-      new ConfigurationError("Invalid REA environment configuration", {
+      new ConfigurationError("Invalid Ghostwire environment configuration", {
         settings: [
           {
             setting: "REA_GHIDRA_COMPILER_SPEC_ID",

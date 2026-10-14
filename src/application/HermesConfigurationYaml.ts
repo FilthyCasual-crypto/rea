@@ -350,6 +350,6 @@ export const editHermesConfigurationYaml = (
     }
     document.setIn(path, value);
   }
-  // Editing REA must not reflow unrelated user prompts or other YAML scalars.
+  // Editing Ghostwire must not reflow unrelated user prompts or other YAML scalars.
   return document.toString({ lineWidth: 0 });
 };

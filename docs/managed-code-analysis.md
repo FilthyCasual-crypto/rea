@@ -1,6 +1,6 @@
 # Managed-code analysis
 
-REA inspects .NET PE/CLI artifacts without loading or executing their code.
+Ghostwire inspects .NET PE/CLI artifacts without loading or executing their code.
 It can identify an assembly, inspect metadata and CIL, compare members across
 builds, and connect declared native calls to supplied native-analysis evidence.
 CIL is Common Intermediate Language, the instruction format used by managed
@@ -19,7 +19,7 @@ The seven shipped tools are:
 | Add managed findings to an application graph                                | `project_managed_application_graph` |
 
 Each has a matching CLI command: replace underscores with hyphens and prefix
-the name with `rea`, for example `rea inspect-managed-artifact`.
+the name with `ghostwire`, for example `ghostwire inspect-managed-artifact`.
 Native-body bridge mapping and managed runtime execution are outside the
 current tool set.
 
@@ -29,8 +29,8 @@ The canonical tool inventory is the
 ## Inspect an assembly
 
 ```bash
-rea inspect-managed-artifact /absolute/path/Assembly.dll --json
-rea inspect-managed-members /absolute/path/Assembly.dll --json
+ghostwire inspect-managed-artifact /absolute/path/Assembly.dll --json
+ghostwire inspect-managed-members /absolute/path/Assembly.dll --json
 ```
 
 Use the artifact result to identify the assembly and its metadata coverage.
@@ -128,7 +128,7 @@ A valid implementation marker establishes a candidate native boundary, not
 recovered native semantics or runtime behavior.
 
 An assembly targeting [.NET Standard](https://learn.microsoft.com/en-us/dotnet/standard/net-standard)
-declares API compatibility across multiple .NET implementations. REA preserves
+declares API compatibility across multiple .NET implementations. Ghostwire preserves
 that target in `target_frameworks` and leaves `runtime_family` as `unknown`
 unless independent markers identify a runtime family, such as a ReadyToRun
 signature.
@@ -159,7 +159,7 @@ When whole-assembly member decoding reaches the representation budget, select
 known declaring types before their signatures and CIL bodies are decoded:
 
 ```bash
-rea inspect-managed-members /absolute/path/Assembly.dll --type Example.Parser
+ghostwire inspect-managed-members /absolute/path/Assembly.dll --type Example.Parser
 ```
 
 MCP uses `inspect_managed_members` with
@@ -259,7 +259,7 @@ CIL/signature key, never by structural shape alone, and any remap group it
 joins stays ambiguous. The exact-signature key uses names only as part of that
 full tuple; names alone never select a pair. Duplicate tuples remain ambiguous
 rather than being paired by token order. The raw signature is exact whether or
-not REA decoded it, so undecoded signatures pair by that tuple too, but they
+not Ghostwire decoded it, so undecoded signatures pair by that tuple too, but they
 never enter structural rounds. An unmatched member is therefore reported as
 `unknown`, not added or removed, when its own signature was not decoded or when
 the other side has an unpaired member, one-sided or ambiguous, with the same
@@ -298,14 +298,14 @@ lists supported OS/architecture targets and deployment limitations, while its
 [native library guide](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/libraries)
 describes exported shared-library entry points.
 
-REA offers a built-in read-only snapshot parser for x64 PE/RTR 9.1 metadata and
+Ghostwire offers a built-in read-only snapshot parser for x64 PE/RTR 9.1 metadata and
 an optional Linux headless Ghidra adapter for annotations and broader recovery.
-The adapter requires a locally built `REA_GHIDRA_NATIVEAOT_JAR`; REA does not
+The adapter requires a locally built `REA_GHIDRA_NATIVEAOT_JAR`; Ghostwire does not
 install it or its toolchain. The [NativeAOT guide](ghidra-nativeaot.md) defines
 these routes, their layout/host restrictions, derived-memory provenance, and
 verification coverage.
 
-REA's experimental Windows Ghidra boundary admits native x86 and x86-64 PE
+Ghostwire's experimental Windows Ghidra boundary admits native x86 and x86-64 PE
 applications and DLLs for static analysis. For x64 PE NativeAOT, the read-only
 parser also runs there; the [NativeAOT guide](ghidra-nativeaot.md) lists what a
 Windows host covers.
@@ -349,13 +349,13 @@ facts remain explicit in coverage and per-member status.
 
 Metadata table streams may carry the CLR-compatible `ExtraData` extension
 (`HeapSizes` flag `0x40`), which Microsoft readers honor although it is not
-specified by ECMA-335. REA skips its fixed four-byte word after the row counts
+specified by ECMA-335. Ghostwire skips its fixed four-byte word after the row counts
 before decoding table rows; the word's value is not a length. An incomplete
 word is reported as a metadata coverage failure at its file offset, without
 reading beyond the declared table stream.
 
 For unoptimized `#-` metadata, nonempty `FieldPtr` and `MethodPtr` tables
-translate TypeDef list positions to physical member definitions. REA resolves
+translate TypeDef list positions to physical member definitions. Ghostwire resolves
 these indirections for member ownership and local attribute-constructor types;
 field and method tokens still identify the original definition rows.
 `field_list` and `method_list` retain the metadata's list coordinates, which
@@ -368,13 +368,13 @@ budget before allocation.
 `exported_types` reports ExportedType rows as declared. Facade assemblies such
 as .NET `System.Runtime.dll` provide their types this way: `forwarder: true`
 marks a type forwarder, and `implementation_token` names the AssemblyRef, File,
-or enclosing ExportedType row that implements it. REA does not load the
+or enclosing ExportedType row that implements it. Ghostwire does not load the
 implementing assembly to resolve the forwarded definition, and
 `compare_managed_members` does not compare exported types. Member Evidence
 recorded before this field existed reads back with `exported_types: null`,
 which means the table was not examined.
 
-CLI `#GUID` heap values retain their exact 16-byte GUID text. REA does not impose
+CLI `#GUID` heap values retain their exact 16-byte GUID text. Ghostwire does not impose
 RFC 4122 UUID version or variant bits on MVID, EncId, or EncBaseId because
 ECMA-335 metadata does not require those bit patterns. Tokens and RVAs are
 build-local coordinates, not durable cross-build identities or native addresses.
@@ -418,7 +418,7 @@ UTF-8 encoding, and lowercase hexadecimal output.
 
 ## Tool and packaging boundary
 
-The production parser is REA-owned TypeScript and ships with the existing Node
+The production parser is Ghostwire-owned TypeScript and ships with the existing Node
 application. Deterministic conformance uses source-owned byte-built PE/CLI
 fixtures and expected semantic facts. An optional real ILSpy lane runs only when
 its executable is explicitly supplied; the default lane does not establish
@@ -441,9 +441,9 @@ into isolated directories. Updating any coordinate requires review of license,
 runtime, supported host, output contract, and conformance results.
 
 Target platform is not host support. The canonical parser must inspect
-Windows-produced PE/CLI bytes on REA's supported Linux and macOS hosts with the
+Windows-produced PE/CLI bytes on Ghostwire's supported Linux and macOS hosts with the
 same result. Pinned Windows oracle jobs may provide additional conformance, but
-they do not claim that the REA application itself supports Windows. Native
+they do not claim that the Ghostwire application itself supports Windows. Native
 ReadyToRun, C++/CLI, NativeAOT, or IL2CPP coverage is additionally constrained
 by the selected Hopper/Ghidra host and format matrix.
 
@@ -533,7 +533,7 @@ assembly name, runtime-family, and managed-architecture mismatches whenever the
 manifest supplies those fields. It then pages each declared MethodDef token
 directly by row, so selected methods do not need to appear in the first member
 page of a large application. Optional `il_sha256` locks the exact raw CIL bytes
-in addition to REA's decoded-instruction-tuple digest. That normalized field
+in addition to Ghostwire's decoded-instruction-tuple digest. That normalized field
 has the byte boundaries documented above and is not a complete semantic CIL
 identity.
 
@@ -541,7 +541,7 @@ The optional `application_graph` block reuses those exact-build method
 commitments. For each referenced MethodDef token, the verifier builds a bounded
 managed application-graph projection from the authenticated artifact and the
 single selected member page, then checks requested node kinds and feature-trace
-seed matches. This proves only that the selected static facts enter REA's graph
+seed matches. This proves only that the selected static facts enter Ghostwire's graph
 and tracing vocabulary for that exact local build; it does not execute the
 application, inspect arbitrary unlisted methods, or infer runtime behavior.
 
@@ -553,7 +553,7 @@ does not print method bodies, reconstructed C#, application data, runtime
 telemetry, account/service details, full filesystem inventories, or the
 target's absolute path. The manifest and target remain outside git.
 
-The benchmark may prove that REA reproduces selected facts for that exact local
+The benchmark may prove that Ghostwire reproduces selected facts for that exact local
 build. It cannot establish general support on its own; source-built conformance
 remains the admission requirement.
 

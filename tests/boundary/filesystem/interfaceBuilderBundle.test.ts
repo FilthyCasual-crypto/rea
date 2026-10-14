@@ -857,7 +857,7 @@ describe("binary Interface Builder archive omissions", () => {
       }),
     );
     expect(result.limitations).toContain(
-      "Contents/Resources/Prototype.nib: Dictionary entries keyed __proto__ were omitted because REA results cannot represent that key.",
+      "Contents/Resources/Prototype.nib: Dictionary entries keyed __proto__ were omitted because Ghostwire results cannot represent that key.",
     );
   });
 });
@@ -957,7 +957,7 @@ describe("bounded Interface Builder archive decoding", () => {
     );
     expect(result.graph.truncated).toBe(true);
     expect(result.limitations).toContain(
-      "Contents/Resources/Prototype.nib: 1 dictionary entry keyed __proto__ was omitted because REA results cannot represent that key.",
+      "Contents/Resources/Prototype.nib: 1 dictionary entry keyed __proto__ was omitted because Ghostwire results cannot represent that key.",
     );
   });
 

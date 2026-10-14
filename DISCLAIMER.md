@@ -2,12 +2,12 @@
 
 ## Responsible use
 
-REA is built for lawful analysis: security research, malware and incident
+Ghostwire is built for lawful analysis: security research, malware and incident
 analysis, vulnerability research and coordinated disclosure, CTFs and education,
 interoperability, software preservation, and debugging or auditing software you
 own or are authorized to examine.
 
-The REA project does not support, and will not help with:
+The Ghostwire project does not support, and will not help with:
 
 - circumventing DRM, license checks, anti-cheat systems or other technical
   protection measures;
@@ -24,17 +24,17 @@ engineering may be restricted in your jurisdiction or by the license of the
 software you analyze.
 
 Requests for help with the uses above will be closed without response in issues
-and discussions, and may result in removal from the REA community.
+and discussions, and may result in removal from the Ghostwire community.
 
 ## User responsibility
 
-Do not use REA for unauthorized access or exploitation, credential theft,
+Do not use Ghostwire for unauthorized access or exploitation, credential theft,
 malicious deployment of malware, unlawful collection or disclosure of data,
 unauthorized service disruption, or unlawful circumvention of access controls or
 licensing restrictions. Legitimate security research and malware analysis must
 remain within the rights and permissions applicable to the work.
 
-You are responsible for your use of REA, including commands, configurations,
+You are responsible for your use of Ghostwire, including commands, configurations,
 scripts, and actions you direct an AI agent to perform. Establish the legal
 authority and scope required for the targets, accounts, devices, software, data,
 and operations involved. Comply with applicable laws, contracts,
@@ -44,7 +44,7 @@ endpoint does not by itself establish permission for every operation.
 
 ## Runtime, network, and device operations
 
-Some REA workflows execute or observe programs, attach to runtime or browser
+Some Ghostwire workflows execute or observe programs, attach to runtime or browser
 endpoints, capture network traffic, interact with applications, or operate on
 connected devices. These actions can affect application state, files, accounts,
 devices, and services. Authorization to inspect an artifact does not necessarily
@@ -78,16 +78,16 @@ notices, and usage conditions. Consult
 records, and preserved upstream texts.
 
 You must legally obtain IDA Pro and Hex-Rays decompilers, Hopper, JEB, and any
-other proprietary tools, together with the rights required for your use. REA
+other proprietary tools, together with the rights required for your use. Ghostwire
 provides no commercial-tool license, key, or activation entitlement. Permitted
 trials and demos remain subject to vendor terms. An open-source bridge or
 accessible API does not grant additional user, machine, feature, automation,
 hosting, or output-sharing rights. Cracked copies, stolen keys, unauthorized key
-sharing, and bypassing license restrictions are not authorized by REA.
+sharing, and bypassing license restrictions are not authorized by Ghostwire.
 
 ## Disclaimer of warranty
 
-REA is provided **AS IS**, without express or implied warranties, including
+Ghostwire is provided **AS IS**, without express or implied warranties, including
 merchantability, fitness for a particular purpose, and noninfringement, as set
 out in the [MIT License](LICENSE). You assume the risks of using the software
 and deciding whether it is suitable for your task. No project description,
@@ -96,7 +96,7 @@ outcome or establishes that your intended use is lawful or safe.
 
 ## Limitation of liability
 
-The warranty and liability provisions of the [MIT License](LICENSE) govern REA's
+The warranty and liability provisions of the [MIT License](LICENSE) govern Ghostwire's
 authors and copyright holders, subject to applicable law. That license disclaims
 liability for claims, damages, and other liability arising from or in connection
 with the software or its use, whether in contract, tort, or otherwise. This
@@ -106,15 +106,15 @@ that cannot be excluded under applicable law.
 ## Disclaimer of endorsement
 
 References to third-party projects, contributors, products, services, and
-trademarks identify their work and REA's integrations. Credits and thanks do not
+trademarks identify their work and Ghostwire's integrations. Credits and thanks do not
 imply affiliation, sponsorship, approval, or endorsement by the named parties,
 including the National Security Agency and commercial tool vendors.
 Redistribution, bundling, or hosting by a third party does not by itself imply
-affiliation with or endorsement by the REA project.
+affiliation with or endorsement by the Ghostwire project.
 
 ## Relationship to software licenses
 
-This document explains REA's intended use, user responsibilities, and community
+This document explains Ghostwire's intended use, user responsibilities, and community
 support boundaries. It does not amend the MIT license, impose additional
 copyright-license conditions, replace upstream licenses, or grant rights to
 third-party software or targets. The applicable software licenses and agreements
@@ -123,9 +123,9 @@ retain their own terms.
 ## Versions, distribution channels, and platforms
 
 The project's position on lawful use and non-endorsement of illegal or
-unauthorized activity covers all REA versions, distribution forms, and
+unauthorized activity covers all Ghostwire versions, distribution forms, and
 platforms. This includes historical releases and Git commits, npm packages,
-bundled or separately distributed REA skills, source checkouts, release
+bundled or separately distributed Ghostwire skills, source checkouts, release
 archives, and redistributed copies, regardless of installation method, agent
 client, operating system, or platform. Using an older version or another
 distribution channel does not imply project endorsement or remove obligations

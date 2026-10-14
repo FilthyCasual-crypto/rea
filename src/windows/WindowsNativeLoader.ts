@@ -95,19 +95,21 @@ export const loadWindowsNativeAuthority = (
     return {
       available: false,
       failureStage: "host",
-      reason: "REA Windows native controls require a Windows x64 host.",
+      reason: "Ghostwire Windows native controls require a Windows x64 host.",
     };
   const nodeApiVersion = Number(host.nodeApiVersion);
   if (!Number.isSafeInteger(nodeApiVersion) || nodeApiVersion < 8)
     return {
       available: false,
       failureStage: "host",
-      reason: "REA Windows native controls require Node-API 8 or newer.",
+      reason: "Ghostwire Windows native controls require Node-API 8 or newer.",
     };
   try {
     const manifest = windowsNativeManifestSchema.parse(host.readManifest());
     if (manifest.packageVersion !== host.packageVersion)
-      throw new Error("Windows native artifact belongs to another REA version");
+      throw new Error(
+        "Windows native artifact belongs to another Ghostwire version",
+      );
     const artifact = host.readArtifact();
     if (
       createHash("sha256").update(artifact).digest("hex") !==
@@ -126,7 +128,7 @@ export const loadWindowsNativeAuthority = (
         available: false,
         failureStage: "self-test",
         retryable: true,
-        reason: `REA Windows native self-test failed: ${cause instanceof Error ? cause.message : String(cause)}`,
+        reason: `Ghostwire Windows native self-test failed: ${cause instanceof Error ? cause.message : String(cause)}`,
       };
     }
     const parsed = inspectionSchema.safeParse(observed);
@@ -134,7 +136,7 @@ export const loadWindowsNativeAuthority = (
       return {
         available: false,
         failureStage: "inspection",
-        reason: `REA Windows native inspection is invalid: ${parsed.error.message}`,
+        reason: `Ghostwire Windows native inspection is invalid: ${parsed.error.message}`,
       };
     const inspection = parsed.data;
     return { available: true, authority: { call: binding.call, inspection } };
@@ -142,7 +144,7 @@ export const loadWindowsNativeAuthority = (
     return {
       available: false,
       failureStage: "artifact",
-      reason: `REA Windows native controls are unavailable: ${cause instanceof Error ? cause.message : String(cause)}`,
+      reason: `Ghostwire Windows native controls are unavailable: ${cause instanceof Error ? cause.message : String(cause)}`,
     };
   }
 };

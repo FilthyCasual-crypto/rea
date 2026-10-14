@@ -445,18 +445,18 @@ describe("analysis error projection: provider failures", () => {
     );
   });
 
-  it("identifies the REA session that already owns a Hopper target", () => {
+  it("identifies the Ghostwire session that already owns a Hopper target", () => {
     const error = new HopperStartError({
       ownerRunId: "session-owner",
       userMessage:
-        "This Hopper target is already open in REA session session-owner. Use that REA session or close it before opening this target again.",
+        "This Hopper target is already open in Ghostwire session session-owner. Use that Ghostwire session or close it before opening this target again.",
     });
     expect(projectAnalysisError(error)).toMatchObject({
       category: "unavailable",
       message: expect.stringContaining("session-owner"),
       remediation: {
         action: expect.stringContaining(
-          "Use the active REA session session-owner",
+          "Use the active Ghostwire session session-owner",
         ),
       },
     });
@@ -745,7 +745,9 @@ describe("analysis error projection: operational diagnostics", () => {
         exit_code: 7,
       },
     });
-    expect(exited.message).not.toContain("Run `rea doctor`, then try again.");
+    expect(exited.message).not.toContain(
+      "Run `ghostwire doctor`, then try again.",
+    );
     expect(exited.remediation.action).toContain("Restart the owned provider");
 
     const unknown = projectAnalysisError(

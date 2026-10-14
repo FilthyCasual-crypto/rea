@@ -44,11 +44,11 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
- * REA-owned stdio bridge over the unmodified upstream JADX release JAR
+ * Ghostwire-owned stdio bridge over the unmodified upstream JADX release JAR
  * (github.com/skylot/jadx). It uses only the jadx.api / jadx.core classes of
  * that JAR plus the JDK, and speaks a minimal newline-delimited JSON-RPC 2.0
  * subset of the MCP stdio protocol (initialize, ping, tools/list, tools/call)
- * that REA's TypeScript adapter drives. Every reply is one UTF-8 line.
+ * that Ghostwire's TypeScript adapter drives. Every reply is one UTF-8 line.
  */
 class ReaJadxBridge {
   static final String NAME = "rea-jadx-bridge";
@@ -528,7 +528,7 @@ class ReaJadxBridge {
     }
   }
 
-  /** Upstream's service loader, narrowed to the input and metadata plugins REA admits. */
+  /** Upstream's service loader, narrowed to the input and metadata plugins Ghostwire admits. */
   static final class AdmittedPluginLoader implements JadxPluginLoader {
     private final JadxBasePluginLoader delegate = new JadxBasePluginLoader();
 
@@ -848,7 +848,7 @@ class ReaJadxBridge {
       target += "." + selectedMethod.name();
       uses = method(cls, selectedMethod).getUseIn();
     }
-    // REA consumes all references without materializing source line information.
+    // Ghostwire consumes all references without materializing source line information.
     MethodInfo targetInfo = selectedMethod == null ? null
         : method(cls, selectedMethod).getMethodNode().getMethodInfo();
     List<Map<String, Object>> items = new ArrayList<>();

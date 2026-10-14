@@ -110,7 +110,7 @@ async function stopOwnedBrowser(owned, profile) {
           "inspect_web_page",
           signal,
         );
-        // This browser belongs to the verifier; public REA operations never close it.
+        // This browser belongs to the verifier; public Ghostwire operations never close it.
         await connection.send("Browser.close", {}, undefined, signal);
       } catch {
         if (child.exitCode === null && child.signalCode === null)

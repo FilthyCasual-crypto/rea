@@ -8,7 +8,7 @@ import { cliTest } from "../../support/cli/cliFixture.js";
 
 const ompConfigurationSchema = z.object({
   mcpServers: z.object({
-    rea: z.object({ command: z.string(), args: z.array(z.string()) }),
+    ghostwire: z.object({ command: z.string(), args: z.array(z.string()) }),
   }),
 });
 
@@ -48,7 +48,7 @@ for (const { runner, userAgent } of [
           await readFile(join(home, ".omp", "agent", "mcp.json"), "utf8"),
         ),
       );
-      const { command, args } = configuration.mcpServers.rea;
+      const { command, args } = configuration.mcpServers.ghostwire;
       expect([command, ...args]).toEqual(
         packageRunnerRegistrationCommand(runner, process.platform),
       );

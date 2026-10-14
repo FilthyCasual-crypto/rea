@@ -118,7 +118,7 @@ cliTest.skipIf(process.platform === "win32")(
     const remainingConfig = parse(
       await readFile(join(home, ".cursor", "mcp.json"), "utf8"),
     );
-    expect(remainingConfig).not.toHaveProperty("mcpServers.rea");
+    expect(remainingConfig).not.toHaveProperty("mcpServers.ghostwire");
     await expect(
       access(
         join(

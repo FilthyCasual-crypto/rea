@@ -450,10 +450,10 @@ describe("Ghidra Windows launcher", () => {
       analyzeHeadlessPath:
         "C:\\Program Files\\Ghidra 12.1.4\\support\\analyzeHeadless.bat",
       arguments: [
-        "C:\\REA Runtime\\project",
+        "C:\\Ghostwire Runtime\\project",
         "rea-project",
         "-import",
-        "C:\\REA Runtime\\target.exe",
+        "C:\\Ghostwire Runtime\\target.exe",
       ],
       comSpec: "C:\\Windows\\System32\\cmd.exe",
     });
@@ -466,7 +466,7 @@ describe("Ghidra Windows launcher", () => {
         "/v:off",
         "/s",
         "/c",
-        '""C:\\Program Files\\Ghidra 12.1.4\\support\\analyzeHeadless.bat" "C:\\REA Runtime\\project" "rea-project" "-import" "C:\\REA Runtime\\target.exe""',
+        '""C:\\Program Files\\Ghidra 12.1.4\\support\\analyzeHeadless.bat" "C:\\Ghostwire Runtime\\project" "rea-project" "-import" "C:\\Ghostwire Runtime\\target.exe""',
       ],
     });
   });

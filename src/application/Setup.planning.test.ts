@@ -140,7 +140,7 @@ describe("setup workflow", () => {
     const host = new FakeSetupHost("win32");
     host.registrationCommand = [];
     host.registrationCommandBlocker =
-      "REA could not determine the current executable entrypoint.";
+      "Ghostwire could not determine the current executable entrypoint.";
     host.clients = [{ name: "codex", configPath: "C:\\config\\codex.toml" }];
 
     const result = await runSetup(
@@ -163,7 +163,7 @@ describe("setup workflow", () => {
         config_path: "/cursor.json",
         command: [process.execPath, "./rea.mjs", "mcp"],
         state: "stale",
-        remediation: "Run rea setup to refresh this registration.",
+        remediation: "Run ghostwire setup to refresh this registration.",
       },
     ];
 
@@ -340,7 +340,7 @@ describe("setup workflow lifecycle and provider planning", () => {
       {
         client: "codex",
         config_path: "/codex.toml",
-        command: ["rea", "mcp"],
+        command: ["ghostwire", "mcp"],
         state: "aligned",
         remediation: null,
       },
@@ -359,12 +359,12 @@ describe("setup workflow lifecycle and provider planning", () => {
       },
       {
         actionId: "install_skill",
-        label: "REA reverse-engineering skill",
+        label: "Ghostwire reverse-engineering skill",
         state: "started",
       },
       {
         actionId: "install_skill",
-        label: "REA reverse-engineering skill",
+        label: "Ghostwire reverse-engineering skill",
         state: "completed",
       },
     ]);

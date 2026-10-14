@@ -78,7 +78,7 @@ const inventory = (
 
 const provider = {
   id: "rea-artifact-graph",
-  name: "REA safe artifact graph provider",
+  name: "Ghostwire safe artifact graph provider",
   version: "1",
 } as const;
 

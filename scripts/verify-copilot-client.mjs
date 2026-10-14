@@ -133,11 +133,11 @@ const fixture = await createOpenAiModelFixture({
     wireModels.push(body.model);
     // Auxiliary requests without tools cannot execute the analyst's workflow.
     if (tools.length === 0)
-      return { role: "assistant", content: "REA fixture title" };
+      return { role: "assistant", content: "Ghostwire fixture title" };
     const analysis = tools.find((t) =>
       t.name.endsWith("analyze_javascript_application"),
     );
-    assert(analysis, "Copilot CLI must expose the REA analysis tool");
+    assert(analysis, "Copilot CLI must expose the Ghostwire analysis tool");
     const prefix = analysis.name.slice(
       0,
       -"analyze_javascript_application".length,
@@ -147,7 +147,7 @@ const fixture = await createOpenAiModelFixture({
     assert.deepEqual(
       reaTools.map((t) => t.name).sort(),
       expected,
-      "Copilot CLI must forward the complete REA catalog",
+      "Copilot CLI must forward the complete Ghostwire catalog",
     );
     catalogSize = expected.length;
     if (schemasChecked === 0) {
@@ -228,7 +228,7 @@ const fixture = await createOpenAiModelFixture({
     }
     assert(
       skillLoaded,
-      "Copilot CLI must load the installed personal REA skill",
+      "Copilot CLI must load the installed personal Ghostwire skill",
     );
     const spilled = replies.find(
       (message) =>
@@ -329,7 +329,7 @@ try {
   if (inputSchemaProfile === "compact") {
     // Select the existing presentation in this disposable native-client profile.
     const customized = JSON.parse(configured);
-    assert(customized.mcpServers.rea);
+    assert(customized.mcpServers.ghostwire);
     customized.mcpServers.rea.env = {
       ...customized.mcpServers.rea.env,
       REA_MCP_INPUT_SCHEMA_PROFILE: inputSchemaProfile,
@@ -364,7 +364,7 @@ try {
     });
     await writeFile(join(lab, `${name}.stdout`), result.stdout);
     await writeFile(join(lab, `${name}.stderr`), result.stderr);
-    if (name === "mcp-list") assert(result.stdout.includes("rea"));
+    if (name === "mcp-list") assert(result.stdout.includes("ghostwire"));
     if (name === "skill-list")
       assert(result.stdout.includes("reverse-engineer-anything"));
   }
@@ -381,13 +381,13 @@ try {
       model,
       "--allow-tool=skill",
       "--allow-tool=read",
-      "--allow-tool=rea(analyze_javascript_application)",
+      "--allow-tool=ghostwire(analyze_javascript_application)",
       "--add-dir",
       target,
       "--prompt",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use the REA skill and tools to analyze the JavaScript directory ${target}. Report the result.`,
+        : `Use the Ghostwire skill and tools to analyze the JavaScript directory ${target}. Report the result.`,
     ],
     {
       env: { ...environment, COPILOT_PROVIDER_BASE_URL: fixture.baseUrl },

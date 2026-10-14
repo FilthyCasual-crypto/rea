@@ -1,4 +1,4 @@
-//@category REA Verification
+//@category Ghostwire Verification
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

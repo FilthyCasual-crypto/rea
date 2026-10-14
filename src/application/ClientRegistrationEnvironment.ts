@@ -13,7 +13,7 @@ import {
 import { PRODUCT_IDENTITY } from "../identity.js";
 import { compareUnicodeCodePoints } from "../domain/unicodeCodePointOrder.js";
 
-/** Read explicit REA overrides without dropping peers when one value is invalid. */
+/** Read explicit Ghostwire overrides without dropping peers when one value is invalid. */
 export const clientRegistrationEnvironment = (
   parsed: ClientConfigurationDocument | undefined,
   overrides: Readonly<Record<string, string>> = {},
@@ -36,7 +36,7 @@ export const clientRegistrationEnvironment = (
     .safeParse(raw === undefined ? {} : raw);
   if (!existing.success)
     return err(
-      new ConfigurationError("Invalid REA server environment", {
+      new ConfigurationError("Invalid Ghostwire server environment", {
         settings: existing.error.issues.map((issue) => ({
           setting: [key, ...issue.path].join("."),
           constraint:

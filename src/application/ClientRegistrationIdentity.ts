@@ -111,7 +111,7 @@ const isOwnedPackageReference = (packageReference: string): boolean => {
   );
 };
 
-/** Check that one parsed command points to REA's MCP entry point. */
+/** Check that one parsed command points to Ghostwire's MCP entry point. */
 export type ClientRegistrationCommandIdentity = "owned" | "foreign" | "unknown";
 
 /** Classify only what the command and current executable identity establish. */

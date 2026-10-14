@@ -69,7 +69,7 @@ const assertIdentity = (evidence: Evidence): void => {
     evidence.predicate_type !== "rea.electron-active-scenario" ||
     evidence.provider.id !== "rea-playwright-electron-active" ||
     evidence.provider.name !==
-      "REA Playwright active Electron observation provider" ||
+      "Ghostwire Playwright active Electron observation provider" ||
     evidence.provider.version !== "1" ||
     evidence.authority !== "controlled-replay" ||
     evidence.confidence !== "observed"

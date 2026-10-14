@@ -124,7 +124,7 @@ export const electronRuntimeEvidence = (
     },
     {
       id: "rea-cdp-electron",
-      name: "REA Electron file-page CDP observation provider",
+      name: "Ghostwire Electron file-page CDP observation provider",
       version: "1",
     },
   );

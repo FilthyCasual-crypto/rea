@@ -1,6 +1,6 @@
 """Bounded native call observation executed inside LLDB's embedded Python.
 
-REA imports this module into `lldb --batch` and runs `rea_trace <config.json>`.
+Ghostwire imports this module into `lldb --batch` and runs `rea_trace <config.json>`.
 It launches one owned process, stops at the requested functions and
 Objective-C methods, records each entry from registers and memory reads only,
 continues, and kills the process once it exits, the event or aggregate resource

@@ -240,7 +240,7 @@ function observeJava(ownerPid) {
     $java=$null; $deadline=[DateTime]::UtcNow.AddSeconds(45)
     try {
       while ([DateTime]::UtcNow -lt $deadline) {
-        if ($owner.HasExited) { throw 'REA owner exited before Java acquisition' }
+        if ($owner.HasExited) { throw 'Ghostwire owner exited before Java acquisition' }
         $rows=Get-CimInstance Win32_Process -Filter 'ParentProcessId = ${ownerPid}'
         foreach ($row in $rows) {
           if ($row.Name -eq 'java.exe' -and $row.CommandLine -like '*ReaJadxBridge.java*') {

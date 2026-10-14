@@ -537,7 +537,10 @@ it("checks the GNU attribute size bound before attempting its file read", async 
   bytes.writeUInt32LE(4097, 228);
   const result = await inspectDeclarations(bytes);
   assert.ok(!result.ok);
-  assert.match(result.error, /outside REA's inspected bound of 4096 bytes/u);
+  assert.match(
+    result.error,
+    /outside Ghostwire's inspected bound of 4096 bytes/u,
+  );
 });
 
 it("uses section type and bounds the GNU attribute payload extent", async () => {

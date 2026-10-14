@@ -45,7 +45,7 @@ describe.each([
       ).replaceAll("\n", "\r\n")}\r\n`;
       await mkdir(dirname(client.configPath), { recursive: true });
       await writeFile(client.configPath, original);
-      const currentCommandPath = join(home, "rea");
+      const currentCommandPath = join(home, "ghostwire");
       const command = [currentCommandPath, "mcp"];
       expect(await inspectClientConfiguration(client, {}, command)).toEqual({
         status: "update",
@@ -65,7 +65,7 @@ describe.each([
           label: "left\uFEFFright",
           [serversKey]: {
             other: { command: "other" },
-            rea: clientRegistrationEntry(client.format, command, {}),
+            ghostwire: clientRegistrationEntry(client.format, command, {}),
           },
           theme: "dark",
         },
@@ -99,30 +99,28 @@ describe.each([
   );
 });
 
-it.each(['\uFEFF{"servers": {"rea": @}}', '\uFEFF{"setting":\uFEFFtrue}'])(
-  "rejects malformed BOM placement without mutation: %j",
-  async (original) => {
-    const home = await createTestTempDirectory(
-      "rea-client-config-bom-invalid-",
-    );
-    const configPath = join(home, "mcp.json");
-    const client = { name: "vscode", format: "vscode", configPath } as const;
-    await writeFile(configPath, original);
-    const invalidOffset = original.includes("@") ? original.indexOf("@") : 12;
-    expect(() => parseClientConfiguration(original, client.format)).toThrow(
-      `Invalid JSON/JSONC at offset ${invalidOffset}: InvalidSymbol`,
-    );
+it.each([
+  '\uFEFF{"servers": {"ghostwire": @}}',
+  '\uFEFF{"setting":\uFEFFtrue}',
+])("rejects malformed BOM placement without mutation: %j", async (original) => {
+  const home = await createTestTempDirectory("rea-client-config-bom-invalid-");
+  const configPath = join(home, "mcp.json");
+  const client = { name: "vscode", format: "vscode", configPath } as const;
+  await writeFile(configPath, original);
+  const invalidOffset = original.includes("@") ? original.indexOf("@") : 12;
+  expect(() => parseClientConfiguration(original, client.format)).toThrow(
+    `Invalid JSON/JSONC at offset ${invalidOffset}: InvalidSymbol`,
+  );
 
-    expect(
-      await inspectClientConfiguration(client, {}, ["rea", "mcp"]),
-    ).toMatchObject({ status: "invalid" });
-    expect(
-      await configureClientConfiguration(client, {}, ["rea", "mcp"]),
-    ).toEqual({ status: "failed", reason: "readback" });
-    expect(await readFile(configPath)).toEqual(Buffer.from(original));
-    expect(await readdir(home)).toEqual(["mcp.json"]);
-  },
-);
+  expect(
+    await inspectClientConfiguration(client, {}, ["ghostwire", "mcp"]),
+  ).toMatchObject({ status: "invalid" });
+  expect(
+    await configureClientConfiguration(client, {}, ["ghostwire", "mcp"]),
+  ).toEqual({ status: "failed", reason: "readback" });
+  expect(await readFile(configPath)).toEqual(Buffer.from(original));
+  expect(await readdir(home)).toEqual(["mcp.json"]);
+});
 
 it("restores original BOM-prefixed JSONC bytes after update and removal", async () => {
   const home = await createTestTempDirectory("rea-client-config-bom-cycle-");
@@ -137,8 +135,8 @@ it("restores original BOM-prefixed JSONC bytes after update and removal", async 
   await mkdir(dirname(client.configPath), { recursive: true });
   await writeFile(client.configPath, original);
 
-  const firstCommand = [join(home, "bin", "rea"), "mcp"];
-  const updatedCommand = [join(home, "updated", "bin", "rea"), "mcp"];
+  const firstCommand = [join(home, "bin", "ghostwire"), "mcp"];
+  const updatedCommand = [join(home, "updated", "bin", "ghostwire"), "mcp"];
   expect(
     await configureClientConfiguration(client, {}, firstCommand),
   ).toMatchObject({ status: "configured" });
@@ -148,7 +146,7 @@ it("restores original BOM-prefixed JSONC bytes after update and removal", async 
   const updated = await readFile(client.configPath, "utf8");
   expect(parseClientConfiguration(updated, client.format).servers).toEqual({
     other: { command: "other\uFEFFtool" },
-    rea: clientRegistrationEntry(client.format, updatedCommand, {}),
+    ghostwire: clientRegistrationEntry(client.format, updatedCommand, {}),
   });
 
   expect(await systemUninstallHost(home).removeClient(client)).toMatchObject({
@@ -169,7 +167,7 @@ it.each(["", "\n  \n", "\uFEFF"])(
       throw new Error("missing Antigravity JSON config");
     await mkdir(dirname(client.configPath), { recursive: true });
     await writeFile(client.configPath, original);
-    const command = [join(home, "rea"), "mcp"];
+    const command = [join(home, "ghostwire"), "mcp"];
 
     expect(await inspectClientConfiguration(client, {}, command)).toEqual({
       status: "update",
@@ -180,7 +178,9 @@ it.each(["", "\n  \n", "\uFEFF"])(
       backupPath: `${client.configPath}.rea.backup`,
     });
     expect(JSON.parse(await readFile(client.configPath, "utf8"))).toEqual({
-      mcpServers: { rea: clientRegistrationEntry(client.format, command, {}) },
+      mcpServers: {
+        ghostwire: clientRegistrationEntry(client.format, command, {}),
+      },
     });
     expect(await inspectClientConfiguration(client, {}, command)).toEqual({
       status: "already_current",

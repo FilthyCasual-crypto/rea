@@ -118,7 +118,7 @@ export class SetupSkillInstallError extends Error {
     readonly cause: unknown;
   }) {
     const message = [
-      `REA skill ${input.stage} failed at ${input.path}: ${input.reason}.`,
+      `Ghostwire skill ${input.stage} failed at ${input.path}: ${input.reason}.`,
       ...(input.rollbackFailures.length === 0
         ? []
         : [
@@ -202,7 +202,7 @@ export const skillDestinations = (
     }),
   );
 
-/** Resolve existing REA-owned skill roots using setup's canonical destinations. */
+/** Resolve existing Ghostwire-owned skill roots using setup's canonical destinations. */
 export const existingSkillDestinations = async (
   home: string,
   environment: Readonly<NodeJS.ProcessEnv> = {},
@@ -435,7 +435,7 @@ const inspectCanonicalSkill = async (
       });
 };
 
-/** Report whether setup would change any file in the managed REA skill bundle. */
+/** Report whether setup would change any file in the managed Ghostwire skill bundle. */
 export const canonicalSkillNeedsInstall = async (
   home: string,
   clientIds: readonly string[] = [],

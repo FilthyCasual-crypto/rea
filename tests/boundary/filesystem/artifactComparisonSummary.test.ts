@@ -26,7 +26,11 @@ const observe = async (
       sha256: inventory.manifest.root_sha256,
       format: inventory.manifest.root_format,
     },
-    { id: "rea-artifact-graph", name: "REA artifact graph", version: "1" },
+    {
+      id: "rea-artifact-graph",
+      name: "Ghostwire artifact graph",
+      version: "1",
+    },
     {
       operation: "inventory_artifact",
       parameters: {},

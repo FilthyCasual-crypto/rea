@@ -68,7 +68,9 @@ describe("Hopper provider discovery", () => {
     ).toMatchObject({
       status: "unsupported",
       code: "target_kind_unsupported",
-      reason: expect.stringContaining("cannot start REA's analysis bridge"),
+      reason: expect.stringContaining(
+        "cannot start Ghostwire's analysis bridge",
+      ),
       diagnostics: {
         target_kind: "database",
         target_format: "analysis-database",

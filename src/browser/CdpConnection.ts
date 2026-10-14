@@ -168,7 +168,7 @@ export class CdpConnection {
     });
   }
 
-  /** Close only REA's socket; never close the browser or selected page. */
+  /** Close only Ghostwire's socket; never close the browser or selected page. */
   close(): Promise<void> {
     this.#closePromise ??= this.#closeTransport().catch((cause: unknown) => {
       this.#closePromise = undefined;

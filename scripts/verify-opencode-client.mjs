@@ -124,11 +124,11 @@ const fixture = await createOpenAiModelFixture({
   onRequest: async ({ body, tools, requestIndex }) => {
     // Native session-title requests do not execute the analyst's workflow.
     if (tools.length === 0)
-      return { role: "assistant", content: "REA fixture title" };
+      return { role: "assistant", content: "Ghostwire fixture title" };
     const analysis = tools.find((t) =>
       t.name.endsWith("analyze_javascript_application"),
     );
-    assert(analysis, "OpenCode must expose the REA analysis tool");
+    assert(analysis, "OpenCode must expose the Ghostwire analysis tool");
     const prefix = analysis.name.slice(
       0,
       -"analyze_javascript_application".length,
@@ -138,7 +138,7 @@ const fixture = await createOpenAiModelFixture({
     assert.deepEqual(
       reaTools.map((t) => t.name).sort(),
       expected,
-      "OpenCode must forward the complete REA catalog",
+      "OpenCode must forward the complete Ghostwire catalog",
     );
     catalogSize = expected.length;
     if (schemasChecked === 0) {
@@ -218,7 +218,10 @@ const fixture = await createOpenAiModelFixture({
       skillRequested = true;
       return call(skill.name, { name: "reverse-engineer-anything" });
     }
-    assert(skillLoaded, "OpenCode must load the installed personal REA skill");
+    assert(
+      skillLoaded,
+      "OpenCode must load the installed personal Ghostwire skill",
+    );
     return call(analysis.name, { input_path: target, format: "directory" });
   },
 });
@@ -232,11 +235,11 @@ const original =
       provider: {
         "rea-fixture": {
           npm: "@ai-sdk/openai-compatible",
-          name: "REA local model fixture",
+          name: "Ghostwire local model fixture",
           options: { baseURL: fixture.baseUrl, apiKey: "local-fixture-key" },
           models: {
             "rea-client-fixture": {
-              name: "REA fixture",
+              name: "Ghostwire fixture",
               tool_call: true,
               limit: { context: 1_000_000, output: 4096 },
             },
@@ -331,7 +334,7 @@ try {
       "rea-fixture/rea-client-fixture",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use REA to analyze the JavaScript directory ${target}. Report the result.`,
+        : `Use Ghostwire to analyze the JavaScript directory ${target}. Report the result.`,
     ],
     {
       env: environment,

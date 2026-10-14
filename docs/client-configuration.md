@@ -1,21 +1,21 @@
 # Client configuration and troubleshooting
 
 Use this reference when a client's configuration paths, profiles, trust settings,
-or schema limits affect REA. Start with [installation and setup](installation.md)
+or schema limits affect Ghostwire. Start with [installation and setup](installation.md)
 for the reviewed setup transaction and [client IDs](installation.md#supported-agents).
 The versioned verification notes below describe their stated runs; live service
 acceptance is verified only where explicitly recorded.
 
-## Fiddler Everywhere alongside REA
+## Fiddler Everywhere alongside Ghostwire
 
 Connect Fiddler Everywhere's MCP server separately for HTTP traffic debugging,
-preserving your REA client entry. See the
+preserving your Ghostwire client entry. See the
 [setup instructions and public skills](web-network-captures.md#fiddler-everywhere-mcp-and-public-skills).
 
 ## GitHub Copilot CLI
 
 For GitHub Copilot CLI 1.0.95, `gpt-4.1` model metadata can block ordinary
-chat with REA's full input-schema profile before sending a model request
+chat with Ghostwire's full input-schema profile before sending a model request
 (`compaction_static_context_blocked`; [#1554](https://github.com/morluto/rea/issues/1554)).
 For the native offline OpenAI-compatible BYOK adapter, full-profile chat and
 analysis also passed with a distinct `COPILOT_PROVIDER_MODEL_ID` such as
@@ -29,7 +29,7 @@ tool inventory on Linux using a loopback model fixture. After setup, add
 `"REA_MCP_INPUT_SCHEMA_PROFILE": "compact"` to the `env` object of the
 `mcpServers.rea` entry in Copilot's `mcp-config.json`, preserving its other
 settings, then restart the client. Compact advertisements can reduce nested
-schema constraints; REA still validates complete canonical inputs. Full-profile
+schema constraints; Ghostwire still validates complete canonical inputs. Full-profile
 `gpt-5.4` metadata is also verified locally. Live model API acceptance and
 Windows remain unverified; see [native client verification](testing.md).
 
@@ -52,7 +52,7 @@ in the file the installed app reads:
   `%APPDATA%` file it still reads; with neither file, setup creates the
   private copy.
 - If `%LOCALAPPDATA%\Packages` holds a `Claude_<publisher ID>` package from
-  another publisher, or cannot be read, REA cannot establish which file Claude
+  another publisher, or cannot be read, Ghostwire cannot establish which file Claude
   Desktop reads. Setup, doctor and uninstall report that instead of falling
   back to `%APPDATA%`. Doctor then reports `claude_desktop` as invalid, and
   uninstall stops before removing anything for any client.
@@ -81,12 +81,12 @@ clients' files there (VS Code, Devin and Hermes) and skill directories
 there. `npm install -g` run from such a process installs into the package's
 `LocalCache\Roaming\npm`, which other processes cannot see at the `%APPDATA%`
 path. Setup refuses to register a launcher stored in any MSIX package's
-private storage. Install REA from an ordinary terminal and rerun setup there.
+private storage. Install Ghostwire from an ordinary terminal and rerun setup there.
 
-Uninstall removes REA's entry from both the private copy and the `%APPDATA%`
+Uninstall removes Ghostwire's entry from both the private copy and the `%APPDATA%`
 file, including registrations that earlier releases wrote to `%APPDATA%`.
 
-REA recognizes only the MSIX package. A non-MSIX Claude Desktop installed
+Ghostwire recognizes only the MSIX package. A non-MSIX Claude Desktop installed
 beside it, which would read the `%APPDATA%` file, is not detected.
 
 The package identity, both file locations, the redirected view, and these
@@ -95,12 +95,12 @@ setup and doctor results were observed on Windows 11 with the MSIX build
 and outside the app. On that host, setup run from an ordinary terminal with
 the app quit wrote the package-private copy; after the app restarted, the
 entry was still present, doctor reported it aligned, and Claude Desktop's MCP
-log showed REA starting and answering `tools/list`. Uninstall against the real
+log showed Ghostwire starting and answering `tools/list`. Uninstall against the real
 app is unverified.
 
 ## Choosing an input schema profile
 
-Every REA tool is advertised with a name, a description and an input schema.
+Every Ghostwire tool is advertised with a name, a description and an input schema.
 Clients that load all tool definitions upfront, without deferred tool search,
 send that whole catalog to the model with every request. On this fork's
 main, with 207 tools, the model-visible part measured about 780 KB with the
@@ -109,8 +109,8 @@ input schemas; output schemas are not sent to the model). Choose the profile
 when registering a client:
 
 ```bash
-rea setup --client cursor --schema-profile compact --dry-run   # review
-rea setup --client cursor --schema-profile compact --yes
+ghostwire setup --client cursor --schema-profile compact --dry-run   # review
+ghostwire setup --client cursor --schema-profile compact --yes
 ```
 
 The selection is stored in the registration's environment and kept by later
@@ -125,7 +125,7 @@ first-party endpoint), because nested parameter descriptions help the model.
 Claude Code normally defers MCP tool definitions through tool search. It
 [turns tool search off](https://code.claude.com/docs/en/mcp#configure-tool-search)
 when `ANTHROPIC_BASE_URL` points to a non-first-party Anthropic-compatible
-endpoint. It then sends every REA tool's name, description
+endpoint. It then sends every Ghostwire tool's name, description
 and input schema with every request
 ([#2019](https://github.com/morluto/rea/issues/2019)). On main at 04089d5be,
 with 172 tools, that payload measured about 496 KB with the default profile and
@@ -141,15 +141,15 @@ and Claude Code reports that autocompact is thrashing. To avoid this:
   to restore deferred loading. Endpoints that do not support `tool_reference`
   content blocks will fail requests with this setting.
 - To shrink the upfront catalog, rerun setup with
-  `rea setup --client claude_code --schema-profile compact`, then restart
+  `ghostwire setup --client claude_code --schema-profile compact`, then restart
   Claude Code. This writes `"REA_MCP_INPUT_SCHEMA_PROFILE": "compact"` into the
   `env` object of the `mcpServers.rea` entry, and later setup runs keep it.
 
-The sizes above come from REA's own `tools/list`.
+The sizes above come from Ghostwire's own `tools/list`.
 
 For a client whose stdio reader rejects the complete catalog frame, add
-`"REA_MCP_OUTPUT_SCHEMA_PROFILE": "off"` to REA's `env` object and restart the
-client. This omits only advertised output schemas; REA still validates complete
+`"REA_MCP_OUTPUT_SCHEMA_PROFILE": "off"` to Ghostwire's `env` object and restart the
+client. This omits only advertised output schemas; Ghostwire still validates complete
 structured results against its canonical contracts. See [MCP output schema
 profiles](mcp-contracts.md#output-schemas).
 
@@ -158,9 +158,9 @@ profiles](mcp-contracts.md#output-schemas).
 For [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/mcp.md),
 setup writes a `type: "stdio"` entry under `mcpServers.rea` in the user-level
 `~/.pi/agent/mcp.json` and installs the bundled skill under `~/.agents/skills`.
-Use `rea setup --client pi --dry-run --json` to inspect the plan, then
-`rea setup --client pi --yes --json` to approve it. Check the registration with
-`rea doctor --client pi --json`. Pi reads `mcp.json` as strict JSON, like its
+Use `ghostwire setup --client pi --dry-run --json` to inspect the plan, then
+`ghostwire setup --client pi --yes --json` to approve it. Check the registration with
+`ghostwire doctor --client pi --json`. Pi reads `mcp.json` as strict JSON, like its
 own loader: comments, trailing commas, a byte-order mark, or an empty existing
 file are invalid, and setup reports them instead of rewriting the file. Repair
 such a file to plain JSON first, then rerun setup.
@@ -169,13 +169,13 @@ Setup follows Pi's `PI_CODING_AGENT_DIR`: unset or empty selects the default;
 `~` and `~/` expand to the home directory; absolute paths and file URLs select
 that directory; relative paths stay relative to the command's working directory.
 On Windows, native paths, `~\`, and Git Bash/MSYS, Cygwin, and WSL drive paths
-are normalized as Pi does. Run REA and Pi from the same working directory when
+are normalized as Pi does. Run Ghostwire and Pi from the same working directory when
 using a relative override. Pi has no profiles: `OMP_PROFILE`, `PI_PROFILE`,
 `PI_CONFIG_DIR`, and OMP's `enabledServers`/`disabledServers` lists do not affect
 Pi registration. Doctor accepts an omitted `type` for stdio but reports a
 non-stdio type as invalid; `enabled: false` stays disabled.
 
-REA configures only the user scope. Pi also reads `.pi/mcp.json` in trusted
+Ghostwire configures only the user scope. Pi also reads `.pi/mcp.json` in trusted
 projects; a same-name project entry can replace the user entry or override its
 enabled state and exposure. Check that file if the user registration is aligned
 but unavailable in a project. An extension that registers `/mcp` can replace
@@ -214,10 +214,10 @@ For OMP, setup writes a `type: "stdio"` entry to the user-level
 `~/.omp/agent/mcp.json`. It follows `PI_CONFIG_DIR` and
 `PI_CODING_AGENT_DIR` (relative to the setup working directory), and the profile selected by `OMP_PROFILE` or
 `PI_PROFILE` (`~/.omp/profiles/<name>/agent/mcp.json`). Setup also removes
-`rea` from that file's `disabledServers` list, which would otherwise hide the
+`ghostwire` from that file's `disabledServers` list, which would otherwise hide the
 registration. Doctor treats an `enabled: false` entry as active when
-`enabledServers` lists `rea`, as OMP does, unless `disabledServers` also lists
-it. Run setup under each profile that should load REA.
+`enabledServers` lists `ghostwire`, as OMP does, unless `disabledServers` also lists
+it. Run setup under each profile that should load Ghostwire.
 
 ## Hermes
 
@@ -233,7 +233,7 @@ plain Hermes CLI commands do. An explicit `HERMES_HOME` pointing to
 `profiles/<name>` selects that named profile directly. An invalid, missing or
 deleted sticky profile is reported instead of writing into the default home;
 repair the profile or run `hermes profile use default` before retrying.
-REA follows `HERMES_HOME` whitespace trimming, environment-variable expansion,
+Ghostwire follows `HERMES_HOME` whitespace trimming, environment-variable expansion,
 and home expansion before resolving that profile. Setup previews the resolved
 configuration and skill destinations; doctor and uninstall use those same paths.
 
@@ -249,18 +249,18 @@ setup installs its skill copy there.
 
 For OpenCode, setup writes the V1 `mcp.rea` entry, which OpenCode V1 and V2
 both load. If the configuration already uses OpenCode V2's native
-`mcp.servers` table, setup registers REA there instead and replaces any earlier
-`mcp.rea` entry from REA. Setup honors `OPENCODE_CONFIG_DIR` and
+`mcp.servers` table, setup registers Ghostwire there instead and replaces any earlier
+`mcp.rea` entry from Ghostwire. Setup honors `OPENCODE_CONFIG_DIR` and
 `OPENCODE_CONFIG`, preferring the later-loaded JSONC file when both JSON and
 JSONC exist. The ordinary XDG global configuration still participates when a
 custom directory is selected. Doctor checks the merged user registration; uninstall removes
-REA-owned entries from every applicable user file so an older entry cannot
+Ghostwire-owned entries from every applicable user file so an older entry cannot
 become active again. Malformed applicable files block setup before changes.
 
 Grok Build loads `[mcp_servers.rea]` from `$GROK_HOME/config.toml`, or from
 `~/.grok/config.toml` when `GROK_HOME` is unset or empty. Setup edits that server
 table, `[mcp_servers.rea.env]`, and a root `disabled_mcp_servers` entry that
-names `rea`. It sets `startup_timeout_sec = 30` and leaves every other name
+names `ghostwire`. It sets `startup_timeout_sec = 30` and leaves every other name
 in that list. The shared skill installed under `~/.agents/skills` is already
 on Grok Build's skill path.
 
@@ -272,11 +272,11 @@ computer. It does not import `mcp.json` from the data directory, and it does
 not attach a stdio server running on this machine. Setup does not call the
 account connector API, does not write a registration file, and does not report
 the data directory as aligned. Ask the Grok Bot chat to add a custom MCP
-server named `rea` that runs on the Bot's computer:
+server named `ghostwire` that runs on the Bot's computer:
 
 ```bash
-npx -y rea-agents@<version> mcp
+npx -y ghostwire-agent@<version> mcp
 ```
 
-Do not put credentials in that command or its arguments. `rea doctor --client grok_bot`
-reports this manual step. `rea uninstall` does not remove the account connector.
+Do not put credentials in that command or its arguments. `ghostwire doctor --client grok_bot`
+reports this manual step. `ghostwire uninstall` does not remove the account connector.

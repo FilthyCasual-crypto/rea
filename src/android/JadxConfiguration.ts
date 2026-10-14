@@ -344,7 +344,7 @@ const requireEngineArchive = async (
   }
   throw configurationFailure(
     "unsupported_version",
-    `${variable} ${jar} does not contain the upstream JADX classes the REA bridge requires: ${[...missing].join(", ")}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
+    `${variable} ${jar} does not contain the upstream JADX classes the Ghostwire bridge requires: ${[...missing].join(", ")}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
     { jar_path: jar, phase: "jar-inspection", missing_classes: [...missing] },
     "jar",
   );
@@ -358,7 +358,7 @@ const requireSupportedHost = (): void => {
       if (loaded.authority.inspection.protocolStdin === true) return;
       throw configurationFailure(
         "runtime_missing",
-        "The bundled Windows native artifact lacks owned protocol stdin; use a matching current Windows x64 REA package.",
+        "The bundled Windows native artifact lacks owned protocol stdin; use a matching current Windows x64 Ghostwire package.",
         {
           platform: process.platform,
           architecture: process.arch,
@@ -479,7 +479,7 @@ const resolveJava = async (
     }
     throw configurationFailure(
       "runtime_missing",
-      "Cannot find java.exe on the selected Windows PATH. Select a full JDK with JAVA_HOME or PATH, then verify it with java --list-modules. REA does not install Java.",
+      "Cannot find java.exe on the selected Windows PATH. Select a full JDK with JAVA_HOME or PATH, then verify it with java --list-modules. Ghostwire does not install Java.",
       { java_executable: executable },
       "java_runtime",
     );
@@ -584,7 +584,7 @@ const inspectJavaRuntime = async (
     if (output.outputTruncated)
       throw configurationFailure(
         "version_unresolved",
-        `The selected Java launcher ${java} exceeded the ${JAVA_MODULE_LISTING_MAX_OUTPUT_BYTES / (1024 * 1024)} MiB output budget while listing modules. REA retained partial output but could not establish compiler or version availability. Inspect the selected launcher for verbose or unbounded output; ` +
+        `The selected Java launcher ${java} exceeded the ${JAVA_MODULE_LISTING_MAX_OUTPUT_BYTES / (1024 * 1024)} MiB output budget while listing modules. Ghostwire retained partial output but could not establish compiler or version availability. Inspect the selected launcher for verbose or unbounded output; ` +
           "java --list-modules should return a concise module listing.",
         {
           ...diagnostics,
@@ -618,7 +618,7 @@ const inspectJavaRuntime = async (
   if (!compiler)
     throw configurationFailure(
       "runtime_missing",
-      `Selected Java runtime ${java} does not provide jdk.compiler. Select a full JDK including jdk.compiler via JAVA_HOME or PATH; verify it with java --list-modules. A JRE cannot compile REA's source bridge.`,
+      `Selected Java runtime ${java} does not provide jdk.compiler. Select a full JDK including jdk.compiler via JAVA_HOME or PATH; verify it with java --list-modules. A JRE cannot compile Ghostwire's source bridge.`,
       {
         java_executable: java,
         phase: "module-inspection",

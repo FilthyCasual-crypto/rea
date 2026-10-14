@@ -34,7 +34,7 @@ describe("onboarding documentation product facts", () => {
     expect(jsonExamples(content)).toContainEqual(
       expect.objectContaining({
         mcpServers: expect.objectContaining({
-          rea: expect.objectContaining({
+          ghostwire: expect.objectContaining({
             command: "npx",
             args: ["-y", PRODUCT_IDENTITY.registrationPackageSpecifier, "mcp"],
           }),
@@ -68,11 +68,11 @@ describe("onboarding documentation product facts", () => {
     const persian = await readFile(resolve("docs/readme/README_fa.md"), "utf8");
     // Confirmed against GitHub's rendered README, which retains U+200C.
     for (const heading of [
-      "REA چگونه کار می‌کند",
+      "Ghostwire چگونه کار می‌کند",
       "چه چیزهایی را می‌توان تحلیل کرد",
       "نمونه‌های عملی",
       "پرسش‌های متداول",
-      "به‌روزرسانی REA",
+      "به‌روزرسانی Ghostwire",
     ]) {
       expect(persian).toContain(`## ${heading}`);
       expect(persian).toContain(

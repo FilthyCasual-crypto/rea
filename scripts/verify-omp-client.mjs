@@ -119,7 +119,7 @@ const fixture = await createOpenAiModelFixture({
     const replies = body.messages.filter((message) => message.role === "tool");
     if (requestIndex === 1)
       return call(requestIndex, "read", {
-        i: "Load REA skill",
+        i: "Load Ghostwire skill",
         path: "skill://reverse-engineer-anything:raw",
       });
     assert(
@@ -130,7 +130,7 @@ const fixture = await createOpenAiModelFixture({
     skillLoaded = true;
     if (requestIndex === 2)
       return call(requestIndex, "read", {
-        i: "Inspect REA native tool contract",
+        i: "Inspect Ghostwire native tool contract",
         path: analysisDevice,
       });
     assert(containsText(replies, "# mcp__rea_analyze_javascript_application"));
@@ -194,7 +194,7 @@ const fixture = await createOpenAiModelFixture({
 const original = JSON.stringify(
   {
     mcpServers: { other: { command: "unrelated-server", enabled: false } },
-    disabledServers: ["rea", "other"],
+    disabledServers: ["ghostwire", "other"],
   },
   null,
   2,
@@ -218,7 +218,7 @@ await writeFile(
         models: [
           {
             id: "rea-client-fixture",
-            name: "REA local fixture",
+            name: "Ghostwire local fixture",
             reasoning: false,
             input: ["text"],
             cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
@@ -230,7 +230,7 @@ await writeFile(
     },
   }),
 );
-const rea = async (args, env = environment) =>
+const ghostwire = async (args, env = environment) =>
   exec(
     process.execPath,
     [join(runtimeRoot, "scripts/rea.mjs"), ...args, "--json"],
@@ -257,7 +257,7 @@ try {
     join(lab, "invalid-profile-native.stderr"),
     nativeRejected.stderr,
   );
-  const setupRejected = await rea(
+  const setupRejected = await ghostwire(
     ["setup", "--client", "omp", "--dry-run"],
     invalidEnvironment,
   ).then(
@@ -281,7 +281,7 @@ try {
     ["setup", "--client", "omp", "--yes"],
     ["doctor", "--client", "omp", "--skill"],
   ]) {
-    const result = await rea(args);
+    const result = await ghostwire(args);
     await writeFile(
       join(lab, `${args[0]}${args.includes("--dry-run") ? "-plan" : ""}.json`),
       result.stdout,
@@ -320,7 +320,7 @@ try {
   assert.equal(registration.mcpServers.other.command, "unrelated-server");
   assert.deepEqual(registration.disabledServers, ["other"]);
   const repeated = JSON.parse(
-    (await rea(["setup", "--client", "omp", "--yes"])).stdout,
+    (await ghostwire(["setup", "--client", "omp", "--yes"])).stdout,
   );
   assert.deepEqual(repeated.appliedActions, []);
   assert.equal(await readFile(configPath, "utf8"), configured);
@@ -342,7 +342,7 @@ try {
       "rea-fixture/rea-client-fixture",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use the REA skill to analyze ${target}.`,
+        : `Use the Ghostwire skill to analyze ${target}.`,
     ],
     {
       env: environment,
@@ -372,7 +372,7 @@ try {
   assert.deepEqual(
     mounted.sort(),
     expectedDevices,
-    "Native OMP must mount the complete REA catalog",
+    "Native OMP must mount the complete Ghostwire catalog",
   );
   catalogMounted = true;
   assert(

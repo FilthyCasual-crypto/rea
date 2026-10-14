@@ -162,7 +162,7 @@ describe("Windows Claude Desktop configuration location", () => {
       configureClientConfiguration(client, {}, command),
     ).resolves.toEqual({ status: "configured" });
     expect(await readJson(privateConfig)).toEqual({
-      mcpServers: { rea: reaEntry },
+      mcpServers: { ghostwire: reaEntry },
     });
   });
 
@@ -203,7 +203,7 @@ describe("MSIX Claude Desktop registration lifecycle", () => {
     };
     await writeJson(privateConfig, privateOriginal);
     // Earlier setups wrote AppData, which the package never reads.
-    await writeJson(appDataConfig, { mcpServers: { rea: reaEntry } });
+    await writeJson(appDataConfig, { mcpServers: { ghostwire: reaEntry } });
     const appDataOriginal = await readFile(appDataConfig, "utf8");
     const status = async () =>
       (
@@ -239,7 +239,7 @@ describe("MSIX Claude Desktop registration lifecycle", () => {
       ...privateOriginal,
       mcpServers: {
         ...privateOriginal.mcpServers,
-        rea: reaEntry,
+        ghostwire: reaEntry,
       },
     });
     expect(await readJson(`${privateConfig}.rea.backup`)).toEqual(
@@ -311,7 +311,7 @@ describe("MSIX Claude Desktop registration lifecycle", () => {
 
     expect(await readJson(appDataConfig)).toEqual({
       preferences: { theme: "light" },
-      mcpServers: { rea: reaEntry },
+      mcpServers: { ghostwire: reaEntry },
     });
     await expect(access(privateConfig)).rejects.toMatchObject({
       code: "ENOENT",
@@ -323,7 +323,7 @@ describe("MSIX Claude Desktop uninstall", () => {
   it("refuses uninstall when the package view is unknown", async () => {
     const { home, env, appDataConfig, container } = await windowsProfile();
     await mkdir(container, { recursive: true });
-    await writeJson(appDataConfig, { mcpServers: { rea: reaEntry } });
+    await writeJson(appDataConfig, { mcpServers: { ghostwire: reaEntry } });
 
     const result = await runUninstall(
       false,
@@ -339,14 +339,16 @@ describe("MSIX Claude Desktop uninstall", () => {
       }),
     );
     expect(await readJson(appDataConfig)).toEqual({
-      mcpServers: { rea: reaEntry },
+      mcpServers: { ghostwire: reaEntry },
     });
   });
 
   it("retains an unrelated rea-named entry when the package view is unknown", async () => {
     const { home, env, appDataConfig, container } = await windowsProfile();
     await mkdir(container, { recursive: true });
-    const unrelated = { mcpServers: { rea: { command: "unrelated-server" } } };
+    const unrelated = {
+      mcpServers: { ghostwire: { command: "unrelated-server" } },
+    };
     await writeJson(appDataConfig, unrelated);
     const result = await runUninstall(
       false,
@@ -389,13 +391,13 @@ describe("MSIX Claude Desktop uninstall", () => {
     expect(await readFile(manifest, "utf8")).toContain("managed fixture");
   });
 
-  it("removes REA from both the private copy and AppData on uninstall", async () => {
+  it("removes Ghostwire from both the private copy and AppData on uninstall", async () => {
     const { home, env, appDataConfig, privateConfig } = await windowsProfile();
     await writeJson(privateConfig, {
       preferences: {},
-      mcpServers: { other: { command: "other" }, rea: reaEntry },
+      mcpServers: { other: { command: "other" }, ghostwire: reaEntry },
     });
-    await writeJson(appDataConfig, { mcpServers: { rea: reaEntry } });
+    await writeJson(appDataConfig, { mcpServers: { ghostwire: reaEntry } });
 
     const result = await runUninstall(
       false,

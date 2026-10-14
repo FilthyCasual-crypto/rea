@@ -204,7 +204,7 @@ export const managedNativeVerificationResultSchema = z
       });
   })
   .describe(
-    "Counts must agree across the result: native accepted plus unsupported equals total; each P/Invoke summary count equals the number of items with that status; and native_body_unresolved equals native_implementations.unresolved. REA checks these cross-field invariants after constructing the result.",
+    "Counts must agree across the result: native accepted plus unsupported equals total; each P/Invoke summary count equals the number of items with that status; and native_body_unresolved equals native_implementations.unresolved. Ghostwire checks these cross-field invariants after constructing the result.",
   );
 
 export type ManagedNativeVerificationResult = z.infer<

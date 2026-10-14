@@ -164,7 +164,7 @@ const runApktool = async (
     invocation = apktoolInvocation(selection, arguments_, environment);
   } catch (cause) {
     if (!(cause instanceof WindowsBatchCommandError)) throw cause;
-    const reason = `The apktool batch launcher cannot receive REA's decode paths through cmd.exe: ${cause.message}`;
+    const reason = `The apktool batch launcher cannot receive Ghostwire's decode paths through cmd.exe: ${cause.message}`;
     return err(
       new AnalysisCapabilityUnavailableError(
         APKTOOL_PROVIDER_IDENTITY.id,

@@ -1740,7 +1740,7 @@ describe("Ghidra NativeAOT snapshot budget", () => {
 });
 
 const sessionInfo = () => ({
-  name: "REA Ghidra bridge" as const,
+  name: "Ghostwire Ghidra bridge" as const,
   run_id: "11111111-1111-4111-8111-111111111111",
   profile_digest: "a".repeat(64),
   provider: { id: "ghidra" as const, version: "12.1.4" },
@@ -2463,7 +2463,7 @@ describe("Ghidra queries after the owned provider is lost", () => {
     expect(projected.message).toContain("exited with code 137");
     expect(projected.message).toContain("Call open_binary");
     expect(projected.remediation.action).toContain("Call open_binary");
-    expect(projected.remediation.action).not.toContain("rea doctor");
+    expect(projected.remediation.action).not.toContain("ghostwire doctor");
   });
 
   it("tells the caller to reopen the target when the bridge became unreachable", async () => {
@@ -2483,7 +2483,7 @@ describe("Ghidra queries after the owned provider is lost", () => {
     if (result.ok) return;
     const projected = projectAnalysisError(result.error);
     expect(projected.message).not.toContain("Call open_binary");
-    expect(projected.remediation.action).toContain("rea doctor");
+    expect(projected.remediation.action).toContain("ghostwire doctor");
   });
 
   it("keeps the generic failure when the provider is not known to be lost", async () => {
@@ -2492,7 +2492,7 @@ describe("Ghidra queries after the owned provider is lost", () => {
     expect(result.ok).toBe(false);
     if (result.ok) return;
     expect(projectAnalysisError(result.error).remediation.action).toContain(
-      "rea doctor",
+      "ghostwire doctor",
     );
   });
 

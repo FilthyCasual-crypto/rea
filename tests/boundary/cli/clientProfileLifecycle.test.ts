@@ -228,8 +228,8 @@ for (const group of groups) {
           await writeFile(
             config,
             original.replace(
-              "[mcp_servers.rea]",
-              "[mcp_servers.rea]\ndisabled = true",
+              "[mcp_servers.ghostwire]",
+              "[mcp_servers.ghostwire]\ndisabled = true",
             ),
           );
           expect(
@@ -292,7 +292,7 @@ cliTest("uninstall names each retained skill directory", async ({ cli }) => {
     ["claude_code", claude],
   ] as const) {
     expect(skill?.detail).toContain(
-      `${client} (${directory}): retained (Skill manifest is not REA-owned.)`,
+      `${client} (${directory}): retained (Skill manifest is not Ghostwire-owned.)`,
     );
     expect(await readFile(join(directory, "SKILL.md"), "utf8")).toBe(
       "---\nname: unrelated\n---\n",

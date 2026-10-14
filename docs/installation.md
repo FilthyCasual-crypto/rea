@@ -1,6 +1,6 @@
 # Installation and setup
 
-Run REA, connect your selected agents, and check the tools needed for your task.
+Run Ghostwire, connect your selected agents, and check the tools needed for your task.
 Setup previews configuration changes and asks for approval before applying them.
 
 | Task                              | Section                                                                   |
@@ -8,35 +8,35 @@ Setup previews configuration changes and asks for approval before applying them.
 | Connect an agent                  | [Start setup](#start-setup), then [review changes](#review-setup-changes) |
 | Diagnose one task                 | [Scoped readiness checks](#check-readiness-for-your-task)                 |
 | Configure an analysis engine      | [Hopper](#hopper), [Ghidra](#ghidra), or the [IDA guide](ida-provider.md) |
-| Update or remove REA              | [Maintenance](#diagnose-update-and-remove)                                |
+| Update or remove Ghostwire        | [Maintenance](#diagnose-update-and-remove)                                |
 | Resolve a client-specific problem | [Client configuration](client-configuration.md)                           |
 
 ## Start setup
 
 ```bash
-npx rea-agents setup
+npx ghostwire-agent setup
 ```
 
 Choose the agents to configure, review the proposed paths and changes, and
-approve the plan. npm's package-download approval and REA's setup approval are
+approve the plan. npm's package-download approval and Ghostwire's setup approval are
 separate. Setup asks before changing agent configuration or installing Hopper.
 Restart the agents named in the completion message. Quit Claude Desktop fully
 before approving, because a running app can overwrite the registration; on
 Windows, see [where Claude Desktop reads its configuration](client-configuration.md#claude-desktop).
 
-For the latest published release, use `npx rea-agents@latest setup`.
+For the latest published release, use `npx ghostwire-agent@latest setup`.
 [Package-runner and global-installation options](#package-runners-and-global-installation)
 cover explicit versions, Bun, runtime requirements, and the curl wrapper.
 
 ## Review setup changes
 
-`rea setup` first offers the supported agents in a multi-select. Existing REA
+`ghostwire setup` first offers the supported agents in a multi-select. Existing Ghostwire
 registrations are selected by default. Newly detected clients remain available
 but unselected: detection gives setup context, not permission to add a new
 registration. Clients without a detected configuration can still be selected.
 Explicit `--client` flags skip this question.
 
-Setup adds MCP access for selected clients. It installs REA's bundled workflow
+Setup adds MCP access for selected clients. It installs Ghostwire's bundled workflow
 with those integrations by default; use `--skill=false` to omit it. If no agent
 is selected, setup offers the workflow separately for CLI use, with No as the
 default. Hopper is a separate optional choice: setup shows its proposed
@@ -44,13 +44,13 @@ installation or connection and requires its own explicit approval. It can also
 save verified paths for an existing Ghidra installation.
 
 After selection, review the plan's exact paths and changes and approve before
-REA writes files or installs Hopper. You can cancel at any prompt.
+Ghostwire writes files or installs Hopper. You can cancel at any prompt.
 
-Before applying changes, REA checks your current configuration. The plan lists:
+Before applying changes, Ghostwire checks your current configuration. The plan lists:
 
 - an existing Hopper installation, a verified existing Ghidra installation, or the official Hopper package it proposes to install;
 - each detected agent configuration path;
-- each selected REA skill destination;
+- each selected Ghostwire skill destination;
 - external software, network origins, integrity evidence, and package-manager
   commands.
 
@@ -63,11 +63,11 @@ If that snapshot differs from the current configuration, setup previews and
 preserves a verified `.rea.backup.<sha256>.recovery` copy of the current bytes.
 Both snapshots remain available; a failed rollback reports the current recovery
 copy's path and the restore failure.
-Setup also retains valid environment overrides in REA's existing server entry,
+Setup also retains valid environment overrides in Ghostwire's existing server entry,
 such as `REA_MCP_INPUT_SCHEMA_PROFILE`, `REA_MCP_OUTPUT_SCHEMA_PROFILE`, and
 `REA_MCP_MAX_RESPONSE_BYTES`.
 Detected provider settings replace only matching environment keys.
-Setup and doctor report a malformed REA environment map or invalid runtime
+Setup and doctor report a malformed Ghostwire environment map or invalid runtime
 setting before setup writes files. Repair the named setting in the client
 configuration; setup does not silently discard the rest of the map.
 This includes malformed loader/exclusion JSON arrays and a Ghidra compiler
@@ -78,7 +78,7 @@ setting dependencies are checked against the effective merged environment.
 Setup preserves each layer's overrides instead of copying inherited settings
 into the file it updates.
 
-After setup, REA reports which agents, analysis tools, and workflow files passed
+After setup, Ghostwire reports which agents, analysis tools, and workflow files passed
 its final checks. Restart any agent named in the completion message, then begin
 your investigation. Failed steps and diagnostics remain in terminal history.
 
@@ -89,7 +89,7 @@ workflow, and `--dry-run` returns a read-only plan with status `planned` and
 exit code 0:
 
 ```bash
-rea setup --client codex --client cursor --skill=false --dry-run
+ghostwire setup --client codex --client cursor --skill=false --dry-run
 ```
 
 Prompt UI and progress are written to stderr so stdout remains available for
@@ -99,18 +99,18 @@ interactive setup requires stdin, stdout, and stderr to all be terminals; when
 any stream is redirected, setup stays non-interactive. Declining or cancelling
 returns status `cancelled` with exit code 0.
 
-For automation, `rea setup --json` reports the plan and a compact `.doctor`
-readiness projection without applying it. Use `rea doctor --json` for full
+For automation, `ghostwire setup --json` reports the plan and a compact `.doctor`
+readiness projection without applying it. Use `ghostwire doctor --json` for full
 health diagnostics and canonical tool catalog details. Pair
 `--yes` with explicit scope such as `--client codex`, or use
 `--all-detected` when the broad scope is intended. Without a scope flag,
-`--yes` is limited to existing REA-owned registrations; it does not select all
+`--yes` is limited to existing Ghostwire-owned registrations; it does not select all
 detected clients. An unapproved actual apply reports `needs_confirmation` and
 exits 1. Installing missing Hopper non-interactively additionally requires
 `--install-hopper`:
 
 ```bash
-rea setup --yes --all-detected --install-hopper --json
+ghostwire setup --yes --all-detected --install-hopper --json
 ```
 
 ### Skill destinations
@@ -131,7 +131,7 @@ paths as `unmanaged`, names the affected paths, and provides those alternatives;
 an unreadable skill identity remains `unknown`. Uninstall retains and reports
 files it cannot safely remove, including their ownership manifest.
 
-`rea setup --skill-client claude_code --yes --json` refreshes and verifies the
+`ghostwire setup --skill-client claude_code --yes --json` refreshes and verifies the
 selected skill destination independently of MCP registration selection. The
 final `doctor.scope.skill_clients` records which skill destinations were
 checked; `doctor.scope.clients` continues to describe required registrations.
@@ -143,33 +143,33 @@ instructions and references. Consumers should use `identity.skill.state`,
 obsolete `installed_catalog_digest` field has been removed; current catalog
 identity remains available at `identity.catalog`.
 
-Setup pins package-runner MCP registrations to the exact installed REA version,
+Setup pins package-runner MCP registrations to the exact installed Ghostwire version,
 installs the matching skill and on-demand references in the same plan, and adds
 `startup_timeout_sec = 30` for Codex and Grok Build.
 
-## Limit REA to one project or agent profile
+## Limit Ghostwire to one project or agent profile
 
-Setup registers REA for the whole client. For Claude Code it writes
+Setup registers Ghostwire for the whole client. For Claude Code it writes
 `mcpServers.rea` in `~/.claude.json` and installs the bundled skill under
-`~/.claude/skills`, so every project that Claude Code opens can call REA. To
-offer REA's tools only where they're wanted, use one of the routes below.
+`~/.claude/skills`, so every project that Claude Code opens can call Ghostwire. To
+offer Ghostwire's tools only where they're wanted, use one of the routes below.
 
-Both routes control which sessions discover REA's MCP server and skill. They
+Both routes control which sessions discover Ghostwire's MCP server and skill. They
 leave shell commands, filesystem access and network access available. An agent
-under the same OS account can run `rea` from `PATH` or `npx` and read other
-profiles and REA output. For clean-room separation, use an implementation
+under the same OS account can run `ghostwire` from `PATH` or `npx` and read other
+profiles and Ghostwire output. For clean-room separation, use an implementation
 environment with filesystem and network restrictions that prevent reading or
-fetching REA, the target and analysis output, including through shared
+fetching Ghostwire, the target and analysis output, including through shared
 installations and package registries. A separate account or container must
 enforce those restrictions.
 
 For Claude Code, check existing default-profile state before choosing either
-route. Setup is additive: a previous user-level REA registration and personal
+route. Setup is additive: a previous user-level Ghostwire registration and personal
 skill remain active in other projects. Back up the default configuration and
-REA skill first, then, with `CLAUDE_CONFIG_DIR` unset, remove the REA user
-registration with `claude mcp remove --scope user rea` and remove the known
-REA-installed `~/.claude/skills/reverse-engineer-anything` directory. Preserve
-unrelated registrations and skills. `rea uninstall` applies to other clients
+Ghostwire skill first, then, with `CLAUDE_CONFIG_DIR` unset, remove the Ghostwire user
+registration with `claude mcp remove --scope user ghostwire` and remove the known
+Ghostwire-installed `~/.claude/skills/reverse-engineer-anything` directory. Preserve
+unrelated registrations and skills. `ghostwire uninstall` applies to other clients
 as well, so it is broader than this Claude-only migration.
 
 **A separate Claude Code profile.** Claude Code keeps settings, skills and session
@@ -178,7 +178,7 @@ variable: it writes the registration to `$CLAUDE_CONFIG_DIR/.claude.json` and
 the skill to `$CLAUDE_CONFIG_DIR/skills`.
 
 ```bash
-CLAUDE_CONFIG_DIR=~/.claude-rea npx rea-agents setup --client claude_code
+CLAUDE_CONFIG_DIR=~/.claude-rea npx ghostwire-agent setup --client claude_code
 CLAUDE_CONFIG_DIR=~/.claude-rea claude
 ```
 
@@ -194,19 +194,19 @@ environment and can otherwise inspect or recreate default-profile state:
 
 ```bash
 CLAUDE_CONFIG_DIR=~/.claude-rea claude mcp list
-CLAUDE_CONFIG_DIR=~/.claude-rea npx rea-agents doctor --client claude_code --skill --json
-CLAUDE_CONFIG_DIR=~/.claude-rea npx -y rea-agents@latest setup --client claude_code --dry-run
+CLAUDE_CONFIG_DIR=~/.claude-rea npx ghostwire-agent doctor --client claude_code --skill --json
+CLAUDE_CONFIG_DIR=~/.claude-rea npx -y ghostwire-agent@latest setup --client claude_code --dry-run
 ```
 
 After reviewing an update plan, rerun that same prefixed setup command without
 `--dry-run` and approve its exact changes. Profile removal likewise needs the
-prefix on `claude mcp remove --scope user rea` and any `rea uninstall` command;
+prefix on `claude mcp remove --scope user ghostwire` and any `ghostwire uninstall` command;
 keep the broader client scope of uninstall in mind. Restart the selected
 profile after changing its pinned registration.
 
-`claude mcp remove` removes only the registration. To remove REA from this
+`claude mcp remove` removes only the registration. To remove Ghostwire from this
 profile without running the broader uninstall flow, first back up the profile's
-REA-managed skill directory, then remove
+Ghostwire-managed skill directory, then remove
 `$CLAUDE_CONFIG_DIR/skills/reverse-engineer-anything` as well. Keep other skills
 in the profile intact.
 
@@ -218,14 +218,14 @@ restore the previous selection afterward:
 $previousClaudeConfigDir = $env:CLAUDE_CONFIG_DIR
 try {
   $env:CLAUDE_CONFIG_DIR = Join-Path $HOME ".claude-rea"
-  npx rea-agents setup --client claude_code
+  npx ghostwire-agent setup --client claude_code
   claude mcp list
-  npx rea-agents doctor --client claude_code --skill --json
-  npx -y rea-agents@latest setup --client claude_code --dry-run
+  npx ghostwire-agent doctor --client claude_code --skill --json
+  npx -y ghostwire-agent@latest setup --client claude_code --dry-run
   # After reviewing the plan, repeat setup without --dry-run and approve it.
   claude
   # Profile removal, when intended, also belongs inside this selected scope:
-  # claude mcp remove --scope user rea
+  # claude mcp remove --scope user ghostwire
 } finally {
   if ($null -eq $previousClaudeConfigDir) {
     Remove-Item Env:CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue
@@ -242,7 +242,7 @@ or unsets the variable when it was absent.
 
 **One project.** Install without configuring Claude Code: use the curl
 installer's `--no-setup`, or run setup only for other clients. Then register
-REA from the project directory at Claude Code's local scope.
+Ghostwire from the project directory at Claude Code's local scope.
 
 This route uses the default Claude profile. Keep `CLAUDE_CONFIG_DIR` unset for
 the entire local lifecycle: registration, backup, listing, version replacement
@@ -257,14 +257,14 @@ Register with the variable unset:
 <!-- x-release-please-start-version -->
 
 ```bash
-claude mcp add --scope local rea -- npx -y rea-agents@6.4.0 mcp
+claude mcp add --scope local ghostwire -- npx -y ghostwire-agent@6.4.0 mcp
 ```
 
 On native Windows, use the same project directory and wrap the package-runner
 shim so the stdio client can launch it:
 
 ```powershell
-claude mcp add --scope local rea -- cmd.exe /d /c npx -y rea-agents@6.4.0 mcp
+claude mcp add --scope local ghostwire -- cmd.exe /d /c npx -y ghostwire-agent@6.4.0 mcp
 ```
 
 <!-- x-release-please-end -->
@@ -272,14 +272,14 @@ claude mcp add --scope local rea -- cmd.exe /d /c npx -y rea-agents@6.4.0 mcp
 Local scope stores the entry under that directory's path in `~/.claude.json`,
 so other projects don't load it. This route doesn't install the bundled skill.
 Avoid `--scope project`, which writes `.mcp.json` into the repository where it
-can be committed or copied. `rea doctor` and `rea uninstall` read only the
+can be committed or copied. `ghostwire doctor` and `ghostwire uninstall` read only the
 user-level entry, so they don't report or remove a local-scope registration;
-remove it with `claude mcp remove --scope local rea` from the same directory.
-`rea update` doesn't refresh it either, so it stays on the version it names.
+remove it with `claude mcp remove --scope local ghostwire` from the same directory.
+`ghostwire update` doesn't refresh it either, so it stays on the version it names.
 To move it to a newer release, first back up the project entry in
 `~/.claude.json` and record its environment and other metadata. In particular,
 preserve caller-selected overrides such as `REA_MCP_INPUT_SCHEMA_PROFILE` and
-`REA_MCP_MAX_RESPONSE_BYTES`. Run `claude mcp remove --scope local rea` from the
+`REA_MCP_MAX_RESPONSE_BYTES`. Run `claude mcp remove --scope local ghostwire` from the
 same directory, then recreate it with the platform-appropriate command above
 and the new version. Reapply every recorded environment value with Claude
 Code's `mcp add --env NAME=value` options and restore any other retained entry
@@ -293,7 +293,7 @@ with the default profile with `CLAUDE_CONFIG_DIR` unset. For local scope, run
 
 ## Check readiness for your task
 
-Run `rea doctor` when you need diagnosis. It reads host prerequisites and agent
+Run `ghostwire doctor` when you need diagnosis. It reads host prerequisites and agent
 configuration without changing them. Without options, it audits every detected
 registration, the installed skill and optional analysis engines; its overall
 `healthy` value can be false while your chosen workflow works.
@@ -309,12 +309,12 @@ a particular caller-supplied input will be valid. See
 
 Select the part you want to check:
 
-| Task                                | Readiness check                                                          |
-| ----------------------------------- | ------------------------------------------------------------------------ |
-| Static JavaScript/Electron analysis | Run `rea analyze-javascript-application PATH --json` directly.           |
-| One analysis engine                 | `rea doctor --provider ghidra --json` (or `hopper`, `ida`)               |
-| One agent registration              | `rea doctor --client codex --json` (see [client IDs](#supported-agents)) |
-| Installed workflow instructions     | `rea doctor --skill --json`                                              |
+| Task                                | Readiness check                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| Static JavaScript/Electron analysis | Run `ghostwire analyze-javascript-application PATH --json` directly.           |
+| One analysis engine                 | `ghostwire doctor --provider ghidra --json` (or `hopper`, `ida`)               |
+| One agent registration              | `ghostwire doctor --client codex --json` (see [client IDs](#supported-agents)) |
+| Installed workflow instructions     | `ghostwire doctor --skill --json`                                              |
 
 A scoped report has `scope.mode: "explicit"`. Its `scope_checks` determine
 `healthy` and the exit status. Other checks appear in `informational_checks`;
@@ -330,8 +330,8 @@ selected engine. See [provider selection](cli.md#choose-a-provider).
 
 ### Linux owned-process prerequisite
 
-On Linux, REA's shared process supervisor requires a procps-compatible `ps`
-on REA's `PATH` for ownership checks before launching a child. Ghidra, JADX,
+On Linux, Ghostwire's shared process supervisor requires a procps-compatible `ps`
+on Ghostwire's `PATH` for ownership checks before launching a child. Ghidra, JADX,
 firmware tools and static JavaScript/Electron analysis use these checks.
 Install your distribution's `procps` or `procps-ng` package, or put another
 procps-compatible `ps` on `PATH` before
@@ -345,26 +345,26 @@ provider-specific recovery advice.
 
 ## Diagnose, update, and remove
 
-`rea doctor --json` is strictly read-only. `rea update` updates only the npm or Bun global installation that owns the running CLI. Source checkouts and package-runner copies must be updated through the mechanism that owns them; a fresh package-runner invocation can use `npx rea-agents@latest` or `bunx rea-agents@latest`. `rea uninstall` removes only REA-owned agent registrations and skill files; `--purge-data` additionally removes REA cache and state paths.
+`ghostwire doctor --json` is strictly read-only. `ghostwire update` updates only the npm or Bun global installation that owns the running CLI. Source checkouts and package-runner copies must be updated through the mechanism that owns them; a fresh package-runner invocation can use `npx ghostwire-agent@latest` or `bunx ghostwire-agent@latest`. `ghostwire uninstall` removes only Ghostwire-owned agent registrations and skill files; `--purge-data` additionally removes Ghostwire cache and state paths.
 
 ```bash
-rea update
-rea uninstall
-rea uninstall --purge-data
+ghostwire update
+ghostwire uninstall
+ghostwire uninstall --purge-data
 ```
 
 Uninstall preserves Hopper, Node.js, Evidence files, captures, unrelated skills
-and other MCP servers. Purging removes only REA's cache and state under
+and other MCP servers. Purging removes only Ghostwire's cache and state under
 `~/.rea`. A client configuration that is malformed, unreadable, or at an unsafe
 path stops the operation before anything is removed, and a client that fails
 while being updated stops the remaining removals. A purge path that is a
 symbolic link is retained and reported rather than followed. Uninstall checks
-REA's managed shared and Claude Code personal skill locations. See the
+Ghostwire's managed shared and Claude Code personal skill locations. See the
 [CLI guide](cli.md#output-and-exit-status) for exit statuses.
 
 ### Update the owning installation
 
-`rea update` installs the exact resolved
+`ghostwire update` installs the exact resolved
 release into the npm prefix or Bun global directory that owns the running
 package, then checks the new executable's version before reporting success. It
 does not reopen onboarding. For npm installations, release lookup and
@@ -380,8 +380,8 @@ else `~/.bun/install/global`), never in the caller's current project. A Bun
 global directory without its `package.json` is not treated as an owned
 installation, because Bun would install into the nearest ancestor project
 instead.
-Its maintenance plan selects only existing REA registrations and an already
-installed REA skill. Run the returned scoped setup command to review and approve
+Its maintenance plan selects only existing Ghostwire registrations and an already
+installed Ghostwire skill. Run the returned scoped setup command to review and approve
 those changes, then restart affected agents. The plan is returned in terminal,
 non-TTY, and JSON modes without applying configuration changes.
 
@@ -409,7 +409,7 @@ release containing changes after this checkpoint is required for newer
 functionality. Package startup alone does not verify a provider's real
 platform workflow.
 
-To check the published version, run `npm view rea-agents dist-tags.latest`.
+To check the published version, run `npm view ghostwire-agent dist-tags.latest`.
 Use the connected server's actual tool list and advertised input schemas for
 feature selection. The same package version string in a development checkout
 does not establish that its bytes match the npm tarball. Update a registration
@@ -421,7 +421,7 @@ through a reviewed, scoped setup plan, then restart/reconnect the agent.
 npx skills add morluto/rea --skill reverse-engineer-anything
 ```
 
-This installs agent instructions and bundled references, not REA MCP
+This installs agent instructions and bundled references, not Ghostwire MCP
 registration or analysis engines. Follow the skill's
 [conditional connection guide](https://github.com/morluto/rea/blob/main/.agents/skills/reverse-engineer-anything/SKILL.md#connect-only-when-needed).
 Working tools can be used immediately. If tools are missing, inspect the current
@@ -437,7 +437,7 @@ and the release boundary above. Static JavaScript CLI inspection can proceed
 while MCP is unavailable:
 
 ```bash
-npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json
+npx -y ghostwire-agent@latest analyze-javascript-application /absolute/path/to/app --json
 ```
 
 It returns the complete Evidence record directly and requires no native engine.
@@ -447,7 +447,7 @@ readiness for one task instead of auditing every integration, see
 
 ## Supported agents
 
-Setup can configure these clients for REA's local MCP server. Grok Bot uses a manual
+Setup can configure these clients for Ghostwire's local MCP server. Grok Bot uses a manual
 hosted connector; see [its configuration](client-configuration.md#other-client-settings).
 
 | Client             | `--client` value |
@@ -480,11 +480,11 @@ See [OpenCode, Grok Build, and Grok Bot settings](client-configuration.md#other-
 ## Hopper
 
 Hopper is separate commercial software with its own license. Its free demo has
-vendor-defined limits, and a paid license is optional. REA reuses any detected
+vendor-defined limits, and a paid license is optional. Ghostwire reuses any detected
 installation and preserves Hopper during uninstall.
 
 The automated Hopper installer supports macOS 12+, Ubuntu 24.04+, Fedora 41+,
-Nobara 44+, 64-bit Arch Linux, CachyOS, or Omarchy. REA itself runs on any
+Nobara 44+, 64-bit Arch Linux, CachyOS, or Omarchy. Ghostwire itself runs on any
 Linux distribution with a recognized apt, dnf, or pacman package family, where
 an existing Hopper launcher is selected through `HOPPER_LAUNCHER_PATH`. Ghidra
 and IDA have their own provider-specific host requirements; Windows Ghidra uses
@@ -492,29 +492,29 @@ the [experimental P0 boundary](windows-ghidra-p0.md).
 
 On macOS, approved setup downloads the official DMG, checks its published size
 and digest, validates the application bundle, and atomically installs it to
-`~/Applications/Hopper Disassembler.app`. REA then opens Hopper so the
+`~/Applications/Hopper Disassembler.app`. Ghostwire then opens Hopper so the
 operator can choose its demo mode or activate an existing license. Homebrew and
 administrator access are not used.
 
-The Hopper launcher action used by REA creates a document from an executable;
+The Hopper launcher action used by Ghostwire creates a document from an executable;
 its supported command-line interface does not attach to an already-open
-document. While another live REA session owns the same target and loader
+document. While another live Ghostwire session owns the same target and loader
 profile, a second session reports the owning run ID instead of opening a
-duplicate document. On macOS, closing the owning REA session releases this guard;
-Hopper keeps its document open. A later REA session can therefore open another
-document for the same target. REA does not currently identify, focus, or reuse
+duplicate document. On macOS, closing the owning Ghostwire session releases this guard;
+Hopper keeps its document open. A later Ghostwire session can therefore open another
+document for the same target. Ghostwire does not currently identify, focus, or reuse
 that existing GUI document, and the supported launcher exposes no attach or
 reuse action for it.
 
-REA currently declines saved Hopper database (`.hop`) targets on macOS because
-the native `open database` launch route does not run REA's bridge script. To
-analyze that program with REA, select its original executable as the target and
+Ghostwire currently declines saved Hopper database (`.hop`) targets on macOS because
+the native `open database` launch route does not run Ghostwire's bridge script. To
+analyze that program with Ghostwire, select its original executable as the target and
 open it through Hopper; this starts the supported bridge route. This does not
 recover database-only annotations or analysis changes. Saved-database analysis
 on Linux continues to use its supported demo-launch route.
 
 Hopper lease directories must be readable and owned by the current user.
-REA validates and secures an opened directory before reserving a lease. If
+Ghostwire validates and secures an opened directory before reserving a lease. If
 opening that directory fails with a permission error, the diagnostic identifies
 the path and recovery steps while leaving its permissions unchanged. Check
 ownership and parent-directory access, then restore owner-only read, write, and
@@ -522,14 +522,14 @@ search permissions (`0700`) on a directory you own before retrying.
 
 On supported Linux distributions, approved setup verifies Hopper's official
 `.deb`, `.rpm`, or Arch package before invoking the native package manager.
-REA runs the supported demo build on a private Xvfb display and selects Hopper's
+Ghostwire runs the supported demo build on a private Xvfb display and selects Hopper's
 offered demo mode for each analysis session; it does not require the user's
 desktop display. Unattended package-manager access requires
 `--yes --install-hopper`. If the host exposes `/tmp/.X11-unix` as an immutable
-mount, REA first verifies the conflict and then uses an unprivileged user and
+mount, Ghostwire first verifies the conflict and then uses an unprivileged user and
 mount namespace with a private mode-1777 tmpfs over that directory only. The
 host mount and the rest of `/tmp` remain unchanged; this fallback never invokes
-`sudo`. `rea doctor --provider hopper --json` reports the selected
+`sudo`. `ghostwire doctor --provider hopper --json` reports the selected
 strategy and both host and effective mount facts.
 
 When the package-manager step fails, setup reports the failing command and its
@@ -537,30 +537,30 @@ captured output, so a package conflict is distinguishable from an authorization
 failure. On CachyOS, an unversioned compatibility package such as
 `zlib-ng-compat` may conflict with Hopper's versioned `zlib` dependency. Resolve
 the package conflict yourself or install Hopper's official package manually,
-then rerun `rea setup`.
+then rerun `ghostwire setup`.
 
 The supported Linux demo forwards additional launches into its existing
-application, even across private displays. REA therefore reserves one Linux
-Hopper application per user across cooperating REA processes. A competing
+application, even across private displays. Ghostwire therefore reserves one Linux
+Hopper application per user across cooperating Ghostwire processes. A competing
 CLI or MCP session receives the owning session ID before Hopper is launched,
 for both the same target and a different target. Switch targets through that
 MCP session, or close it before starting another session. Closing the owner
-releases the reservation and stops REA's owned demo application and private
+releases the reservation and stops Ghostwire's owned demo application and private
 display; the headless Linux demo does not retain documents after MCP shutdown.
 Its helper watches a private lifetime pipe, so an owner crash or SIGKILL also
 stops those children, without relying on a reusable PID or a process-name scan.
 A later session recovers the dead owner's stale lease after child cleanup;
-private runtime files can remain when REA itself was killed. This does not attach to
+private runtime files can remain when Ghostwire itself was killed. This does not attach to
 or claim ownership of manually opened Hopper applications. An application left
-running by an older REA version must still be closed before starting a new session.
+running by an older Ghostwire version must still be closed before starting a new session.
 
 Stale lease recovery is serialized. If an interrupted recovery leaves its
-reservation directory, the diagnostic identifies that exact path. Stop REA
+reservation directory, the diagnostic identifies that exact path. Stop Ghostwire
 sessions before removing that recovery directory and retrying.
 
 ### Launcher paths and troubleshooting
 
-On macOS, REA uses
+On macOS, Ghostwire uses
 `/Applications/Hopper Disassembler.app/Contents/MacOS/hopper` by default.
 On Linux, it prefers executable `/opt/hopper/bin/Hopper`, then executable
 `~/.local/share/rea/hopper/bin/Hopper`, followed by `/opt/hopper-v4/bin/hopper`
@@ -569,17 +569,17 @@ fallback. `HOPPER_LAUNCHER_PATH` overrides those choices:
 
 ```bash
 export HOPPER_LAUNCHER_PATH=/absolute/path/to/Hopper
-rea doctor --provider hopper --json
+ghostwire doctor --provider hopper --json
 ```
 
 Hopper startup allows 120,000 ms for launch, initial analysis, and authenticated
 bridge readiness. For large targets, set `REA_HOPPER_STARTUP_TIMEOUT_MS` to a
 decimal integer from 1 to 2,147,483,647 milliseconds in the environment that
-starts REA. CLI and MCP use the same setting; invalid values fail configuration
+starts Ghostwire. CLI and MCP use the same setting; invalid values fail configuration
 validation. An MCP client's own request timeout must also allow enough time.
 
-If macOS denies Apple Events, allow the application that starts REA under
-**System Settings → Privacy & Security → Automation**, then retry. REA releases
+If macOS denies Apple Events, allow the application that starts Ghostwire under
+**System Settings → Privacy & Security → Automation**, then retry. Ghostwire releases
 the target reservation when the native helper reports its complete authorization
 rejection and its arguments cannot alter the helper's generated AppleScript.
 Arguments containing quotes, backslashes, or line breaks remain unchanged but
@@ -588,7 +588,7 @@ retain ownership until document closure is confirmed. If a timed-out bridge
 becomes ready later, `close_binary` connects to that run, authenticates its
 identity, and requests document shutdown. After a connection drops, the bridge
 allows 30 seconds for an authenticated cleanup reconnect, then releases Hopper's
-Python execution thread. Expiry does not establish document closure, so REA
+Python execution thread. Expiry does not establish document closure, so Ghostwire
 retains unconfirmed ownership. Retry close while the bridge remains available.
 
 If a Linux launcher exists but cannot start, inspect its shared libraries:
@@ -602,12 +602,12 @@ need Xvfb, Python 3, X11 and XTEST; approved setup installs those dependencies
 on supported distributions. Add the curl installer's reported executable
 directory, commonly `~/.local/bin`, to your shell `PATH` if needed.
 
-REA starts Hopper when needed. On macOS, complete its demo or license prompt in
+Ghostwire starts Hopper when needed. On macOS, complete its demo or license prompt in
 the same user session before the first CLI/MCP operation or unattended job. Open
 Hopper manually if needed; its launcher can also bring the dialog forward.
 If startup reports `Cannot launch Hopper! Connection is invalid.` or waits for
 bridge readiness, check Hopper for a pending demo, license, or loader dialog.
-Complete the dialog and retry. If REA reports `cleanup_incomplete`, follow the
+Complete the dialog and retry. If Ghostwire reports `cleanup_incomplete`, follow the
 retained-resource guidance below before reopening the target.
 Hopper serializes analysis requests. Cancelling a wait can leave provider work
 running, which the session reports. Successful decompilation is cached until
@@ -622,17 +622,17 @@ memory has no original file offset. For FAT Mach-O, offsets refer to the origina
 container file. Results retain Hopper's image-relative offset, the observed slice
 base, and the source executable path.
 Loader selection reads the Mach-O container header, including FAT files with a
-single architecture. For FAT64, REA validates the architecture table and selected
+single architecture. For FAT64, Ghostwire validates the architecture table and selected
 Mach-O header, prepares a private thin image, and loads it with Hopper's native
 Mach-O loader. It checks the entire source's SHA-256 while copying the slice;
 source identity and reported offsets still refer to the original container.
 An ambiguous architecture subtype requires an explicitly extracted thin image;
-REA does not guess. Configured loader arguments remain explicit overrides.
+Ghostwire does not guess. Configured loader arguments remain explicit overrides.
 FAT64 is distinct from the CPU architecture: FAT32 containers can contain 64-bit
 executable images. This preparation avoids the Raw Binary loader dialog observed
 with native FAT64 loading on Hopper 6.1.0-demo.
 The prepared image and its owned document close together, including on MCP exit;
-if document closure is unconfirmed, REA retains the backing image and reports
+if document closure is unconfirmed, Ghostwire retains the backing image and reports
 `cleanup_incomplete` with its path. Ordinary documents retain their existing
 MCP-exit behavior.
 Startup deadlines report missing bridge readiness and preserve the launcher
@@ -645,12 +645,12 @@ An external GUI's helper exit does not establish that the GUI itself exited.
 For cursor navigation, string decoding, symbol-name limits, and regex matching,
 see [Hopper analysis behavior](native-investigation.md#hopper-analysis-behavior).
 
-Closing or switching a target closes its bound Hopper document, shuts down REA's
+Closing or switching a target closes its bound Hopper document, shuts down Ghostwire's
 bridge and removes its temporary socket directory. The macOS Hopper application
 and unrelated documents remain open; the owned Linux demo application stops.
 A `cleanup_incomplete`
 result identifies resources whose cleanup could not be verified.
-REA retains unresolved cleanup ownership and any confirmed shutdown phases.
+Ghostwire retains unresolved cleanup ownership and any confirmed shutdown phases.
 After addressing the reported failure, retry `close_binary` on the same
 connection. Unconfirmed document or process cleanup retains the target/application
 lease and prevents another client from launching against that owned resource.
@@ -660,23 +660,23 @@ client must finish its retained cleanup before starting again.
 An unconfirmed external document can be retried while its authenticated bridge
 remains connected. If that bridge has disconnected, another close cannot confirm
 the document: inspect and close the reported document in Hopper before ending
-the owning REA connection.
+the owning Ghostwire connection.
 
 ### Hopper in CI
 
-REA's unattended Linux path is validated against Hopper's offered demo mode.
-A paid license is not required for that path, and REA does not read, install, or
+Ghostwire's unattended Linux path is validated against Hopper's offered demo mode.
+A paid license is not required for that path, and Ghostwire does not read, install, or
 automate license credentials. Licensed Hopper installations remain supported,
 but license activation is an operator-owned prerequisite rather than part of
-REA setup.
+Ghostwire setup.
 
 macOS requires Hopper's first-run UI to be completed in the same user session
-that will run REA: choose the demo mode or activate an existing license before
+that will run Ghostwire: choose the demo mode or activate an existing license before
 starting an unattended job. Ephemeral macOS runners therefore need a
 pre-provisioned user session or a deliberate interactive bootstrap step.
 
 When Hopper cannot start in CI, run
-`rea doctor --provider hopper --json` in the failing runner.
+`ghostwire doctor --provider hopper --json` in the failing runner.
 Structured failures distinguish private-display dependencies, an unsupported
 demo dialog or build, process-ownership conflicts, and an early lifecycle exit.
 Apply the reported remediation rather than exposing the runner's desktop,
@@ -684,7 +684,7 @@ copying license secrets into logs, or killing unrelated Hopper processes.
 
 ## Ghidra
 
-REA connects to an existing Ghidra installation on Linux x64/arm64, macOS x64/arm64,
+Ghostwire connects to an existing Ghidra installation on Linux x64/arm64, macOS x64/arm64,
 or experimental Windows x64 P0.
 It accepts Ghidra 12.1.x and the 64-bit full JDK declared by that installation's
 `application.java.min` and `application.java.max`. The JDK's reported platform must also
@@ -699,10 +699,10 @@ and JDK 21. Each installation must include the native decompiler for the host
 architecture in `Ghidra/Features/Decompiler/os/<platform>/` or the corresponding
 `build/os/<platform>/` directory. Linux ARM64 uses `linux_arm_64`; official
 release archives may require you to build that native component separately.
-REA checks the executable prerequisite by inspecting the file's own executable
+Ghostwire checks the executable prerequisite by inspecting the file's own executable
 header, so a native component built for another platform or architecture is
 reported as incompatible instead of being admitted from its directory name, and
-a header that cannot be read or recognized is reported as unknown. REA does not
+a header that cannot be read or recognized is reported as unknown. Ghostwire does not
 build or install native tools, or change Gatekeeper quarantine settings.
 
 The adapter exposes 26 read-only operations: fourteen inventory/name/search
@@ -728,13 +728,13 @@ DACLs, and handle-based path admission; no separate addon installation is needed
 See the [Windows Ghidra P0 guide](windows-ghidra-p0.md) for verified scope and
 limitations.
 
-Extract Ghidra and install the JDK outside REA, then export absolute paths:
+Extract Ghidra and install the JDK outside Ghostwire, then export absolute paths:
 
 ```bash
 export GHIDRA_INSTALL_DIR=/absolute/path/to/ghidra_12.1.4_PUBLIC
 export JAVA_HOME=/absolute/path/to/jdk-21 # optional if java/javac are on PATH
-rea doctor --json
-rea setup
+ghostwire doctor --json
+ghostwire setup
 ```
 
 On Windows, configure the existing installation in PowerShell:
@@ -742,12 +742,12 @@ On Windows, configure the existing installation in PowerShell:
 ```powershell
 $env:GHIDRA_INSTALL_DIR = "C:\tools\ghidra_12.1.4_PUBLIC"
 $env:JAVA_HOME = "C:\Program Files\Java\jdk-21"
-rea doctor --json
-rea providers --json
+ghostwire doctor --json
+ghostwire providers --json
 ```
 
-`rea setup` can configure supported Windows agents and install the bundled
-REA skill after approval. Direct registrations use Node to launch REA's entry
+`ghostwire setup` can configure supported Windows agents and install the bundled
+Ghostwire skill after approval. Direct registrations use Node to launch Ghostwire's entry
 script; package-runner registrations use the pinned `npx` or `bunx` command. Hopper
 installation remains unavailable on Windows. Setup never installs Ghidra,
 Java, or Python. It preserves valid detected Ghidra/JDK settings in agent
@@ -758,7 +758,7 @@ When `GHIDRA_INSTALL_DIR` is unset, doctor and the Ghidra provider also search
 real path, and accept it only when that location belongs to a Ghidra tree with
 the application metadata and headless launcher. An explicitly supplied
 `GHIDRA_INSTALL_DIR` always takes precedence, including when it is invalid;
-REA reports that error instead of silently selecting another installation.
+Ghostwire reports that error instead of silently selecting another installation.
 This discovery is read-only and does not execute the Ghidra launcher.
 
 Doctor validates the platform, architecture, Ghidra 12.1.x application version,
@@ -775,15 +775,15 @@ environment entry in its plan, writes only after approval, and never downloads,
 installs, upgrades, or modifies Ghidra or Java.
 
 Each verified session uses an ephemeral temporary project and isolated
-home/cache/config/temp paths. REA passes `-readOnly`, `-deleteProject`, uses
+home/cache/config/temp paths. Ghostwire passes `-readOnly`, `-deleteProject`, uses
 Ghidra's default analysis settings, and loads its packaged Java
 bridge via `-scriptPath`; it never opens an existing user project. Linux and
 macOS use a current-user-only local bridge socket and descriptor. The
 project remains under the selected temporary directory. If its Unix socket
-pathname would exceed the host's byte limit, REA allocates a separate owner-only
+pathname would exceed the host's byte limit, Ghostwire allocates a separate owner-only
 socket directory under `/tmp` and removes it on close, cancellation, or failure.
 Diagnostics retain the actual endpoint and both owned directories.
-On Linux and macOS, REA starts the inspected JVM directly using Ghidra's own LaunchSupport
+On Linux and macOS, Ghostwire starts the inspected JVM directly using Ghidra's own LaunchSupport
 configuration. Apple platform shell wrappers hide their environments from
 ownership inspection, so retaining those wrappers would prevent verified
 process-group cancellation during startup.
@@ -800,7 +800,7 @@ bridge, and health readiness. Large binaries can need more: set
 `REA_GHIDRA_STARTUP_TIMEOUT_MS` to an integer between 1 and 2,147,483,647
 milliseconds in the server environment. An absent setting uses the default;
 empty, invalid or out-of-range supplied values fail configuration validation.
-REA parses the supplied configuration environment and
+Ghostwire parses the supplied configuration environment and
 passes the deadline to each provider client; a startup failure is returned by the query that triggered it,
 without exposing partial analysis. This deadline is separate from MCP transport
 initialization and the client's deadline for that individual tool call. A client
@@ -819,7 +819,7 @@ pseudocode is never treated as original source or Hopper-equivalent text.
 
 ### Missing macOS native decompiler
 
-If `rea doctor --json` reports `native_decompiler` as missing on macOS x64,
+If `ghostwire doctor --json` reports `native_decompiler` as missing on macOS x64,
 the extracted Ghidra archive may include the decompiler source without the
 macOS executable. For Ghidra 12.1.4, you can build it manually with an existing
 Xcode Command Line Tools installation, `make`, and `bison`:
@@ -831,7 +831,7 @@ decompiler_dir="$GHIDRA_INSTALL_DIR/Ghidra/Features/Decompiler/os/mac_x86_64"
 mkdir -p "$decompiler_dir"
 test ! -e "$decompiler_dir/decompile" && test ! -L "$decompiler_dir/decompile" &&
   install -m 755 ghidra_opt "$decompiler_dir/decompile"
-rea doctor --json
+ghostwire doctor --json
 ```
 
 The copy step requires the destination to be absent and preserves an existing
@@ -840,7 +840,7 @@ decompiler. This recipe is specific to macOS x64: the
 explicitly selects `-arch x86_64` on Darwin. For a Gradle
 build, follow the matching release's
 [native component instructions](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.1.4_build/GhidraDocs/GettingStarted.md#building-native-components).
-REA accepts the matching executable under either `os/<platform>/` or
+Ghostwire accepts the matching executable under either `os/<platform>/` or
 `build/os/<platform>/`; it does not build the component during setup or diagnosis.
 
 ### macOS arm64 native decompiler
@@ -858,13 +858,13 @@ decompiler_dir="$GHIDRA_INSTALL_DIR/Ghidra/Features/Decompiler/os/mac_arm_64"
 mkdir -p "$decompiler_dir"
 test ! -e "$decompiler_dir/decompile" && test ! -L "$decompiler_dir/decompile" &&
   install -m 755 ghidra_opt "$decompiler_dir/decompile"
-rea doctor --json
+ghostwire doctor --json
 ```
 
 Verified end to end on macOS 15.6 arm64 with Apple clang 17 and the stock
 bison 2.3, against Ghidra 12.1.4: the build produces a Mach-O arm64
 `ghidra_opt`, the doctor check `ghidra-native_decompiler` turns healthy with
-"reports mach-o arm64, which matches darwin/arm64", and `rea decompile` on an
+"reports mach-o arm64, which matches darwin/arm64", and `ghostwire decompile` on an
 arm64 Mach-O returns decompiled C through the headless provider. The JDK is
 not needed for the make step, only for the Ghidra provider. If your toolchain
 rejects the inherited `-mmacosx-version-min=10.6` flag, retry the make with
@@ -879,7 +879,7 @@ export REA_GHIDRA_LANGUAGE_ID="x86:LE:32:default"
 export REA_GHIDRA_COMPILER_SPEC_ID="borlandcpp"   # optional; requires a language
 ```
 
-REA passes `-processor`/`-cspec`, checks both against the installation's `.ldefs`, and records them in the analysis profile. DOS imports reject an override.
+Ghostwire passes `-processor`/`-cspec`, checks both against the installation's `.ldefs`, and records them in the analysis profile. DOS imports reject an override.
 
 To seed code that auto-analysis cannot reach (computed jumps, pointers in data):
 
@@ -915,7 +915,7 @@ have produced.
 ### Ghidra heap and CPU controls
 
 Set resource controls in the environment that launches the CLI or MCP server,
-before opening a new Ghidra session. On Linux and macOS, REA chooses the first
+before opening a new Ghidra session. On Linux and macOS, Ghostwire chooses the first
 nonempty setting in this order: `GHIDRA_HEADLESS_MAXMEM`, `GHIDRA_MAXMEM`, then
 `2G`. The chosen value becomes the JVM's `-Xmx` argument. Use a JVM heap-size
 value such as `512M` or `2G`; an invalid value causes Java startup to fail.
@@ -934,17 +934,17 @@ In PowerShell:
 $env:GHIDRA_HEADLESS_MAXMEM = "512M"
 ```
 
-An MCP client must pass this setting to its REA server process; changing an
+An MCP client must pass this setting to its Ghostwire server process; changing an
 unrelated terminal's environment does not reconfigure an existing server or
 JVM. A 512 MiB heap was verified with small native fixtures, but larger targets
 can require more memory. The Java heap limit does not bound JVM RSS, Node's
 heap, or total memory used by the process family. The startup deadline controls
 waiting time independently of these memory settings.
 
-REA clears `_JAVA_OPTIONS`, `JAVA_TOOL_OPTIONS`, `JDK_JAVA_OPTIONS`, and
+Ghostwire clears `_JAVA_OPTIONS`, `JAVA_TOOL_OPTIONS`, `JDK_JAVA_OPTIONS`, and
 `GHIDRA_JAVA_OPTIONS` inherited from the caller, and owns
 `GHIDRA_HEADLESS_JAVA_OPTIONS`. Custom flags injected through these variables
-are not supported configuration. On Windows, REA replaces `JDK_JAVA_OPTIONS`
+are not supported configuration. On Windows, Ghostwire replaces `JDK_JAVA_OPTIONS`
 with its own isolated home/temp settings and `-XX:-UsePerfData`; on Linux and
 macOS it supplies isolated paths directly to Java. Use the supported heap
 settings above instead of adding a second `-Xmx` through an injection variable.
@@ -952,9 +952,9 @@ settings above instead of adding a second `-Xmx` through an injection variable.
 The Linux/macOS launch sets `-XX:ParallelGCThreads=2` and
 `-XX:CICompilerCount=2`; the supported Windows headless script also sets these
 counts. These constrain particular JVM thread pools, not all analysis threads
-or CPU usage. REA does not pass Ghidra's `-max-cpu` option or expose a general
+or CPU usage. Ghostwire does not pass Ghidra's `-max-cpu` option or expose a general
 Ghidra CPU limit. When needed, apply host CPU affinity and scheduling controls
-to the REA process and verify the resulting JVM's affinity. Select CPUs allowed
+to the Ghostwire process and verify the resulting JVM's affinity. Select CPUs allowed
 on the host; do not assume CPU numbers from another machine are valid.
 
 Verify controls at their consumer after the first Ghidra-backed query starts
@@ -965,7 +965,7 @@ contains the launch arguments and `/proc/<jvm-pid>/status` reports
 `Cpus_allowed_list` and `VmRSS`. Inspect only the process belonging to this
 session and retain the resource flags needed for the measurement rather than
 copying full command lines or environments into reports. Heap and affinity
-settings affect cost and latency; they are not part of REA's semantic analysis
+settings affect cost and latency; they are not part of Ghostwire's semantic analysis
 profile identity. See [real-provider testing](testing.md) for bounded
 verification workflows.
 
@@ -1009,8 +1009,8 @@ Ghidra/JDK installation; neither is inferred from startup alone.
 
 ## MCP Registry
 
-REA is published in the official MCP Registry as `io.github.morluto/rea`. Registry
-clients can discover the server and install the existing public `rea-agents` npm
+Ghostwire is published in the official MCP Registry as `io.github.morluto/rea`. Registry
+clients can discover the server and install the existing public `ghostwire-agent` npm
 package; the Registry entry does not introduce a second distribution artifact.
 
 For a client that supports Registry discovery, search for `io.github.morluto/rea`
@@ -1024,9 +1024,9 @@ For a client that requires manual configuration, use:
 ```json
 {
   "mcpServers": {
-    "rea": {
+    "ghostwire": {
       "command": "npx",
-      "args": ["-y", "rea-agents@6.4.0", "mcp"]
+      "args": ["-y", "ghostwire-agent@6.4.0", "mcp"]
     }
   }
 }
@@ -1034,49 +1034,49 @@ For a client that requires manual configuration, use:
 
 <!-- x-release-please-end -->
 
-Persistent registrations should use one exact package version. `rea setup`
-writes the same package-runner shape, or `bunx rea-agents@<version> mcp` when
+Persistent registrations should use one exact package version. `ghostwire setup`
+writes the same package-runner shape, or `bunx ghostwire-agent@<version> mcp` when
 setup runs through `bunx`, and pins it to the exact version that performed
 setup. Run current setup to refresh an older registration, then restart the
 client.
 
 ## Package runners and global installation
 
-A package-runner invocation can use a REA version installed in the current project. To
+A package-runner invocation can use a Ghostwire version installed in the current project. To
 request the latest release explicitly, use:
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-REA runs the version npm selects. To update older agent registrations, run the
+Ghostwire runs the version npm selects. To update older agent registrations, run the
 latest-version command and review its setup plan. For unattended package
-downloads, add `--yes` before the package name; this does not approve REA's
+downloads, add `--yes` before the package name; this does not approve Ghostwire's
 setup changes.
 
 For an intentional rollback, make the package request explicit:
 
 ```bash
-npm exec --yes --package=rea-agents@2.4.0 -- rea setup
+npm exec --yes --package=ghostwire-agent@2.4.0 -- ghostwire setup
 ```
 
 Setup continues to pin persistent MCP registrations to the exact version that
 performed setup. Running current setup later migrates unversioned or older
 managed registrations through the normal reviewed setup transaction.
 
-With Bun, `bunx rea-agents setup` (or `bunx rea-agents@latest setup`) is the
+With Bun, `bunx ghostwire-agent setup` (or `bunx ghostwire-agent@latest setup`) is the
 equivalent entry point. Setup run through `npx` registers
-`npx -y rea-agents@<version> mcp`; setup run through `bunx` or `bun x` registers
-`bunx rea-agents@<version> mcp`. On Windows, setup wraps either command in
+`npx -y ghostwire-agent@<version> mcp`; setup run through `bunx` or `bun x` registers
+`bunx ghostwire-agent@<version> mcp`. On Windows, setup wraps either command in
 `cmd.exe /d /c` so clients can start the runner's command shim. Neither
 registration points into the runner's temporary package cache.
 
-REA supports Node.js 22.x (>=22.19), 24.x (>=24.11), and 26+. Node.js 23, 25, and prereleases are unsupported. It uses the npm already paired with that runtime and never upgrades Node.js, npm, or Homebrew.
+Ghostwire supports Node.js 22.x (>=22.19), 24.x (>=24.11), and 26+. Node.js 23, 25, and prereleases are unsupported. It uses the npm already paired with that runtime and never upgrades Node.js, npm, or Homebrew.
 
-When REA runs on Bun, the `rea doctor` `node` check reports the Bun version and
+When Ghostwire runs on Bun, the `ghostwire doctor` `node` check reports the Bun version and
 the Node.js compatibility version Bun declares, and passes when that
 compatibility version is in the supported range. Bun does not enforce the V8
-heap flags REA gives its owned helper processes, so Evidence that reports those
+heap flags Ghostwire gives its owned helper processes, so Evidence that reports those
 limits on Node.js records them as unavailable under Bun. On Windows, the owned
 Job Object of each JavaScript helper (source analyzer, source-map codec and HAR
 decoder) instead limits its committed memory to that helper's heap budget plus
@@ -1085,11 +1085,11 @@ the matching bundled Windows native artifact; an artifact without the control
 refuses to start the helper rather than running it unlimited. CI tests Node.js
 only.
 
-Running `npm install rea-agents` without `--global` installs the executable only
-in the current project's `node_modules/.bin`; it does not make `rea` available
+Running `npm install ghostwire-agent` without `--global` installs the executable only
+in the current project's `node_modules/.bin`; it does not make `ghostwire` available
 on the shell `PATH`. Use the setup command above for the guided setup
-journey, `npx -y rea-agents@latest` for unattended one-off commands, or install globally
-with `npm install --global rea-agents` for a shell-visible `rea` command.
+journey, `npx -y ghostwire-agent@latest` for unattended one-off commands, or install globally
+with `npm install --global ghostwire-agent` for a shell-visible `ghostwire` command.
 
 The optional curl wrapper installs only the global npm package:
 
@@ -1097,7 +1097,7 @@ The optional curl wrapper installs only the global npm package:
 curl -fsSL https://raw.githubusercontent.com/morluto/rea/main/install.sh | bash
 ```
 
-It prints the version, runtime, npm command, and destination before installing. When a controlling terminal exists it starts `rea setup`; otherwise it prints the command to run later.
+It prints the version, runtime, npm command, and destination before installing. When a controlling terminal exists it starts `ghostwire setup`; otherwise it prints the command to run later.
 
 Pass options with `bash -s --`:
 

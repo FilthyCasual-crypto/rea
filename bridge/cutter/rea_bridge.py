@@ -1,6 +1,6 @@
-"""REA's experimental local bridge plugin for Cutter.
+"""Ghostwire's experimental local bridge plugin for Cutter.
 
-Install this file in Cutter's user plugin directory. The bridge is REA-owned
+Install this file in Cutter's user plugin directory. The bridge is Ghostwire-owned
 IPC, not an upstream Cutter transport. It binds to loopback and requires a
 per-process random token stored in a user-only descriptor file.
 """
@@ -311,8 +311,8 @@ def _bridge_directory() -> Path:
         return Path(configured).expanduser()
     local_app_data = os.environ.get("LOCALAPPDATA")
     if os.name == "nt" and local_app_data:
-        return Path(local_app_data) / "REA" / "CutterBridge"
-    return Path.home() / ".cache" / "rea" / "cutter-bridge"
+        return Path(local_app_data) / "Ghostwire" / "CutterBridge"
+    return Path.home() / ".cache" / "ghostwire" / "cutter-bridge"
 
 
 class _RequestDispatcher(QObject):
@@ -744,10 +744,10 @@ class _BridgeServer(threading.Thread):
 
 
 class ReaCutterPlugin(cutter.CutterPlugin):
-    name = "REA Local Bridge"
-    description = "Local REA analysis bridge for the active Cutter session"
+    name = "Ghostwire Local Bridge"
+    description = "Local Ghostwire analysis bridge for the active Cutter session"
     version = "1.0"
-    author = "REA"
+    author = "Ghostwire"
 
     def __init__(self) -> None:
         super().__init__()

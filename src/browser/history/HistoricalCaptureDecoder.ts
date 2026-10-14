@@ -364,8 +364,8 @@ const nodeMemoryLimitation = (): string => {
   if (NODE_CAPTURE_HEAP_ENFORCED)
     return `HAR/SAZ/qlog use a ${String(NODE_CAPTURE_HEAP_LIMITS.oldGenerationMiB)} MiB Node old-generation heap`;
   return NODE_CAPTURE_PROCESS_MEMORY_LIMIT_BYTES === null
-    ? "HAR/SAZ/qlog run on Bun, which does not enforce REA's V8 heap flags"
-    : `HAR/SAZ/qlog run on Bun, which does not enforce REA's V8 heap flags, under a ${String(NODE_CAPTURE_PROCESS_MEMORY_LIMIT_BYTES)}-byte Windows Job Object commit limit`;
+    ? "HAR/SAZ/qlog run on Bun, which does not enforce Ghostwire's V8 heap flags"
+    : `HAR/SAZ/qlog run on Bun, which does not enforce Ghostwire's V8 heap flags, under a ${String(NODE_CAPTURE_PROCESS_MEMORY_LIMIT_BYTES)}-byte Windows Job Object commit limit`;
 };
 
 const replyFailureReason = (cause: unknown): string => {

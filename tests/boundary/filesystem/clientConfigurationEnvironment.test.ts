@@ -41,7 +41,11 @@ it.each([
     const original = serializeClientConfiguration(
       {
         [serversKey]: {
-          rea: clientRegistrationEntry(format, ["rea-old", "mcp"], custom),
+          ghostwire: clientRegistrationEntry(
+            format,
+            ["rea-old", "mcp"],
+            custom,
+          ),
           other: clientRegistrationEntry(format, ["other"], { OTHER: "keep" }),
         },
       },
@@ -49,7 +53,7 @@ it.each([
     );
     await writeFile(configPath, original);
     const providers = { GHIDRA_INSTALL_DIR: join(root, "new-ghidra") };
-    const command = ["rea", "mcp"];
+    const command = ["ghostwire", "mcp"];
     expect(
       await inspectClientConfiguration(client, providers, command),
     ).toMatchObject({ status: "update" });
@@ -58,7 +62,7 @@ it.each([
     ).toMatchObject({ status: "configured" });
     const configured = await readFile(configPath, "utf8");
     const parsed = parseClientConfiguration(configured, format);
-    expect(effectiveClientServer(parsed, "rea")).toHaveProperty(
+    expect(effectiveClientServer(parsed, "ghostwire")).toHaveProperty(
       environmentKey,
       { ...custom, ...providers },
     );
@@ -91,7 +95,7 @@ it("retains legacy OpenCode environment when migrating into a native server tabl
     configPath,
     JSON.stringify({
       mcp: {
-        rea: clientRegistrationEntry("opencode", ["old", "mcp"], custom),
+        ghostwire: clientRegistrationEntry("opencode", ["old", "mcp"], custom),
         servers: {
           other: clientRegistrationEntry("opencode_v2", ["other"], {}),
         },
@@ -99,18 +103,18 @@ it("retains legacy OpenCode environment when migrating into a native server tabl
     }),
   );
   expect(
-    await configureClientConfiguration(client, {}, ["rea", "mcp"]),
+    await configureClientConfiguration(client, {}, ["ghostwire", "mcp"]),
   ).toMatchObject({ status: "configured" });
   const parsed = parseClientConfiguration(
     await readFile(configPath, "utf8"),
     "opencode",
   );
   expect(parsed.legacyServers).toEqual({});
-  expect(parsed.servers.rea).toEqual(
-    clientRegistrationEntry("opencode_v2", ["rea", "mcp"], custom),
+  expect(parsed.servers.ghostwire).toEqual(
+    clientRegistrationEntry("opencode_v2", ["ghostwire", "mcp"], custom),
   );
   expect(
-    await configureClientConfiguration(client, {}, ["rea", "mcp"]),
+    await configureClientConfiguration(client, {}, ["ghostwire", "mcp"]),
   ).toEqual({ status: "unchanged" });
 });
 
@@ -186,23 +190,23 @@ it.each([
     const configPath = join(directory, "mcp.json");
     await mkdir(directory);
     const original = JSON.stringify({
-      mcpServers: { rea: { command: "rea", args: ["mcp"], env } },
+      mcpServers: { ghostwire: { command: "ghostwire", args: ["mcp"], env } },
     });
     await writeFile(configPath, original);
     const client = { name: "cursor", format: "json", configPath } as const;
     expect(
-      await inspectClientConfiguration(client, {}, ["rea", "mcp"]),
+      await inspectClientConfiguration(client, {}, ["ghostwire", "mcp"]),
     ).toMatchObject({
       status: "invalid",
       remediation: expect.stringContaining(setting),
     });
     expect(
-      await configureClientConfiguration(client, {}, ["rea", "mcp"]),
+      await configureClientConfiguration(client, {}, ["ghostwire", "mcp"]),
     ).toEqual({ status: "failed", reason: "readback" });
-    expect(await clientConfigurationAligned(client, {}, ["rea", "mcp"])).toBe(
-      false,
-    );
-    const statuses = await readClientRegistrationStatuses(home, "rea", {
+    expect(
+      await clientConfigurationAligned(client, {}, ["ghostwire", "mcp"]),
+    ).toBe(false);
+    const statuses = await readClientRegistrationStatuses(home, "ghostwire", {
       environment: {},
     });
     expect(statuses.find(({ client }) => client === "cursor")).toMatchObject({

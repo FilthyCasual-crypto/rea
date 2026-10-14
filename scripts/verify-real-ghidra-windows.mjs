@@ -215,7 +215,7 @@ try {
     address: procedure.address,
   });
   await inventory("search_procedures", { pattern: procedure.value });
-  await inventory("search_strings", { pattern: "rea" });
+  await inventory("search_strings", { pattern: "ghostwire" });
   const byteSearch = await verifyWindowsGhidraByteSearch({
     invoke: inventory,
     sourceBytes,

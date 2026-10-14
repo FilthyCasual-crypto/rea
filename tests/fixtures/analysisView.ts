@@ -182,7 +182,7 @@ export const analysisViewJavaScriptEvidence = (
     },
     {
       id: "rea-javascript-application",
-      name: "REA JavaScript application analyzer",
+      name: "Ghostwire JavaScript application analyzer",
       version: "1",
     },
     {

@@ -117,7 +117,7 @@ describe("enhanced MCP graph caveats", () => {
     expect(graph.structuredContent).toMatchObject({
       limitations: [
         "Artifact identity is unavailable for this observation.",
-        "Derived by an REA composed workflow.",
+        "Derived by an Ghostwire composed workflow.",
         caveat,
       ],
       normalized_result: {
@@ -395,11 +395,11 @@ describe("enhanced MCP batches", () => {
               category: "execution_failure",
               details: { operation: "decompile", reason: "failed" },
               message:
-                "Analysis returned an unreadable result. Run `rea doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
+                "Analysis returned an unreadable result. Run `ghostwire doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
               retryable: false,
               remediation: {
                 action:
-                  "Analysis returned an unreadable result. Run `rea doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
+                  "Analysis returned an unreadable result. Run `ghostwire doctor` and review the reported details; repeating the unchanged request is not expected to succeed.",
               },
             },
           },

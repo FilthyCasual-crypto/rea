@@ -208,7 +208,7 @@ def check_search_metadata(site, pages):
             errors.append(f"{label}: needs exactly one nonempty head description")
         expected_og = {
             "og:type": "website",
-            "og:site_name": "REA",
+            "og:site_name": "Ghostwire",
             "og:title": title,
             "og:description": description,
             "og:url": url,

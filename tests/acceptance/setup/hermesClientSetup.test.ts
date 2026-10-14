@@ -31,7 +31,7 @@ cliTest(
       "timestamp: 2026-10-14T00:00:00.123456+08:00\n";
     const original =
       settings +
-      "mcp_servers:\n  rea:\n    command: rea-old\n    args: [mcp]\n    env:\n" +
+      "mcp_servers:\n  ghostwire:\n    command: rea-old\n    args: [mcp]\n    env:\n" +
       Object.entries(environment)
         .map(
           ([key, value]) =>
@@ -58,7 +58,7 @@ cliTest(
     expect((await run(setup)).json).toMatchObject({ status: "ready" });
     const configured = await readFile(config, "utf8");
     expect(parse(configured, { version: "1.1" })).toMatchObject({
-      mcp_servers: { rea: { env: environment, enabled: true } },
+      mcp_servers: { ghostwire: { env: environment, enabled: true } },
     });
     expect(configured.startsWith(settings)).toBe(true);
     expect(await readFile(`${config}.rea.backup`, "utf8")).toBe(original);
@@ -130,7 +130,7 @@ cliTest(
       model: "custom",
       mcp_servers: {
         other: { command: "other-server" },
-        rea: { enabled: true },
+        ghostwire: { enabled: true },
       },
     });
     expect(await readFile(config + ".rea.backup", "utf8")).toBe(original);
@@ -231,7 +231,7 @@ for (const selection of ["default", "custom", "suffix", "explicit"] as const) {
       ).toBe(0);
       expect(parse(await readFile(config, "utf8"))).toMatchObject({
         mcp_servers: {
-          rea: { enabled: true },
+          ghostwire: { enabled: true },
           other: { command: "other-server" },
         },
       });

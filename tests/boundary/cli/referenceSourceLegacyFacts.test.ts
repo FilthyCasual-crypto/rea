@@ -40,7 +40,7 @@ cliTest(
     await git("add", ".");
     await git(
       "-c",
-      "user.name=REA fixture",
+      "user.name=Ghostwire fixture",
       "-c",
       "user.email=fixture@example.invalid",
       "-c",

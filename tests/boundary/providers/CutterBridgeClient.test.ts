@@ -1187,14 +1187,14 @@ describe("CutterBridgeClient: scenario group 8", () => {
     ).resolves.toMatchObject({
       bridge_directory: join(
         "C:\\Users\\fixture\\AppData\\Local",
-        "REA",
+        "Ghostwire",
         "CutterBridge",
       ),
     });
     await expect(
       new CutterBridgeClient({}, { platform: "darwin" }).listSessions(),
     ).resolves.toMatchObject({
-      bridge_directory: join(homedir(), ".cache", "rea", "cutter-bridge"),
+      bridge_directory: join(homedir(), ".cache", "ghostwire", "cutter-bridge"),
     });
   });
 

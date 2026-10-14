@@ -361,13 +361,13 @@ const parseRegistration = (
 /** A client that rewrites its file from memory must be quit before setup. */
 const remediation = (client: SetupClient): string => {
   if (client.quitBeforeSetup !== true)
-    return "Run rea setup to refresh this registration, then restart the client.";
+    return "Run ghostwire setup to refresh this registration, then restart the client.";
   const name = client.displayName ?? client.name;
-  return `Quit ${name} fully, run rea setup to refresh this registration, then start ${name} again. A running ${name} can rewrite its configuration from memory and drop the registration.`;
+  return `Quit ${name} fully, run ghostwire setup to refresh this registration, then start ${name} again. A running ${name} can rewrite its configuration from memory and drop the registration.`;
 };
 
 const unknownEntryPointRemediation = (): string =>
-  "The existing registration was retained because its executable identity cannot be verified. Run the installed REA CLI or a supported package runner, then rerun rea doctor; no registration was changed.";
+  "The existing registration was retained because its executable identity cannot be verified. Run the installed Ghostwire CLI or a supported package runner, then rerun ghostwire doctor; no registration was changed.";
 
 const configuredStatus = (
   client: SetupClient,
@@ -412,7 +412,7 @@ const packageVersionRemediation = (
   packageReference: string,
   client: SetupClient,
 ): string =>
-  `This registration requests ${packageReference}, while the current REA CLI package is ${PRODUCT_IDENTITY.packageVersion}. REA does not resolve package-runner requests during doctor; update the registration with rea setup --client ${client.name}, then restart the client.`;
+  `This registration requests ${packageReference}, while the current Ghostwire CLI package is ${PRODUCT_IDENTITY.packageVersion}. Ghostwire does not resolve package-runner requests during doctor; update the registration with ghostwire setup --client ${client.name}, then restart the client.`;
 
 const unavailableStatus = (
   client: SetupClient,

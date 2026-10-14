@@ -21,7 +21,7 @@ const reconciliationEvidence = createEvidence(
   undefined,
   {
     id: "rea-javascript-runtime-reconciliation",
-    name: "REA JavaScript runtime reconciliation",
+    name: "Ghostwire JavaScript runtime reconciliation",
     version: "1",
   },
   {
@@ -100,7 +100,7 @@ export const SOURCE_TO_BUNDLE_COMPARISON_EXAMPLE = {
     manifests: [],
     vcs: { kind: "none", head: null, dirty: null },
     provenance: {
-      importer: "rea",
+      importer: "ghostwire",
       importer_version: "1",
       caller: "contract-example",
     },

@@ -230,7 +230,7 @@ if (serial !== null) {
   const transferRoot = await mkdtemp(join(tmpdir(), "rea-adb-transfer-"));
   try {
     const payload = join(transferRoot, "rea-verify.txt");
-    const payloadBytes = "rea adb transfer verification\n";
+    const payloadBytes = "ghostwire adb transfer verification\n";
     await import("node:fs/promises").then((fs) =>
       fs.writeFile(payload, payloadBytes),
     );

@@ -70,7 +70,7 @@ it.each(["UTF-8", "utf-8"])(
   },
 );
 
-it.each(["REA-UNSUPPORTED", "ISO-8859-1"])(
+it.each(["Ghostwire-UNSUPPORTED", "ISO-8859-1"])(
   "reports unsupported keyed archive encoding %s instead of substituting UTF-8 text",
   async (declaration) => {
     const input = await fixture(declaration);
@@ -86,7 +86,7 @@ it.each(["REA-UNSUPPORTED", "ISO-8859-1"])(
   },
 );
 
-it.each(["REA-UNSUPPORTED", "ISO-8859-1"])(
+it.each(["Ghostwire-UNSUPPORTED", "ISO-8859-1"])(
   "reports unsupported Interface Builder encoding %s without graph substitution",
   async (declaration) => {
     const result = await analyzeInterfaceBuilderBundle(

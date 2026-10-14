@@ -30,7 +30,7 @@ const layered = async (lower: unknown, upper: unknown) => {
   const sources = [lower, upper].map((environment) =>
     JSON.stringify({
       mcp: {
-        rea: {
+        ghostwire: {
           ...clientRegistrationEntry("opencode", command, {}),
           environment,
         },
@@ -47,7 +47,7 @@ const layered = async (lower: unknown, upper: unknown) => {
   } as const;
   const status = async () =>
     (
-      await readClientRegistrationStatuses(home, "rea", {
+      await readClientRegistrationStatuses(home, "ghostwire", {
         environment: { XDG_CONFIG_HOME: join(home, ".config") },
       })
     ).find(({ client }) => client === "opencode");
@@ -121,7 +121,7 @@ it("keeps higher-priority values and does not copy inherited settings into the w
     await readFile(fixture.client.configPath, "utf8"),
     "opencode",
   );
-  expect(effectiveClientServer(configured, "rea")).toHaveProperty(
+  expect(effectiveClientServer(configured, "ghostwire")).toHaveProperty(
     "environment",
     {
       REA_GHIDRA_COMPILER_SPEC_ID: compiler,
@@ -178,7 +178,7 @@ it("uses inherited settings when creating a missing write layer", async () => {
     await readFile(fixture.client.configPath, "utf8"),
     "opencode",
   );
-  expect(effectiveClientServer(parsed, "rea")).toHaveProperty(
+  expect(effectiveClientServer(parsed, "ghostwire")).toHaveProperty(
     "environment",
     overrides,
   );
@@ -206,10 +206,13 @@ it("replaces the selected write layer rather than the last loaded layer", async 
     await readFile(client.configPath, "utf8"),
     "opencode",
   );
-  expect(effectiveClientServer(parsed, "rea")).toHaveProperty("environment", {
-    REA_GHIDRA_LANGUAGE_ID: language,
-    ...overrides,
-  });
+  expect(effectiveClientServer(parsed, "ghostwire")).toHaveProperty(
+    "environment",
+    {
+      REA_GHIDRA_LANGUAGE_ID: language,
+      ...overrides,
+    },
+  );
   expect(await readFile(fixture.paths[1]!, "utf8")).toBe(fixture.sources[1]);
   expect(await readFile(`${client.configPath}.rea.backup`, "utf8")).toBe(
     fixture.sources[0],

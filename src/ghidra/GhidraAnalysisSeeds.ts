@@ -53,7 +53,7 @@ interface SeedEntry {
 }
 
 const seedLineError = (line: number, constraint: string) =>
-  new ConfigurationError("Invalid REA environment configuration", {
+  new ConfigurationError("Invalid Ghostwire environment configuration", {
     settings: [
       {
         setting: "REA_GHIDRA_SEED_FILE",

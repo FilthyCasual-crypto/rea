@@ -1,9 +1,9 @@
 ---
 name: rea-changelog-update
-description: Prepare or rewrite REA release changelogs and GitHub release notes from pinned Git history, with verified contributor thanks and Release Please synchronization.
+description: Prepare or rewrite Ghostwire release changelogs and GitHub release notes from pinned Git history, with verified contributor thanks and Release Please synchronization.
 ---
 
-# REA changelog update
+# Ghostwire changelog update
 
 Use this for release-note preparation and contributor attribution. Read
 [docs/releasing.md](../../../docs/releasing.md) from the repository root for
@@ -14,13 +14,13 @@ notes; it does not authorize merging, tagging, or publishing.
 
 Fetch complete history and tags. Select the published baseline tag from
 `.release-please-manifest.json` on the release PR's **base branch**, and pin that
-branch's exact SHA as the editorial target. REA tags are `rea-agents-VERSION`.
+branch's exact SHA as the editorial target. Ghostwire tags are `ghostwire-agent-VERSION`.
 Use the proposed version, including its prerelease suffix; do not change the
 `always-bump-minor` strategy to imitate OpenClaw's calendar versions.
 
 ```bash
 node scripts/release-notes.mjs inventory \
-  --repository morluto/rea --base rea-agents-PREVIOUS \
+  --repository morluto/rea --base ghostwire-agent-PREVIOUS \
   --target FULL_BASE_BRANCH_SHA --version VERSION \
   --manifest /tmp/rea-VERSION.contributions.json
 node scripts/release-notes.mjs record \
@@ -68,10 +68,10 @@ closing-issue reporters. Grouping preserves all those credits in one line.
 When Highlights, detailed entries or migrations reference the same work,
 put its thanks in one of those entries, not all of them. Include issue links.
 Direct-commit bullets carry the commit link and known human credit.
-Exclude GitHub bots and known agent accounts. REA's observed Anthropic and
+Exclude GitHub bots and known agent accounts. Ghostwire's observed Anthropic and
 Cursor co-author trailers resolve to `@claude` and `@cursoragent` with GitHub
 type `User`; the credit policy excludes them while retaining their metadata.
-At the REA maintainer's request, omit `@morluto` self-thanks while preserving
+At the Ghostwire maintainer's request, omit `@morluto` self-thanks while preserving
 authorship in the inventory. Other human contributors remain eligible.
 Use explicit GitHub links for cross-repository references to avoid ambiguous
 `#NNN` numbers. Unknown handles stay unknown; they are not fabricated credit.
@@ -89,7 +89,7 @@ when product history changes; a prose-only correction can reuse the snapshot.
 Before changing the live release PR, have authorization for that PR update.
 Local preparation and validation can proceed independently.
 
-1. Add `rea:release-notes-finalized` to the selected open release PR **before**
+1. Add `ghostwire:release-notes-finalized` to the selected open release PR **before**
    editing its branch/body. Main proposal pushes respect this label. This is
    our workflow guard, not Release Please's `autorelease: snooze` mechanism.
    A proposal already running must finish before editing. Do not dispatch

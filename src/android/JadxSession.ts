@@ -188,7 +188,7 @@ export class JadxSession {
     };
   }
 
-  /** Whether the selected Java runtime established the REA bridge protocol. */
+  /** Whether the selected Java runtime established the Ghostwire bridge protocol. */
   initialized(): boolean {
     return this.#connected;
   }

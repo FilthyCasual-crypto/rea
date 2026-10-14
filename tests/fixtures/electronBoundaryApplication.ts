@@ -56,16 +56,16 @@ new BrowserWindow({
 });
 new BrowserWindow(windowOptions);
 
-ipcMain.handle("rea:read", async (event, key) => {
+ipcMain.handle("ghostwire:read", async (event, key) => {
   if (!event.senderFrame.url.startsWith("file://")) throw new Error("denied");
   return read(key);
 });
-ipcMain.on("rea:write", (event, value) => {
+ipcMain.on("ghostwire:write", (event, value) => {
   if (event.sender.getURL() !== "file://fixture/index.html") return;
   nativeWrite(value);
 });
-ipcMain.handle("rea:ambiguous", async () => 1);
-ipcMain.handle("rea:ambiguous", async () => 2);
+ipcMain.handle("ghostwire:ambiguous", async () => 1);
+ipcMain.handle("ghostwire:ambiguous", async () => 2);
 ipcMain.handle(dynamicChannel, dynamicHandler);
 
 utilityProcess.fork("./utility/worker.js", [], { serviceName: "fixture-db" });
@@ -80,25 +80,25 @@ const { contextBridge, ipcRenderer } = require("electron");
 const { read, write } = require("./native/addon.node");
 
 contextBridge.exposeInMainWorld("reaApi", {
-  read: (key) => ipcRenderer.invoke("rea:read", key),
+  read: (key) => ipcRenderer.invoke("ghostwire:read", key),
   nested: {
-    write: (value) => ipcRenderer.send("rea:write", value),
+    write: (value) => ipcRenderer.send("ghostwire:write", value),
   },
   nativeRead: read,
   nativeWrite: write,
 });
 contextBridge.exposeInMainWorld(dynamicApiKey, dynamicApi);
-ipcRenderer.on("rea:event", (_event, value) => console.log(value));
-ipcRenderer.invoke("rea:ambiguous");
-ipcRenderer.invoke("rea:missing");
+ipcRenderer.on("ghostwire:event", (_event, value) => console.log(value));
+ipcRenderer.invoke("ghostwire:ambiguous");
+ipcRenderer.invoke("ghostwire:missing");
 ipcRenderer.invoke(dynamicChannel);
 `;
 
 const RENDERER_SOURCE = String.raw`
 const { ipcRenderer } = require("electron");
-ipcRenderer.invoke("rea:read", "renderer-key");
-ipcRenderer.send("rea:write", "renderer-value");
-ipcRenderer.on("rea:event", (_event, value) => console.log(value));
+ipcRenderer.invoke("ghostwire:read", "renderer-key");
+ipcRenderer.send("ghostwire:write", "renderer-value");
+ipcRenderer.on("ghostwire:event", (_event, value) => console.log(value));
 `;
 
 const UTILITY_SOURCE = String.raw`

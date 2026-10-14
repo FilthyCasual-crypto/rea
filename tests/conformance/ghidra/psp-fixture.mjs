@@ -115,7 +115,7 @@ export async function buildPspFixture(directory, globalValue = 7) {
   };
 }
 
-/** Independent GNU fields for the pinned PSPSDK fixture, not REA's parser. */
+/** Independent GNU fields for the pinned PSPSDK fixture, not Ghostwire's parser. */
 export function parsePspReadelfAbi(text) {
   const field = (expression, label) => {
     const matches = [...text.matchAll(expression)];

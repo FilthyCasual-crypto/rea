@@ -1,21 +1,21 @@
 # CLI and Evidence
 
 Use the CLI for a direct inspection or a script. It uses the same application
-workflows and evidence contracts as REA's MCP server. Each CLI invocation is a
+workflows and evidence contracts as Ghostwire's MCP server. Each CLI invocation is a
 separate process; save results when you want to use them in a later command.
 
 ## Run a command
 
-After [installing REA](installation.md), use `rea`. You can also run a command
+After [installing Ghostwire](installation.md), use `ghostwire`. You can also run a command
 without a global installation:
 
 ```bash
-npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json
+npx -y ghostwire-agent@latest analyze-javascript-application /absolute/path/to/app --json
 ```
 
 Use an extracted application directory or an ASAR as the target. Static
 JavaScript analysis returns the application graph and Evidence directly.
-Generic `rea analyze PATH` selects this workflow for directories and `.asar`
+Generic `ghostwire analyze PATH` selects this workflow for directories and `.asar`
 files when neither `--provider` nor `--snapshot` is supplied. See
 [JavaScript artifact reconstruction](javascript-artifact-reconstruction.md)
 for results, integrity checks and coverage.
@@ -25,9 +25,9 @@ application. When an agent or a person reads the result, save it to a file and
 project a summary, a module page or one module from the saved Evidence:
 
 ```bash
-rea analyze-javascript-application /absolute/path/to/app --json > app-evidence.json
+ghostwire analyze-javascript-application /absolute/path/to/app --json > app-evidence.json
 jq -c '{source: {kind: "inline", evidence: .}, view: {kind: "summary"}}' app-evidence.json > app-view.json
-rea inspect-analysis-view app-view.json
+ghostwire inspect-analysis-view app-view.json
 ```
 
 For example, a 334 MB Obsidian application Evidence file yields a summary view
@@ -45,9 +45,9 @@ Language (CIL) without loading or executing the assembly and require no native
 analysis engine:
 
 ```bash
-rea inspect-managed-artifact /absolute/path/Assembly.dll --json
-rea inspect-managed-members /absolute/path/Assembly.dll --json
-rea inspect-managed-members /absolute/path/Assembly.dll --type Example.Parser --json
+ghostwire inspect-managed-artifact /absolute/path/Assembly.dll --json
+ghostwire inspect-managed-members /absolute/path/Assembly.dll --json
+ghostwire inspect-managed-members /absolute/path/Assembly.dll --type Example.Parser --json
 ```
 
 Replace `Example.Parser` with an exact `full_name` from the member inspection,
@@ -64,7 +64,7 @@ for supported deployment forms, selection semantics, and coverage limits.
 
 ## SQLite snapshots
 
-For a local database snapshot, use `rea inspect-sqlite-database PATH --json`.
+For a local database snapshot, use `ghostwire inspect-sqlite-database PATH --json`.
 Add `--table NAME --row-limit 20` to read a bounded sample from an ordinary
 table. This command does not require a native analysis provider. See
 [SQLite database snapshots](sqlite-databases.md) for database/WAL identity,
@@ -76,7 +76,7 @@ Inspect embedded Go build metadata without installing Go or configuring a
 disassembler:
 
 ```bash
-rea inspect-go-binary /absolute/path/to/program --json
+ghostwire inspect-go-binary /absolute/path/to/program --json
 ```
 
 The shared CLI/MCP workflow reports compiler version, modules, replacements,
@@ -87,7 +87,7 @@ Inspect an embedded cargo-auditable Rust dependency list without installing
 Rust or configuring a disassembler:
 
 ```bash
-rea inspect-rust-binary /absolute/path/to/program --json
+ghostwire inspect-rust-binary /absolute/path/to/program --json
 ```
 
 The same workflow reports package names, versions, sources, the root package,
@@ -100,19 +100,19 @@ Configure [Hopper or Ghidra](installation.md#hopper), or the
 your target, search text and function name or address in these examples:
 
 ```bash
-rea analyze /absolute/path/to/program --provider ghidra --json
-rea search /absolute/path/to/program "search" --provider ghidra --json
-rea function /absolute/path/to/program main --provider ghidra --json
-rea decompile /absolute/path/to/program 0x1000 --provider ghidra --json
-rea xrefs /absolute/path/to/program 0x1000 --provider ghidra --json
-rea trace /absolute/path/to/program "search" --provider ghidra --json
+ghostwire analyze /absolute/path/to/program --provider ghidra --json
+ghostwire search /absolute/path/to/program "search" --provider ghidra --json
+ghostwire function /absolute/path/to/program main --provider ghidra --json
+ghostwire decompile /absolute/path/to/program 0x1000 --provider ghidra --json
+ghostwire xrefs /absolute/path/to/program 0x1000 --provider ghidra --json
+ghostwire trace /absolute/path/to/program "search" --provider ghidra --json
 ```
 
 `analyze` and `inspect` share the native overview workflow. `function` returns
 a function dossier; `decompile` returns pseudocode. For assembly instructions
-alone, use `rea instructions`. A macOS `.app` bundle can be supplied directly.
+alone, use `ghostwire instructions`. A macOS `.app` bundle can be supplied directly.
 
-Run `rea --help` or a command's `--help` for arguments and output options.
+Run `ghostwire --help` or a command's `--help` for arguments and output options.
 The [generated catalog](mcp-contracts.md#generated-catalog) lists all CLI commands and MCP
 tools. Provider-specific target support is described in the
 [native guide](native-investigation.md), [DOS guide](ghidra-dos.md),
@@ -124,19 +124,19 @@ tools. Provider-specific target support is described in the
 List the available providers and their supported operations:
 
 ```bash
-rea providers --json
-rea capabilities --json
+ghostwire providers --json
+ghostwire capabilities --json
 ```
 
 These commands describe binary-session providers and auxiliary capabilities.
 For the complete MCP surface, use the connected server's tool list and the
 session's advertised availability; individual guides describe prerequisites.
 
-With automatic selection, REA uses the single available provider that supports
+With automatic selection, Ghostwire uses the single available provider that supports
 the target. When several providers support it, select one explicitly:
 
 ```bash
-rea analyze /absolute/path/to/program --provider hopper
+ghostwire analyze /absolute/path/to/program --provider hopper
 ```
 
 Set `REA_ANALYSIS_PROVIDER` for a standing preference. An explicit `--provider`
@@ -154,7 +154,7 @@ or close. Provider failures are returned with their original reason. For an
 `ambiguous` selection error, choose from `details.candidate_ids`; for
 `provider_unavailable`, follow `message`, `remediation.action`, and the original
 reasons in `details.rejections`. For Hopper, Ghidra, IDA, and JADX, run
-`rea doctor --provider ID --json` to diagnose the selected engine. Other adapters,
+`ghostwire doctor --provider ID --json` to diagnose the selected engine. Other adapters,
 such as `pwntools-elf`, report their configuration requirements directly and are
 not accepted by `doctor --provider`. See
 [task readiness](installation.md#check-readiness-for-your-task) and
@@ -169,7 +169,7 @@ for import, client timeouts and recovery.
 
 ## Save and reuse analysis snapshots
 
-A snapshot retains successful analysis results for later queries. REA reuses
+A snapshot retains successful analysis results for later queries. Ghostwire reuses
 an exact result when the target bytes, operation, parameters, provider and
 settings match. Mutations and cursor-dependent calls are excluded from the
 cache. Snapshot files are local and use owner-only permissions.
@@ -185,9 +185,9 @@ cannot be retained, the entire history is excluded instead of reverting the
 question to an earlier revision or disposition.
 
 ```bash
-rea analyze /absolute/path/to/program --provider ghidra --snapshot /absolute/path/to/analysis/program.json
+ghostwire analyze /absolute/path/to/program --provider ghidra --snapshot /absolute/path/to/analysis/program.json
 # Repeat the same query to reuse its saved result.
-rea analyze /absolute/path/to/program --provider ghidra --snapshot /absolute/path/to/analysis/program.json
+ghostwire analyze /absolute/path/to/program --provider ghidra --snapshot /absolute/path/to/analysis/program.json
 ```
 
 An exact CLI cache hit is normally read before starting a provider process.
@@ -213,9 +213,9 @@ inferences and unresolved findings. Validate an existing bundle, export its
 canonical form, or compare two supplied bundles:
 
 ```bash
-rea evidence-import /absolute/path/to/evidence/bundle.json
-rea evidence-export /absolute/path/to/evidence/bundle.json /absolute/path/to/evidence/canonical.json
-rea compare /absolute/path/to/evidence/left.json /absolute/path/to/evidence/right.json
+ghostwire evidence-import /absolute/path/to/evidence/bundle.json
+ghostwire evidence-export /absolute/path/to/evidence/bundle.json /absolute/path/to/evidence/canonical.json
+ghostwire compare /absolute/path/to/evidence/left.json /absolute/path/to/evidence/right.json
 ```
 
 Exports preserve an existing destination unless `--overwrite` is explicit.
@@ -229,8 +229,8 @@ belong to one connection. Separate CLI calls consume full saved records.
 Import an older source tree to compare with the current artifact:
 
 ```bash
-rea import-reference-source /absolute/path/to/source
-rea import-reference-source /absolute/path/to/source --detail summary --outline-depth 2 --json
+ghostwire import-reference-source /absolute/path/to/source
+ghostwire import-reference-source /absolute/path/to/source --detail summary --outline-depth 2 --json
 ```
 
 The default (`--detail full`) returns the complete `HistoricalSourceGraph`.
@@ -280,11 +280,11 @@ Re-import saved graphs whose pattern-based exclusions lack `pattern` before
 using them in source-to-bundle comparisons.
 
 JavaScript and TypeScript import parsing requires valid UTF-8. Malformed source
-bytes retain their original hashes and sizes with a decoding diagnostic; REA
+bytes retain their original hashes and sizes with a decoding diagnostic; Ghostwire
 does not infer module targets from replacement characters.
 
 Historical-source import requires safe no-follow file opens on Linux or
-macOS. Native Windows returns `unsupported_host`; use Linux REA inside WSL
+macOS. Native Windows returns `unsupported_host`; use Linux Ghostwire inside WSL
 or another supported host. See
 [source-to-bundle comparison](javascript-application-workflows.md#historical-source-to-bundle-comparison)
 for mapping identities, inferences and unknowns.
@@ -305,7 +305,7 @@ user permissions; consult the chosen guide for host requirements and effects.
 
 ## Output and exit status
 
-`rea mcp doctor --json` checks production MCP startup and reports child logs in
+`ghostwire mcp doctor --json` checks production MCP startup and reports child logs in
 `diagnostics`. It drains stderr while retaining at most its first 64 KiB of raw
 bytes as text, omitting a final UTF-8 code point if it crosses that byte limit.
 `stderr_bytes` counts all observed bytes, including omitted output;
@@ -331,9 +331,9 @@ operation status.
 unavailable optional providers remain informational for unrelated tasks.
 
 Enable `pipefail` in a supporting shell so a downstream formatter preserves
-REA's failure status:
+Ghostwire's failure status:
 
 ```bash
 set -o pipefail
-rea inspect-artifact ./app.asar --json | jq . > inspection.json
+ghostwire inspect-artifact ./app.asar --json | jq . > inspection.json
 ```

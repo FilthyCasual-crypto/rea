@@ -201,7 +201,7 @@ const fixture = await createGeminiModelFixture({
     const analysis = tools.find((t) =>
       t.name.endsWith("analyze_javascript_application"),
     );
-    assert(analysis, "Gemini must expose the REA analysis tool");
+    assert(analysis, "Gemini must expose the Ghostwire analysis tool");
     const prefix = analysis.name.slice(
       0,
       -"analyze_javascript_application".length,
@@ -213,7 +213,7 @@ const fixture = await createGeminiModelFixture({
         .map((t) => t.name)
         .sort(),
       expected,
-      "Gemini must forward the complete REA tool catalog",
+      "Gemini must forward the complete Ghostwire tool catalog",
     );
     catalogSize = expected.length;
     if (schemasChecked === 0) {
@@ -294,7 +294,10 @@ const fixture = await createGeminiModelFixture({
         },
       ];
     }
-    assert(skillLoaded, "Gemini must load the installed personal REA skill");
+    assert(
+      skillLoaded,
+      "Gemini must load the installed personal Ghostwire skill",
+    );
     return [
       {
         functionCall: {
@@ -314,13 +317,13 @@ try {
       "--approval-mode",
       mode === "chat" ? "default" : "yolo",
       "--allowed-mcp-server-names",
-      "rea",
+      "ghostwire",
       "--output-format",
       "stream-json",
       "-p",
       mode === "chat"
         ? "Say hello briefly."
-        : `Use REA to analyze the JavaScript directory ${target}. Report the result.`,
+        : `Use Ghostwire to analyze the JavaScript directory ${target}. Report the result.`,
     ]),
     {
       env: {

@@ -372,7 +372,7 @@ class ErrorEvidenceTransport implements Transport {
     // explicit sensitivity policy, and its error projection is authoritative.
     const evidence = createEvidence(
       undefined,
-      { id: "rea-mcp", name: "REA MCP delivery", version: "1" },
+      { id: "rea-mcp", name: "Ghostwire MCP delivery", version: "1" },
       {
         operation: "mcp_tool_error",
         parameters: { tool_name: operation },
@@ -409,7 +409,7 @@ class ErrorEvidenceTransport implements Transport {
       {
         remediationAction: retained
           ? "Export the retained original error through export_evidence_bundle to a caller-selected path. The connection remains usable."
-          : "Restart REA with a larger REA_MCP_MAX_RESPONSE_BYTES and matching client receive buffer, then retry. The original error could not be retained by this server.",
+          : "Restart Ghostwire with a larger REA_MCP_MAX_RESPONSE_BYTES and matching client receive buffer, then retry. The original error could not be retained by this server.",
       },
     );
     return {

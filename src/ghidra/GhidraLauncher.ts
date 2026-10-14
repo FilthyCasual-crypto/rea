@@ -734,7 +734,7 @@ const ghidraRuntimePaths = (runtimeRoot: string) => ({
 /**
  * Ghidra's launch support resolves its JDK before the headless run and then
  * persists that choice under `<config>/ghidra/<release directory>`. Inside
- * REA's Windows private runtime a child JVM cannot create those directories
+ * Ghostwire's Windows private runtime a child JVM cannot create those directories
  * itself, so startup aborted with "Failed to create directory" and reported
  * that no supported JDK was found. Create the release directory while this
  * process still owns the runtime, leaving Ghidra only a file write inside it.

@@ -51,7 +51,7 @@ it("runs static .app decoding without registering native analysis engines", asyn
   expect(result.graph.target_sha256).toBe(evidence.subject?.digest.sha256);
 });
 
-it("inspects an artifact through the direct CLI workflow without an REA grant", async () => {
+it("inspects an artifact through the direct CLI workflow without an Ghostwire grant", async () => {
   const root = await createTestTempDirectory("rea-artifact-direct-");
   const source = join(root, "source");
   const archive = join(root, "fixture.asar");

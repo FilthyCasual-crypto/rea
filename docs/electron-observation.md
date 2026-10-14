@@ -1,6 +1,6 @@
 # Electron file-page observation
 
-REA can attach to an Electron/Chromium CDP endpoint and inspect existing `file://` renderer pages without evaluating JavaScript or invoking Electron APIs. The request supplies the endpoint directly; REA accepts only literal-port loopback HTTP endpoints. Selecting an endpoint exposes every Electron target it serves, including local file paths and page metadata.
+Ghostwire can attach to an Electron/Chromium CDP endpoint and inspect existing `file://` renderer pages without evaluating JavaScript or invoking Electron APIs. The request supplies the endpoint directly; Ghostwire accepts only literal-port loopback HTTP endpoints. Selecting an endpoint exposes every Electron target it serves, including local file paths and page metadata.
 
 This passive runtime surface is distinct from the target-free static
 [`analyze_javascript_application`](javascript-artifact-reconstruction.md)
@@ -18,7 +18,7 @@ when both Evidence sets already exist.
 ## Target boundary
 
 The request supplies a literal-port loopback endpoint and, for inspection, a
-target ID. REA accepts local hostless `file://` URLs that resolve to regular
+target ID. Ghostwire accepts local hostless `file://` URLs that resolve to regular
 files, including pages a packaged application serves from inside `app.asar`.
 For those, the first `.asar` path component that is a regular file is the
 archive, the remainder must name a regular file in its header, and the reported
@@ -31,11 +31,11 @@ metadata.
 
 `list_electron_targets` returns every eligible target served by the supplied endpoint in one inline array.
 
-For the MCP follow-up call, pass the same literal-loopback endpoint and the selected target ID to `inspect_electron_page`. REA rediscovers targets and validates the ID against the live endpoint before inspection.
+For the MCP follow-up call, pass the same literal-loopback endpoint and the selected target ID to `inspect_electron_page`. Ghostwire rediscovers targets and validates the ID against the live endpoint before inspection.
 
 ```bash
-rea list-electron-targets http://127.0.0.1:9223 --json
-rea inspect-electron-page http://127.0.0.1:9223 TARGET_ID \
+ghostwire list-electron-targets http://127.0.0.1:9223 --json
+ghostwire inspect-electron-page http://127.0.0.1:9223 TARGET_ID \
   --observation-ms 100 --json
 ```
 
@@ -43,7 +43,7 @@ Script content is excluded by default. Setting `include_script_sources` in the
 request returns the selected target's script sources:
 
 ```bash
-rea inspect-electron-page http://127.0.0.1:9223 TARGET_ID \
+ghostwire inspect-electron-page http://127.0.0.1:9223 TARGET_ID \
   --include-script-sources \
   --json
 ```
@@ -54,7 +54,7 @@ completeness, and content-addressed script artifacts. Script metadata
 retains its execution-context frame ID when CDP supplies one. The capture also
 inventories worker, service-worker, and shared-worker targets with
 validated opener-target and parent-frame IDs. Worker discovery uses passive
-target metadata; REA does not attach to or execute code in those targets.
+target metadata; Ghostwire does not attach to or execute code in those targets.
 Collection counts and aggregate script-source bytes are not capped. Like every
 target, frame, script, and resource, a worker URL must resolve to a local
 file before it is retained. Relationship IDs improve
@@ -69,7 +69,7 @@ invoke Electron IPC, close a target, or terminate the application.
 The scenario request supplies the Electron executable and application entry
 point, plus any arguments and actions. The application root defaults to the
 entry point's parent directory and can be supplied when the app uses a different
-root. REA launches that executable through
+root. Ghostwire launches that executable through
 the official Playwright Electron API and owns its lifetime. It accepts click/wait actions,
 window-targeted renderer reload/crash actions, and synthetic `open-url` or
 `second-instance` deep-link delivery. It records capture-scoped window and
@@ -89,7 +89,7 @@ and network privileges, so lifecycle ownership does not make it a sandbox.
 The CLI and MCP surfaces accept the same schema. For a JSON request file:
 
 ```bash
-rea capture-electron-scenario scenario.json --json
+ghostwire capture-electron-scenario scenario.json --json
 ```
 
 The result records action status and targets, correlated app/window/WebContents,

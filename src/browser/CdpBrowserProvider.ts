@@ -291,7 +291,7 @@ interface CdpTargetOperationSession<Input> {
   readonly progress?: NonNullable<ExecutionOptions["progress"]>;
 }
 
-/** Authorize one discovered target, run work in its session, and close REA's socket. */
+/** Authorize one discovered target, run work in its session, and close Ghostwire's socket. */
 const withTargetSession = async <
   Input extends Pick<
     InspectWebPageInput,

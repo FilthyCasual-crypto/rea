@@ -59,7 +59,7 @@ try {
   assert.equal(
     discovery.discovery_status,
     "sessions_found",
-    "Open upstream Cutter with the REA plugin before running this smoke test.",
+    "Open upstream Cutter with the Ghostwire plugin before running this smoke test.",
   );
   assert.ok(discovery.sessions.length > 0);
   const session = discovery.sessions[0];

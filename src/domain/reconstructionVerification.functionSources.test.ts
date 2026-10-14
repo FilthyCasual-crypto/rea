@@ -100,7 +100,7 @@ const plural = {
 };
 const provider = {
   id: "rea-function-comparison",
-  name: "REA function comparison",
+  name: "Ghostwire function comparison",
   version: "1",
 };
 const baselineResult = compareFunctions(left, right);

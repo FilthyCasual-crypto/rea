@@ -340,7 +340,9 @@ it("retains missing PDB coverage in empty PE name-search Evidence and snapshot r
     if (!replay.ok) throw replay.error;
     expect(replay.value.limitations).toContain(limitation);
     expect(replay.value.limitations).toContainEqual(
-      expect.stringContaining("Loaded from a local REA analysis snapshot"),
+      expect.stringContaining(
+        "Loaded from a local Ghostwire analysis snapshot",
+      ),
     );
   } finally {
     await harness.close();

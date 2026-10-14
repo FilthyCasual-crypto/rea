@@ -25,7 +25,7 @@ class FakeUpdateHost implements UpdateHost {
   installationResult: UpdateInstallation | undefined = {
     manager: "npm",
     prefix: "/fixture",
-    packageRoot: "/fixture/lib/node_modules/rea-agents",
+    packageRoot: "/fixture/lib/node_modules/ghostwire-agent",
   };
   installResult: Result<void, string> = ok(undefined);
   verified: Result<string, string> = ok("3.3.0");
@@ -69,7 +69,7 @@ class FakeUpdateHost implements UpdateHost {
     Promise.resolve(this.cleanupFailure);
 }
 
-describe("REA update", () => {
+describe("Ghostwire update", () => {
   it("identifies an already-current installation without mutation", async () => {
     const host = new FakeUpdateHost();
     expect(await runUpdate("3.3.0", host)).toEqual({
@@ -121,7 +121,7 @@ describe("REA update", () => {
         "--ignore-scripts",
         "--prefix",
         "/fixture",
-        "rea-agents@3.3.0",
+        "ghostwire-agent@3.3.0",
       ],
     });
     expect(host.installedVersions).toEqual(["3.3.0"]);
@@ -134,7 +134,8 @@ describe("REA update", () => {
     host.installationResult = {
       manager: "bun",
       globalDirectory: "/home/user/.bun/install/global",
-      packageRoot: "/home/user/.bun/install/global/node_modules/rea-agents",
+      packageRoot:
+        "/home/user/.bun/install/global/node_modules/ghostwire-agent",
     };
     expect(await runUpdate("3.2.1", host, "structured")).toMatchObject({
       status: "updated",
@@ -145,7 +146,7 @@ describe("REA update", () => {
         "add",
         "--global",
         "--ignore-scripts",
-        "rea-agents@3.3.0",
+        "ghostwire-agent@3.3.0",
       ],
     });
     expect(host.verifiedInstallation).toEqual(host.installationResult);
@@ -184,14 +185,14 @@ describe("REA update", () => {
     host.maintenance = {
       status: "planned",
       scope: { clients: ["codex"], skill: false },
-      command: ["rea", "setup", "--client", "codex", "--skill=false"],
+      command: ["ghostwire", "setup", "--client", "codex", "--skill=false"],
       plannedActions: [
         {
           id: "configure_client:codex",
           kind: "configure_client",
           label: "Codex",
           target: "/home/.codex/config.toml",
-          detail: "Refresh REA",
+          detail: "Refresh Ghostwire",
           external: false,
           operation: "update",
         },
@@ -325,12 +326,16 @@ describe("update failures and version boundaries", () => {
 
   it("reports actual npm failures and skips verification", async () => {
     const host = new FakeUpdateHost();
-    host.installResult = err("EACCES /fixture/lib/node_modules/rea-agents");
+    host.installResult = err(
+      "EACCES /fixture/lib/node_modules/ghostwire-agent",
+    );
     const result = await runUpdate("3.2.1", host);
     expect(result).toMatchObject({ status: "failed", reason: "install" });
     expect(result).toHaveProperty(
       "remediation",
-      expect.stringContaining("EACCES /fixture/lib/node_modules/rea-agents"),
+      expect.stringContaining(
+        "EACCES /fixture/lib/node_modules/ghostwire-agent",
+      ),
     );
     expect(host.verifiedInstallation).toBeUndefined();
   });
@@ -344,14 +349,14 @@ describe("npm installation ownership", () => {
   });
 
   it("identifies the global prefix and package root", async () => {
-    const packageRoot = "/usr/local/lib/node_modules/rea-agents";
+    const packageRoot = "/usr/local/lib/node_modules/ghostwire-agent";
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
     ).resolves.toEqual({ manager: "npm", prefix: "/usr/local", packageRoot });
   });
 
   it("retains the curl installer's custom Unix prefix", async () => {
-    const packageRoot = "/home/user/.local/lib/node_modules/rea-agents";
+    const packageRoot = "/home/user/.local/lib/node_modules/ghostwire-agent";
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
     ).resolves.toEqual({
@@ -363,8 +368,8 @@ describe("npm installation ownership", () => {
 
   it.each([
     "/work/rea",
-    "/work/node_modules/rea-agents",
-    "/cache/_npx/abc/node_modules/rea-agents",
+    "/work/node_modules/ghostwire-agent",
+    "/cache/_npx/abc/node_modules/ghostwire-agent",
   ])("rejects unrelated invocation %s", async (packageRoot) => {
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
@@ -378,7 +383,7 @@ describe("npm installation ownership", () => {
     };
     await expect(
       detectNpmInstallation(
-        "/home/.local/lib/node_modules/rea-agents",
+        "/home/.local/lib/node_modules/ghostwire-agent",
         failing,
       ),
     ).resolves.toBeUndefined();
@@ -387,7 +392,7 @@ describe("npm installation ownership", () => {
 
 describe("Bun installation ownership", () => {
   const globalDirectory = "/home/user/.bun/install/global";
-  const packageRoot = `${globalDirectory}/node_modules/rea-agents`;
+  const packageRoot = `${globalDirectory}/node_modules/ghostwire-agent`;
   // Fixture paths are POSIX; join() may produce Windows separators on Windows hosts.
   const host = (
     manifests: readonly string[] = [`${globalDirectory}/package.json`],
@@ -410,9 +415,9 @@ describe("Bun installation ownership", () => {
   });
 
   it.each([
-    "/home/user/project/node_modules/rea-agents",
-    "/usr/local/lib/node_modules/rea-agents",
-    "/home/user/.bun/install/cache/rea-agents@6.4.0@@@1",
+    "/home/user/project/node_modules/ghostwire-agent",
+    "/usr/local/lib/node_modules/ghostwire-agent",
+    "/home/user/.bun/install/cache/ghostwire-agent@6.4.0@@@1",
   ])("rejects package root %s outside the global project", async (root) => {
     await expect(
       detectBunInstallation(root, globalDirectory, host()),

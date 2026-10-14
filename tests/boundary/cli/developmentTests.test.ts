@@ -34,7 +34,7 @@ const commit = (root: string, message: string) =>
   git(
     root,
     "-c",
-    "user.name=REA fixture",
+    "user.name=Ghostwire fixture",
     "-c",
     "user.email=fixture@example.test",
     "-c",

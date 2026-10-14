@@ -125,7 +125,7 @@ try {
     const stripped = join(workspace, `${compiler}-stripped`);
     await copyFile(original, stripped);
     await exec(commands.strip, ["--strip-all", stripped]);
-    // Byte/physical target oracle survives removal of the names that REA could use.
+    // Byte/physical target oracle survives removal of the names that Ghostwire could use.
     assertCompiledSwitchOracle(await readFile(stripped), fixtures, disassembly);
     for (const [variant, path] of [
       ["optimized", original],
@@ -138,7 +138,7 @@ try {
       assert.equal(
         digest(await readFile(path)),
         sha256,
-        "REA analysis changed original compiled fixture",
+        "Ghostwire analysis changed original compiled fixture",
       );
       results.push({
         compiler,

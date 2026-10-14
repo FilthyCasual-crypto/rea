@@ -652,7 +652,7 @@ const hasSeparatorComma = (trivia: string): boolean =>
 
 /**
  * Replace or remove `serverKey` inside one `{ ... }` table. A closed inline
- * table cannot later grow a `[mcp_servers.rea]` header.
+ * table cannot later grow a `[mcp_servers.ghostwire]` header.
  */
 const editInlineServerTable = (
   table: string,
@@ -873,8 +873,8 @@ const disabledServerListLines = (
 };
 
 /**
- * Replace REA's TOML server tables and assignments. Comments that introduce a
- * following table stay. Codex also retains comments around REA's own table.
+ * Replace Ghostwire's TOML server tables and assignments. Comments that introduce a
+ * following table stay. Codex also retains comments around Ghostwire's own table.
  * Text inside strings is not treated as a header. Only Grok Build reads the
  * root `disabled_mcp_servers` list that registration also edits.
  */
@@ -1081,7 +1081,7 @@ export const grokServerListedDisabled = (
 
 /**
  * OMP's user `disabledServers` denylist hides a server by name regardless of
- * its entry, so a listed REA registration is not loaded.
+ * its entry, so a listed Ghostwire registration is not loaded.
  */
 export const OMP_DISABLED_SERVERS_KEY = "disabledServers";
 
@@ -1120,7 +1120,7 @@ export const clientServerListedDisabled = (
   (parsed.dialect === "omp" &&
     ompServerListedDisabled(parsed.document, serverKey));
 
-/** Keep an existing Grok document intact aside from the REA server tables. */
+/** Keep an existing Grok document intact aside from the Ghostwire server tables. */
 const serializeGrokConfiguration = (
   document: Record<string, unknown>,
   originalText: string | undefined,
@@ -1147,7 +1147,7 @@ const withoutEmptyServerTable = (
 };
 
 /**
- * Keep an existing Codex document intact aside from the REA server tables.
+ * Keep an existing Codex document intact aside from the Ghostwire server tables.
  * An edit that would change any other parsed value falls back to a full
  * rewrite, which keeps every value but not comments or spelling.
  */
@@ -1348,8 +1348,8 @@ export const legacyClientServerPath = (
     : undefined;
 
 /**
- * Keep an existing Hermes `config.yaml` intact aside from the REA server entry.
- * Hermes config files carry user comments and unrelated settings, so the rea
+ * Keep an existing Hermes `config.yaml` intact aside from the Ghostwire server entry.
+ * Hermes config files carry user comments and unrelated settings, so the ghostwire
  * entry is upserted into the parsed YAML document (which retains formatting and
  * comments) rather than re-serializing the whole object.
  */
@@ -1381,7 +1381,7 @@ export const clientRegistrationEntry = (
   command: readonly string[],
   environment: Readonly<Record<string, string>>,
 ): Record<string, unknown> => {
-  const [executable = "rea", ...args] = command;
+  const [executable = "ghostwire", ...args] = command;
   switch (format) {
     case "opencode":
       return {

@@ -135,7 +135,7 @@ describe("Pi registration semantics", () => {
     const original = `{"autoEnableCodemode": false,
   "mcpServers": { "other": { "command": "other-server" } },
   "enabledServers": ["other"],
-  "disabledServers": ["rea", "other"]
+  "disabledServers": ["ghostwire", "other"]
 }\n`;
     await writeFile(client.configPath, original);
     expect(
@@ -149,14 +149,14 @@ describe("Pi registration semantics", () => {
       autoEnableCodemode: false,
       mcpServers: {
         other: { command: "other-server" },
-        rea: {
+        ghostwire: {
           type: "stdio",
           command: "npx",
           args: NPX_REGISTRATION_COMMAND.slice(1),
         },
       },
       enabledServers: ["other"],
-      disabledServers: ["rea", "other"],
+      disabledServers: ["ghostwire", "other"],
     });
     expect(
       await configureClientConfiguration(client, {}, NPX_REGISTRATION_COMMAND),
@@ -196,14 +196,14 @@ describe("Pi registration semantics", () => {
         client.configPath,
         JSON.stringify({
           mcpServers: {
-            rea: {
+            ghostwire: {
               command: "npx",
               args: NPX_REGISTRATION_COMMAND.slice(1),
               type,
               enabled,
             },
           },
-          enabledServers: ["rea"],
+          enabledServers: ["ghostwire"],
         }),
       );
       const statuses = await readClientRegistrationStatuses(home, undefined, {
@@ -289,7 +289,7 @@ describe("Pi strict JSON parsing", () => {
     expect(() => JSON.parse(created)).not.toThrow();
     expect(JSON.parse(created)).toEqual({
       mcpServers: {
-        rea: {
+        ghostwire: {
           type: "stdio",
           command: "npx",
           args: NPX_REGISTRATION_COMMAND.slice(1),

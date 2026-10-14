@@ -34,7 +34,7 @@ describe("production MCP doctor", () => {
         checks: [{ name: "transport", ok: false }],
       },
       meta: {
-        command: "rea mcp doctor",
+        command: "ghostwire mcp doctor",
         duration: expect.stringMatching(/^\d+ms$/u),
       },
     });

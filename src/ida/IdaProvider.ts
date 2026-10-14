@@ -116,7 +116,7 @@ export class IdaProvider implements AnalysisProviderCandidate {
       return {
         status: "unsupported",
         code: "architecture_unsupported",
-        reason: `REA's IDA adapter has no verified ${
+        reason: `Ghostwire's IDA adapter has no verified ${
           target.architecture === "mips"
             ? "MIPS"
             : target.architecture === "riscv"

@@ -27,8 +27,8 @@ import { createTestTempDirectory } from "../../fixtures/temporaryDirectory.js";
 
 import { verifyReconstruction } from "../../../src/domain/reconstructionVerification.js";
 const providerNames = [
-  "REA process capture",
-  "REA deterministic process harness",
+  "Ghostwire process capture",
+  "Ghostwire deterministic process harness",
 ];
 
 const captureEvidence = (
@@ -85,7 +85,7 @@ const connectedComparison = async () => {
   const comparison = inlineEvidence(response);
   expect(comparison.provider).toEqual({
     id: "rea-process",
-    name: "REA process capture",
+    name: "Ghostwire process capture",
     version: "3",
   });
   expect(comparison.normalized_result).toMatchObject({ status: "unchanged" });
@@ -304,7 +304,7 @@ it("separately rejects a tampered digest before admission to any consumer or ses
     ...comparison,
     provider: {
       ...comparison.provider,
-      name: "REA deterministic process harness",
+      name: "Ghostwire deterministic process harness",
     },
   };
   const digestMismatch = /semantic identifier does not match/u;

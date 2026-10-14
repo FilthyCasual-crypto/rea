@@ -9,7 +9,7 @@ if (process.platform !== "win32" || process.argv.length !== 3)
   );
 
 // This process owns the native directory handle. Detached process creation
-// keeps it alive when the REA owner is terminated without running JS cleanup.
+// keeps it alive when the Ghostwire owner is terminated without running JS cleanup.
 const runtime = WindowsPrivateRuntime.create(process.argv[2], "rea-android-");
 const ready = await new Promise((resolve) => {
   process.stdout.once("error", () => resolve(false));

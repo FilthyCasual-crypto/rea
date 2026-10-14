@@ -6,7 +6,7 @@ import { PRODUCT_IDENTITY } from "../../../src/identity.js";
 import { createTestTempDirectory } from "../../fixtures/temporaryDirectory.js";
 import { cliTest } from "../../support/cli/cliFixture.js";
 
-for (const policy of [{ excluded: ["rea"] }, { allowed: ["other"] }]) {
+for (const policy of [{ excluded: ["ghostwire"] }, { allowed: ["other"] }]) {
   cliTest(
     `Gemini refuses a registration blocked by ${Object.keys(policy)[0]}`,
     async ({ cli }) => {
@@ -15,7 +15,7 @@ for (const policy of [{ excluded: ["rea"] }, { allowed: ["other"] }]) {
       const original = JSON.stringify({
         mcp: policy,
         mcpServers: {
-          rea: {
+          ghostwire: {
             command: "npx",
             args: ["-y", PRODUCT_IDENTITY.registrationPackageSpecifier, "mcp"],
           },
@@ -76,7 +76,7 @@ cliTest(
     const higher = join(directory, "opencode.jsonc");
     const originalLower = JSON.stringify({
       mcp: {
-        rea: {
+        ghostwire: {
           type: "local",
           command: [
             "npx",
@@ -90,7 +90,7 @@ cliTest(
       },
     });
     const originalHigher =
-      '// keep this comment\n{"mcp":{"rea":{"enabled":false}},"theme":"system"}\n';
+      '// keep this comment\n{"mcp":{"ghostwire":{"enabled":false}},"theme":"system"}\n';
     await writeFile(lower, originalLower);
     await writeFile(higher, originalHigher);
     const run = (arguments_: readonly string[]) =>
@@ -180,7 +180,7 @@ cliTest(
     const home = await createTestTempDirectory("rea-gemini-managed-");
     const policy = join(home, "managed.json");
     const original = JSON.stringify({
-      mcp: { excluded: ["rea"] },
+      mcp: { excluded: ["ghostwire"] },
       unrelated: true,
     });
     await writeFile(policy, original);
@@ -222,12 +222,12 @@ cliTest(
     await mkdir(dirname(user), { recursive: true });
     await writeFile(
       system,
-      JSON.stringify({ mcp: { allowed: ["rea", "other"] } }),
+      JSON.stringify({ mcp: { allowed: ["ghostwire", "other"] } }),
     );
     await writeFile(defaults, JSON.stringify({ mcp: { allowed: ["other"] } }));
     await writeFile(
       user,
-      JSON.stringify({ mcp: { allowed: ["rea", "other"] } }),
+      JSON.stringify({ mcp: { allowed: ["ghostwire", "other"] } }),
     );
     const environment = {
       HOME: home,
@@ -247,12 +247,15 @@ cliTest(
       status: "needs_human",
       appliedActions: [],
     });
-    await writeFile(defaults, JSON.stringify({ mcp: { allowed: ["rea"] } }));
+    await writeFile(
+      defaults,
+      JSON.stringify({ mcp: { allowed: ["ghostwire"] } }),
+    );
     const allowed = await run();
     expect(allowed.exitCode).toBe(0);
     expect(allowed.json).toMatchObject({ status: "ready" });
     expect(JSON.parse(await readFile(defaults, "utf8"))).toEqual({
-      mcp: { allowed: ["rea"] },
+      mcp: { allowed: ["ghostwire"] },
     });
     // The consumer treats an empty consolidated allowlist as unrestricted.
     await writeFile(defaults, JSON.stringify({ mcp: { allowed: [] } }));
@@ -268,7 +271,10 @@ cliTest(
     const home = await createTestTempDirectory("rea-gemini-case-");
     const system = join(home, "system.json");
     const defaults = join(home, "defaults.json");
-    await writeFile(system, JSON.stringify({ mcp: { allowed: ["REA"] } }));
+    await writeFile(
+      system,
+      JSON.stringify({ mcp: { allowed: ["Ghostwire"] } }),
+    );
     const environment = {
       HOME: home,
       USERPROFILE: home,
@@ -285,8 +291,8 @@ cliTest(
     // survives must not decide the outcome: the same pair of policies in
     // either arrangement has to consolidate to the same decision.
     for (const [systemSpelling, defaultSpelling] of [
-      ["REA", "rea"],
-      ["rea", "REA"],
+      ["Ghostwire", "ghostwire"],
+      ["ghostwire", "Ghostwire"],
     ]) {
       await writeFile(
         system,
@@ -329,7 +335,10 @@ cliTest(
     // An exclusion is a membership test over the same names the intersection
     // compares, so a differently spelled and padded entry blocks setup rather
     // than slipping past the raw comparison.
-    await writeFile(system, JSON.stringify({ mcp: { excluded: [" REA "] } }));
+    await writeFile(
+      system,
+      JSON.stringify({ mcp: { excluded: [" Ghostwire "] } }),
+    );
     const blocked = await run();
     expect(blocked.exitCode).toBe(1);
     expect(blocked.json).toMatchObject({
@@ -340,7 +349,10 @@ cliTest(
     });
     // Padding is presentation, not identity: a padded allowlist entry permits
     // the same server its exact spelling permits.
-    await writeFile(system, JSON.stringify({ mcp: { allowed: [" REA "] } }));
+    await writeFile(
+      system,
+      JSON.stringify({ mcp: { allowed: [" Ghostwire "] } }),
+    );
     const allowed = await run();
     expect(allowed.exitCode).toBe(0);
     expect(allowed.json).toMatchObject({ status: "ready" });
@@ -358,7 +370,7 @@ cliTest(
       global,
       JSON.stringify({
         mcp: {
-          rea: {
+          ghostwire: {
             type: "local",
             command: [
               "npx",
@@ -428,7 +440,7 @@ cliTest(
       enabled: true,
     };
     const original = JSON.stringify({
-      mcp: { rea: owned, other: { type: "local", command: ["other"] } },
+      mcp: { ghostwire: owned, other: { type: "local", command: ["other"] } },
     });
     await writeFile(global, original);
     await writeFile(custom, "{}");
@@ -494,14 +506,14 @@ cliTest(
       defaults,
       JSON.stringify({
         mcpServers: {
-          rea: { command: "managed-default", env: { EXTRA: "default" } },
+          ghostwire: { command: "managed-default", env: { EXTRA: "default" } },
         },
       }),
     );
     expect((await run(command)).exitCode).toBe(0);
     const original = await readFile(user, "utf8");
     const managed = JSON.stringify({
-      mcpServers: { rea: { command: "managed-override", args: [] } },
+      mcpServers: { ghostwire: { command: "managed-override", args: [] } },
       unrelated: true,
     });
     await writeFile(system, managed);
@@ -520,7 +532,7 @@ cliTest(
           expect.objectContaining({
             client: "gemini_cli",
             state: "stale",
-            remediation: expect.stringContaining("mcpServers.rea"),
+            remediation: expect.stringContaining("mcpServers.ghostwire"),
           }),
         ]),
       },
@@ -564,7 +576,7 @@ cliTest(
       cli.run({ arguments: args, cwd: project, environment });
     const command = ["setup", "--client", "gemini_cli", "--yes", "--json"];
     const original = JSON.stringify({
-      mcp: { excluded: ["rea"] },
+      mcp: { excluded: ["ghostwire"] },
       unrelated: true,
     });
     await writeFile(workspace, original);
@@ -641,7 +653,7 @@ cliTest(
       cli.run({ arguments: args, cwd: project, environment });
     const command = ["setup", "--client", "gemini_cli", "--yes", "--json"];
     const original = JSON.stringify({
-      mcpServers: { rea: { command: "project-server", args: [] } },
+      mcpServers: { ghostwire: { command: "project-server", args: [] } },
     });
     await writeFile(workspace, original);
     expect((await run(command)).json).toMatchObject({
@@ -683,7 +695,10 @@ cliTest(
     const trust = join(home, ".gemini/trustedFolders.json");
     await mkdir(dirname(workspace), { recursive: true });
     await mkdir(dirname(user), { recursive: true });
-    await writeFile(workspace, JSON.stringify({ mcp: { excluded: ["rea"] } }));
+    await writeFile(
+      workspace,
+      JSON.stringify({ mcp: { excluded: ["ghostwire"] } }),
+    );
     await writeFile(trust, JSON.stringify({ [project]: "INVALID" }));
     const run = () =>
       cli.run({

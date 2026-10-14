@@ -1,4 +1,4 @@
-//@category REA Verification
+//@category Ghostwire Verification
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -15,7 +15,7 @@ public final class ReaSeedRegressionProbe extends GhidraScript {
         runScript("ReaGhidraApplySeeds.java", new String[] { getScriptArgs()[0] });
         JsonObject report = JsonParser.parseString(
             currentProgram.getOptions(Program.PROGRAM_INFO)
-                .getString("REA analysis seeds", null)
+                .getString("Ghostwire analysis seeds", null)
         ).getAsJsonObject();
         require(report.get("entries").getAsInt() == 5, "all seeds accounted for");
         require(report.get("function_created").getAsInt() == 2,

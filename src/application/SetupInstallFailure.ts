@@ -80,13 +80,13 @@ const packageManagerRemediation = (
   failure: LinuxPackageInstallFailure | undefined,
 ): string => {
   if (failure === undefined)
-    return "Allow the system package-manager operation or install the planned Hopper package and Linux runtime dependencies, then rerun rea setup.";
+    return "Allow the system package-manager operation or install the planned Hopper package and Linux runtime dependencies, then rerun ghostwire setup.";
   const status =
     failure.exitCode === null ? "no exit status" : `exit ${failure.exitCode}`;
   const excerpt = packageOutputExcerpt(failure);
   const observed =
     excerpt === "" ? "no output was captured." : `its output: ${excerpt}`;
-  return `The system package-manager command failed (${failure.command}; ${status}); ${observed} Resolve the reported problem, grant the authorization the command needs, or install the planned Hopper package and Linux runtime dependencies manually, then rerun rea setup.`;
+  return `The system package-manager command failed (${failure.command}; ${status}); ${observed} Resolve the reported problem, grant the authorization the command needs, or install the planned Hopper package and Linux runtime dependencies manually, then rerun ghostwire setup.`;
 };
 
 /** Map provider installer failures to stable setup codes and safe recovery. */
@@ -99,14 +99,14 @@ export const setupInstallFailure = (
       return {
         status: "failed",
         code: "unsupported_host",
-        remediation: "Use a supported host, then rerun rea setup.",
+        remediation: "Use a supported host, then rerun ghostwire setup.",
       };
     case "integrity":
       return {
         status: "failed",
         code: "integrity_mismatch",
         remediation:
-          "The Hopper download failed integrity verification. Retry setup; if it repeats, update REA before installing.",
+          "The Hopper download failed integrity verification. Retry setup; if it repeats, update Ghostwire before installing.",
       };
     case "authorization_or_package_manager":
       return {
@@ -119,69 +119,69 @@ export const setupInstallFailure = (
         status: "failed",
         code: "launcher_missing",
         remediation:
-          "The package operation completed but Hopper is not runnable. Run rea doctor and repair the reported launcher issue.",
+          "The package operation completed but Hopper is not runnable. Run ghostwire doctor and repair the reported launcher issue.",
       };
     case "runtime_dependencies":
       return {
         status: "failed",
         code: "runtime_dependency_unavailable",
         remediation:
-          "Hopper was installed but required shared libraries are missing. Rerun rea setup, then apply the hopper-demo-runtime remediation from rea doctor.",
+          "Hopper was installed but required shared libraries are missing. Rerun ghostwire setup, then apply the hopper-demo-runtime remediation from ghostwire doctor.",
       };
     case "unsupported_hopper_build":
       return {
         status: "failed",
         code: "unsupported_hopper_build",
         remediation:
-          "The installed Hopper launcher does not match the build supported by this REA release. Unset HOPPER_LAUNCHER_PATH, reinstall through rea setup, or update REA.",
+          "The installed Hopper launcher does not match the build supported by this Ghostwire release. Unset HOPPER_LAUNCHER_PATH, reinstall through ghostwire setup, or update Ghostwire.",
       };
     case "cancelled":
       return {
         status: "failed",
         code: "setup_cancelled",
         remediation:
-          "Setup was cancelled before Hopper was installed. Rerun rea setup when ready.",
+          "Setup was cancelled before Hopper was installed. Rerun ghostwire setup when ready.",
       };
     case "destination_exists":
       return {
         status: "failed",
         code: "destination_exists",
         remediation:
-          "The Hopper installation destination already exists and was not replaced. Reuse the existing installation or move it aside, then rerun rea setup.",
+          "The Hopper installation destination already exists and was not replaced. Reuse the existing installation or move it aside, then rerun ghostwire setup.",
       };
     case "mount":
       return {
         status: "failed",
         code: "mount_failed",
         remediation:
-          "The verified Hopper disk image could not be mounted. Eject any stale Hopper image, check local disk access, then rerun rea setup.",
+          "The verified Hopper disk image could not be mounted. Eject any stale Hopper image, check local disk access, then rerun ghostwire setup.",
       };
     case "bundle":
       return {
         status: "failed",
         code: "bundle_invalid",
         remediation:
-          "The mounted package did not contain the expected Hopper application bundle. Retry setup; if it repeats, update REA before installing.",
+          "The mounted package did not contain the expected Hopper application bundle. Retry setup; if it repeats, update Ghostwire before installing.",
       };
     case "publisher_verification_failed":
       return {
         status: "failed",
         code: "publisher_verification_failed",
-        remediation: `The mounted Hopper application is not signed by the publisher REA pins (${HOPPER_PUBLISHER.bundleIdentifier}, Apple team ${HOPPER_PUBLISHER.teamIdentifier}); nothing was copied or launched. Install Hopper yourself and set HOPPER_LAUNCHER_PATH to its launcher, then rerun rea setup.`,
+        remediation: `The mounted Hopper application is not signed by the publisher Ghostwire pins (${HOPPER_PUBLISHER.bundleIdentifier}, Apple team ${HOPPER_PUBLISHER.teamIdentifier}); nothing was copied or launched. Install Hopper yourself and set HOPPER_LAUNCHER_PATH to its launcher, then rerun ghostwire setup.`,
       };
     case "copy":
       return {
         status: "failed",
         code: "copy_failed",
         remediation:
-          "The verified Hopper application could not be copied to the installation destination. Check destination permissions and free space, then rerun rea setup.",
+          "The verified Hopper application could not be copied to the installation destination. Check destination permissions and free space, then rerun ghostwire setup.",
       };
     default:
       return {
         status: "failed",
         code: "download_failed",
         remediation:
-          "REA could not download or unpack the official Hopper package. Check network and filesystem access, then retry setup.",
+          "Ghostwire could not download or unpack the official Hopper package. Check network and filesystem access, then retry setup.",
       };
   }
 };

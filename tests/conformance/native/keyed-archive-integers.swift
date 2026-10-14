@@ -51,7 +51,7 @@ func elements(_ bytes: Data) throws -> [String: Any] {
   parser.shouldResolveExternalEntities = false
   parser.delegate = delegate
   guard parser.parse(), let value = delegate.value as? [String: Any] else {
-    throw NSError(domain: "REA.IntegerOracle", code: 1)
+    throw NSError(domain: "Ghostwire.IntegerOracle", code: 1)
   }
   return value
 }
@@ -71,7 +71,7 @@ func rows(_ value: Any, path: [Any] = []) -> [[String: Any]] {
 }
 func literal(_ value: Any?, kind: String) throws -> String {
   guard let fields = value as? [String: String], fields["numberKind"] == kind, let text = fields["literal"] else {
-    throw NSError(domain: "REA.IntegerOracle", code: 2)
+    throw NSError(domain: "Ghostwire.IntegerOracle", code: 2)
   }
   return text
 }
@@ -97,14 +97,14 @@ for format in ["xml", "binary"] {
   let xml = try PropertyListSerialization.data(fromPropertyList: native, format: .xml, options: 0)
   let parsed = try elements(xml)
   guard let top = parsed["$top"] as? [String: Any], let table = parsed["$objects"] as? [Any] else {
-    throw NSError(domain: "REA.IntegerOracle", code: 3)
+    throw NSError(domain: "Ghostwire.IntegerOracle", code: 3)
   }
   guard try literal(top["unsafeSigned"], kind: "integer") == String(positive),
         try literal(top["unsafeNegative"], kind: "integer") == String(negative),
         try literal(top["safeInteger"], kind: "integer") == "9007199254740991",
         try literal(top["safeNegative"], kind: "integer") == "-42",
         Double(try literal(top["integralReal"], kind: "real")) == real else {
-    throw NSError(domain: "REA.IntegerOracle", code: 4)
+    throw NSError(domain: "Ghostwire.IntegerOracle", code: 4)
   }
   var selectedRows: [[String: Any]] = []
   for key in ["unsafeSigned", "unsafeNegative", "safeInteger", "safeNegative", "integralReal"] {
@@ -115,14 +115,14 @@ for format in ["xml", "binary"] {
   for key in ["boxedUnsigned", "boxedReal"] {
     guard let reference = top[key] as? [String: Any],
           let uid = Int(try literal(reference["CF$UID"], kind: "integer")), uid > 0, uid < table.count else {
-      throw NSError(domain: "REA.IntegerOracle", code: 5)
+      throw NSError(domain: "Ghostwire.IntegerOracle", code: 5)
     }
     let numericRows = rows(table[uid])
     let expectedKind = key == "boxedUnsigned" ? "integer" : "real"
     guard numericRows.contains(where: { row in
       guard row["kind"] as? String == expectedKind, let text = row["literal"] as? String else { return false }
       return key == "boxedUnsigned" ? text == String(unsigned) : Double(text) == real
-    }) else { throw NSError(domain: "REA.IntegerOracle", code: 6) }
+    }) else { throw NSError(domain: "Ghostwire.IntegerOracle", code: 6) }
     for row in numericRows {
       selectedRows.append(row.merging(["container": "objects", "objectId": uid, "root": key]) { _, rhs in rhs })
     }

@@ -1,5 +1,5 @@
 /**
- * Parsers for fixed observation commands REA runs through `adb shell`.
+ * Parsers for fixed observation commands Ghostwire runs through `adb shell`.
  *
  * Formats follow toybox output on Android 8+ (verified against an Android 14
  * emulator). Unparseable lines are retained rather than dropped so callers

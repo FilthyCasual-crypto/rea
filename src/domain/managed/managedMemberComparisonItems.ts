@@ -312,12 +312,12 @@ const ambiguityLimitation = (
   basis: MethodItem["match"]["basis"],
 ): string =>
   basis === "exact-signature"
-    ? `Multiple managed ${members} share the same raw signature; REA did not guess declared ownership or a token remap.`
+    ? `Multiple managed ${members} share the same raw signature; Ghostwire did not guess declared ownership or a token remap.`
     : basis === "exact-il-signature"
-      ? "Multiple managed methods share the same CIL and signature; REA did not guess a token remap."
+      ? "Multiple managed methods share the same CIL and signature; Ghostwire did not guess a token remap."
       : members === "methods"
-        ? "Multiple managed methods share the same structural shape; REA did not guess a token remap."
-        : "Multiple managed fields share the same signature; REA did not guess a token remap.";
+        ? "Multiple managed methods share the same structural shape; Ghostwire did not guess a token remap."
+        : "Multiple managed fields share the same signature; Ghostwire did not guess a token remap.";
 
 export const buildMethodItems = (
   matches: ManagedMethodMatches,

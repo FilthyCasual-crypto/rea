@@ -240,7 +240,7 @@ export interface CutterBridgeDiscovery {
     | "not_checked";
 }
 
-/** Discovers and communicates with REA Python bridge plugins in live Cutter processes. */
+/** Discovers and communicates with Ghostwire Python bridge plugins in live Cutter processes. */
 export class CutterBridgeClient {
   readonly #directory: string;
   readonly #platform: NodeJS.Platform;
@@ -281,8 +281,8 @@ export class CutterBridgeClient {
     this.#directory =
       configured ??
       (this.#platform === "win32" && localAppData
-        ? join(localAppData, "REA", "CutterBridge")
-        : join(homedir(), ".cache", "rea", "cutter-bridge"));
+        ? join(localAppData, "Ghostwire", "CutterBridge")
+        : join(homedir(), ".cache", "ghostwire", "cutter-bridge"));
   }
 
   async listSessions(): Promise<CutterBridgeDiscovery> {

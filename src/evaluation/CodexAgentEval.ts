@@ -8,7 +8,7 @@ import {
 import { canonicalJson } from "../domain/comparisonSemantics.js";
 import { TOOL_CONTRACTS } from "../contracts/toolContracts.js";
 
-/** One REA MCP invocation observed in a Codex JSONL transcript. */
+/** One Ghostwire MCP invocation observed in a Codex JSONL transcript. */
 interface CodexMcpCall {
   readonly id: string | null;
   readonly server: string | null;
@@ -67,7 +67,7 @@ const toolResultError = (
   );
   const direct = record(structured?.error ?? result?.error ?? item.error);
   if (direct !== undefined || structured !== undefined) return direct;
-  // Codex preserves some REA failures only as one complete JSON text block.
+  // Codex preserves some Ghostwire failures only as one complete JSON text block.
   // A client-truncated preview or SDK prose is not a structured error record.
   const content = result?.content;
   if (!Array.isArray(content) || content.length !== 1) return undefined;
@@ -205,7 +205,7 @@ export const evaluateCodexEvents = (
   );
 
   const reaCalls = state.calls.filter(
-    ({ server }) => server?.toLowerCase() === "rea",
+    ({ server }) => server?.toLowerCase() === "ghostwire",
   );
   const signatures = new Map<string, number>();
   let targetRevision = 0;

@@ -145,7 +145,7 @@ describe("Linux Hopper host classification", () => {
     "ID=derivative\nID_LIKE='debian'\n",
     "ID='debian'\nVERSION_ID='13'\n",
   ])(
-    "hosts REA on a distribution Hopper has no tested package for: %s",
+    "hosts Ghostwire on a distribution Hopper has no tested package for: %s",
     (document) => {
       const distribution = parseLinuxDistribution(document);
       expect(distribution.hopperSetupSupported).toBe(false);

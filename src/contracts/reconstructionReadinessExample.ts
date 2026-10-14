@@ -14,7 +14,7 @@ const sourceEvidence = (variant: string) =>
     undefined,
     {
       id: "rea-readiness-fixture",
-      name: "REA readiness fixture",
+      name: "Ghostwire readiness fixture",
       version: "1",
     },
     {

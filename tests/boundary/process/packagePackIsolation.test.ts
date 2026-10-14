@@ -17,7 +17,7 @@ it("keeps npm pack output in the owned workspace when package validation fails",
   const packageRoot = join(testRoot, "source");
   const workspace = join(testRoot, "workspace");
   const npmCache = join(testRoot, "npm-cache");
-  const archiveName = "rea-agents-6.0.0.tgz";
+  const archiveName = "ghostwire-agent-6.0.0.tgz";
   const archivePath = join(packageRoot, archiveName);
   const sentinel = Buffer.from("caller-owned archive\n");
   await Promise.all([mkdir(packageRoot), mkdir(workspace), mkdir(npmCache)]);
@@ -25,10 +25,13 @@ it("keeps npm pack output in the owned workspace when package validation fails",
     writeFile(
       join(packageRoot, "package.json"),
       JSON.stringify({
-        name: "rea-agents",
+        name: "ghostwire-agent",
         version: "6.0.0",
         mcpName: "invalid-owner",
-        bin: { rea: "scripts/rea.mjs", "rea-agents": "scripts/rea.mjs" },
+        bin: {
+          ghostwire: "scripts/rea.mjs",
+          "ghostwire-agent": "scripts/rea.mjs",
+        },
         dependencies: { "@lydell/node-pty": "1.1.0" },
       }),
     ),

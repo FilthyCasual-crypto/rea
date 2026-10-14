@@ -59,7 +59,7 @@ import { PrivateRuntimeRoot } from "../process/PrivateRuntimeRoot.js";
 const OPERATION = "inspect_packet_capture";
 export const TSHARK_PROVIDER_IDENTITY = {
   id: "tshark-capture",
-  name: "REA TShark capture adapter",
+  name: "Ghostwire TShark capture adapter",
   version: "tshark@4",
 } as const;
 type Launcher = NonNullable<Parameters<typeof runOwnedCommand>[2]>["launcher"];

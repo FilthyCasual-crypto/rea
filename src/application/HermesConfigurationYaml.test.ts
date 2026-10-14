@@ -112,10 +112,10 @@ describe("Hermes configuration YAML", () => {
 
   it("preserves YAML 1.1 strings on fresh files and honors directives on edits", () => {
     const created = stringifyHermesConfigurationYaml({
-      mcp_servers: { rea: { env: { PROFILE: "off" } } },
+      mcp_servers: { ghostwire: { env: { PROFILE: "off" } } },
     });
     expect(parse(created, { version: "1.1" })).toMatchObject({
-      mcp_servers: { rea: { env: { PROFILE: "off" } } },
+      mcp_servers: { ghostwire: { env: { PROFILE: "off" } } },
     });
 
     const original =

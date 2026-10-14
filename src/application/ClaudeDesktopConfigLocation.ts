@@ -73,7 +73,7 @@ export const resolveWindowsClaudeDesktopLocation = (
     if (!isMissing(cause))
       return err({
         path: packagesDirectory,
-        message: `MSIX package storage ${packagesDirectory} could not be inspected, so REA cannot establish whether Claude Desktop reads ${appDataConfigPath} or a package-private copy: ${errorMessage(cause)}. Repair access to that directory, then rerun.`,
+        message: `MSIX package storage ${packagesDirectory} could not be inspected, so Ghostwire cannot establish whether Claude Desktop reads ${appDataConfigPath} or a package-private copy: ${errorMessage(cause)}. Repair access to that directory, then rerun.`,
       });
     families = [];
   }
@@ -84,7 +84,7 @@ export const resolveWindowsClaudeDesktopLocation = (
   if (foreign.length > 0)
     return err({
       path: join(packagesDirectory, foreign[0] ?? ""),
-      message: `MSIX package storage ${foreign.map((name) => join(packagesDirectory, name)).join(", ")} uses Claude Desktop's package name with an unrecognized publisher (Claude Desktop is ${CLAUDE_DESKTOP_PACKAGE_FAMILY}). REA cannot establish which ${CONFIG_FILE} that package reads and does not fall back to ${appDataConfigPath}. Remove the unrecognized package, or register REA in the configuration it reads.`,
+      message: `MSIX package storage ${foreign.map((name) => join(packagesDirectory, name)).join(", ")} uses Claude Desktop's package name with an unrecognized publisher (Claude Desktop is ${CLAUDE_DESKTOP_PACKAGE_FAMILY}). Ghostwire cannot establish which ${CONFIG_FILE} that package reads and does not fall back to ${appDataConfigPath}. Remove the unrecognized package, or register Ghostwire in the configuration it reads.`,
     });
   const family = families[0];
   if (family === undefined)
@@ -185,7 +185,7 @@ const present = (
     if (isMissing(cause)) return ok(false);
     return err({
       path,
-      message: `${path} could not be inspected, so REA cannot establish which ${CONFIG_FILE} Claude Desktop's MSIX package reads: ${errorMessage(cause)}. Repair access to that path, then rerun.`,
+      message: `${path} could not be inspected, so Ghostwire cannot establish which ${CONFIG_FILE} Claude Desktop's MSIX package reads: ${errorMessage(cause)}. Repair access to that path, then rerun.`,
     });
   }
 };

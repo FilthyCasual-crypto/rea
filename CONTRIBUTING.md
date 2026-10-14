@@ -1,6 +1,6 @@
-# Contributing to REA
+# Contributing to Ghostwire
 
-REA welcomes focused bug fixes, documentation improvements, tests, and reverse-engineering workflows. For large contract or architecture changes, explain the intended scope and link the relevant issue or design discussion.
+Ghostwire welcomes focused bug fixes, documentation improvements, tests, and reverse-engineering workflows. For large contract or architecture changes, explain the intended scope and link the relevant issue or design discussion.
 
 ## Choosing a contribution
 
@@ -56,7 +56,7 @@ These requirements also apply to maintainer-authored PRs.
 Before requesting maintainer review, the human owner must:
 
 - Review the final diff and relevant existing code. Be able to explain the
-  problem, the chosen approach, how it fits REA, and meaningful edge cases.
+  problem, the chosen approach, how it fits Ghostwire, and meaningful edge cases.
 - Provide evidence that the change works. Summarize what was checked, the
   observed results, and meaningful gaps in the PR body. Use focused tests,
   representative CLI/MCP output, CI artifacts, screenshots, or other checks
@@ -89,11 +89,11 @@ Contributors are responsible for completing this work before requesting review.
 
 ## Contribution scope
 
-REA focuses on software structure, runtime behavior, and evidence through
+Ghostwire focuses on software structure, runtime behavior, and evidence through
 general-purpose reverse-engineering workflows. Evaluate a proposal by its actual
 capabilities, side effects, defaults, and complete workflow. A tool name or a
 reference to vulnerability research, malware analysis, or CTFs does not determine
-whether it belongs in REA.
+whether it belongs in Ghostwire.
 
 Supported contributions include format inspection, ordinary archive and standard
 compression extraction, disassembly, decompilation, cross-references, general
@@ -110,7 +110,7 @@ every workflow built on it. General-purpose interfaces are not classified as
 dedicated bypass workflows solely because caller-provided code could be misused;
 their execution and mutation authority must still be reviewed.
 
-REA does not integrate or officially distribute:
+Ghostwire does not integrate or officially distribute:
 
 - Purpose-built workflows to defeat commercial packing or code-virtualization
   protections and automatically recover protected code.
@@ -165,7 +165,7 @@ Maintainers and implementers work together to resolve the following before
 integration:
 
 - The concrete analyst question, requested inputs and outputs, and why existing
-  REA operations are insufficient.
+  Ghostwire operations are insufficient.
 - Why the workflow fits this scope, its non-goals, and any protection recovery,
   bypass, or attack automation it would expose.
 - The selected targets and every execution, injection, mutation, network, or
@@ -311,7 +311,7 @@ Real-provider execution is uncached.
 Tests use `createTestTempDirectory` from `tests/fixtures/temporaryDirectory.ts`
 for exact-path, awaited cleanup, including failures and timeouts.
 `npm run verify:test-temp-hygiene` runs the suite under a fresh `TMPDIR` and
-rejects remaining REA-owned paths. Never glob-clean shared `/tmp/rea-*` content.
+rejects remaining Ghostwire-owned paths. Never glob-clean shared `/tmp/rea-*` content.
 
 `REA_LOG_LEVEL` selects `trace`, `debug`, `info`, `warn`, `error`, `fatal`, or
 `silent`. Logs go to stderr: MCP defaults to `info`, and one-shot CLI logging

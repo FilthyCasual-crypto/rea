@@ -3,32 +3,29 @@
 [English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · **한국어** · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md)
 · [Ελληνικά](README_el.md)
 
-# REA: 무엇이든 리버스 엔지니어링
+# Ghostwire: 무엇이든 리버스 엔지니어링
 
 ### 하나의 MCP로 바이너리, 애플리케이션, 런타임 동작을 리버스 엔지니어링합니다.
 
 **마음에 드는 기능을 발견했다면, 바이너리 수준까지 작동 원리를 이해하세요.**
 
-[![npm version](https://img.shields.io/npm/v/rea-agents?style=flat-square&color=cb3837)](https://www.npmjs.com/package/rea-agents)
 [![MCP tool catalog](https://img.shields.io/badge/MCP-tool_catalog-5c4ee5?style=flat-square)](../mcp-contracts.md#generated-catalog)
 [![Node.js requirements](https://img.shields.io/badge/Node.js-requirements-339933?style=flat-square&logo=nodedotjs&logoColor=white)](#current-status)
-[![skills.sh](https://skills.sh/b/morluto/rea?style=flat-square)](https://skills.sh/morluto/rea/reverse-engineer-anything)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](../../LICENSE)
-[![Discord](https://img.shields.io/discord/1556595354999332884?logo=discord&logoColor=white&label=Discord&color=5865F2)](https://discord.gg/GkcryMnJDM)
-
-<a href="https://trendshift.io/repositories/82054?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-82054" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/82054" alt="morluto%2Frea | Trendshift" width="250" height="55"/></a>
-
-**[웹사이트](https://rea.tools/ko/) · [가이드](https://rea.tools/ko/guides/) · [사례](https://rea.tools/ko/showcase/)**
 
 [빠른 시작](#빠른-시작) · [REA의 작동 방식](#rea의-작동-방식) · [분석할 수 있는 대상](#분석할-수-있는-대상) · [사례](#사례) · [자주 묻는 질문](#자주-묻는-질문) · [문서](#문서)
 
-<code>npx rea-agents setup</code>
+<code>ghostwire setup</code>
 
 </div>
 
-> [!IMPORTANT]
-> REA 공식 배포처: [morluto/rea](https://github.com/morluto/rea), [rea.tools](https://rea.tools/), [rea-agents](https://www.npmjs.com/package/rea-agents) (npm).
-> 이 공식 배포처에서 제공하는 설치 및 릴리스 링크를 이용하세요. 비슷한 저장소 이름이나 복사된 README만으로는 공식 배포 파일인지 확인할 수 없습니다.
+> [!NOTE]
+> Ghostwire is a fork of [REA](https://github.com/morluto/rea) by morluto (MIT).
+> It removes the Chinese-vendor agent integrations, runs Android analysis on
+> upstream [JADX](https://github.com/skylot/jadx), and adds
+> `setup --schema-profile`. Ghostwire is not published to npm; install it from
+> [FilthyCasual-crypto/rea](https://github.com/FilthyCasual-crypto/rea).
+> Settings keep their `REA_*` names for compatibility.
 
 <div align="center">
 
@@ -38,7 +35,7 @@
 
 <br /><br />
 
-<table aria-label="REA 커뮤니티">
+<table aria-label="Ghostwire 커뮤니티">
 <tr>
 <td align="center" width="360">
   <a href="https://discord.gg/GkcryMnJDM">
@@ -62,7 +59,7 @@ REA는 에이전트를 분석 도구에 연결해 네이티브 바이너리, Jav
 
 설정 과정은 에이전트에 REA를 등록하고 해당 버전에 맞는 워크플로 지침을 설치합니다. 네이티브 분석에는 기존 Hopper, Ghidra 또는 IDA 설치를 사용할 수 있습니다. 승인하면 설정 과정에서 Hopper를 설치할 수도 있습니다. 정적 JavaScript 분석에는 네이티브 분석 엔진이 필요하지 않습니다.
 
-> **[REA 웹사이트](https://rea.tools/ko/)**에서 설정 방법, 그림으로 설명한 가이드, 실제 사례를 확인하세요.
+> **[Ghostwire 웹사이트](https://rea.tools/ko/)**에서 설정 방법, 그림으로 설명한 가이드, 실제 사례를 확인하세요.
 
 ## 빠른 시작
 
@@ -71,7 +68,7 @@ REA는 에이전트를 분석 도구에 연결해 네이티브 바이너리, Jav
 Node.js와 npm이 설치된 환경에서 다음 명령을 실행하세요.
 
 ```bash
-npx rea-agents setup
+npx ghostwire-agent setup
 ```
 
 에이전트를 선택하고, 예정된 변경 사항을 검토한 뒤 승인하세요. 설정 과정은 기존 설정을 백업하고 REA의 MCP 서버와 버전에 맞는 워크플로 지침을 추가합니다. 완료 후 에이전트를 다시 시작하세요.
@@ -91,47 +88,47 @@ Notes를 대상 앱으로 바꾸고 이해하고 싶은 기능을 지정하세�
 압축을 푼 JavaScript/Electron 앱 디렉터리 또는 ASAR를 검사합니다.
 
 ```bash
-npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json
+npx -y ghostwire-agent@latest analyze-javascript-application /absolute/path/to/app --json
 ```
 
 결과에는 모듈, 임포트, Electron 경계와 관련 근거가 포함됩니다. 경로를 분석할 대상으로 바꾸세요. Windows에서는 `"D:/apps/example"` 같은 경로를 사용할 수 있습니다.
 
-자주 사용할 경우 `rea` 명령을 설치하세요.
+자주 사용할 경우 `ghostwire` 명령을 설치하세요.
 
 ```bash
-npm install --global rea-agents
-rea --help
+npm install --global ghostwire-agent
+ghostwire --help
 ```
 
 네이티브 분석에는 먼저 제공자를 설정해야 합니다. 네이티브 명령, 제공자 선택, 스냅샷, 스크립트 사용은 [CLI 및 Evidence 가이드](../cli.md)를 참고하세요.
 
-### REA 업데이트
+### Ghostwire 업데이트
 
 REA는 빠르게 바뀌며 새 릴리스에는 버그 수정이 자주 포함됩니다. 설치된 버전을 최신으로 유지하세요.
 
 `npm install --global` 또는 `bun add --global`로 설치한 CLI에서는 다음 명령을 사용합니다.
 
 ```bash
-rea update
+ghostwire update
 ```
 
-Bun 전역 업데이트에는 Bun 1.2.17 이상이 필요합니다. 이전 버전의 Bun을 사용한다면 `rea update`를 실행하기 전에 Bun을 직접 업그레이드하세요.
+Bun 전역 업데이트에는 Bun 1.2.17 이상이 필요합니다. 이전 버전의 Bun을 사용한다면 `ghostwire update`를 실행하기 전에 Bun을 직접 업그레이드하세요.
 
 에이전트 등록과 스킬을 갱신하려면 업데이트 과정에서 출력된 설정 명령을 실행하세요.
 
 `npx`를 사용한다면 다음 명령으로 에이전트 설정을 갱신하세요.
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-설정 변경 사항을 검토하고 에이전트를 다시 시작하세요. 일회성 CLI 작업에는 `npx rea-agents@latest` 뒤에 필요한 명령을 붙여 실행하세요. Bun을 사용한다면 위 명령의 `npx rea-agents@latest`를 `bunx rea-agents@latest`로 바꿔 실행하세요.
+설정 변경 사항을 검토하고 에이전트를 다시 시작하세요. 일회성 CLI 작업에는 `npx ghostwire-agent@latest` 뒤에 필요한 명령을 붙여 실행하세요. Bun을 사용한다면 위 명령의 `npx ghostwire-agent@latest`를 `bunx ghostwire-agent@latest`로 바꿔 실행하세요.
 
 ## REA의 작동 방식
 
 에이전트는 MCP를 통해 REA를 호출하여 대상을 검사하고 관련 코드를 추적합니다. REA는 조사 결과와 근거를 반환합니다. 에이전트는 이를 바탕으로 추가 질문을 하고, 동작을 설명하거나, 구현을 작성하고 테스트합니다. CLI 명령도 같은 워크플로를 사용합니다.
 
-![REA 조사 흐름: 에이전트가 로컬 대상에 대해 질문하면 REA가 분석 도구로 대상을 검사하고 추적합니다. 에이전트는 반환된 코드, 참조, 확인되지 않은 사항을 이용해 설명하고 구현하고 테스트합니다.](../../website/public/assets/figures/rea-investigation-flow.svg)
+![Ghostwire 조사 흐름: 에이전트가 로컬 대상에 대해 질문하면 REA가 분석 도구로 대상을 검사하고 추적합니다. 에이전트는 반환된 코드, 참조, 확인되지 않은 사항을 이용해 설명하고 구현하고 테스트합니다.](../../website/public/assets/figures/rea-investigation-flow.svg)
 
 [원본 크기의 그림 열기](../../website/public/assets/figures/rea-investigation-flow.svg).
 
@@ -145,8 +142,8 @@ REA에는 Node.js 22.x(>=22.19), 24.x(>=24.11) 또는 26+와 npm이 필요합니
 | --------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | 네이티브 바이너리     | 의사 코드, 어셈블리, 문자열, 심볼, 호출, 참조                                 | Hopper, Ghidra 또는 IDA; [네이티브 분석](../native-investigation.md)                                                              |
 | 오프라인 ELF 레이아웃 | 섹션, 세그먼트, 원본 심볼/재배치 정보, 정적 분석으로 얻은 보안 완화 기법 후보 | Linux x64에서 호출자가 제공하는 pwntools; [바이너리 진단](../binary-diagnostics.md)                                               |
-| Go 바이너리           | 내장된 컴파일러 버전, 모듈, `replace` 지시어, 빌드 설정                       | REA 내장 ELF/PE/thin Mach-O 정적 검사; Go 설치 불필요                                                                             |
-| Rust 바이너리         | cargo-auditable이 내장한 크레이트 이름, 버전, 소스, 의존성 관계               | REA 내장 ELF/PE/thin Mach-O 정적 검사; [Rust 바이너리](../rust-binaries.md)                                                       |
+| Go 바이너리           | 내장된 컴파일러 버전, 모듈, `replace` 지시어, 빌드 설정                       | Ghostwire 내장 ELF/PE/thin Mach-O 정적 검사; Go 설치 불필요                                                                       |
+| Rust 바이너리         | cargo-auditable이 내장한 크레이트 이름, 버전, 소스, 의존성 관계               | Ghostwire 내장 ELF/PE/thin Mach-O 정적 검사; [Rust 바이너리](../rust-binaries.md)                                                 |
 | WASM 아티팩트         | 유효성 검사, 섹션, import/export의 정확한 WAT 형식, 디코딩된 WAT              | 호출자 제공 WABT 1.0.42; `inspect_wasm_artifact`                                                                                  |
 | EVM 바이트코드        | 디스패치 선택자, 바이트 오프셋, 추론한 인자와 상태 변경 가능 여부             | Linux x64의 로컬 원시 바이트/16진수 입력 파일; [오프라인 EVM 가이드](../evm-bytecode.md)                                          |
 | SQLite 데이터베이스   | 테이블, 열, 인덱스, 뷰, 트리거, 선택한 일반 테이블의 행                       | 로컬 데이터베이스/WAL 스냅샷; Node.js 24.15 이상의 24.x 또는 26 이상(네이티브 SQLite 한도 적용)                                   |
@@ -227,7 +224,7 @@ REA는 작업에 필요할 때 Hopper를 실행합니다. macOS에서는 처음 
 <details>
 <summary><strong>skills.sh에서 설치하는 스킬은 어떤 역할을 하나요?</strong></summary>
 
-스킬은 에이전트에게 조사 지침을 제공합니다. `npx rea-agents setup`으로 REA의 MCP 서버를 등록하고 버전에 맞는 지침을 설치한 뒤 에이전트를 다시 시작하세요. [스킬만 설치하기](../installation.md#skill-only-installation)를 참고하세요.
+스킬은 에이전트에게 조사 지침을 제공합니다. `npx ghostwire-agent setup`으로 REA의 MCP 서버를 등록하고 버전에 맞는 지침을 설치한 뒤 에이전트를 다시 시작하세요. [스킬만 설치하기](../installation.md#skill-only-installation)를 참고하세요.
 
 </details>
 
@@ -253,16 +250,16 @@ REA는 대상을 로컬에서 분석합니다. 에이전트는 도구 결과를 
 `npm install --global` 또는 `bun add --global`로 설치한 CLI에서는 다음 명령을 사용합니다.
 
 ```bash
-rea update
+ghostwire update
 ```
 
 `npx`로 에이전트를 설정했다면 다음 명령을 사용합니다.
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-에이전트를 사용 중이라면 [설정 갱신](#rea-업데이트)을 완료하고 다시 시작하세요. 같은 작업을 다시 시도하세요. 문제가 계속되면 REA 버전, 대상 유형, 재현 단계, 오류 출력을 포함해 [issue를 등록](https://github.com/morluto/rea/issues)하세요.
+에이전트를 사용 중이라면 [설정 갱신](#ghostwire-업데이트)을 완료하고 다시 시작하세요. 같은 작업을 다시 시도하세요. 문제가 계속되면 Ghostwire 버전, 대상 유형, 재현 단계, 오류 출력을 포함해 [issue를 등록](https://github.com/morluto/rea/issues)하세요.
 
 </details>
 
@@ -289,7 +286,7 @@ REA를 사용하고, 버그를 보고하고, 기능을 요청하고, 빌드를 �
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date&amp;theme=dark&amp;legend=top-left" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
-    <img alt="REA GitHub 스타 기록" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
+    <img alt="Ghostwire GitHub 스타 기록" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
   </picture>
 </a>
 
@@ -297,7 +294,7 @@ REA를 사용하고, 버그를 보고하고, 기능을 요청하고, 빌드를 �
 
 책임 있는 사용에 관한 안내는 [DISCLAIMER.md](../../DISCLAIMER.md)를 참고하세요.
 
-불법적이거나 허가되지 않은 사용에 대한 프로젝트의 입장은 모든 REA 버전, 배포 채널, 플랫폼에 적용되며, 각 사본에는 해당 라이선스가 그대로 유지됩니다.
+불법적이거나 허가되지 않은 사용에 대한 프로젝트의 입장은 모든 Ghostwire 버전, 배포 채널, 플랫폼에 적용되며, 각 사본에는 해당 라이선스가 그대로 유지됩니다.
 
 REA는 법을 준수하는 연구, 교육, 상호운용성 확보, 소프트웨어 보존, 그리고 본인이 소유하거나 조사 권한을 가진 소프트웨어의 분석을 위한 도구입니다.
 

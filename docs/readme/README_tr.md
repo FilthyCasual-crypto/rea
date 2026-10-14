@@ -3,42 +3,39 @@
 [English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · **Türkçe** · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md)
 · [Ελληνικά](README_el.md)
 
-# REA: Her şeyi tersine mühendislikle inceleyin
+# Ghostwire: Her şeyi tersine mühendislikle inceleyin
 
 ### İkili dosyaların, uygulamaların ve çalışma zamanı davranışının tersine mühendisliği için tek bir MCP.
 
 **Beğendiğiniz bir özellik mi gördünüz? İkili kod düzeyine kadar nasıl çalıştığını anlayın.**
 
-[![npm version](https://img.shields.io/npm/v/rea-agents?style=flat-square&color=cb3837)](https://www.npmjs.com/package/rea-agents)
 [![MCP tool catalog](https://img.shields.io/badge/MCP-tool_catalog-5c4ee5?style=flat-square)](../mcp-contracts.md#generated-catalog)
 [![Node.js requirements](https://img.shields.io/badge/Node.js-requirements-339933?style=flat-square&logo=nodedotjs&logoColor=white)](#current-status)
-[![skills.sh](https://skills.sh/b/morluto/rea?style=flat-square)](https://skills.sh/morluto/rea/reverse-engineer-anything)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](../../LICENSE)
-[![Discord](https://img.shields.io/discord/1556595354999332884?logo=discord&logoColor=white&label=Discord&color=5865F2)](https://discord.gg/GkcryMnJDM)
 
-<a href="https://trendshift.io/repositories/82054?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-82054" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/82054" alt="morluto%2Frea | Trendshift" width="250" height="55"/></a>
+[Hızlı başlangıç](#hızlı-başlangıç) · [Ghostwire nasıl çalışır](#ghostwire-nasıl-çalışır) · [Neleri analiz edebilirsiniz](#neleri-analiz-edebilirsiniz) · [Örnek çalışmalar](#örnek-çalışmalar) · [Sık sorulan sorular](#sık-sorulan-sorular) · [GNU objdump ve Rizin araçları](../reverse-engineering-tools.md) · [Belgeler](#belgeler)
 
-**[Web sitesi](https://rea.tools/tr/) · [Rehberler](https://rea.tools/tr/guides/) · [Örnek çalışmalar](https://rea.tools/tr/showcase/)**
-
-[Hızlı başlangıç](#hızlı-başlangıç) · [REA nasıl çalışır](#rea-nasıl-çalışır) · [Neleri analiz edebilirsiniz](#neleri-analiz-edebilirsiniz) · [Örnek çalışmalar](#örnek-çalışmalar) · [Sık sorulan sorular](#sık-sorulan-sorular) · [GNU objdump ve Rizin araçları](../reverse-engineering-tools.md) · [Belgeler](#belgeler)
-
-<code>npx rea-agents setup</code>
+<code>ghostwire setup</code>
 
 </div>
 
-> [!IMPORTANT]
-> REA’nın resmî kaynakları: [morluto/rea](https://github.com/morluto/rea), [rea.tools](https://rea.tools/), [rea-agents](https://www.npmjs.com/package/rea-agents) (npm).
-> Kurulum ve sürüm bağlantılarını bu resmî kaynaklardan takip edin. Benzer bir depo adı veya kopyalanmış bir README, indirilen dosyanın resmî olduğunu kanıtlamaz.
+> [!NOTE]
+> Ghostwire is a fork of [REA](https://github.com/morluto/rea) by morluto (MIT).
+> It removes the Chinese-vendor agent integrations, runs Android analysis on
+> upstream [JADX](https://github.com/skylot/jadx), and adds
+> `setup --schema-profile`. Ghostwire is not published to npm; install it from
+> [FilthyCasual-crypto/rea](https://github.com/FilthyCasual-crypto/rea).
+> Settings keep their `REA_*` names for compatibility.
 
 <div align="center">
 
 <br />
 
-<img src="../assets/rea-hopper-analysis.png" alt="REA, yerel bir ikili dosyayı incelerken Hopper içinde analiz köprüsünü başlatıyor" width="1200" />
+<img src="../assets/rea-hopper-analysis.png" alt="Ghostwire, yerel bir ikili dosyayı incelerken Hopper içinde analiz köprüsünü başlatıyor" width="1200" />
 
 <br /><br />
 
-<table aria-label="REA topluluğu">
+<table aria-label="Ghostwire topluluğu">
 <tr>
 <td align="center" width="360">
   <a href="https://discord.gg/GkcryMnJDM">
@@ -56,13 +53,13 @@
 
 ---
 
-Bir uygulamada kendi ürününüze eklemek istediğiniz bir özellik mi gördünüz? Ajanınızdan REA ile araştırmasını isteyin. Kaynak kodu olmadan uygulamayı inceleyebilir, özelliğin nasıl çalıştığını açıklayabilir, kanıtları gösterebilir ve projenize uygun bir sürümünü geliştirebilir.
+Bir uygulamada kendi ürününüze eklemek istediğiniz bir özellik mi gördünüz? Ajanınızdan Ghostwire ile araştırmasını isteyin. Kaynak kodu olmadan uygulamayı inceleyebilir, özelliğin nasıl çalıştığını açıklayabilir, kanıtları gösterebilir ve projenize uygun bir sürümünü geliştirebilir.
 
-REA, ajanınızı yerel makine kodu içeren ikili dosyaları, JavaScript ve Electron uygulamalarını, .NET derlemelerini ve web sitelerini inceleyen araçlara bağlar. Aynı araçları terminalden de kullanabilirsiniz. Analiz yerel olarak çalışır; sonuçlar her çıkarımın dayandığı kanıtları ve sınırlamaları içerir.
+Ghostwire, ajanınızı yerel makine kodu içeren ikili dosyaları, JavaScript ve Electron uygulamalarını, .NET derlemelerini ve web sitelerini inceleyen araçlara bağlar. Aynı araçları terminalden de kullanabilirsiniz. Analiz yerel olarak çalışır; sonuçlar her çıkarımın dayandığı kanıtları ve sınırlamaları içerir.
 
-Kurulum, REA'yı ajanınıza kaydeder ve uyumlu iş akışı talimatlarını yükler. Yerel makine kodu analizi mevcut bir Hopper, Ghidra veya IDA kurulumunu kullanabilir; kurulum işlemi, onayınızla isteğe bağlı olarak Hopper da yükleyebilir. Statik JavaScript analizi bu yerel analiz motorlarından hiçbirine ihtiyaç duymaz.
+Kurulum, Ghostwire'yı ajanınıza kaydeder ve uyumlu iş akışı talimatlarını yükler. Yerel makine kodu analizi mevcut bir Hopper, Ghidra veya IDA kurulumunu kullanabilir; kurulum işlemi, onayınızla isteğe bağlı olarak Hopper da yükleyebilir. Statik JavaScript analizi bu yerel analiz motorlarından hiçbirine ihtiyaç duymaz.
 
-> Kurulum talimatları, görselli rehberler ve gerçek örnek çalışmalar için **[REA web sitesini ziyaret edin](https://rea.tools/tr/)**.
+> Kurulum talimatları, görselli rehberler ve gerçek örnek çalışmalar için **[Ghostwire web sitesini ziyaret edin](https://rea.tools/tr/)**.
 
 ## Hızlı başlangıç
 
@@ -71,10 +68,10 @@ Kurulum, REA'yı ajanınıza kaydeder ve uyumlu iş akışı talimatlarını yü
 Node.js ve npm yüklüyken şu komutu çalıştırın:
 
 ```bash
-npx rea-agents setup
+npx ghostwire-agent setup
 ```
 
-Ajanlarınızı seçin, önerilen değişiklikleri inceleyin ve onaylayın. Kurulum, mevcut yapılandırmaları yedekleyerek REA'nın MCP sunucusunu ve uyumlu iş akışı talimatlarını ekler. Ardından ajanınızı yeniden başlatın.
+Ajanlarınızı seçin, önerilen değişiklikleri inceleyin ve onaylayın. Kurulum, mevcut yapılandırmaları yedekleyerek Ghostwire'nın MCP sunucusunu ve uyumlu iş akışı talimatlarını ekler. Ardından ajanınızı yeniden başlatın.
 
 Kurulum Claude Code, Codex, Cursor, Gemini CLI, Grok Build ve [diğer ajanları](../installation.md#supported-agents) destekler. Sağlayıcı yapılandırması ve elle MCP kaydı için [yükleme ve kurulum](../installation.md) belgesine bakın.
 
@@ -91,47 +88,47 @@ Notes yerine hedef uygulamanızı ve anlamak istediğiniz özelliği belirtin.
 Çıkarılmış bir JavaScript/Electron uygulama dizinini veya ASAR dosyasını inceleyin:
 
 ```bash
-npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json
+npx -y ghostwire-agent@latest analyze-javascript-application /absolute/path/to/app --json
 ```
 
 Sonuç; modülleri, içe aktarmaları, Electron sınırlarını ve bunlara ilişkin kanıtları içerir. Yolu hedefinizle değiştirin; Windows'ta örneğin `"D:/apps/example"` kullanabilirsiniz.
 
-Düzenli kullanım için `rea` komutunu yüklemek üzere:
+Düzenli kullanım için `ghostwire` komutunu yüklemek üzere:
 
 ```bash
-npm install --global rea-agents
-rea --help
+npm install --global ghostwire-agent
+ghostwire --help
 ```
 
 Yerel makine kodu analizi için önce bir sağlayıcı yapılandırın. Yerel analiz komutları, sağlayıcı seçimi, anlık görüntüler ve betik kullanımı için [CLI ve Evidence rehberine](../cli.md) bakın.
 
-### REA'yı güncelleyin
+### Ghostwire'yı güncelleyin
 
-REA hızla değişir ve yeni sürümler sık sık hata düzeltmeleri içerir. Kurulumunuzu güncel tutun.
+Ghostwire hızla değişir ve yeni sürümler sık sık hata düzeltmeleri içerir. Kurulumunuzu güncel tutun.
 
 `npm install --global` veya `bun add --global` ile yüklenen CLI için:
 
 ```bash
-rea update
+ghostwire update
 ```
 
-Bun ile yapılan global güncellemeler için Bun 1.2.17 veya üzeri gerekir. Daha eski bir Bun sürümünü kullanıyorsanız `rea update` komutunu çalıştırmadan önce Bun'u manuel olarak yükseltin.
+Bun ile yapılan global güncellemeler için Bun 1.2.17 veya üzeri gerekir. Daha eski bir Bun sürümünü kullanıyorsanız `ghostwire update` komutunu çalıştırmadan önce Bun'u manuel olarak yükseltin.
 
 Ajan kayıtlarını ve skill'i güncellemek için güncellemenin çıktısında gösterilen kurulum komutunu çalıştırın.
 
 `npx` kullanıyorsanız ajan kurulumunu şu komutla güncelleyin:
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-Kurulum değişikliklerini inceleyin ve ajanınızı yeniden başlatın. Tek seferlik CLI işlemleri için `npx rea-agents@latest` komutunun ardından istediğiniz komutu yazın. Bun kullanıyorsanız `npx rea-agents@latest` yerine `bunx rea-agents@latest` kullanın.
+Kurulum değişikliklerini inceleyin ve ajanınızı yeniden başlatın. Tek seferlik CLI işlemleri için `npx ghostwire-agent@latest` komutunun ardından istediğiniz komutu yazın. Bun kullanıyorsanız `npx ghostwire-agent@latest` yerine `bunx ghostwire-agent@latest` kullanın.
 
-## REA nasıl çalışır
+## Ghostwire nasıl çalışır
 
-Ajanınız, hedefi incelemek ve ilgili kodu izlemek için MCP üzerinden REA'yı çağırır. REA bulguları kanıtlarıyla birlikte döndürür. Ajan bunları takip soruları sormak, davranışı açıklamak veya bir uygulama yazıp test etmek için kullanır. CLI komutları aynı iş akışlarını kullanır.
+Ajanınız, hedefi incelemek ve ilgili kodu izlemek için MCP üzerinden Ghostwire'yı çağırır. Ghostwire bulguları kanıtlarıyla birlikte döndürür. Ajan bunları takip soruları sormak, davranışı açıklamak veya bir uygulama yazıp test etmek için kullanır. CLI komutları aynı iş akışlarını kullanır.
 
-![REA araştırma akışı: ajanınız yerel bir hedef hakkında soru sorar, REA analiz araçlarıyla hedefi inceler ve izler; ajan döndürülen kodu, referansları ve bilinmeyenleri açıklama, geliştirme ve test için kullanır.](../../website/public/assets/figures/rea-investigation-flow.svg)
+![Ghostwire araştırma akışı: ajanınız yerel bir hedef hakkında soru sorar, Ghostwire analiz araçlarıyla hedefi inceler ve izler; ajan döndürülen kodu, referansları ve bilinmeyenleri açıklama, geliştirme ve test için kullanır.](../../website/public/assets/figures/rea-investigation-flow.svg)
 
 [Şekli tam boyutuyla açın](../../website/public/assets/figures/rea-investigation-flow.svg).
 
@@ -139,9 +136,9 @@ Ajanınız, hedefi incelemek ve ilgili kodu izlemek için MCP üzerinden REA'yı
 
 ## Neleri analiz edebilirsiniz
 
-REA; Node.js 22.x (>=22.19), 24.x (>=24.11) veya 26+ ve npm gerektirir. Ek araçlar ve desteklenen ana bilgisayar sistemleri hedefe bağlıdır:
+Ghostwire; Node.js 22.x (>=22.19), 24.x (>=24.11) veya 26+ ve npm gerektirir. Ek araçlar ve desteklenen ana bilgisayar sistemleri hedefe bağlıdır:
 
-| Hedef                                   | REA'nın döndürdükleri                                                                                       | Gereksinimler ve rehber                                                                                                            |
+| Hedef                                   | Ghostwire'nın döndürdükleri                                                                                 | Gereksinimler ve rehber                                                                                                            |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Yerel makine kodu içeren ikili dosyalar | Sözde kod, assembly kodu, dizeler, semboller, çağrılar ve referanslar                                       | Hopper, Ghidra veya IDA; [yerel kod analizi](../native-investigation.md)                                                           |
 | Çevrimdışı ELF yapısı                   | Bölümler, segmentler, özgün semboller/yeniden konumlandırmalar ve statik analizden olası güvenlik önlemleri | Linux x64 üzerinde çağıranın sağladığı pwntools; [ikili dosya tanılama](../binary-diagnostics.md)                                  |
@@ -195,14 +192,14 @@ Bir ses çağrısından konumu stereo konumlandırmaya dönüştüren yardımcı
 
 [Örnek çalışmayı okuyun](https://rea.tools/tr/showcase/th04/) · [Yeniden oluşturma deposu](https://github.com/N0zoM1z0/th04)
 
-REA'yı ilginç bir konuda kullandıysanız görmek isteriz. Hedefi, sorunuzu, REA'nın nasıl yardımcı olduğunu ve bulgularınızı bir [issue](https://github.com/morluto/rea/issues) veya [pull request](https://github.com/morluto/rea/pulls) ile paylaşın.
+Ghostwire'yı ilginç bir konuda kullandıysanız görmek isteriz. Hedefi, sorunuzu, Ghostwire'nın nasıl yardımcı olduğunu ve bulgularınızı bir [issue](https://github.com/morluto/rea/issues) veya [pull request](https://github.com/morluto/rea/pulls) ile paylaşın.
 
 ## Sık sorulan sorular
 
 <details>
-<summary><strong>Hangi ajanlar REA'yı kullanabilir?</strong></summary>
+<summary><strong>Hangi ajanlar Ghostwire'yı kullanabilir?</strong></summary>
 
-Yerel MCP sunucularını destekleyen her ajan REA'yı kullanabilir. Kurulum, [desteklenen ajanları](../installation.md#supported-agents) yapılandırır; diğer istemciler [elle MCP kaydını](../installation.md#mcp-registry) kullanabilir.
+Yerel MCP sunucularını destekleyen her ajan Ghostwire'yı kullanabilir. Kurulum, [desteklenen ajanları](../installation.md#supported-agents) yapılandırır; diğer istemciler [elle MCP kaydını](../installation.md#mcp-registry) kullanabilir.
 
 </details>
 
@@ -216,28 +213,28 @@ Derin yerel kod analizi bunlardan birini kullanır. Statik JavaScript ve .NET in
 <details>
 <summary><strong>Önce Hopper'ı başlatmam gerekiyor mu?</strong></summary>
 
-REA, bir işlem gerektirdiğinde Hopper'ı başlatır. macOS'ta ilk çalıştırmada demo modunu seçmenizi veya lisansınızı etkinleştirmenizi isteyen bir iletişim kutusu açılabilir. [Hopper başlatma ve sorun giderme](../installation.md#launcher-paths-and-troubleshooting) belgesine bakın.
+Ghostwire, bir işlem gerektirdiğinde Hopper'ı başlatır. macOS'ta ilk çalıştırmada demo modunu seçmenizi veya lisansınızı etkinleştirmenizi isteyen bir iletişim kutusu açılabilir. [Hopper başlatma ve sorun giderme](../installation.md#launcher-paths-and-troubleshooting) belgesine bakın.
 
 </details>
 
 <details>
 <summary><strong>skills.sh üzerinden skill yüklemek ne yapar?</strong></summary>
 
-Skill, ajanınıza araştırma talimatları sağlar. REA'nın MCP sunucusunu kaydetmek ve uyumlu talimatları yüklemek için `npx rea-agents setup` kullanın, ardından ajanınızı yeniden başlatın. [Yalnızca skill yükleme](../installation.md#skill-only-installation) belgesine bakın.
+Skill, ajanınıza araştırma talimatları sağlar. Ghostwire'nın MCP sunucusunu kaydetmek ve uyumlu talimatları yüklemek için `npx ghostwire-agent setup` kullanın, ardından ajanınızı yeniden başlatın. [Yalnızca skill yükleme](../installation.md#skill-only-installation) belgesine bakın.
 
 </details>
 
 <details>
-<summary><strong>REA hangi kodu döndürür?</strong></summary>
+<summary><strong>Ghostwire hangi kodu döndürür?</strong></summary>
 
 Yerel kod analizi sözde kod ve assembly kodu döndürür. JavaScript/Electron analizi modülleri ve aralarındaki ilişkileri geri çıkarır. Ajanınız bu bulgularla bir uygulama yazar ve test eder; [örnek çalışmalar](#örnek-çalışmalar) uygulamalı örnekler sunar.
 
 </details>
 
 <details>
-<summary><strong>REA uygulamamı yükler mi?</strong></summary>
+<summary><strong>Ghostwire uygulamamı yükler mi?</strong></summary>
 
-REA hedefleri yerel olarak analiz eder. Ajanınız araç sonuçlarını alır ve model sağlayıcısının kendi veri politikası vardır.
+Ghostwire hedefleri yerel olarak analiz eder. Ajanınız araç sonuçlarını alır ve model sağlayıcısının kendi veri politikası vardır.
 
 </details>
 
@@ -249,16 +246,16 @@ REA hedefleri yerel olarak analiz eder. Ajanınız araç sonuçlarını alır ve
 npm ile yüklenen CLI için:
 
 ```bash
-rea update
+ghostwire update
 ```
 
 `npx` üzerinden ajan kurulumu için:
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-Ajan kullanıyorsanız [kurulum yenilemesini](#reayı-güncelleyin) tamamlayın ve ajanı yeniden başlatın. Aynı görevi tekrar deneyin. Sorun sürerse REA sürümünüzü, hedef türünü, yeniden üretme adımlarını ve hata çıktısını içeren bir [issue açın](https://github.com/morluto/rea/issues).
+Ajan kullanıyorsanız [kurulum yenilemesini](#reayı-güncelleyin) tamamlayın ve ajanı yeniden başlatın. Aynı görevi tekrar deneyin. Sorun sürerse Ghostwire sürümünüzü, hedef türünü, yeniden üretme adımlarını ve hata çıktısını içeren bir [issue açın](https://github.com/morluto/rea/issues).
 
 </details>
 
@@ -279,13 +276,13 @@ Güvenlik açıklarını [SECURITY.md](../../SECURITY.md) üzerinden bildirin.
 
 🎉 **GitHub'da 200.000 yıldız — teşekkürler!**
 
-REA'yı kullanan, hata bildiren, özellik talep eden, derlemeleri test eden ve düzeltmelere katkıda bulunan herkese teşekkürler.
+Ghostwire'yı kullanan, hata bildiren, özellik talep eden, derlemeleri test eden ve düzeltmelere katkıda bulunan herkese teşekkürler.
 
 <a href="https://www.star-history.com/?repos=morluto%2Frea&amp;type=date">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date&amp;theme=dark&amp;legend=top-left" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
-    <img alt="REA GitHub yıldız geçmişi" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
+    <img alt="Ghostwire GitHub yıldız geçmişi" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" />
   </picture>
 </a>
 
@@ -293,15 +290,15 @@ REA'yı kullanan, hata bildiren, özellik talep eden, derlemeleri test eden ve d
 
 Sorumlu kullanım yönergeleri için [DISCLAIMER.md](../../DISCLAIMER.md) dosyasına bakın.
 
-REA; yasal araştırma, eğitim, birlikte çalışabilirlik, yazılımın korunması ve sahibi olduğunuz ya da inceleme yetkiniz bulunan yazılımların analizi için tasarlanmıştır.
+Ghostwire; yasal araştırma, eğitim, birlikte çalışabilirlik, yazılımın korunması ve sahibi olduğunuz ya da inceleme yetkiniz bulunan yazılımların analizi için tasarlanmıştır.
 
-Projenin yasa dışı veya yetkisiz kullanıma ilişkin tutumu tüm REA sürümleri,
+Projenin yasa dışı veya yetkisiz kullanıma ilişkin tutumu tüm Ghostwire sürümleri,
 dağıtım kanalları ve platformlar için geçerlidir; her kopya geçerli lisanslarını
 korur.
 
 ## Katkıda bulunma
 
-REA'ya katkınızı bekliyoruz! Hata bildirmek veya özellik önermek için bir [issue açın](https://github.com/morluto/rea/issues); kodu veya belgeleri geliştirmek için bir [pull request gönderin](https://github.com/morluto/rea/pulls).
+Ghostwire'ya katkınızı bekliyoruz! Hata bildirmek veya özellik önermek için bir [issue açın](https://github.com/morluto/rea/issues); kodu veya belgeleri geliştirmek için bir [pull request gönderin](https://github.com/morluto/rea/pulls).
 
 Geliştirme ortamı ve kontroller için [CONTRIBUTING.md](../../CONTRIBUTING.md), doğrulama süreçleri için [test rehberi](../testing.md) ve proje yapısı için [mimari harita](../architecture.mermaid) belgelerine bakın.
 
@@ -309,14 +306,14 @@ Geliştirme ortamı ve kontroller için [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 [MIT](../../LICENSE)
 
-REA tarafından yazılan kod MIT lisansı altında lisanslanır. Üçüncü taraf
+Ghostwire tarafından yazılan kod MIT lisansı altında lisanslanır. Üçüncü taraf
 materyaller kendi lisanslarını ve telif hakkı bildirimlerini korur; bağımlılık
 envanteri, korunan lisans metinleri ve harici araç koşulları için [Üçüncü taraf
 bildirimleri](../../THIRD_PARTY_NOTICES.md) dosyasına bakın.
 
 **IDA Pro / Hex-Rays decompiler'ları, Hopper ve JEB dahil olmak üzere ticari
 araçları yasal olarak edinmeli ve ilgili lisanslar kapsamında kullanma
-yetkiniz olmalıdır.** REA hiçbir araç lisansı, anahtarı veya etkinleştirme hakkı
+yetkiniz olmalıdır.** Ghostwire hiçbir araç lisansı, anahtarı veya etkinleştirme hakkı
 vermez. Deneme sürümleri ve demolar; kullanıcı, özellik, otomasyon ve çıktı
 paylaşımı kısıtlamaları dahil olmak üzere satıcı koşullarına tabidir. Kırılmış
 kopyalar, çalınmış anahtarlar, yetkisiz anahtar paylaşımı ve lisans

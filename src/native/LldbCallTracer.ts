@@ -142,7 +142,7 @@ export interface NativeCallTrace {
   readonly run: z.infer<typeof tracedSchema>;
   readonly stdout: CapturedOutput;
   readonly stderr: CapturedOutput;
-  /** REA confirmed the traced process no longer exists. */
+  /** Ghostwire confirmed the traced process no longer exists. */
   readonly terminated: boolean;
 }
 
@@ -165,7 +165,7 @@ export interface NativeCallTracer {
 const ATTACH_REMEDIATION =
   "Allow debugging for this user (Developer Tools access: `DevToolsSecurity -enable`, or membership in the _developer group). A hardened-runtime target is debuggable only with the com.apple.security.get-task-allow entitlement; see inspect_signature's debugger-attach facet.";
 
-/** Production tracer: `lldb --batch` running the REA LLDB bridge. */
+/** Production tracer: `lldb --batch` running the Ghostwire LLDB bridge. */
 export class LldbCallTracer implements NativeCallTracer {
   private readonly environment: NodeJS.ProcessEnv;
   #tail: Promise<void> = Promise.resolve();
@@ -585,7 +585,7 @@ export class LldbCallTracer implements NativeCallTracer {
   }
 }
 
-/** LLDB command arguments are quoted; the bridge path is REA's own install path. */
+/** LLDB command arguments are quoted; the bridge path is Ghostwire's own install path. */
 const quote = (value: string): string =>
   `"${value.replaceAll("\\", "\\\\").replaceAll('"', '\\"')}"`;
 

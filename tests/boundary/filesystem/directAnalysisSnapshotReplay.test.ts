@@ -331,7 +331,7 @@ const withEarlierHistoricalEvidence = (
           "binary_overview",
         ),
         confidence: "derived",
-        limitations: ["Derived by an REA composed workflow."],
+        limitations: ["Derived by an Ghostwire composed workflow."],
       },
     ),
   ).find((record) => record.evidence_id < current.evidence_id);

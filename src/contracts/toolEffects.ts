@@ -7,12 +7,12 @@ export interface ToolEffects {
   readonly launchesProcess: boolean;
   readonly accessesNetwork: boolean;
   readonly changesUiState: boolean;
-  /** Can overwrite, clear, or drop state that the caller cannot recover from REA. */
+  /** Can overwrite, clear, or drop state that the caller cannot recover from Ghostwire. */
   readonly mayDiscardData: boolean;
   /**
-   * Runs or drives code REA does not own on the host: the analysis target, a
+   * Runs or drives code Ghostwire does not own on the host: the analysis target, a
    * caller-selected executable, or the application loaded into one. Running
-   * REA's own pinned helpers or operator-configured analysis engines does not
+   * Ghostwire's own pinned helpers or operator-configured analysis engines does not
    * count.
    */
   readonly executesForeignCode: boolean;
@@ -735,7 +735,7 @@ export const annotationsFromEffects = (
 });
 
 /**
- * Tools whose results, successful or failed, carry only REA-authored session
+ * Tools whose results, successful or failed, carry only Ghostwire-authored session
  * state or caller-supplied values, never text originating from an analysis
  * target, a provider, a launcher or a device. Every other tool can return
  * such text (strings, symbols, code, page text, scripts, captures, logs, file

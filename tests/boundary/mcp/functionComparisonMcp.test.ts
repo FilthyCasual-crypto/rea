@@ -342,7 +342,7 @@ it.each([
     expect(result.status).toBe(status);
     const provider = {
       id: "rea-function-comparison",
-      name: "REA function comparison",
+      name: "Ghostwire function comparison",
       version: "1",
     };
     const observation = {

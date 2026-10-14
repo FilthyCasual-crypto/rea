@@ -409,7 +409,7 @@ const resolution = (candidates: readonly Candidate[]): Edge["resolution"] => {
         status: external ? "conditional" : "resolved",
         image: candidate.resolved_path,
       };
-    // dyld might load these; REA cannot decide them from the analyzed root.
+    // dyld might load these; Ghostwire cannot decide them from the analyzed root.
     if (
       candidate.outcome === "outside-target" ||
       candidate.outcome === "escapes-target" ||

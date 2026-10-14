@@ -606,7 +606,9 @@ it("retries cleanup of the injected WASM module after server shutdown fails", as
   try {
     await server.connect(b);
     await client.connect(a);
-    await expect(server.close()).rejects.toThrow("REA session cleanup failed");
+    await expect(server.close()).rejects.toThrow(
+      "Ghostwire session cleanup failed",
+    );
     await server.close();
     expect(close).toHaveBeenCalledTimes(2);
   } finally {

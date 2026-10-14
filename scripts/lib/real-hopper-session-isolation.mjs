@@ -34,7 +34,7 @@ export async function verifyLinuxHopperLaunchIsolation({
     assert.equal(failure.code, "provider_unavailable");
     assert.match(
       failure.message,
-      /Linux Hopper is already active in REA session/u,
+      /Linux Hopper is already active in Ghostwire session/u,
     );
     assert.ok(failure.message.includes(target));
     assert.deepEqual(

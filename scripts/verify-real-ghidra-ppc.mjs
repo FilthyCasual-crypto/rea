@@ -74,7 +74,7 @@ try {
     assert.deepEqual(
       resolved.value.powerpc,
       independent.powerpc,
-      "REA ELF interpretation disagrees with GNU readelf",
+      "Ghostwire ELF interpretation disagrees with GNU readelf",
     );
     assert.equal(resolved.value.sha256, fixture.sha256);
     const snapshotPath = join(workspace, "ppc.snapshot.json");

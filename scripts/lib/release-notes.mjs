@@ -98,10 +98,10 @@ export async function readReleaseHistory(run, base, target) {
   return { base: baseSha, target: targetSha, commits };
 }
 
-// REA history maps Anthropic and Cursor's agent trailers to ordinary User actors.
+// Ghostwire history maps Anthropic and Cursor's agent trailers to ordinary User actors.
 // Keep those source identities in the inventory while excluding automation credit.
 const AGENT_ACCOUNTS = new Set(["claude", "cursoragent"]);
-// REA's maintainer requested external-contributor thanks without self-credit.
+// Ghostwire's maintainer requested external-contributor thanks without self-credit.
 const MAINTAINER_ACCOUNTS = new Set(["morluto"]);
 const human = (value) =>
   value?.__typename === "User" &&
@@ -169,7 +169,7 @@ export function contributionRecord(raw) {
 /** Keep the full authorship snapshot available without duplicating public thanks. */
 export function contributionSummary(raw) {
   const inventory = releaseInventorySchema.parse(raw);
-  return `Full contribution record: [${inventory.commits.length} commits and ${inventory.pullRequests.length} merged PR${inventory.pullRequests.length === 1 ? "" : "s"}](https://github.com/${inventory.repository}/blob/rea-agents-${inventory.version}/docs/releases/${inventory.version}.contributions.json).\n`;
+  return `Full contribution record: [${inventory.commits.length} commits and ${inventory.pullRequests.length} merged PR${inventory.pullRequests.length === 1 ? "" : "s"}](https://github.com/${inventory.repository}/blob/ghostwire-agent-${inventory.version}/docs/releases/${inventory.version}.contributions.json).\n`;
 }
 
 export function selectedReleaseNotes(text, version) {

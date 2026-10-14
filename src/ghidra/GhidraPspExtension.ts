@@ -15,7 +15,7 @@ import { err, ok, type Result } from "../domain/result.js";
 import type { GhidraInstallationInspection } from "./GhidraInstallation.js";
 import { parseGhidraJavaProperties } from "./GhidraJavaProperties.js";
 
-/** Installed processor code and data, distinct from REA's analysis-extension ABI. */
+/** Installed processor code and data, distinct from Ghostwire's analysis-extension ABI. */
 export const ghidraPspExtensionSchema = z.strictObject({
   id: z.literal("ghidra-allegrex"),
   root: z.string().refine(isAbsolute),
@@ -200,7 +200,7 @@ export const resolveGhidraPspExtension = async (
   } catch (cause: unknown) {
     if (signal?.aborted)
       return err(new AnalysisCancelledError("resolve_analysis_profile"));
-    const reason = `PSP_EXTENSION_UNAVAILABLE: ${cause instanceof Error ? cause.message : String(cause)} Use a compatible caller-installed ghidra-allegrex under GHIDRA_INSTALL_DIR/Ghidra/Extensions; REA does not install it.`;
+    const reason = `PSP_EXTENSION_UNAVAILABLE: ${cause instanceof Error ? cause.message : String(cause)} Use a compatible caller-installed ghidra-allegrex under GHIDRA_INSTALL_DIR/Ghidra/Extensions; Ghostwire does not install it.`;
     return err(
       new AnalysisCapabilityUnavailableError(
         "ghidra",

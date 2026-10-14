@@ -74,7 +74,7 @@ try {
   await mkdir(join(contents, "MacOS"), { recursive: true });
   await writeFile(
     join(contents, "Info.plist"),
-    `<?xml version="1.0"?><plist version="1.0"><dict><key>CFBundleExecutable</key><string>fixture</string><key>CFBundleIdentifier</key><string>io.rea.source-owned-ui-fixture</string><key>CFBundleName</key><string>REA UI Fixture</string><key>CFBundlePackageType</key><string>APPL</string></dict></plist>`,
+    `<?xml version="1.0"?><plist version="1.0"><dict><key>CFBundleExecutable</key><string>fixture</string><key>CFBundleIdentifier</key><string>io.rea.source-owned-ui-fixture</string><key>CFBundleName</key><string>Ghostwire UI Fixture</string><key>CFBundlePackageType</key><string>APPL</string></dict></plist>`,
   );
   const executable = join(contents, "MacOS", "fixture");
   await promisify(execFile)("/usr/bin/xcrun", [
@@ -140,7 +140,7 @@ try {
   let scenarioStatus = "not-run-permission-denied";
   if (observation.ok) {
     const button = observation.value.initial.nodes.find(
-      (node) => node.title === "Increment REA fixture",
+      (node) => node.title === "Increment Ghostwire fixture",
     );
     if (button === undefined)
       throw new Error("Source-owned fixture button is absent from AX capture");
@@ -162,7 +162,9 @@ try {
       scenario.value.steps.some((step) => step.outcome !== "completed") ||
       !scenario.value.steps
         .at(-1)
-        ?.after?.nodes.some((node) => node.title === "REA fixture incremented")
+        ?.after?.nodes.some(
+          (node) => node.title === "Ghostwire fixture incremented",
+        )
     )
       throw new Error(
         `Source-owned AX scenario failed: ${JSON.stringify(scenario.value.steps.map(({ outcome, reason }) => ({ outcome, reason })))}`,
@@ -229,7 +231,7 @@ try {
         !captured.steps
           .at(-1)
           ?.after?.nodes.some(
-            (node) => node.title === "REA fixture incremented",
+            (node) => node.title === "Ghostwire fixture incremented",
           )
       )
         throw new Error("MCP did not observe the selected fixture's AX action");

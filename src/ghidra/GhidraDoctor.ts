@@ -58,7 +58,7 @@ export const projectGhidraDoctorInspection = (
   };
 };
 
-/** Inspect the process-configured BYO Ghidra installation for `rea doctor`. */
+/** Inspect the process-configured BYO Ghidra installation for `ghostwire doctor`. */
 export const inspectSystemGhidraProvider = (
   environment: Readonly<NodeJS.ProcessEnv>,
 ): Promise<DoctorProviderInspection> =>

@@ -476,7 +476,9 @@ describe("analysis snapshot cache partitioning", () => {
     ).toMatchObject({
       provider: ANALYSIS_SNAPSHOT_PROVIDER,
       analysisProfile: ANALYSIS_SNAPSHOT_PROFILE,
-      limitations: [expect.stringContaining("local REA analysis snapshot")],
+      limitations: [
+        expect.stringContaining("local Ghostwire analysis snapshot"),
+      ],
     });
     const changedProfile = createAnalysisProfile(ANALYSIS_SNAPSHOT_PROVIDER, {
       loader: "configured-override",

@@ -95,9 +95,9 @@ export const nativeStringsSchema = modernStringsSchema
   });
 
 /**
- * Native regexes fold bytes, while REA's insensitive literal search folds
+ * Native regexes fold bytes, while Ghostwire's insensitive literal search folds
  * Unicode strings. Include every non-ASCII value as a candidate, then apply
- * REA's exact predicate. Ill-formed UTF-16 cannot cross upstream JSON/UTF-8.
+ * Ghostwire's exact predicate. Ill-formed UTF-16 cannot cross upstream JSON/UTF-8.
  */
 export const nativeLiteralSearchPattern = (
   pattern: string,

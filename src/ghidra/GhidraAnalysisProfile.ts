@@ -43,7 +43,7 @@ import {
 const callRelationshipCoverage = "function-body-call-coverage-v5";
 
 /**
- * The processor language REA pins for this target, or undefined when Ghidra may
+ * The processor language Ghostwire pins for this target, or undefined when Ghidra may
  * select from the header. The committed profile and the session readback both
  * compare against this single owner rather than re-deriving a lane.
  */

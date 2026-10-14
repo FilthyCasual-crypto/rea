@@ -72,7 +72,7 @@ const inventory = (digit: string) => {
 
 const provider = {
   id: "rea-artifact",
-  name: "REA artifact graph",
+  name: "Ghostwire artifact graph",
   version: "1",
 } as const;
 

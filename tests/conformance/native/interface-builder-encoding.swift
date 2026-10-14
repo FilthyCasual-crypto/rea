@@ -80,7 +80,7 @@ guard xmlParser.parse(), let plist = xmlReader.document.children.first else {
 }
 let originalXMLTable = readPlist(plist)
 
-// Extract actual UID/class/identifier/parent facts, without REA or unarchiving.
+// Extract actual UID/class/identifier/parent facts, without Ghostwire or unarchiving.
 guard let archive = originalXMLTable as? [String: Any],
       let table = archive["$objects"] as? [Any],
       let top = archive["$top"] as? [String: Any] else {
@@ -124,7 +124,7 @@ try JSONSerialization.data(withJSONObject: oracle, options: [.sortedKeys])
 try Data([0xff, 0xfe, 0x3c]).write(to: output.appendingPathComponent("incomplete-utf16.nib"))
 try Data(utf16Text.utf8).write(to: output.appendingPathComponent("utf8-declared-utf16.nib"))
 try (Data([0xff, 0xfe]) + text.data(using: .utf16LittleEndian)!).write(to: output.appendingPathComponent("utf16-declared-utf8.nib"))
-try Data(text.replacingOccurrences(of: "UTF-8", with: "REA-UNSUPPORTED").utf8)
+try Data(text.replacingOccurrences(of: "UTF-8", with: "Ghostwire-UNSUPPORTED").utf8)
     .write(to: output.appendingPathComponent("unsupported-declaration.nib"))
 try Data(text.replacingOccurrences(of: "UTF-8", with: "ISO-8859-1").utf8)
     .write(to: output.appendingPathComponent("latin1-declaration.nib"))

@@ -3,42 +3,39 @@
 [English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · **فارسی** · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md)
 · [Ελληνικά](README_el.md)
 
-# REA: مهندسی معکوس هر چیزی
+# Ghostwire: مهندسی معکوس هر چیزی
 
 ### یک MCP برای مهندسی معکوس فایل‌های باینری، برنامه‌ها و رفتار زمان اجرا.
 
 **قابلیتی دیده‌اید که دوستش دارید؟ سازوکارش را تا سطح باینری درک کنید.**
 
-[![npm version](https://img.shields.io/npm/v/rea-agents?style=flat-square&color=cb3837)](https://www.npmjs.com/package/rea-agents)
 [![MCP tool catalog](https://img.shields.io/badge/MCP-tool_catalog-5c4ee5?style=flat-square)](../mcp-contracts.md#generated-catalog)
 [![Node.js requirements](https://img.shields.io/badge/Node.js-requirements-339933?style=flat-square&logo=nodedotjs&logoColor=white)](#current-status)
-[![skills.sh](https://skills.sh/b/morluto/rea?style=flat-square)](https://skills.sh/morluto/rea/reverse-engineer-anything)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](../../LICENSE)
-[![Discord](https://img.shields.io/discord/1556595354999332884?logo=discord&logoColor=white&label=Discord&color=5865F2)](https://discord.gg/GkcryMnJDM)
 
-<a href="https://trendshift.io/repositories/82054?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-82054" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/82054" alt="morluto%2Frea | Trendshift" width="250" height="55" /></a>
+[شروع سریع](#شروع-سریع) · [Ghostwire چگونه کار می‌کند؟](#ghostwire-چگونه-کار-می‌کند) · [چه چیزهایی را میتوان تحلیل کرد؟](#چه-چیزهایی-را-می‌توان-تحلیل-کرد) · [نمونه‌های عملی](#نمونه‌های-عملی) · [پرسش‌های متداول](#پرسش‌های-متداول) · [ابزارهای GNU objdump و Rizin](../reverse-engineering-tools.md) · [مستندات](#مستندات)
 
-**[وب‌سایت](https://rea.tools/fa/) · [راهنماها](https://rea.tools/fa/guides/) · [نمونه‌های عملی](https://rea.tools/fa/showcase/)**
-
-[شروع سریع](#شروع-سریع) · [REA چگونه کار می‌کند؟](#rea-چگونه-کار-می‌کند) · [چه چیزهایی را میتوان تحلیل کرد؟](#چه-چیزهایی-را-می‌توان-تحلیل-کرد) · [نمونه‌های عملی](#نمونه‌های-عملی) · [پرسش‌های متداول](#پرسش‌های-متداول) · [ابزارهای GNU objdump و Rizin](../reverse-engineering-tools.md) · [مستندات](#مستندات)
-
-<code>npx rea-agents setup</code>
+<code>ghostwire setup</code>
 
 </div>
 
-> [!IMPORTANT]
-> منابع رسمی REA: [morluto/rea](https://github.com/morluto/rea), [rea.tools](https://rea.tools/), [rea-agents](https://www.npmjs.com/package/rea-agents) (npm).
-> از پیوندهای نصب و انتشار در این منابع رسمی استفاده کنید. نام مشابه مخزن یا README کپی‌شده ثابت نمی‌کند که فایل دانلودی رسمی است.
+> [!NOTE]
+> Ghostwire is a fork of [REA](https://github.com/morluto/rea) by morluto (MIT).
+> It removes the Chinese-vendor agent integrations, runs Android analysis on
+> upstream [JADX](https://github.com/skylot/jadx), and adds
+> `setup --schema-profile`. Ghostwire is not published to npm; install it from
+> [FilthyCasual-crypto/rea](https://github.com/FilthyCasual-crypto/rea).
+> Settings keep their `REA_*` names for compatibility.
 
 <div align="center" dir="rtl">
 
 <br />
 
-<img src="../assets/rea-hopper-analysis.png" alt="اجرای پل تحلیل REA در Hopper هنگام بررسی یک فایل باینری بومی" width="1200" />
+<img src="../assets/rea-hopper-analysis.png" alt="اجرای پل تحلیل Ghostwire در Hopper هنگام بررسی یک فایل باینری بومی" width="1200" />
 
 <br /><br />
 
-<table aria-label="انجمن REA"><tr><td align="center" width="360"><a href="https://discord.gg/GkcryMnJDM"><img    src="../assets/discord.svg" height="42" alt="Discord" /><br /><strong>به انجمن مهندسی معکوس بپیوندید</strong></a><br /><sub>دیسکورد · پرسش و پاسخ · نمایش دستاوردها</sub></td></tr></table>
+<table aria-label="انجمن Ghostwire"><tr><td align="center" width="360"><a href="https://discord.gg/GkcryMnJDM"><img    src="../assets/discord.svg" height="42" alt="Discord" /><br /><strong>به انجمن مهندسی معکوس بپیوندید</strong></a><br /><sub>دیسکورد · پرسش و پاسخ · نمایش دستاوردها</sub></td></tr></table>
 
 <br />
 
@@ -48,13 +45,13 @@
 
 <div dir="rtl">
 
-قابلیتی در یک برنامه دیده‌اید که می‌خواهید در محصول خودتان داشته باشید؟ از ایجنت خود بخواهید با REA آن را بررسی کند. ایجنت می‌تواند بدون دسترسی به کد منبع برنامه، نحوهٔ کار قابلیت را بررسی و توضیح دهد، شواهد را نشان دهد و نسخه‌ای مشابه برای پروژهٔ شما بسازد.
+قابلیتی در یک برنامه دیده‌اید که می‌خواهید در محصول خودتان داشته باشید؟ از ایجنت خود بخواهید با Ghostwire آن را بررسی کند. ایجنت می‌تواند بدون دسترسی به کد منبع برنامه، نحوهٔ کار قابلیت را بررسی و توضیح دهد، شواهد را نشان دهد و نسخه‌ای مشابه برای پروژهٔ شما بسازد.
 
-REA ایجنت شما را به ابزارهایی برای بررسی باینری‌های بومی، برنامه‌های JavaScript و Electron، اسمبلی‌های .NET و وب‌سایت‌ها متصل می‌کند. همین ابزارها از ترمینال نیز قابل استفاده‌اند. تحلیل به‌صورت محلی انجام می‌شود و نتایج شامل شواهد و محدودیت‌های پشت هر نتیجه‌گیری هستند.
+Ghostwire ایجنت شما را به ابزارهایی برای بررسی باینری‌های بومی، برنامه‌های JavaScript و Electron، اسمبلی‌های .NET و وب‌سایت‌ها متصل می‌کند. همین ابزارها از ترمینال نیز قابل استفاده‌اند. تحلیل به‌صورت محلی انجام می‌شود و نتایج شامل شواهد و محدودیت‌های پشت هر نتیجه‌گیری هستند.
 
-فرایند راه‌اندازی، REA را در ایجنت شما ثبت می‌کند و دستورالعمل‌های گردش‌کار متناظر را نصب می‌کند. تحلیل بومی می‌تواند از نصب موجود Hopper یا Ghidra استفاده کند؛ همچنین راه‌اندازی می‌تواند با تأیید شما Hopper را به‌صورت اختیاری نصب کند. تحلیل ایستای JavaScript به هیچ‌یک از این موتورهای تحلیل نیاز ندارد.
+فرایند راه‌اندازی، Ghostwire را در ایجنت شما ثبت می‌کند و دستورالعمل‌های گردش‌کار متناظر را نصب می‌کند. تحلیل بومی می‌تواند از نصب موجود Hopper یا Ghidra استفاده کند؛ همچنین راه‌اندازی می‌تواند با تأیید شما Hopper را به‌صورت اختیاری نصب کند. تحلیل ایستای JavaScript به هیچ‌یک از این موتورهای تحلیل نیاز ندارد.
 
-> برای دستورالعمل‌های راه‌اندازی، راهنماهای تصویری و مطالعات موردی واقعی، **[به وب‌سایت REA مراجعه کنید](https://rea.tools/fa/)**.
+> برای دستورالعمل‌های راه‌اندازی، راهنماهای تصویری و مطالعات موردی واقعی، **[به وب‌سایت Ghostwire مراجعه کنید](https://rea.tools/fa/)**.
 
 ## شروع سریع
 
@@ -63,10 +60,10 @@ REA ایجنت شما را به ابزارهایی برای بررسی باین�
 پس از نصب Node.js و npm، دستور زیر را اجرا کنید:
 
 ```bash
-npx rea-agents setup
+npx ghostwire-agent setup
 ```
 
-ایجنت‌های موردنظر را انتخاب کنید، تغییرات پیشنهادی را بررسی و تأیید کنید. فرایند راه‌اندازی، سرور MCP مربوط به REA و دستورالعمل‌های گردش‌کار متناظر را اضافه می‌کند و از پیکربندی موجود نسخهٔ پشتیبان می‌گیرد. پس از آن ایجنت خود را مجدداً راه‌اندازی کنید.
+ایجنت‌های موردنظر را انتخاب کنید، تغییرات پیشنهادی را بررسی و تأیید کنید. فرایند راه‌اندازی، سرور MCP مربوط به Ghostwire و دستورالعمل‌های گردش‌کار متناظر را اضافه می‌کند و از پیکربندی موجود نسخهٔ پشتیبان می‌گیرد. پس از آن ایجنت خود را مجدداً راه‌اندازی کنید.
 
 راه‌اندازی از Claude Code، Codex، Cursor، Gemini CLI، Grok Build و [ایجنت‌های دیگر](../installation.md#supported-agents) پشتیبانی می‌کند. برای پیکربندی ارائه‌دهنده و ثبت دستی MCP، [نصب و راه‌اندازی](../installation.md) را ببینید.
 
@@ -83,28 +80,28 @@ npx rea-agents setup
 برای بررسی پوشهٔ استخراج‌شدهٔ یک برنامهٔ JavaScript/Electron یا فایل ASAR:
 
 ```bash
-npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json
+npx -y ghostwire-agent@latest analyze-javascript-application /absolute/path/to/app --json
 ```
 
 نتیجه شامل ماژول‌ها، importها، مرزهای Electron و شواهد مربوط به آن‌هاست. مسیر را با مسیر برنامهٔ هدف جایگزین کنید؛ مثلاً در ویندوز `"D:/apps/example"`.
 
-برای نصب دستور `rea` جهت استفادهٔ مداوم:
+برای نصب دستور `ghostwire` جهت استفادهٔ مداوم:
 
 ```bash
-npm install --global rea-agents
-rea --help
+npm install --global ghostwire-agent
+ghostwire --help
 ```
 
 برای تحلیل بومی ابتدا یک ارائه‌دهنده پیکربندی کنید. برای دستورات بومی، انتخاب ارائه‌دهنده، snapshotها و اسکریپت‌نویسی، [راهنمای CLI و شواهد](../cli.md) را ببینید.
 
-### به‌روزرسانی REA
+### به‌روزرسانی Ghostwire
 
-REA به‌سرعت تغییر می‌کند و نسخه‌های جدید معمولاً شامل رفع اشکال‌های متعددی هستند. نصب خود را به‌روز نگه دارید.
+Ghostwire به‌سرعت تغییر می‌کند و نسخه‌های جدید معمولاً شامل رفع اشکال‌های متعددی هستند. نصب خود را به‌روز نگه دارید.
 
 برای CLI نصب‌شده از طریق npm:
 
 ```bash
-rea update
+ghostwire update
 ```
 
 برای به‌روزرسانی ثبت ایجنت‌ها و skill، دستور setup نمایش‌داده‌شده توسط به‌روزرسانی را اجرا کنید.
@@ -112,16 +109,16 @@ rea update
 اگر از `npx` استفاده می‌کنید، راه‌اندازی ایجنت را با دستور زیر به‌روز کنید:
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-تغییرات راه‌اندازی را بررسی کنید و ایجنت را دوباره اجرا کنید. برای اجرای یک‌بارهٔ دستورات CLI، از `npx rea-agents@latest` و سپس دستور موردنظر استفاده کنید.
+تغییرات راه‌اندازی را بررسی کنید و ایجنت را دوباره اجرا کنید. برای اجرای یک‌بارهٔ دستورات CLI، از `npx ghostwire-agent@latest` و سپس دستور موردنظر استفاده کنید.
 
-## REA چگونه کار می‌کند؟
+## Ghostwire چگونه کار می‌کند؟
 
-ایجنت شما از طریق MCP، REA را فراخوانی می‌کند تا هدف را بررسی و کد مرتبط را ردیابی کند. REA یافته‌ها را همراه با شواهد برمی‌گرداند. ایجنت از این نتایج برای طرح پرسش‌های تکمیلی، توضیح رفتار یا نوشتن و آزمایش یک پیاده‌سازی استفاده می‌کند. دستورات CLI نیز از همین گردش‌کارها بهره می‌برند.
+ایجنت شما از طریق MCP، Ghostwire را فراخوانی می‌کند تا هدف را بررسی و کد مرتبط را ردیابی کند. Ghostwire یافته‌ها را همراه با شواهد برمی‌گرداند. ایجنت از این نتایج برای طرح پرسش‌های تکمیلی، توضیح رفتار یا نوشتن و آزمایش یک پیاده‌سازی استفاده می‌کند. دستورات CLI نیز از همین گردش‌کارها بهره می‌برند.
 
-![جریان بررسی REA: ایجنت دربارهٔ هدف محلی سؤال می‌پرسد، REA آن را با ابزارهای تحلیل بررسی و ردیابی می‌کند و ایجنت از کد، ارجاعات و ناشناخته‌های بازگردانده‌شده برای توضیح، پیاده‌سازی و آزمایش استفاده می‌کند.](../../website/public/assets/figures/rea-investigation-flow.svg)
+![جریان بررسی Ghostwire: ایجنت دربارهٔ هدف محلی سؤال می‌پرسد، Ghostwire آن را با ابزارهای تحلیل بررسی و ردیابی می‌کند و ایجنت از کد، ارجاعات و ناشناخته‌های بازگردانده‌شده برای توضیح، پیاده‌سازی و آزمایش استفاده می‌کند.](../../website/public/assets/figures/rea-investigation-flow.svg)
 
 [نمایش تصویر در اندازهٔ کامل](../../website/public/assets/figures/rea-investigation-flow.svg).
 
@@ -129,9 +126,9 @@ npx rea-agents@latest setup
 
 ## چه چیزهایی را می‌توان تحلیل کرد؟
 
-REA به Node.js 22.x (>=22.19)، 24.x (>=24.11) یا 26+، به‌همراه npm نیاز دارد. ابزارهای اضافی و پشتیبانی سیستم میزبان به نوع هدف بستگی دارند:
+Ghostwire به Node.js 22.x (>=22.19)، 24.x (>=24.11) یا 26+، به‌همراه npm نیاز دارد. ابزارهای اضافی و پشتیبانی سیستم میزبان به نوع هدف بستگی دارند:
 
-| هدف                    | خروجی REA                                                                           | پیش‌نیازها و راهنما                                                                                                                |
+| هدف                    | خروجی Ghostwire                                                                     | پیش‌نیازها و راهنما                                                                                                                |
 | ---------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | باینری‌های بومی         | شبه‌کد، اسمبلی، رشته‌ها، نمادها، فراخوانی‌ها و ارجاعات                                 | Hopper، Ghidra یا IDA؛ [تحلیل بومی](../native-investigation.md)                                                                   |
 | ساختار ELF آفلاین       | بخش‌ها، سگمنت‌ها، نمادها و relocationهای اصلی و گزینه‌های احتمالی کاهش آسیب‌پذیری ایستا | pwntools تأمین‌شده توسط فراخواننده روی Linux x64؛ [تشخیص باینری](../binary-diagnostics.md)                                         |
@@ -182,11 +179,11 @@ API کلیپ‌بورد در renderer را پیدا کنید، مسیر آن ر�
 
 [مطالعهٔ موردی](https://rea.tools/fa/showcase/th04/) · [مخزن بازسازی](https://github.com/N0zoM1z0/th04)
 
-اگر از REA برای بررسی موضوع جالبی استفاده کرده‌اید، خوشحال می‌شویم آن را به اشتراک بگذارید. یک [issue](https://github.com/morluto/rea/issues) یا [pull request](https://github.com/morluto/rea/pulls) ثبت کنید و هدف، پرسش خود، نقش REA و یافته‌هایتان را توضیح دهید.
+اگر از Ghostwire برای بررسی موضوع جالبی استفاده کرده‌اید، خوشحال می‌شویم آن را به اشتراک بگذارید. یک [issue](https://github.com/morluto/rea/issues) یا [pull request](https://github.com/morluto/rea/pulls) ثبت کنید و هدف، پرسش خود، نقش Ghostwire و یافته‌هایتان را توضیح دهید.
 
 ## پرسش‌های متداول
 
-<details><summary><strong>کدام ایجنت‌ها می‌توانند از REA استفاده کنند؟</strong></summary>
+<details><summary><strong>کدام ایجنت‌ها می‌توانند از Ghostwire استفاده کنند؟</strong></summary>
 
 هر ایجنتی که از سرورهای MCP محلی پشتیبانی کند. فرایند setup، [ایجنت‌های پشتیبانی‌شده](../installation.md#supported-agents) را پیکربندی می‌کند؛ سایر کلاینت‌ها می‌توانند از [ثبت دستی MCP](../installation.md#mcp-registry) استفاده کنند.
 
@@ -200,25 +197,25 @@ API کلیپ‌بورد در renderer را پیدا کنید، مسیر آن ر�
 
 <details><summary><strong>آیا باید ابتدا Hopper را اجرا کنم؟</strong></summary>
 
-REA زمانی که عملیاتی به Hopper نیاز داشته باشد آن را اجرا می‌کند. در macOS، ممکن است هنگام نخستین اجرا پنجره‌ای برای انتخاب حالت آزمایشی یا فعال‌سازی مجوز نمایش داده شود. [راه‌اندازی Hopper و رفع اشکال](../installation.md#launcher-paths-and-troubleshooting) را ببینید.
+Ghostwire زمانی که عملیاتی به Hopper نیاز داشته باشد آن را اجرا می‌کند. در macOS، ممکن است هنگام نخستین اجرا پنجره‌ای برای انتخاب حالت آزمایشی یا فعال‌سازی مجوز نمایش داده شود. [راه‌اندازی Hopper و رفع اشکال](../installation.md#launcher-paths-and-troubleshooting) را ببینید.
 
 </details>
 
 <details><summary><strong>نصب skill از skills.sh چه کاری انجام می‌دهد؟</strong></summary>
 
-این skill دستورالعمل‌های بررسی را برای ایجنت فراهم می‌کند. برای ثبت سرور MCP مربوط به REA و نصب دستورالعمل‌های متناظر، `npx rea-agents setup` را اجرا کنید و سپس ایجنت را مجدداً راه‌اندازی کنید. [نصب مستقل skill](../installation.md#skill-only-installation) را ببینید.
+این skill دستورالعمل‌های بررسی را برای ایجنت فراهم می‌کند. برای ثبت سرور MCP مربوط به Ghostwire و نصب دستورالعمل‌های متناظر، `npx ghostwire-agent setup` را اجرا کنید و سپس ایجنت را مجدداً راه‌اندازی کنید. [نصب مستقل skill](../installation.md#skill-only-installation) را ببینید.
 
 </details>
 
-<details><summary><strong>REA چه نوع کدی برمی‌گرداند؟</strong></summary>
+<details><summary><strong>Ghostwire چه نوع کدی برمی‌گرداند؟</strong></summary>
 
 تحلیل بومی، شبه‌کد و اسمبلی برمی‌گرداند. تحلیل JavaScript/Electron ماژول‌ها و روابط میان آن‌ها را بازیابی می‌کند. ایجنت شما از این یافته‌ها برای نوشتن و آزمایش یک پیاده‌سازی استفاده می‌کند؛ [نمونه‌های عملی](#نمونه‌های-عملی) مثال‌های گام‌به‌گام ارائه می‌دهند.
 
 </details>
 
-<details><summary><strong>آیا REA برنامهٔ من را آپلود می‌کند؟</strong></summary>
+<details><summary><strong>آیا Ghostwire برنامهٔ من را آپلود می‌کند؟</strong></summary>
 
-REA اهداف را به‌صورت محلی تحلیل می‌کند. ایجنت شما نتایج ابزارها را دریافت می‌کند و ارائه‌دهندهٔ مدل آن سیاست مستقل خود را دربارهٔ داده‌ها دارد.
+Ghostwire اهداف را به‌صورت محلی تحلیل می‌کند. ایجنت شما نتایج ابزارها را دریافت می‌کند و ارائه‌دهندهٔ مدل آن سیاست مستقل خود را دربارهٔ داده‌ها دارد.
 
 </details>
 
@@ -229,16 +226,16 @@ REA اهداف را به‌صورت محلی تحلیل می‌کند. ایجن�
 برای CLI نصب‌شده با npm:
 
 ```bash
-rea update
+ghostwire update
 ```
 
 برای راه‌اندازی ایجنت با `npx`:
 
 ```bash
-npx rea-agents@latest setup
+npx ghostwire-agent@latest setup
 ```
 
-اگر از ایجنت استفاده می‌کنید، [به‌روزرسانی راه‌اندازی](#به‌روزرسانی-rea) را تکمیل و ایجنت را مجدداً اجرا کنید. همان کار را دوباره امتحان کنید. اگر مشکل ادامه داشت، یک [issue ثبت کنید](https://github.com/morluto/rea/issues) و نسخهٔ REA، نوع هدف، مراحل بازتولید و خروجی خطا را ذکر کنید.
+اگر از ایجنت استفاده می‌کنید، [به‌روزرسانی راه‌اندازی](#به‌روزرسانی-ghostwire) را تکمیل و ایجنت را مجدداً اجرا کنید. همان کار را دوباره امتحان کنید. اگر مشکل ادامه داشت، یک [issue ثبت کنید](https://github.com/morluto/rea/issues) و نسخهٔ Ghostwire، نوع هدف، مراحل بازتولید و خروجی خطا را ذکر کنید.
 
 </details>
 
@@ -259,23 +256,23 @@ npx rea-agents@latest setup
 
 🎉 **۲۰۰٬۰۰۰ ستارهٔ GitHub — سپاسگزاریم!**
 
-از همهٔ کسانی که از REA استفاده می‌کنند، خطاها را گزارش می‌دهند، قابلیت‌های جدید پیشنهاد می‌کنند، buildها را آزمایش می‌کنند و در بهبود پروژه مشارکت دارند سپاسگزاریم.
+از همهٔ کسانی که از Ghostwire استفاده می‌کنند، خطاها را گزارش می‌دهند، قابلیت‌های جدید پیشنهاد می‌کنند، buildها را آزمایش می‌کنند و در بهبود پروژه مشارکت دارند سپاسگزاریم.
 
-<a href="https://www.star-history.com/?repos=morluto%2Frea&amp;type=date"><picture><source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date&amp;theme=dark&amp;legend=top-left" /><source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" /><img alt="تاریخچهٔ ستاره‌های GitHub پروژهٔ REA" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" /></picture></a>
+<a href="https://www.star-history.com/?repos=morluto%2Frea&amp;type=date"><picture><source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date&amp;theme=dark&amp;legend=top-left" /><source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" /><img alt="تاریخچهٔ ستاره‌های GitHub پروژهٔ Ghostwire" src="https://api.star-history.com/chart?repos=morluto/rea&amp;type=date" /></picture></a>
 
 ## سلب مسئولیت
 
 برای راهنمای استفادهٔ مسئولانه، [DISCLAIMER.md](../../DISCLAIMER.md) را ببینید.
 
-REA برای پژوهش، آموزش، تعامل‌پذیری، حفظ نرم‌افزار و تحلیل نرم‌افزارهایی است که مالک آن‌ها هستید یا اجازهٔ بررسی آن‌ها را دارید، در چارچوب قانون.
+Ghostwire برای پژوهش، آموزش، تعامل‌پذیری، حفظ نرم‌افزار و تحلیل نرم‌افزارهایی است که مالک آن‌ها هستید یا اجازهٔ بررسی آن‌ها را دارید، در چارچوب قانون.
 
-The project's position on illegal or unauthorized use covers all REA
+The project's position on illegal or unauthorized use covers all Ghostwire
 versions, distribution channels, and platforms; each copy retains its
 applicable licenses.
 
 ## مشارکت
 
-از کمک شما به REA استقبال می‌کنیم! برای گزارش خطا یا پیشنهاد قابلیت، یک [issue باز کنید](https://github.com/morluto/rea/issues) یا برای بهبود کد و مستندات [pull request بفرستید](https://github.com/morluto/rea/pulls).
+از کمک شما به Ghostwire استقبال می‌کنیم! برای گزارش خطا یا پیشنهاد قابلیت، یک [issue باز کنید](https://github.com/morluto/rea/issues) یا برای بهبود کد و مستندات [pull request بفرستید](https://github.com/morluto/rea/pulls).
 
 برای راه‌اندازی محیط توسعه و بررسی‌ها، [CONTRIBUTING.md](../../CONTRIBUTING.md)، برای مراحل اعتبارسنجی [آزمایش‌ها](../testing.md) و برای ساختار پروژه [نقشهٔ معماری](../architecture.mermaid) را ببینید.
 
@@ -283,13 +280,13 @@ applicable licenses.
 
 [MIT](../../LICENSE)
 
-REA-authored code is licensed under MIT. Third-party material retains its own
+Ghostwire-authored code is licensed under MIT. Third-party material retains its own
 licenses and copyright notices; see [Third-party notices](../../THIRD_PARTY_NOTICES.md)
 for the dependency inventory, preserved license texts, and external-tool terms.
 
 **You must legally obtain and be authorized to use commercial tools**, including
 IDA Pro / Hex-Rays decompilers, Hopper, and JEB, under their applicable licenses.
-REA grants no tool license, key, or activation entitlement. Trials and demos
+Ghostwire grants no tool license, key, or activation entitlement. Trials and demos
 remain subject to vendor terms, including user, feature, automation, and output
 sharing restrictions. Cracked copies, stolen keys, unauthorized key sharing,
 and bypassing license restrictions are not authorized. This guidance does not

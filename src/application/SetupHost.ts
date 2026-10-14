@@ -88,7 +88,7 @@ const setupRegistration = (
   );
   const registrationCommandBlocker =
     registrationCommand.length === 0
-      ? "REA could not determine the current executable entrypoint. Run setup through the installed REA CLI or a supported package runner before configuring clients."
+      ? "Ghostwire could not determine the current executable entrypoint. Run setup through the installed Ghostwire CLI or a supported package runner before configuring clients."
       : platform === "win32"
         ? packagePrivateLauncherBlocker(
             registrationCommand,
@@ -122,7 +122,7 @@ export const hostRemediation = async (
     return `Install ${SUPPORTED_NODE_VERSION_PROSE} and rerun setup.`;
   if (!installHopper) return undefined;
   if (host.platform !== "darwin" && host.platform !== "linux")
-    return "REA supports Hopper on macOS and selected 64-bit Linux distributions.";
+    return "Ghostwire supports Hopper on macOS and selected 64-bit Linux distributions.";
   if (host.platform === "darwin") {
     const version = await host.macosVersion();
     return version === undefined || major(version) < 12

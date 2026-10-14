@@ -7,7 +7,7 @@ import type { SetupAction } from "./SetupTypes.js";
 import type { Result } from "../domain/result.js";
 import type { ArtifactResourceScope } from "../artifacts/ArtifactResourceScope.js";
 
-/** Existing REA integrations selected for maintenance, without discovering new targets. */
+/** Existing Ghostwire integrations selected for maintenance, without discovering new targets. */
 export interface MaintenanceScope {
   readonly clients: readonly string[];
   readonly skill: boolean;
@@ -45,7 +45,7 @@ const setupPlanSchema = z.object({
   ),
 });
 
-/** Discover owned registrations and REA skills without writes. */
+/** Discover owned registrations and Ghostwire skills without writes. */
 export const existingMaintenanceScope = async (
   home: string,
   entryPoint: string,
@@ -83,7 +83,7 @@ export const existingMaintenanceScope = async (
   };
 };
 
-/** Ask the verified new executable to plan only existing REA integrations. */
+/** Ask the verified new executable to plan only existing Ghostwire integrations. */
 export const planIntegrationMaintenance = async (
   home: string,
   entryPoint: string,
@@ -134,7 +134,7 @@ export const planIntegrationMaintenance = async (
       return {
         status: "unavailable",
         remediation:
-          "The updated setup plan included an integration outside the existing REA maintenance scope.",
+          "The updated setup plan included an integration outside the existing Ghostwire maintenance scope.",
       };
     return {
       status: "planned",

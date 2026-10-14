@@ -142,14 +142,14 @@ describe("setup client configuration cleanup ownership", () => {
           host,
           [client],
           {},
-          ["rea", "mcp"],
+          ["ghostwire", "mcp"],
         )
           .then((detectedClients) =>
             configureDetectedClients({
               host,
               detectedClients,
               providerEnvironment: {},
-              command: ["rea", "mcp"],
+              command: ["ghostwire", "mcp"],
               clients: {},
               appliedActions: [],
             }),
@@ -218,7 +218,7 @@ describe("setup client configuration cleanup ownership", () => {
     let hostCloseFinished = false;
     let alignment: Promise<boolean> | undefined;
     try {
-      alignment = host.clientNeedsConfigure(client, {}, ["rea", "mcp"]);
+      alignment = host.clientNeedsConfigure(client, {}, ["ghostwire", "mcp"]);
       await readStarted;
 
       const close = host.close;
@@ -229,7 +229,7 @@ describe("setup client configuration cleanup ownership", () => {
       });
 
       const lateAdmission = await host
-        .clientNeedsConfigure(client, {}, ["rea", "mcp"])
+        .clientNeedsConfigure(client, {}, ["ghostwire", "mcp"])
         .then(
           () => undefined,
           (cause: unknown) => cause,

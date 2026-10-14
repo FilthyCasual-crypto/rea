@@ -82,7 +82,7 @@ export const managedAnalysisCleanupFailure = (
   const cleanup = projectAnalysisError(error);
   return err(
     new ProviderAdapterError(
-      error instanceof ProviderAdapterError ? error.providerId : "rea",
+      error instanceof ProviderAdapterError ? error.providerId : "ghostwire",
       "close_binary",
       {
         cause: error,

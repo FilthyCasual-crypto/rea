@@ -1,6 +1,6 @@
 /** Generated from package.json and package-lock.json; do not edit. */
 export const PACKAGE_METADATA = {
-  name: "rea-agents",
+  name: "ghostwire-agent",
   version: "6.4.0", // x-release-please-version
   serverSdkVersion: "2.3.1",
   clientSdkVersion: "2.3.1",

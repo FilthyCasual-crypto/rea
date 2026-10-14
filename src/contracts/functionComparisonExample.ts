@@ -49,7 +49,7 @@ const observe = (digit: string, text: string) =>
     },
     {
       id: "rea-workflow",
-      name: "REA composed investigation workflow",
+      name: "Ghostwire composed investigation workflow",
       version: "1",
     },
     {

@@ -16,7 +16,7 @@ instead of guessing.
 The provider requires a separately supplied upstream JADX 1.5.6
 `jadx-1.5.6-all.jar` (from the official `jadx-1.5.6.zip` release) and a full
 JDK 17 or newer. `REA_JADX_JAR` selects the absolute JAR path (the older
-`REA_JADX_MCP_JAR` is a deprecated alias); `JAVA_HOME` can select Java. REA setup does not install or configure that JAR, and doctor
+`REA_JADX_MCP_JAR` is a deprecated alias); `JAVA_HOME` can select Java. Ghostwire setup does not install or configure that JAR, and doctor
 provider scopes cover Hopper/Ghidra rather than JADX. Use existing tools and
 report missing prerequisites for the Android task specifically.
 
