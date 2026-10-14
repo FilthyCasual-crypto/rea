@@ -1,25 +1,15 @@
-import { ArtifactReaderFailure } from "../../artifacts/ArtifactReader.js";
 import { readStableArtifact } from "../../artifacts/readStableArtifact.js";
 import { ArtifactResourceScope } from "../../artifacts/ArtifactResourceScope.js";
-import { analysisErrorWithCleanupFailure } from "../../domain/analysisErrorCleanup.js";
 import type { BinaryTriagePort } from "../../application/binaryDiagnostics/BinaryTriagePort.js";
 import type { ExecutionOptions } from "../../application/AnalysisProvider.js";
-import { ArtifactOperationError } from "../../domain/artifactOperationError.js";
-import {
-  AnalysisAccessDeniedError,
-  AnalysisArtifactChangedError,
-  AnalysisCancelledError,
-  AnalysisInputError,
-  AnalysisResourceConstraintError,
-} from "../../domain/analysisErrorCore.js";
 import type {
   BinaryTriage,
   InspectBinaryTriageInput,
 } from "../../domain/native/binaryTriage.js";
 import { err, ok } from "../../domain/result.js";
-import { ProviderCleanupError } from "../../domain/providerCleanupError.js";
 import { BINARY_TRIAGE_PROVIDER } from "../../application/InvestigationProviders.js";
 import { scanAnalystDirectedText } from "../../domain/analystDirectedText.js";
+import { stableFileFailure } from "./stableFileFailure.js";
 import {
   detectTriageFormat,
   entropyProfile,
@@ -109,78 +99,16 @@ export class BinaryTriageProvider implements BinaryTriagePort {
         ),
       );
     } catch (cause) {
-      return err(binaryTriageFailure(cause, input, options?.signal));
+      return err(
+        stableFileFailure(
+          OPERATION,
+          BINARY_TRIAGE_PROVIDER.id,
+          cause,
+          input.path,
+          { max_file_bytes: input.max_file_bytes },
+          options?.signal,
+        ),
+      );
     }
   }
 }
-
-const binaryTriageFailurePrimary = (
-  cause: unknown,
-  input: InspectBinaryTriageInput,
-  signal: AbortSignal | undefined,
-) => {
-  if (cause instanceof ArtifactReaderFailure && cause.reason === "integrity")
-    return new AnalysisArtifactChangedError(
-      OPERATION,
-      input.path,
-      cause.message,
-      {
-        cause,
-      },
-    );
-  if (cause instanceof ArtifactReaderFailure && cause.reason === "cancelled")
-    return new AnalysisCancelledError(OPERATION, { cause });
-  if (signal?.aborted) return new AnalysisCancelledError(OPERATION, { cause });
-  if (cause instanceof ArtifactReaderFailure) {
-    if (cause.reason === "limit")
-      return new AnalysisResourceConstraintError(
-        OPERATION,
-        "memory",
-        cause.message,
-        { max_file_bytes: input.max_file_bytes },
-        { cause },
-      );
-    if (cause.reason === "path" || cause.reason === "format")
-      return new AnalysisInputError(OPERATION, { cause }, [
-        { path: ["path"], reason: "invalid_format", message: cause.message },
-      ]);
-  }
-  if (cause instanceof Error && "code" in cause) {
-    if (cause.code === "EACCES" || cause.code === "EPERM")
-      return new AnalysisAccessDeniedError(OPERATION, input.path, cause.code, {
-        cause,
-      });
-    if (cause.code === "ENOENT" || cause.code === "ENOTDIR")
-      return new AnalysisInputError(OPERATION, { cause }, [
-        {
-          path: ["path"],
-          reason: "invalid_value",
-          message: `Selected file could not be read (${cause.code}): ${input.path}.`,
-        },
-      ]);
-  }
-  return new ArtifactOperationError(
-    OPERATION,
-    cause instanceof ArtifactReaderFailure ? cause.reason : "io",
-    undefined,
-    cause instanceof Error ? cause.message : "Binary triage failed.",
-    { cause },
-  );
-};
-
-const binaryTriageFailure = (
-  cause: unknown,
-  input: InspectBinaryTriageInput,
-  signal: AbortSignal | undefined,
-) => {
-  const primary = binaryTriageFailurePrimary(cause, input, signal);
-  if (!(cause instanceof ArtifactReaderFailure) || cause.cleanup === undefined)
-    return primary;
-  const cleanup = new ProviderCleanupError(
-    BINARY_TRIAGE_PROVIDER.id,
-    cause.cleanup.resources,
-    { reason: cause.cleanup.reason },
-    { operation: OPERATION, cause },
-  );
-  return analysisErrorWithCleanupFailure(primary, cleanup, OPERATION);
-};

@@ -570,3 +570,49 @@ export const packerIndicators = (
     });
   return indicators;
 };
+
+/** CPU family from the ELF, PE or thin Mach-O header; null when unknown. */
+export const detectMachine = (
+  bytes: Uint8Array,
+  format: TriageFormat,
+): "x86" | "x86-64" | "arm" | "arm64" | "other" | null => {
+  const data = view(bytes);
+  if (format === "elf" && bytes.length >= 20) {
+    const machine = data.getUint16(18, bytes[5] === 1);
+    return machine === 0x3e
+      ? "x86-64"
+      : machine === 0x03
+        ? "x86"
+        : machine === 0xb7
+          ? "arm64"
+          : machine === 0x28
+            ? "arm"
+            : "other";
+  }
+  if (format === "pe") {
+    const machine = data.getUint16(peHeaderOffset(bytes)! + 4, true);
+    return machine === 0x8664
+      ? "x86-64"
+      : machine === 0x14c
+        ? "x86"
+        : machine === 0xaa64
+          ? "arm64"
+          : machine === 0x1c0 || machine === 0x1c4
+            ? "arm"
+            : "other";
+  }
+  if (format === "mach-o" && bytes.length >= 8) {
+    const magic = data.getUint32(0, false);
+    const cpu = data.getUint32(4, magic === 0xcefaedfe || magic === 0xcffaedfe);
+    return cpu === 0x01000007
+      ? "x86-64"
+      : cpu === 7
+        ? "x86"
+        : cpu === 0x0100000c
+          ? "arm64"
+          : cpu === 12
+            ? "arm"
+            : "other";
+  }
+  return null;
+};

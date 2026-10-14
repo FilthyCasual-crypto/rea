@@ -62,10 +62,17 @@ export const BYTE_DECODING_PROVIDER = Object.freeze({
   version: "1",
 } as const);
 
-/** Provider identity for caller-supplied YARA rules in the bundled engine. */
+/** Provider identity for caller-supplied YARA rules in the Ghostwire engine. */
 export const YARA_SCAN_PROVIDER = Object.freeze({
-  id: "rea-yara-x",
-  name: "Ghostwire YARA-X scan",
+  id: "rea-rules",
+  name: "Ghostwire rule engine",
+  version: "1",
+} as const);
+
+/** Provider identity for stack-built string recovery from x86 code. */
+export const STACK_STRINGS_PROVIDER = Object.freeze({
+  id: "rea-stack-strings",
+  name: "Ghostwire stack strings",
   version: "1",
 } as const);
 

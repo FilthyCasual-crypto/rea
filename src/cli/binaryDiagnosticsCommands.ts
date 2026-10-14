@@ -7,6 +7,7 @@ import {
   createBinaryTriageService,
   createByteDecodingService,
   createYaraScanService,
+  createStackStringsService,
 } from "../composition/binaryDiagnostics.js";
 import { CLI_COMMANDS } from "../cliCommandNames.js";
 import { logCliCommand } from "../cliLogging.js";
@@ -20,6 +21,7 @@ import { finishAnalysisCommand } from "./finishAnalysisCommand.js";
 import { parseCliJsonInput } from "../cliJsonInput.js";
 import { convertNumberInputSchema } from "../domain/native/byteDecoding.js";
 import { scanWithYaraInputSchema } from "../domain/native/yaraScan.js";
+import { extractStackStringsInputSchema } from "../domain/native/stackStrings.js";
 
 /** Inspect operator-selected files through the same shared workflow as MCP. */
 export const registerBinaryDiagnosticsCommands = (
@@ -181,7 +183,7 @@ export const registerBinaryDiagnosticsCommands = (
   });
   cli.command(CLI_COMMANDS.scanWithYara, {
     description:
-      "Scan a file with your YARA rules (bundled YARA-X engine); reports rules, offsets and sections",
+      "Scan a file with your YARA rules (Ghostwire rule engine); reports rules, offsets and sections",
     args: z.object({ path: z.string().describe("Local file to scan") }),
     options: z.object({
       rules: z
@@ -222,8 +224,40 @@ export const registerBinaryDiagnosticsCommands = (
                   { signal },
                 ),
               yara,
-              "rea-yara-x",
+              "rea-rules",
               "scan_with_yara",
+            ),
+        );
+      }),
+  });
+  cli.command(CLI_COMMANDS.extractStackStrings, {
+    description:
+      "Recover strings built on the stack from x86/x86-64 instruction immediates",
+    args: z.object({ path: z.string().describe("Local executable") }),
+    options: z.object({
+      minLength: extractStackStringsInputSchema.shape.min_length,
+      maxStrings: extractStackStringsInputSchema.shape.max_strings,
+    }),
+    run: ({ args, options }) =>
+      withCommandCancellation(async (signal) => {
+        const stack = createStackStringsService();
+        return await logCliCommand(
+          logger,
+          CLI_COMMANDS.extractStackStrings,
+          async () =>
+            finishAnalysisCommand(
+              () =>
+                stack.extract(
+                  {
+                    path: resolve(args.path),
+                    min_length: options.minLength,
+                    max_strings: options.maxStrings,
+                  },
+                  { signal },
+                ),
+              stack,
+              "rea-stack-strings",
+              "extract_stack_strings",
             ),
         );
       }),

@@ -64,6 +64,7 @@ export const CLI_COMMANDS = Object.freeze({
   decodeBytes: "decode-bytes",
   convertNumber: "convert-number",
   scanWithYara: "scan-with-yara",
+  extractStackStrings: "extract-stack-strings",
   inspectAnalysisView: "inspect-analysis-view",
   listFridaDevices: "list-frida-devices",
   listFridaProcesses: "list-frida-processes",

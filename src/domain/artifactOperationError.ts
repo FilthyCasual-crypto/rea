@@ -15,6 +15,7 @@ export class ArtifactOperationError extends AnalysisError {
       | "inspect_binary_triage"
       | "decode_bytes"
       | "scan_with_yara"
+      | "extract_stack_strings"
       | "extract_artifact"
       | "decode_interface_builder"
       | "inspect_asset_catalog"

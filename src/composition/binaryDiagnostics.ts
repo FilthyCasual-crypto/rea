@@ -10,6 +10,8 @@ import { ByteDecodingService } from "../application/binaryDiagnostics/ByteDecodi
 import { ByteDecodingProvider } from "../native/decode/ByteDecodingProvider.js";
 import { YaraScanService } from "../application/binaryDiagnostics/YaraScanService.js";
 import { YaraScanProvider } from "../native/yara/YaraScanProvider.js";
+import { StackStringsService } from "../application/binaryDiagnostics/StackStringsService.js";
+import { StackStringsProvider } from "../native/stackStrings/StackStringsProvider.js";
 
 /** Portable PE inspection with no engine, installation or target acquisition. */
 export const createPeResourcesService = (): PeResourcesService =>
@@ -38,3 +40,7 @@ export const createByteDecodingService = (): ByteDecodingService =>
 /** Caller-supplied YARA rules in the bundled WebAssembly engine. */
 export const createYaraScanService = (): YaraScanService =>
   new YaraScanService(new YaraScanProvider());
+
+/** Stack-built string recovery from x86 and x86-64 code. */
+export const createStackStringsService = (): StackStringsService =>
+  new StackStringsService(new StackStringsProvider());

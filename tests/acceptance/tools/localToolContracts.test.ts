@@ -117,6 +117,7 @@ const pathRequests: readonly [string, Record<string, unknown>][] = [
   ],
   ["inspect_pe_resources", { path: nul }],
   ["inspect_binary_triage", { path: nul }],
+  ["extract_stack_strings", { path: nul }],
   [
     "scan_with_yara",
     {

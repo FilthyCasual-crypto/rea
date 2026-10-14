@@ -1,8 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
-import { createRequire } from "node:module";
 import { basename, extname } from "node:path";
-import { pathToFileURL } from "node:url";
 
 import { ArtifactReaderFailure } from "../../artifacts/ArtifactReader.js";
 import { readStableArtifact } from "../../artifacts/readStableArtifact.js";
@@ -17,6 +14,7 @@ import {
   AnalysisCancelledError,
   AnalysisInputError,
   AnalysisResourceConstraintError,
+  AnalysisTimeoutError,
 } from "../../domain/analysisErrorCore.js";
 import type { AnalysisError } from "../../domain/analysisErrorBase.js";
 import type {
@@ -24,6 +22,13 @@ import type {
   YaraScan,
 } from "../../domain/native/yaraScan.js";
 import { err, ok, type Result } from "../../domain/result.js";
+import {
+  compileRules,
+  RuleCompileError,
+  RuleScanTimeout,
+  scanWithRules,
+  type CompiledRules,
+} from "../rules/ruleEngine.js";
 import {
   detectTriageFormat,
   measureSections,
@@ -33,53 +38,10 @@ import {
 const OPERATION = "scan_with_yara";
 const MAX_RULE_FILE_BYTES = 16777216;
 const MAX_WARNINGS = 64;
-const ENGINE = "YARA-X 1.21.0 (WebAssembly)";
-
-type YaraModule = typeof import("@virustotal/yara-x");
-
-interface RawScanResult {
-  readonly valid?: boolean;
-  readonly errors?: readonly string[];
-  readonly warnings?: readonly string[];
-  readonly matches?: readonly {
-    readonly identifier: string;
-    readonly namespace: string;
-    readonly tags: readonly string[];
-    readonly metadata: readonly { identifier: string; value: unknown }[];
-    readonly patterns: readonly {
-      readonly identifier: string;
-      readonly kind: string;
-      readonly matches: readonly { offset: number; length: number }[];
-    }[];
-  }[];
-}
-
-// The engine is loaded once, on the first scan, so server startup never pays
-// for compiling the WebAssembly module.
-let engine: Promise<YaraModule> | undefined;
-const loadEngine = (): Promise<YaraModule> => {
-  engine ??= (async () => {
-    const url = pathToFileURL(
-      createRequire(import.meta.url).resolve("@virustotal/yara-x"),
-    );
-    const module = (await import(url.href)) as YaraModule;
-    module.initSync({
-      module: await readFile(new URL("yara_x_js_bg.wasm", url)),
-    });
-    return module;
-  })();
-  return engine;
-};
+const ENGINE = "Ghostwire rule engine 1 (YARA rule syntax subset)";
 
 const sha256Of = (bytes: Uint8Array | string) =>
   createHash("sha256").update(bytes).digest("hex");
-
-const metadataValue = (value: unknown): string | number | boolean =>
-  typeof value === "string" ||
-  typeof value === "boolean" ||
-  (typeof value === "number" && Number.isFinite(value))
-    ? value
-    : String(value);
 
 const namespaceFor = (path: string, used: Set<string>): string => {
   const stem =
@@ -172,51 +134,55 @@ export class YaraScanProvider implements YaraScanPort {
     }
     if (signal?.aborted) return err(new AnalysisCancelledError(OPERATION));
 
-    const yara = await loadEngine();
-    const compiler = new yara.Compiler();
-    for (const [index, rules] of ruleTexts.entries()) {
-      try {
-        if (rules.namespace !== null) compiler.newNamespace(rules.namespace);
-        compiler.addSource(rules.text);
-      } catch (cause) {
-        return err(
-          new AnalysisInputError(OPERATION, { cause }, [
-            {
-              path:
-                input.rules.kind === "inline"
-                  ? ["rules", "source"]
-                  : ["rules", "paths", index],
-              reason: "invalid_value",
-              message: `YARA rules in ${rules.label} did not compile: ${String(cause).slice(0, 2000)}`,
-            },
-          ]),
-        );
-      }
-    }
-    const scanner = compiler.build().scanner();
-    scanner.setTimeoutMs(input.timeout_ms);
-    scanner.setMaxMatchesPerPattern(input.max_matches_per_pattern);
-    let raw: RawScanResult;
+    let compiled: CompiledRules;
     try {
-      raw = scanner.scan(target.bytes) as RawScanResult;
+      compiled = compileRules(
+        ruleTexts.map((rules) => ({
+          namespace: rules.namespace ?? "default",
+          text: rules.text,
+          label: rules.label,
+        })),
+      );
     } catch (cause) {
-      const message = String(cause);
+      if (!(cause instanceof RuleCompileError)) throw cause;
+      const index = Math.max(
+        0,
+        ruleTexts.findIndex(({ label }) =>
+          cause.message.startsWith(`${label}:`),
+        ),
+      );
       return err(
-        /timeout|timed out/i.test(message)
-          ? new AnalysisResourceConstraintError(
-              OPERATION,
-              "cpu",
-              `YARA scan exceeded timeout_ms (${input.timeout_ms}).`,
-              { timeout_ms: input.timeout_ms },
-              { cause },
-            )
-          : new ArtifactOperationError(
-              OPERATION,
-              "io",
-              undefined,
-              `YARA scan failed: ${message}`,
-              { cause },
-            ),
+        new AnalysisInputError(OPERATION, { cause }, [
+          {
+            path:
+              input.rules.kind === "inline"
+                ? ["rules", "source"]
+                : ["rules", "paths", index],
+            reason: "invalid_value",
+            message: `Rules did not compile: ${cause.message.slice(0, 2000)}`,
+          },
+        ]),
+      );
+    }
+    let scanned: ReturnType<typeof scanWithRules>;
+    try {
+      scanned = scanWithRules(compiled, target.bytes, {
+        maxMatchesPerPattern: input.max_matches_per_pattern,
+        deadline: Date.now() + input.timeout_ms,
+      });
+    } catch (cause) {
+      if (cause instanceof RuleScanTimeout)
+        return err(
+          new AnalysisTimeoutError(OPERATION, input.timeout_ms, { cause }),
+        );
+      return err(
+        new ArtifactOperationError(
+          OPERATION,
+          "io",
+          undefined,
+          `Rule scan failed: ${cause instanceof Error ? cause.message : String(cause)}`,
+          { cause },
+        ),
       );
     }
 
@@ -233,21 +199,16 @@ export class YaraScanProvider implements YaraScanPort {
       )?.name ?? null;
 
     let remaining = input.max_matches;
-    let truncated = false;
-    const matches: YaraScan["matches"] = (raw.matches ?? []).map((rule) => ({
-      rule: rule.identifier,
+    let truncated = scanned.truncated;
+    const matches: YaraScan["matches"] = scanned.matches.map((rule) => ({
+      rule: rule.rule,
       namespace: rule.namespace,
       tags: [...rule.tags],
-      metadata: rule.metadata.map(({ identifier, value }) => ({
-        identifier,
-        value: metadataValue(value),
-      })),
+      metadata: rule.metadata.map((entry) => ({ ...entry })),
       patterns: rule.patterns.map((pattern) => {
         const kept = pattern.matches.slice(0, Math.max(0, remaining));
         if (kept.length < pattern.matches.length) truncated = true;
         remaining -= kept.length;
-        if (pattern.matches.length >= input.max_matches_per_pattern)
-          truncated = true;
         return {
           identifier: pattern.identifier,
           kind: pattern.kind,
@@ -259,7 +220,7 @@ export class YaraScanProvider implements YaraScanPort {
         };
       }),
     }));
-    const warnings = [...(raw.warnings ?? [])];
+    const warnings: string[] = [];
     return ok({
       artifact: {
         path: input.path,
@@ -274,11 +235,12 @@ export class YaraScanProvider implements YaraScanPort {
       matches,
       matched_rules: matches.length,
       truncated,
-      scan_errors: [...(raw.errors ?? [])],
+      scan_errors: [],
       limitations: [
         "Rules are supplied by the caller; a match means the rule's conditions hold for these bytes, not that the rule's name, tags or metadata are correct.",
         "No match means only that these rules did not match; it does not establish that the file is clean.",
-        "Rule files are compiled as given; include directives are not resolved.",
+        "Rules run in Ghostwire's own engine, which implements a subset of the YARA rule language: modules (pe, elf, math, hash), for loops, base64 modifiers, percentage quantifiers and include directives fail compilation with a message naming the feature.",
+        "Regular-expression strings use JavaScript regular-expression semantics over the file's bytes, which differ from YARA's in some edge cases.",
         ...(warnings.length > MAX_WARNINGS
           ? [
               `${warnings.length - MAX_WARNINGS} further compiler warnings were omitted.`,

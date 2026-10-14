@@ -252,6 +252,7 @@ export const TOOL_EFFECTS: Readonly<Record<string, ToolEffects>> = {
   decode_bytes: evidence,
   convert_number: evidence,
   scan_with_yara: evidence,
+  extract_stack_strings: evidence,
   inspect_analysis_view: evidence,
   inspect_firmware_regions: effects({
     mutatesSession: true,

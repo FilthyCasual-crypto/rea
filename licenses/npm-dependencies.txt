@@ -2,7 +2,7 @@ Ghostwire npm dependency inventory
 Prepared from the root package-lock.json; refresh this inventory when locked dependencies change.
 License identifiers are upstream lockfile declarations, not a legal assessment.
 Runtime includes transitive and optional platform packages; development includes build, test and website tooling.
-Locked package entries: 722; runtime: 178.
+Locked package entries: 721; runtime: 177.
 Full runtime copyright/license/NOTICE texts: npm-runtime-notices.txt.
 
 @algolia/abtesting@1.25.0 | development | MIT
@@ -1475,11 +1475,6 @@ commander@13.1.0 | runtime | MIT
   Package: https://www.npmjs.com/package/@ungap/structured-clone/v/1.4.0
   Archive: https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.4.0.tgz
   Integrity: sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ==
-@virustotal/yara-x@1.21.0 | runtime | BSD-3-Clause
-  Lockfile path: node_modules/@virustotal/yara-x
-  Package: https://www.npmjs.com/package/@virustotal/yara-x/v/1.21.0
-  Archive: https://registry.npmjs.org/@virustotal/yara-x/-/yara-x-1.21.0.tgz
-  Integrity: sha512-cKMWrgwrMEuMkoYm789q6gPATw9VrNJ6Skw/zLKB3olTxOPbPsA4+cVjhKmblH/70WbeZKtaTEawEGEXvBcDfA==
 @vitest/coverage-v8@5.0.3 | development | MIT
   Lockfile path: node_modules/@vitest/coverage-v8
   Package: https://www.npmjs.com/package/@vitest/coverage-v8/v/5.0.3

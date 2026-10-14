@@ -233,6 +233,7 @@ export const providerCatalog = (sources) => {
               "decode_bytes",
               "convert_number",
               "scan_with_yara",
+              "extract_stack_strings",
             ].includes(name),
         ),
     },
@@ -255,6 +256,13 @@ export const providerCatalog = (sources) => {
       contracts:
         sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
           ({ name }) => name === "scan_with_yara",
+        ),
+    },
+    {
+      identity: sources.artifactProviders.STACK_STRINGS_PROVIDER,
+      contracts:
+        sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
+          ({ name }) => name === "extract_stack_strings",
         ),
     },
     {

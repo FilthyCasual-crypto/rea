@@ -14,15 +14,18 @@ import {
   createByteDecodingService,
   createPeResourcesService,
   createYaraScanService,
+  createStackStringsService,
 } from "../composition/binaryDiagnostics.js";
 import type { PeResourcesService } from "../application/binaryDiagnostics/PeResourcesService.js";
 import type { BinaryTriageService } from "../application/binaryDiagnostics/BinaryTriageService.js";
 import type { ByteDecodingService } from "../application/binaryDiagnostics/ByteDecodingService.js";
 import type { YaraScanService } from "../application/binaryDiagnostics/YaraScanService.js";
+import type { StackStringsService } from "../application/binaryDiagnostics/StackStringsService.js";
 import { registerPeResourcesTool } from "./registerPeResourcesTool.js";
 import { registerBinaryTriageTool } from "./registerBinaryTriageTool.js";
 import { registerByteDecodingTools } from "./registerByteDecodingTools.js";
 import { registerYaraScanTool } from "./registerYaraScanTool.js";
+import { registerStackStringsTool } from "./registerStackStringsTool.js";
 import type { EvmInterfaceService } from "../application/evm/EvmInterfaceService.js";
 import { evmInterfaceModule } from "../composition/evm.js";
 import { registerEvmTools } from "./registerEvmTools.js";
@@ -323,6 +326,7 @@ export const createServer = (
   const binaryTriage = createBinaryTriageService();
   const byteDecoding = createByteDecodingService();
   const yaraScan = createYaraScanService();
+  const stackStrings = createStackStringsService();
   const webNetworkCapture =
     options.webNetworkCapture ?? createWebNetworkCaptureService(environment);
   const javascriptRecovery =
@@ -402,6 +406,7 @@ export const createServer = (
       binaryTriage.close(),
       byteDecoding.close(),
       yaraScan.close(),
+      stackStrings.close(),
       webNetworkCapture.close(),
       javascriptRecovery.close?.() ?? Promise.resolve(),
       artifactResources.close(),
@@ -457,6 +462,7 @@ export const createServer = (
     binaryTriage,
     byteDecoding,
     yaraScan,
+    stackStrings,
     webNetworkCapture,
   };
   registerBinaryAnalysisTools(toolContext);
@@ -652,6 +658,7 @@ const registerConfiguredAnalysisTools = (
     binaryTriage,
     byteDecoding,
     yaraScan,
+    stackStrings,
     webNetworkCapture,
   }: ServerToolContext,
   android: AndroidAnalysisPort,
@@ -714,6 +721,13 @@ const registerConfiguredAnalysisTools = (
   registerYaraScanTool(
     server,
     yaraScan,
+    toolLogger,
+    recordEvidence,
+    withAdmittedAnalysis,
+  );
+  registerStackStringsTool(
+    server,
+    stackStrings,
     toolLogger,
     recordEvidence,
     withAdmittedAnalysis,
@@ -842,6 +856,7 @@ interface ServerToolContext extends ReturnType<typeof createSessionRecorders> {
   readonly binaryTriage: BinaryTriageService;
   readonly byteDecoding: ByteDecodingService;
   readonly yaraScan: YaraScanService;
+  readonly stackStrings: StackStringsService;
   readonly webNetworkCapture: WebNetworkCaptureService;
   readonly artifactResources: ArtifactResourceScope;
   readonly server: EvidenceMcpServer;

@@ -198,28 +198,76 @@ content; see [MCP contracts](mcp-contracts.md#untrusted-target-content).
 ## YARA scanning
 
 `scan_with_yara` / `scan-with-yara` scans one explicit file with your YARA
-rules in the bundled [YARA-X](https://github.com/VirusTotal/yara-x) 1.21.0
-WebAssembly engine (BSD-3-Clause). Nothing is installed or uploaded, and
-Ghostwire ships no rules.
+rules in Ghostwire's own YARA-compatible rule engine. Nothing is installed or
+uploaded, and Ghostwire ships no rules.
 
 ```sh
 ghostwire scan-with-yara ./sample.bin --rules ./rules/packers.yar --rules ./rules/crypto.yar --json
 ghostwire scan-with-yara ./sample.bin --rule-source 'rule upx { strings: $a = "UPX!" condition: $a }' --json
 ```
 
+Supported rule syntax:
+
+| Area       | Supported                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Rules      | `private`, `global`, tags, `meta` (string, integer, boolean), references to earlier rules in the same file                                                                                                                                                                                                                                             |
+| Text       | escapes `\n \t \r \" \\ \xHH`; modifiers `nocase`, `wide`, `ascii`, `fullword`, `xor`, `xor(n)`, `xor(n-m)`, `private`                                                                                                                                                                                                                                 |
+| Hex        | bytes, `??`, nibble wildcards (`4?`, `?D`), jumps `[n]`, `[n-m]`, `[n-]`, `[-]`, alternatives `( A \| B )`                                                                                                                                                                                                                                             |
+| Regex      | `/.../` with `i` and `s` flags, `nocase`, `ascii`, `fullword`, `private`                                                                                                                                                                                                                                                                               |
+| Conditions | `and`, `or`, `not`, comparisons, `contains`, `icontains`, `startswith`, `endswith`, `matches`, `+ - * \ %`, `& \| ^ ~ << >>`, `filesize`, `KB`/`MB`, `$a`, `$a at n`, `$a in (a..b)`, `#a`, `#a in (a..b)`, `@a[i]`, `!a[i]`, `uint8/16/32`, `int8/16/32` and their `be` forms, `any`/`all`/`none`/`N of them` or `($a, $b*)`, with optional `at`/`in` |
+
+Modules (`pe`, `elf`, `math`, `hash`), `for` loops, `base64` modifiers,
+negated hex bytes, percentage quantifiers and `include` directives fail
+compilation with a message that names the feature and its line, so a rule
+never runs with a different meaning than its author intended. Regular
+expressions use JavaScript regular-expression semantics over the file's bytes,
+which can differ from YARA's in edge cases.
+
 Each matching rule comes back with its namespace, tags and metadata, and every
 pattern match with its file offset, length and the ELF section, PE section or
 Mach-O segment that contains it. Each rule file is compiled in its own
-namespace named after the file, so rule sets with overlapping names can be
-combined. The Evidence records the SHA-256 of every rule source, so a result
-always names the exact rules that produced it. Compile errors point at the
-rule input that failed. `timeout_ms`, `max_matches_per_pattern` and
-`max_matches` bound the scan and set `truncated` when offsets are dropped;
-matched rules are always complete.
+namespace named after the file. The Evidence records the SHA-256 of every rule
+source. `timeout_ms`, `max_matches_per_pattern` and `max_matches` bound the
+scan and set `truncated` when offsets are dropped.
 
 A match means the rule's conditions hold for these bytes, not that the rule's
-name or labels are right, and no match does not mean the file is clean. Rule
-`include` directives are not resolved; pass each file explicitly.
+name or labels are right, and no match does not mean the file is clean.
+
+## Stack-built strings
+
+`extract_stack_strings` / `extract-stack-strings` recovers strings a program
+assembles on the stack from instruction immediates, which plain string
+extraction cannot see because the characters live inside instructions:
+
+```asm
+mov byte ptr [rbp-0x10], 0x47     ; 'G', one character per store
+mov dword ptr [rsp+0x10], 0x64616f4c   ; "Load", four per store
+movabs rax, 0x32336c656e72656b    ; "kernel32" in a register
+mov qword ptr [rsp+3], rax        ; then stored
+```
+
+```sh
+ghostwire extract-stack-strings ./sample.exe --json
+```
+
+It decodes byte, word, dword and qword immediate stores to
+`[register+displacement]` and registers loaded with `mov`/`movabs`
+immediates, in x86 and x86-64 code from ELF, PE and Mach-O files, and replays
+them per base register. Groups break at function boundaries (`ret`, `int3`
+padding, `endbr64`); a buffer reused for a second string reports both; and
+overlapping stores whose shared bytes agree continue one string. Each result
+carries its section, the file offsets of the first and last contributing
+instruction, the base register, the frame displacement and the store count,
+so it can be confirmed in a disassembler. On gcc -O0 and -O2 builds it
+recovers per-byte, per-dword and register-built strings, and it scans a 70 MB
+binary in about a second and a half.
+
+The scan reads every byte offset of executable sections without full
+disassembly, so results are candidates. Compilers also build ordinary
+constants this way, so a stack string is not by itself a sign of obfuscation.
+Strings built with arithmetic or bit masking, decoded in loops, or produced
+by decoding routines are not recovered; once the routine and key are known,
+`decode_bytes` decodes them exactly. ARM code is not decoded yet.
 
 ## Exact decoding and number conversion
 

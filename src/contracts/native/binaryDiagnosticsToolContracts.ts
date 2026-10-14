@@ -32,6 +32,10 @@ import {
   scanWithYaraInputSchema,
   yaraScanSchema,
 } from "../../domain/native/yaraScan.js";
+import {
+  extractStackStringsInputSchema,
+  stackStringsSchema,
+} from "../../domain/native/stackStrings.js";
 
 /** Caller-selected delivery of completed binary layout Evidence. */
 export const inspectBinaryLayoutRequestSchema =
@@ -131,7 +135,7 @@ export const BINARY_DIAGNOSTICS_TOOL_CONTRACTS = [
     ...toolContractMetadata("scan_with_yara"),
     kind: "native-provider",
     description:
-      "Scan one explicit local file with caller-supplied YARA rules, given inline or as local rule files, in the bundled YARA-X 1.21.0 WebAssembly engine. Returns every matching rule with namespace, tags and metadata, and each pattern match's file offset, length and containing ELF/PE/Mach-O section, plus the SHA-256 of every rule source so the Evidence pins the exact rules used. Rule compile errors are reported against the rule input. A hard timeout and per-pattern and total match caps bound the scan, and truncation is reported. A match means the rule's conditions hold for these bytes, not that its name or labels are correct; no match does not establish a clean file. Ghostwire ships no rules and uploads nothing; no external tool required.",
+      "Scan one explicit local file with caller-supplied YARA rules, given inline or as local rule files, in Ghostwire's own YARA-compatible engine. Supports meta, tags, private and global rules, rule references, text strings with nocase/wide/ascii/fullword/xor/private, hex strings with wildcards, nibble wildcards, jumps and alternatives, regular expressions, and conditions with and/or/not, comparisons, arithmetic and bitwise operators, filesize, $a at/in, #a, @a[i], !a[i], uint8-32/int8-32 (be) readers and any/all/none/N of sets. Modules, for loops and base64 modifiers fail compilation with a message naming the feature. Returns every matching rule with namespace, tags and metadata, and each pattern match's file offset, length and containing ELF/PE/Mach-O section, plus the SHA-256 of every rule source. A timeout and per-pattern and total match caps bound the scan, and truncation is reported. A match means the rule's conditions hold for these bytes, not that its name or labels are correct; no match does not establish a clean file. Ghostwire ships no rules and uploads nothing; no external tool required.",
     inputSchema: scanWithYaraInputSchema,
     outputSchema: evidenceResultOf(yaraScanSchema),
     examples: [
@@ -151,6 +155,25 @@ export const BINARY_DIAGNOSTICS_TOOL_CONTRACTS = [
             source: 'rule upx_marker { strings: $a = "UPX!" condition: $a }',
           },
         },
+      },
+    ],
+  },
+  {
+    name: "extract_stack_strings",
+    ...toolContractMetadata("extract_stack_strings"),
+    kind: "native-provider",
+    description:
+      "Recover strings that a program builds on the stack from instruction immediates, which plain string extraction cannot see: byte, word, dword and qword immediate stores to [register+displacement], and registers loaded with mov/movabs immediates and then stored. Works on x86 and x86-64 code in ELF, PE and Mach-O files. Returns each ASCII or UTF-16LE string with its section, the file offsets of the first and last instruction that wrote it, the base register, the frame displacement and the number of stores, so every result can be confirmed in a disassembler. Groups break at function boundaries, and a reused buffer yields each string it held. Strings built with arithmetic, loops or decoding routines are not recovered. Reads one explicit file without executing it; no external tool required.",
+    inputSchema: extractStackStringsInputSchema,
+    outputSchema: evidenceResultOf(stackStringsSchema),
+    examples: [
+      {
+        title: "Recover stack-built strings",
+        input: { path: "/artifacts/sample.exe" },
+      },
+      {
+        title: "Include shorter strings",
+        input: { path: "/artifacts/sample.elf", min_length: 4 },
       },
     ],
   },
