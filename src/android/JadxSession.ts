@@ -132,7 +132,7 @@ export class JadxSession {
         );
       this.#loaded = loaded;
       const engine = {
-        name: "jadx-headless-mcp",
+        name: "jadx",
         version: runtime.engine_reported_version,
         artifact_sha256: jarHash,
         source_revision:

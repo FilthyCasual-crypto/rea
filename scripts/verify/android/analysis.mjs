@@ -21,10 +21,10 @@ import { verifyWindowsAndroidLifecycle } from "./windows-lifecycle.mjs";
 
 const repository = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const apk = process.env.REA_ANDROID_TEST_APK;
-const jar = process.env.REA_JADX_MCP_JAR;
+const jar = process.env.REA_JADX_JAR ?? process.env.REA_JADX_MCP_JAR;
 if (apk === undefined || jar === undefined)
   throw new Error(
-    "verify:android requires REA_ANDROID_TEST_APK and REA_JADX_MCP_JAR. Run npm run fixtures:android and select the downloaded files; see docs/android-analysis.md.",
+    "verify:android requires REA_ANDROID_TEST_APK and REA_JADX_JAR. Run npm run fixtures:android and select the downloaded files; see docs/android-analysis.md.",
   );
 await access(apk);
 await access(jar);
@@ -36,7 +36,7 @@ assert.equal(
 assert.equal(
   await hashAndroidFile(jar),
   JADX_RELEASE.sha256,
-  "Real Android lane requires the audited headless JADX release JAR",
+  "Real Android lane requires the audited upstream JADX release JAR",
 );
 const configuration = await resolveJadxConfigurationInputs(
   process.env,
@@ -52,7 +52,8 @@ const execute = promisify(execFile);
 await execute(java, ["-version"], { timeout: 10_000 });
 const entrypoint =
   process.env.REA_ANDROID_ENTRYPOINT ?? resolve(repository, "scripts/rea.mjs");
-const environment = { ...process.env, REA_JADX_MCP_JAR: resolve(jar) };
+const environment = { ...process.env, REA_JADX_JAR: resolve(jar) };
+delete environment.REA_JADX_MCP_JAR;
 const path = resolve(apk);
 await verifyAndroidMetadata({
   java,

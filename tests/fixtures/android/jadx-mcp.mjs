@@ -8,7 +8,7 @@ const mode = process.env.REA_FAKE_JADX_MODE ?? "normal";
 const server = new McpServer({
   name: mode === "empty-server-identity" ? "" : "rea-jadx-bridge",
   version:
-    mode === "empty-server-identity" ? "" : mode === "version" ? "99.0.0" : "1",
+    mode === "empty-server-identity" ? "" : mode === "version" ? "99.0.0" : "2",
 });
 const requestedCount = Number.parseInt(
   process.env.REA_FAKE_JADX_CLASS_COUNT ?? "",
@@ -57,7 +57,7 @@ const register = (name, handler) =>
   server.registerTool(name, { inputSchema: z.looseObject({}) }, handler);
 register("rea_jvm_status", () =>
   json({
-    engine_reported_version: mode === "engine-version" ? "0.7.0" : "0.7.1",
+    engine_reported_version: mode === "engine-version" ? "1.5.5" : "1.5.6",
     max_heap_bytes: 8 * 1024 * 1024 * 1024,
     available_processors: 4,
     java_version: "21-fixture",

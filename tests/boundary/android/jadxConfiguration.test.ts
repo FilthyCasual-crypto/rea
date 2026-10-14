@@ -5,7 +5,9 @@ import { expect, it as test } from "vitest";
 
 import {
   inspectJadxAvailability,
+  JADX_BRIDGE_REQUIRED_CLASSES,
   resolveJadxConfigurationInputs,
+  selectJadxJarSetting,
   validateJadxConfiguration,
 } from "../../../src/android/JadxConfiguration.js";
 import { AnalysisCapabilityUnavailableError } from "../../../src/domain/analysisErrorCore.js";
@@ -34,18 +36,18 @@ it("rejects malformed or unrelated engine archives with JAR-specific recovery", 
   for (const malformed of [true, false]) {
     if (malformed) await writeFile(jar, "not a Java archive");
     else await writeOrderedZip(jar, ["unrelated/Library.class"]);
-    const environment = { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome };
+    const environment = { REA_JADX_JAR: jar, JAVA_HOME: javaHome };
     const availability = await inspectJadxAvailability(environment);
     expect(availability).toMatchObject({
       status: "unavailable",
-      reason: expect.stringContaining("REA_JADX_MCP_JAR"),
+      reason: expect.stringContaining("REA_JADX_JAR"),
       diagnostics: { jar_path: await realpath(jar), phase: "jar-inspection" },
     });
     await expect(
       resolveConfiguration(environment, "inspect_android_package"),
     ).rejects.toMatchObject({
       _tag: "AnalysisCapabilityUnavailableError",
-      reason: expect.stringContaining("REA_JADX_MCP_JAR"),
+      reason: expect.stringContaining("REA_JADX_JAR"),
     });
     expect(availability.reason).not.toContain("Select a full JDK");
   }
@@ -53,13 +55,13 @@ it("rejects malformed or unrelated engine archives with JAR-specific recovery", 
 
 it("rejects an explicit JAVA_HOME without an executable java binary", async () => {
   const root = await createTestTempDirectory("rea-jadx-config-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const javaHome = join(root, "missing-jdk");
   await writeJadxJarInventory(jar);
 
   await expect(
     resolveConfiguration(
-      { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome },
+      { REA_JADX_JAR: jar, JAVA_HOME: javaHome },
       "inspect_android_package",
     ),
   ).rejects.toMatchObject({
@@ -70,7 +72,26 @@ it("rejects an explicit JAVA_HOME without an executable java binary", async () =
 
 it("accepts a full JDK and canonicalizes the selected JAR", async () => {
   const root = await createTestTempDirectory("rea-jadx-config-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
+  const javaHome = await createFakeJdk(root);
+  await writeJadxJarInventory(jar);
+
+  await expect(
+    resolveConfiguration(
+      { REA_JADX_JAR: jar, JAVA_HOME: javaHome },
+      "inspect_android_package",
+    ),
+  ).resolves.toEqual({
+    jar: await realpath(jar),
+    jarVariable: "REA_JADX_JAR",
+    java: join(javaHome, "bin", "java"),
+    jvmArguments: [],
+  });
+});
+
+it("honors the deprecated REA_JADX_MCP_JAR only when REA_JADX_JAR is unset", async () => {
+  const root = await createTestTempDirectory("rea-jadx-config-");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const javaHome = await createFakeJdk(root);
   await writeJadxJarInventory(jar);
 
@@ -79,11 +100,30 @@ it("accepts a full JDK and canonicalizes the selected JAR", async () => {
       { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome },
       "inspect_android_package",
     ),
-  ).resolves.toEqual({
+  ).resolves.toMatchObject({
     jar: await realpath(jar),
-    java: join(javaHome, "bin", "java"),
-    jvmArguments: [],
+    jarVariable: "REA_JADX_MCP_JAR",
   });
+  await expect(
+    resolveConfiguration(
+      {
+        REA_JADX_JAR: join(root, "missing.jar"),
+        REA_JADX_MCP_JAR: jar,
+        JAVA_HOME: javaHome,
+      },
+      "inspect_android_package",
+    ),
+  ).rejects.toMatchObject({
+    _tag: "AnalysisCapabilityUnavailableError",
+    reason: expect.stringContaining("Cannot read REA_JADX_JAR"),
+  });
+  expect(
+    selectJadxJarSetting({
+      REA_JADX_JAR: "/a.jar",
+      REA_JADX_MCP_JAR: "/b.jar",
+    }),
+  ).toEqual({ variable: "REA_JADX_JAR", value: "/a.jar" });
+  expect(selectJadxJarSetting({})).toBeUndefined();
 });
 
 it("admits engine classes past repeated ZIP resource filenames", async () => {
@@ -93,11 +133,7 @@ it("admits engine classes past repeated ZIP resource filenames", async () => {
   await writeOrderedZip(jar, [
     "META-INF/LICENSE.txt",
     "META-INF/LICENCE.txt",
-    "com/atxx/jhmcp/JadxSession.class",
-    "com/atxx/jhmcp/SessionHolder.class",
-    "jadx/api/JadxDecompiler.class",
-    "com/google/gson/Gson.class",
-    "io/modelcontextprotocol/kotlin/sdk/server/Server.class",
+    ...JADX_BRIDGE_REQUIRED_CLASSES,
   ]);
   const bytes = await readFile(jar);
   const original = Buffer.from("META-INF/LICENCE.txt");
@@ -114,7 +150,7 @@ it("admits engine classes past repeated ZIP resource filenames", async () => {
   await writeFile(jar, bytes);
   await expect(
     resolveConfiguration(
-      { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome },
+      { REA_JADX_JAR: jar, JAVA_HOME: javaHome },
       "inspect_android_package",
     ),
   ).resolves.toMatchObject({ jar: await realpath(jar) });
@@ -127,7 +163,7 @@ it("configures heap and visible processors independently without forcing either"
   await writeJadxJarInventory(jar);
   const configuration = await resolveConfiguration(
     {
-      REA_JADX_MCP_JAR: jar,
+      REA_JADX_JAR: jar,
       JAVA_HOME: javaHome,
       REA_JADX_HEAP_MIB: "8192",
       REA_JADX_ACTIVE_PROCESSOR_COUNT: "4",
@@ -141,7 +177,7 @@ it("configures heap and visible processors independently without forcing either"
   await expect(
     resolveConfiguration(
       {
-        REA_JADX_MCP_JAR: jar,
+        REA_JADX_JAR: jar,
         JAVA_HOME: javaHome,
         REA_JADX_ACTIVE_PROCESSOR_COUNT: "2147483648",
       },
@@ -156,7 +192,7 @@ it("configures heap and visible processors independently without forcing either"
       await expect(
         resolveConfiguration(
           {
-            REA_JADX_MCP_JAR: jar,
+            REA_JADX_JAR: jar,
             JAVA_HOME: javaHome,
             [name]: value,
           },
@@ -170,12 +206,12 @@ it("configures heap and visible processors independently without forcing either"
 
 it("distinguishes a runnable JRE from a missing Java executable", async () => {
   const root = await createTestTempDirectory("rea-jadx-runtime-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   await writeJadxJarInventory(jar);
   const jreHome = await createFakeJdk(root, false);
   await expect(
     resolveConfiguration(
-      { REA_JADX_MCP_JAR: jar, JAVA_HOME: jreHome },
+      { REA_JADX_JAR: jar, JAVA_HOME: jreHome },
       "inspect_android_package",
     ),
   ).rejects.toMatchObject({
@@ -192,7 +228,7 @@ it("distinguishes a runnable JRE from a missing Java executable", async () => {
   const emptyPath = join(root, "empty-path");
   await mkdir(emptyPath);
   const availability = await inspectJadxAvailability({
-    REA_JADX_MCP_JAR: jar,
+    REA_JADX_JAR: jar,
     PATH: emptyPath,
   });
   expect(availability).toMatchObject({
@@ -210,7 +246,7 @@ it("distinguishes a runnable JRE from a missing Java executable", async () => {
 
 it("preserves exact Java probe output and marks max-buffer capture as truncated", async () => {
   const root = await createTestTempDirectory("rea-jadx-output-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const javaHome = join(root, "fake-jdk");
   const bin = join(javaHome, "bin");
   const java = join(bin, "java");
@@ -223,7 +259,7 @@ it("preserves exact Java probe output and marks max-buffer capture as truncated"
   await chmod(java, 0o700);
 
   const failure = await resolveConfiguration(
-    { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome },
+    { REA_JADX_JAR: jar, JAVA_HOME: javaHome },
     "inspect_android_package",
   ).then(
     () => undefined,
@@ -241,7 +277,7 @@ it("preserves exact Java probe output and marks max-buffer capture as truncated"
   expect(failure.capturedOutput?.stdout.length).toBeLessThan(2 * 1024 * 1024);
   await expect(
     inspectJadxAvailability({
-      REA_JADX_MCP_JAR: jar,
+      REA_JADX_JAR: jar,
       JAVA_HOME: javaHome,
     }),
   ).resolves.toMatchObject({
@@ -258,7 +294,7 @@ it("preserves exact Java probe output and marks max-buffer capture as truncated"
 
 it("distinguishes an unreported Java version from an unsupported old version", async () => {
   const root = await createTestTempDirectory("rea-jadx-version-listing-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   await writeJadxJarInventory(jar);
 
   const unresolvedHome = await createFakeJdk(root);
@@ -269,7 +305,7 @@ it("distinguishes an unreported Java version from an unsupported old version", a
   await chmod(join(unresolvedHome, "bin", "java"), 0o700);
   await expect(
     inspectJadxAvailability({
-      REA_JADX_MCP_JAR: jar,
+      REA_JADX_JAR: jar,
       JAVA_HOME: unresolvedHome,
     }),
   ).resolves.toMatchObject({
@@ -289,7 +325,7 @@ it("distinguishes an unreported Java version from an unsupported old version", a
   await chmod(join(oldHome, "bin", "java"), 0o700);
   await expect(
     resolveConfiguration(
-      { REA_JADX_MCP_JAR: jar, JAVA_HOME: oldHome },
+      { REA_JADX_JAR: jar, JAVA_HOME: oldHome },
       "inspect_android_package",
     ),
   ).rejects.toMatchObject({
@@ -300,12 +336,12 @@ it("distinguishes an unreported Java version from an unsupported old version", a
 
 it("cancels an in-flight Java readiness probe", async () => {
   const root = await createTestTempDirectory("rea-jadx-cancel-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const { javaHome, marker } = await createHangingJdk(root);
   await writeJadxJarInventory(jar);
   const controller = new AbortController();
   const pending = inspectJadxAvailability(
-    { REA_JADX_MCP_JAR: jar, JAVA_HOME: javaHome },
+    { REA_JADX_JAR: jar, JAVA_HOME: javaHome },
     controller.signal,
   );
   try {
@@ -329,12 +365,12 @@ it("cancels an in-flight Java readiness probe", async () => {
 
 it("reports a killed Java probe as unresolved instead of missing runtime", async () => {
   const root = await createTestTempDirectory("rea-jadx-timeout-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const { javaHome, java } = await createHangingJdk(root);
   await writeJadxJarInventory(jar);
 
   const availability = await inspectJadxAvailability({
-    REA_JADX_MCP_JAR: jar,
+    REA_JADX_JAR: jar,
     JAVA_HOME: javaHome,
   });
   expect(availability).toMatchObject({

@@ -55,7 +55,7 @@ export const createJadxProtocolFixture = async (
   const environment: NodeJS.ProcessEnv = {
     ...process.env,
     JAVA_HOME: javaHome,
-    REA_JADX_MCP_JAR: jar,
+    REA_JADX_JAR: jar,
   };
   const provider = createAndroidAnalysisProvider(
     environment,

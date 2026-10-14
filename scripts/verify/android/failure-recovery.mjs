@@ -34,13 +34,14 @@ export async function verifyAndroidFailureRecovery({
   const jlinkName = process.platform === "win32" ? "jlink.exe" : "jlink";
   try {
     const withoutJar = { ...environment };
+    delete withoutJar.REA_JADX_JAR;
     delete withoutJar.REA_JADX_MCP_JAR;
     await verifyAndroidReadiness({
       entrypoint,
       environment: withoutJar,
       repository,
       available: false,
-      remediation: /REA_JADX_MCP_JAR/u,
+      remediation: /REA_JADX_JAR/u,
     });
     let jlink;
     for (const candidate of isAbsolute(java)
@@ -112,8 +113,8 @@ export async function verifyAndroidFailureRecovery({
       },
       {
         label: "invalid engine archive with a working JDK",
-        env: { ...environment, REA_JADX_MCP_JAR: invalidJar },
-        observation: "Cannot inspect REA_JADX_MCP_JAR",
+        env: { ...environment, REA_JADX_JAR: invalidJar },
+        observation: "Cannot inspect REA_JADX_JAR",
         jarFailure: true,
       },
     ];
@@ -154,11 +155,11 @@ export async function verifyAndroidFailureRecovery({
       );
       assert.match(
         failure.message,
-        scenario.jarFailure ? /REA_JADX_MCP_JAR/u : /full JDK/u,
+        scenario.jarFailure ? /REA_JADX_JAR/u : /full JDK/u,
       );
       assert.match(
         failure.remediation.action,
-        scenario.jarFailure ? /jadx-headless-mcp/u : /java --list-modules/u,
+        scenario.jarFailure ? /upstream JADX/u : /java --list-modules/u,
       );
       if (scenario.jarFailure)
         assert.doesNotMatch(failure.message, /Select a full JDK/u);

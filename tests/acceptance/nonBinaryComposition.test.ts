@@ -39,7 +39,7 @@ const connect = async (environment: NodeJS.ProcessEnv) => {
 };
 
 for (const { jarConfigured, setting } of [
-  { jarConfigured: false, setting: "REA_JADX_MCP_JAR" },
+  { jarConfigured: false, setting: "REA_JADX_JAR" },
   { jarConfigured: true, setting: "JAVA_HOME" },
 ])
   cliTest.skipIf(process.platform === "win32")(
@@ -48,7 +48,7 @@ for (const { jarConfigured, setting } of [
       const root = await createTestTempDirectory("rea-android-composition-");
       const apk = join(root, "fixture.apk");
       await writeOrderedZip(apk, ["AndroidManifest.xml", "classes.dex"]);
-      const jar = join(root, "jadx-headless-mcp.jar");
+      const jar = join(root, "jadx-1.5.6-all.jar");
       await writeFile(
         jar,
         "fixture jar; validation must fail before execution",
@@ -56,7 +56,7 @@ for (const { jarConfigured, setting } of [
       const environment = {
         REA_LOG_LEVEL: "silent",
         JAVA_HOME: "relative-fixture-jdk",
-        ...(jarConfigured ? { REA_JADX_MCP_JAR: jar } : {}),
+        ...(jarConfigured ? { REA_JADX_JAR: jar } : {}),
       };
       const cliResult = await cli.run({
         arguments: ["inspect-android-package", apk, "--json"],

@@ -15,14 +15,14 @@ it("exposes jadx through the doctor provider selector", () => {
   expect(DOCTOR_PROVIDER_IDS).toContain("jadx");
 });
 
-it("carries a validated REA_JADX_MCP_JAR into the provider registration environment", async () => {
+it("carries a validated REA_JADX_JAR into the provider registration environment", async () => {
   const root = await createTestTempDirectory("rea-jadx-registration-");
-  const jar = join(root, "jadx-headless-mcp.jar");
+  const jar = join(root, "jadx-1.5.6-all.jar");
   const javaHome = await createFakeJdk(root);
   await writeJadxJarInventory(jar);
 
   const host = createSystemDoctorHost({
-    REA_JADX_MCP_JAR: jar,
+    REA_JADX_JAR: jar,
     JAVA_HOME: javaHome,
   });
   const inspections = await host.providerInspections?.();
@@ -30,16 +30,16 @@ it("carries a validated REA_JADX_MCP_JAR into the provider registration environm
 
   const environment = providerRegistrationEnvironment(inspections ?? []);
   expect(environment).toMatchObject({
-    REA_JADX_MCP_JAR: await realpath(jar),
+    REA_JADX_JAR: await realpath(jar),
   });
 });
 
-it("omits REA_JADX_MCP_JAR from the provider registration environment when it is not configured", async () => {
+it("omits REA_JADX_JAR from the provider registration environment when it is not configured", async () => {
   const host = createSystemDoctorHost({});
   const inspections = await host.providerInspections?.();
 
   const environment = providerRegistrationEnvironment(inspections ?? []);
-  expect(environment).not.toHaveProperty("REA_JADX_MCP_JAR");
+  expect(environment).not.toHaveProperty("REA_JADX_JAR");
 });
 
 const createFakeJdk = async (root: string): Promise<string> => {

@@ -495,7 +495,7 @@ it("reports missing explicit tools without trying to install or launch them", as
     ok: false,
     error: {
       _tag: "AnalysisCapabilityUnavailableError",
-      reason: expect.stringContaining("REA_JADX_MCP_JAR"),
+      reason: expect.stringContaining("REA_JADX_JAR"),
     },
   });
 });

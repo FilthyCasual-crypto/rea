@@ -1,7 +1,9 @@
 # Static Android APK analysis
 
-REA wraps an existing headless JADX engine through `src/android/`. Its source is
-kept as an unmodified, commit-pinned Git submodule; see
+REA runs the upstream [JADX](https://github.com/skylot/jadx) decompiler
+(Apache-2.0) through its own bridge, `bridge/android/ReaJadxBridge.java`, and the
+adapter in `src/android/`. The bridge links only against the unmodified JADX
+release JAR and the JDK; see
 [upstream provenance](https://github.com/morluto/rea/blob/main/third_party/README.md). CLI and MCP use the same
 application workflow and return artifact-bound Evidence inline.
 
@@ -36,47 +38,64 @@ unverified.
 
 ## Supply tools
 
-Use a **full JDK 17 or newer** (including its compiler module) and
-[**jadx-headless-mcp 0.7.1**](https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar).
-Verify the downloaded JAR's SHA-256 against
+Use a **full JDK 17 or newer** (including its compiler module) and the upstream
+[**JADX 1.5.6** release ZIP](https://github.com/skylot/jadx/releases/tag/v1.5.6).
+REA uses one file from it, `lib/jadx-1.5.6-all.jar`. Verify both the ZIP and the
+extracted JAR against
 [REA's pinned release metadata](https://github.com/morluto/rea/blob/main/src/android/JadxRelease.ts)
-before using it. The following download and verification commands work for npm
+before using them. The following download and verification commands work for npm
 package consumers as well as repository checkouts; the repository-only
 `npm run fixtures:android` helper is not included in the npm package.
 
-On macOS or Linux, choose a destination and verify the pinned digest:
+On macOS or Linux, choose a destination and verify the pinned digests:
 
 ```sh
 mkdir -p "$HOME/.local/share/rea/android" &&
 cd "$HOME/.local/share/rea/android" &&
-curl -fL -o jadx-headless-mcp-0.7.1-all.jar https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar &&
-if command -v sha256sum >/dev/null; then
-  echo '6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75  jadx-headless-mcp-0.7.1-all.jar' | sha256sum -c -
-else
-  echo '6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75  jadx-headless-mcp-0.7.1-all.jar' | shasum -a 256 -c -
-fi &&
-export REA_JADX_MCP_JAR="$PWD/jadx-headless-mcp-0.7.1-all.jar"
+curl -fL -o jadx-1.5.6.zip https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip &&
+unzip -o -j jadx-1.5.6.zip lib/jadx-1.5.6-all.jar &&
+if command -v sha256sum >/dev/null; then sum='sha256sum'; else sum='shasum -a 256'; fi &&
+printf '%s\n' \
+  '545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974  jadx-1.5.6.zip' \
+  'fe3e12c45acf75f92369685fd02d1d7a7323385dc725680a9b98a0dac0ea554b  jadx-1.5.6-all.jar' |
+  $sum -c - &&
+export REA_JADX_JAR="$PWD/jadx-1.5.6-all.jar"
 ```
 
 On Windows, run the equivalent in PowerShell:
 
 ```powershell
-$jar = Join-Path $HOME '.local\share\rea\android\jadx-headless-mcp-0.7.1-all.jar'
-New-Item -ItemType Directory -Force (Split-Path $jar) | Out-Null
-Invoke-WebRequest -Uri 'https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar' -OutFile $jar
-if ((Get-FileHash -Algorithm SHA256 $jar).Hash.ToLowerInvariant() -ne '6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75') { throw 'JADX JAR SHA-256 does not match REA pinned metadata' }
-$env:REA_JADX_MCP_JAR = $jar
+$dir = Join-Path $HOME '.local\share\rea\android'
+New-Item -ItemType Directory -Force $dir | Out-Null
+$zip = Join-Path $dir 'jadx-1.5.6.zip'
+$jar = Join-Path $dir 'jadx-1.5.6-all.jar'
+Invoke-WebRequest -Uri 'https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip' -OutFile $zip
+if ((Get-FileHash -Algorithm SHA256 $zip).Hash.ToLowerInvariant() -ne '545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974') { throw 'JADX ZIP SHA-256 does not match REA pinned metadata' }
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+$archive = [System.IO.Compression.ZipFile]::OpenRead($zip)
+try { [System.IO.Compression.ZipFileExtensions]::ExtractToFile($archive.GetEntry('lib/jadx-1.5.6-all.jar'), $jar, $true) } finally { $archive.Dispose() }
+if ((Get-FileHash -Algorithm SHA256 $jar).Hash.ToLowerInvariant() -ne 'fe3e12c45acf75f92369685fd02d1d7a7323385dc725680a9b98a0dac0ea554b') { throw 'JADX JAR SHA-256 does not match REA pinned metadata' }
+$env:REA_JADX_JAR = $jar
 ```
 
-REA runs its packaged Java metadata bridge in source-file mode against the
-unmodified engine JAR. REA does not install Java, an Android SDK, JADX, a device
-service or an emulator. Set the path in the shell or MCP server environment:
+REA runs its packaged Java bridge in source-file mode against the unmodified
+upstream JAR. The bridge uses only JADX's `jadx.api`/`jadx.core` classes and the
+JDK, loads only JADX's DEX, Java, smali, XAPK and Kotlin-metadata input plugins,
+and speaks a minimal newline-delimited JSON-RPC (MCP stdio subset) to REA. REA
+does not install Java, an Android SDK, JADX, a device service or an emulator, and
+never downloads an engine at run time. Set the path in the shell or MCP server
+environment:
 
 ```sh
-export REA_JADX_MCP_JAR=/absolute/path/jadx-headless-mcp-0.7.1-all.jar
+export REA_JADX_JAR=/absolute/path/jadx-1.5.6-all.jar
 # Optional: select an existing JDK rather than java on PATH.
 export JAVA_HOME=/absolute/path/existing-jdk
 ```
+
+`REA_JADX_MCP_JAR`, the setting used before REA adopted upstream JADX, is still
+read as a deprecated alias when `REA_JADX_JAR` is unset. `rea doctor` reports the
+deprecation and records `REA_JADX_JAR` in agent registrations. A JAR from the
+former `jadx-headless-mcp` distribution is not accepted.
 
 On Windows x64, use a REA package with its matching bundled Windows native
 controls **including owned protocol stdin support**. This Windows boundary is
@@ -85,7 +104,7 @@ PowerShell accepts paths containing spaces without additional escaping
 inside these environment values:
 
 ```powershell
-$env:REA_JADX_MCP_JAR = 'D:\tools\jadx-headless-mcp-0.7.1-all.jar'
+$env:REA_JADX_JAR = 'D:\tools\jadx-1.5.6-all.jar'
 $env:JAVA_HOME = 'D:\tools\jdk-21'
 rea inspect-android-package 'D:\targets\Example.apk'
 ```
@@ -95,20 +114,20 @@ Windows `PATH`. A missing or mismatched native artifact reports the package
 prerequisite rather than attempting an unowned Java launch. Windows arm64 is
 outside this provider's current native boundary.
 
-Readiness checks the selected JAR's ZIP directory for the classes consumed by
-REA's metadata bridge, as well as Java's compiler and version modules. It does
+Readiness checks the selected JAR's ZIP directory for the upstream classes
+REA's bridge links against, as well as Java's compiler and version modules. It does
 not load an APK or execute engine code. Invalid archives and missing bridge
 classes report JAR-specific recovery; classpath inventory alone does not prove
 that every class or engine operation will load successfully. Discovery limits
 each ZIP metadata read to 8 MiB before allocation; a larger directory reports
 the exhausted read budget and the selected JAR path.
 
-The current metadata bridge is verified on macOS arm64 with OpenJDK 21 and the
-public Appium ApiDemos fixture. The POSIX adapter also supports Linux; the new
-bridge has not yet undergone real verification on Linux/JDK 25.
-Windows x64 uses an owned Job Object with bidirectional stdio, atomic job
-assignment and kill-on-owner-close. Real Windows verification uses JDK 21 and
-the pinned JADX 0.7.1 JAR; see the real verification lane below.
+The upstream-JADX bridge is verified on Linux x64 with Temurin OpenJDK 21 and
+the public Appium ApiDemos fixture. macOS uses the same POSIX adapter but has
+not yet been re-verified with this bridge. Windows x64 uses an owned Job Object
+with bidirectional stdio, atomic job assignment and kill-on-owner-close; the
+real Windows lane below has not yet been re-run against the upstream JADX 1.5.6
+JAR.
 
 ## Answer an analyst question
 
@@ -160,8 +179,9 @@ the same source byte limit and explicit truncation reporting.
 ## Interpret the result
 
 - Package inspection retains decoded manifest XML, summary declarations,
-  permissions and class/resource counts. Summary fields are extracted by the
-  upstream engine and should be checked against the retained XML when needed.
+  permissions and class/resource counts. Summary fields are extracted by REA's
+  bridge from the manifest XML JADX decodes, and should be checked against the
+  retained XML when needed.
   Signature verification is explicitly `not_performed`.
 - Class search consumes all pages and checks their counts. An empty `query`
   inventories all class-name rows; class names are decompiler representations.
@@ -301,9 +321,9 @@ raw runtime response. The observed allocatable heap can differ from configured
 `-Xmx`, especially with Serial GC. Heap is not a total RSS cap: the JVM also
 uses native memory. Independent REA instances have independent queues. Whole
 operations have a **120-second** execution deadline after reaching the queue's
-front; upstream decompilation is limited to **90 seconds**.
+front; each JADX code-generation call in the bridge is limited to **90 seconds**.
 
-Decoded manifest and method text have a **1 MiB** upstream byte budget and report
+Decoded manifest and method text have a **1 MiB** bridge byte budget and report
 truncation. Class-name pages use indexed slices of up to 4,096 names without changing the
 complete, case-sensitive search contract. A protocol frame above **8 MiB**, or combined stdout/stderr above
 **32 MiB per operation**, fails with a diagnostic instead of returning an incomplete inventory
@@ -315,7 +335,7 @@ Download the explicit public fixtures once; this installs no tools:
 
 ```sh
 npm run fixtures:android
-export REA_JADX_MCP_JAR="$PWD/_reference/apk-integration/jadx-headless-mcp-0.7.1-all.jar"
+export REA_JADX_JAR="$PWD/_reference/apk-integration/jadx-1.5.6-all.jar"
 export REA_ANDROID_TEST_APK="$PWD/_reference/apk-integration/ApiDemos-debug.apk"
 npm run verify:android
 ```
@@ -333,7 +353,8 @@ synthetic two-owner test confirms that one owner's exit does not remove the
 other owner's workspace. The lane does not claim a structured cancellation
 result or power-loss recovery.
 
-The download script verifies fixed SHA-256 values, reuses matching files and
+The download script verifies the fixed SHA-256 values of the JADX release ZIP,
+the JAR extracted from it and the APK, reuses matching files and
 refuses to overwrite a different existing file. APK/JAR files live under ignored
 `_reference/` and are excluded from package contents. The lane exercises actual
 REA CLI and MCP results with the real engine, separately from synthetic protocol

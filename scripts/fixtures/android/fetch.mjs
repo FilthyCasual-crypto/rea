@@ -1,8 +1,9 @@
 import { createHash, randomUUID } from "node:crypto";
-import { createReadStream } from "node:fs";
-import { link, mkdir, open, rm } from "node:fs/promises";
+import { createReadStream, openAsBlob } from "node:fs";
+import { link, mkdir, open, rm, writeFile } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { BlobReader, Uint8ArrayWriter, ZipReader } from "@zip.js/zip.js";
 import { JADX_RELEASE } from "../../../src/android/JadxRelease.ts";
 import fixture from "./apidemos.json" with { type: "json" };
 
@@ -21,34 +22,32 @@ const hashFile = async (path) => {
   for await (const chunk of createReadStream(path)) hash.update(chunk);
   return hash.digest("hex");
 };
-for (const item of [
-  {
-    url: JADX_RELEASE.url,
-    sha256: JADX_RELEASE.sha256,
-    filename: "jadx-headless-mcp-0.7.1-all.jar",
-  },
-  fixture,
-]) {
-  const path = join(directory, item.filename);
+const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
+
+/** Returns true when an existing file already has the expected digest. */
+const verifiedExisting = async (path, expected) => {
   try {
     const digest = await hashFile(path);
-    if (digest !== item.sha256)
+    if (digest !== expected)
       throw new Error(
         `Existing ${path} has a different SHA-256; it was not overwritten`,
       );
     console.log(`Verified existing ${path}: ${digest}`);
-    continue;
+    return true;
   } catch (cause) {
-    if (!(cause instanceof Error && "code" in cause && cause.code === "ENOENT"))
-      throw cause;
+    if (cause instanceof Error && "code" in cause && cause.code === "ENOENT")
+      return false;
+    throw cause;
   }
+};
+
+/** Download to a private temporary file and publish it only after its digest matches. */
+const download = async (url, expected, path) => {
   const temporary = `${path}.${randomUUID()}.partial`;
   try {
-    const response = await fetch(item.url, {
-      signal: AbortSignal.timeout(120_000),
-    });
+    const response = await fetch(url, { signal: AbortSignal.timeout(300_000) });
     if (!response.ok || response.body === null)
-      throw new Error(`Download failed: ${item.url}: HTTP ${response.status}`);
+      throw new Error(`Download failed: ${url}: HTTP ${response.status}`);
     const handle = await open(temporary, "wx", 0o600);
     const hash = createHash("sha256");
     try {
@@ -60,13 +59,59 @@ for (const item of [
       await handle.close();
     }
     const digest = hash.digest("hex");
-    if (digest !== item.sha256)
+    if (digest !== expected)
       throw new Error(
-        `SHA-256 mismatch for ${item.filename}: expected ${item.sha256}, received ${digest}`,
+        `SHA-256 mismatch for ${url}: expected ${expected}, received ${digest}`,
       );
     await link(temporary, path);
     console.log(`Downloaded and verified ${path}: ${digest}`);
   } finally {
     await rm(temporary, { force: true });
   }
+};
+
+// Upstream JADX publishes the all-in-one JAR inside its release ZIP. Verify the
+// ZIP against the published digest, then the extracted JAR against its own pin.
+const jarPath = join(directory, JADX_RELEASE.jar_filename);
+if (!(await verifiedExisting(jarPath, JADX_RELEASE.sha256))) {
+  const archivePath = join(directory, `jadx-${JADX_RELEASE.version}.zip`);
+  if (!(await verifiedExisting(archivePath, JADX_RELEASE.archive_sha256)))
+    await download(
+      JADX_RELEASE.archive_url,
+      JADX_RELEASE.archive_sha256,
+      archivePath,
+    );
+  const reader = new ZipReader(new BlobReader(await openAsBlob(archivePath)), {
+    useWebWorkers: false,
+  });
+  let bytes;
+  try {
+    const entry = (await reader.getEntries()).find(
+      (candidate) => candidate.filename === JADX_RELEASE.archive_entry,
+    );
+    if (entry === undefined || entry.directory)
+      throw new Error(
+        `${archivePath} has no ${JADX_RELEASE.archive_entry} entry`,
+      );
+    bytes = await entry.getData(new Uint8ArrayWriter());
+  } finally {
+    await reader.close();
+  }
+  const digest = sha256(bytes);
+  if (digest !== JADX_RELEASE.sha256)
+    throw new Error(
+      `SHA-256 mismatch for ${JADX_RELEASE.archive_entry}: expected ${JADX_RELEASE.sha256}, received ${digest}`,
+    );
+  const temporary = `${jarPath}.${randomUUID()}.partial`;
+  try {
+    await writeFile(temporary, bytes, { flag: "wx", mode: 0o600 });
+    await link(temporary, jarPath);
+  } finally {
+    await rm(temporary, { force: true });
+  }
+  console.log(`Extracted and verified ${jarPath}: ${digest}`);
 }
+
+const apkPath = join(directory, fixture.filename);
+if (!(await verifiedExisting(apkPath, fixture.sha256)))
+  await download(fixture.url, fixture.sha256, apkPath);

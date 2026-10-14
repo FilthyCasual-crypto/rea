@@ -75,7 +75,7 @@ msgstr "โดย N0zoM1z0 ·10 ตุลาคม 2026"
 #: website/public/guides/index.html:284
 #: website/public/guides/javascript/index.html:505
 #: website/public/guides/native/index.html:511 website/public/index.html:1193
-#: website/public/showcase/aegis/index.html:810
+#: website/public/showcase/aegis/index.html:811
 #: website/public/showcase/ctf/index.html:779
 #: website/public/showcase/dx-ball/index.html:787
 #: website/public/showcase/index.html:319
@@ -7669,8 +7669,8 @@ msgctxt "page:showcase/aegis/index.html"
 msgid "macOS / Linux"
 msgstr "macOS / Linux"
 
-#. {ph0}: <code>REA_JADX_MCP_JAR</code>
-#: website/public/showcase/aegis/index.html:747
+#. {ph0}: <code>REA_JADX_JAR</code>
+#: website/public/showcase/aegis/index.html:748
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
@@ -7682,7 +7682,7 @@ msgstr ""
 
 #. {ph0}: <strong >
 #. {ph1}: </strong >
-#: website/public/showcase/aegis/index.html:752
+#: website/public/showcase/aegis/index.html:753
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
@@ -7692,7 +7692,7 @@ msgstr ""
 "คำถามต่อไป: "
 "{ph0}จะเกิดอะไรขึ้นเมื่อบัญชีใช้ตัวเลขแปดหลักหรือช่วงเวลาที่แตกต่างกัน{ph1}"
 
-#: website/public/showcase/aegis/index.html:762
+#: website/public/showcase/aegis/index.html:763
 msgctxt "page:showcase/aegis/index.html"
 msgid "Sources"
 msgstr "แหล่งที่มา"
@@ -7708,7 +7708,7 @@ msgstr "แหล่งที่มา"
 #. href="https://github.com/beemdevelopment/Aegis/blob/d6f4e5925a97e4e91593f1542085eae03432a759/LICENSE"
 #. >
 #. {ph5}: </a >
-#: website/public/showcase/aegis/index.html:764
+#: website/public/showcase/aegis/index.html:765
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
@@ -7722,13 +7722,13 @@ msgstr ""
 #. {ph1}: </a >
 #. {ph2}: <a href="test-vectors.json">
 #. {ph3}: </a>
-#: website/public/showcase/aegis/index.html:780
+#: website/public/showcase/aegis/index.html:781
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid "{ph0}RFC 6238 reference cases{ph1} · {ph2}Demo test data{ph3}"
 msgstr "{ph0}กรณีอ้างอิง 6238{ph1} · {ph2}ข้อมูลการทดสอบการสาธิต{ph3}"
 
-#: website/public/showcase/aegis/index.html:787
+#: website/public/showcase/aegis/index.html:788
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
 "Inspected with REA 6.1.0 on 9 October 2026. Decompiled excerpts are credited"
@@ -7778,7 +7778,7 @@ msgctxt "page:showcase/aegis/index.html"
 msgid "Copy APK inspection command"
 msgstr "คัดลอก APK คำสั่งการตรวจสอบ"
 
-#: website/public/showcase/aegis/index.html:810
+#: website/public/showcase/aegis/index.html:811
 msgctxt "page:showcase/aegis/index.html"
 msgid "Back to top"
 msgstr "กลับขึ้นด้านบน"
@@ -11478,7 +11478,7 @@ msgstr "คู่มือ"
 #: website/public/guides/index.html:276
 #: website/public/guides/javascript/index.html:497
 #: website/public/guides/native/index.html:503 website/public/index.html:1185
-#: website/public/showcase/aegis/index.html:802
+#: website/public/showcase/aegis/index.html:803
 #: website/public/showcase/ctf/index.html:771
 #: website/public/showcase/dx-ball/index.html:779
 #: website/public/showcase/index.html:311
@@ -11499,7 +11499,7 @@ msgstr "ซอร์สโค้ด"
 #: website/public/guides/index.html:277
 #: website/public/guides/javascript/index.html:498
 #: website/public/guides/native/index.html:504 website/public/index.html:1186
-#: website/public/showcase/aegis/index.html:803
+#: website/public/showcase/aegis/index.html:804
 #: website/public/showcase/ctf/index.html:772
 #: website/public/showcase/dx-ball/index.html:780
 #: website/public/showcase/index.html:312
@@ -11520,7 +11520,7 @@ msgstr "สัญญาอนุญาต MIT"
 #: website/public/guides/index.html:278
 #: website/public/guides/javascript/index.html:499
 #: website/public/guides/native/index.html:505 website/public/index.html:1187
-#: website/public/showcase/aegis/index.html:804
+#: website/public/showcase/aegis/index.html:805
 #: website/public/showcase/ctf/index.html:773
 #: website/public/showcase/dx-ball/index.html:781
 #: website/public/showcase/index.html:313
@@ -11541,7 +11541,7 @@ msgstr "เข้าร่วมชุมชน"
 #: website/public/guides/index.html:279
 #: website/public/guides/javascript/index.html:500
 #: website/public/guides/native/index.html:506 website/public/index.html:1188
-#: website/public/showcase/aegis/index.html:805
+#: website/public/showcase/aegis/index.html:806
 #: website/public/showcase/ctf/index.html:774
 #: website/public/showcase/dx-ball/index.html:782
 #: website/public/showcase/index.html:314

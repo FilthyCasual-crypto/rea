@@ -723,7 +723,7 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
                 >Download Aegis APK</a
               ><a
                 class="text-link"
-                href="https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar"
+                href="https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip"
                 >Download Android analysis provider</a
               >
             </div>
@@ -740,13 +740,14 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
                   Copy
                 </button>
               </div>
-              <pre><code id="aegis-inspect-command">REA_JADX_MCP_JAR="$PWD/jadx-headless-mcp-0.7.1-all.jar" \
+              <pre><code id="aegis-inspect-command">unzip -o -j jadx-1.5.6.zip lib/jadx-1.5.6-all.jar
+REA_JADX_JAR="$PWD/jadx-1.5.6-all.jar" \
 npx rea-agents@latest inspect-android-package \
   ./aegis-v3.4.3.apk --format json --full-output</code></pre>
             </div>
             <p>
               Your agent can continue through REA's CLI using the prompt above.
-              For MCP, add <code>REA_JADX_MCP_JAR</code> to the REA server's
+              For MCP, add <code>REA_JADX_JAR</code> to the REA server's
               environment and reconnect it.
             </p>
             <p>

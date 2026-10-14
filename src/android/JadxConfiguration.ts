@@ -15,6 +15,8 @@ import {
 import type { DoctorProviderCheck } from "../application/Doctor.js";
 import {
   JADX_JAR_CONFIGURATION_REMEDIATION,
+  JADX_JAR_DEPRECATED_VARIABLE,
+  JADX_JAR_VARIABLE,
   JADX_JAVA_PROBE_REMEDIATION,
   JADX_JAVA_RUNTIME_REMEDIATION,
   JADX_JVM_OPTIONS_REMEDIATION,
@@ -24,16 +26,50 @@ import {
 
 const JAVA_MODULE_LISTING_TIMEOUT_MS = 10_000;
 const JAVA_MODULE_LISTING_MAX_OUTPUT_BYTES = 1024 * 1024;
-// Bound ZIP metadata allocation during discovery. The audited 0.7.1 JAR's
-// central directory occupies 2,294,350 bytes; class bodies are not read here.
+// Bound ZIP metadata allocation during discovery. The audited JADX 1.5.6
+// all-in-one JAR's central directory occupies 3,595,652 bytes; class bodies
+// are not read here.
 const JAR_METADATA_READ_MAX_BYTES = 8 * 1024 * 1024;
 
 /** Caller-supplied tools, resolved only when an Android operation is selected. */
 export interface JadxConfiguration {
   readonly jar: string;
+  /** The caller setting that selected `jar`; the deprecated alias is reported as such. */
+  readonly jarVariable: JadxJarVariable;
   readonly java: string;
   readonly jvmArguments: readonly string[];
 }
+
+/** The setting that names the JADX JAR: the current name or its deprecated alias. */
+export type JadxJarVariable =
+  | typeof JADX_JAR_VARIABLE
+  | typeof JADX_JAR_DEPRECATED_VARIABLE;
+
+/**
+ * Select the caller's JADX JAR setting. `REA_JADX_JAR` wins; the deprecated
+ * `REA_JADX_MCP_JAR` is honored only when the current name is unset.
+ */
+export const selectJadxJarSetting = (
+  environment: Readonly<Record<string, string | undefined>>,
+):
+  | { readonly variable: JadxJarVariable; readonly value: string }
+  | undefined => {
+  const current = environment[JADX_JAR_VARIABLE];
+  if (current !== undefined)
+    return { variable: JADX_JAR_VARIABLE, value: current };
+  const deprecated = environment[JADX_JAR_DEPRECATED_VARIABLE];
+  return deprecated === undefined
+    ? undefined
+    : { variable: JADX_JAR_DEPRECATED_VARIABLE, value: deprecated };
+};
+
+/** Upstream JADX classes ReaJadxBridge.java links against; no other JAR contents are required. */
+export const JADX_BRIDGE_REQUIRED_CLASSES: readonly string[] = [
+  "jadx/api/JadxDecompiler.class",
+  "jadx/core/Jadx.class",
+  "jadx/api/plugins/loader/JadxBasePluginLoader.class",
+  "jadx/plugins/input/dex/DexInputPlugin.class",
+];
 
 type ConfigurationFailureCode =
   | "not_configured"
@@ -169,6 +205,7 @@ export const inspectJadxAvailability = async (
         java_executable: configuration.java,
         jdk_compiler: true,
         jar_path: configuration.jar,
+        jar_variable: configuration.jarVariable,
       },
     };
   } catch (cause) {
@@ -221,11 +258,16 @@ const readJadxConfigurationInputs = async (
 ): Promise<JadxConfiguration> => {
   signal?.throwIfAborted();
   requireSupportedHost();
-  const jar = await resolveJar(environment);
+  const { jar, variable } = await resolveJar(environment);
   const java = await resolveJava(environment, signal);
   await requireJavaHomeExecutable(environment.JAVA_HOME, java);
   signal?.throwIfAborted();
-  return { jar, java, jvmArguments: resolveJvmArguments(environment) };
+  return {
+    jar,
+    jarVariable: variable,
+    java,
+    jvmArguments: resolveJvmArguments(environment),
+  };
 };
 
 const validateJadxConfigurationContents = async (
@@ -235,7 +277,11 @@ const validateJadxConfigurationContents = async (
 ): Promise<void> => {
   signal?.throwIfAborted();
   await inspectJavaRuntime(configuration.java, environment, signal);
-  await requireEngineArchive(configuration.jar, signal);
+  await requireEngineArchive(
+    configuration.jar,
+    configuration.jarVariable,
+    signal,
+  );
 };
 
 const projectConfigurationFailure = (
@@ -265,17 +311,13 @@ const projectConfigurationFailure = (
 
 const requireEngineArchive = async (
   jar: string,
+  variable: JadxJarVariable,
   signal?: AbortSignal,
 ): Promise<void> => {
-  // These classes are consumed directly by ReaJadxBridge.java. This checks the
-  // classpath inventory without loading engine code or starting a JADX session.
-  const missing = new Set([
-    "com/atxx/jhmcp/JadxSession.class",
-    "com/atxx/jhmcp/SessionHolder.class",
-    "jadx/api/JadxDecompiler.class",
-    "com/google/gson/Gson.class",
-    "io/modelcontextprotocol/kotlin/sdk/server/Server.class",
-  ]);
+  // These upstream classes are consumed directly by ReaJadxBridge.java. This
+  // checks the classpath inventory without loading engine code or starting a
+  // JADX session.
+  const missing = new Set(JADX_BRIDGE_REQUIRED_CLASSES);
   const reader = new ZipArtifactReader(jar, "zip", JAR_METADATA_READ_MAX_BYTES);
   try {
     for await (const entry of reader.entries(signal)) {
@@ -287,7 +329,7 @@ const requireEngineArchive = async (
     const reason = cause instanceof Error ? cause.message : String(cause);
     throw configurationFailure(
       "version_unresolved",
-      `Cannot inspect REA_JADX_MCP_JAR ${jar} as a Java archive: ${reason}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
+      `Cannot inspect ${variable} ${jar} as a Java archive: ${reason}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
       {
         jar_path: jar,
         phase: "jar-inspection",
@@ -302,7 +344,7 @@ const requireEngineArchive = async (
   }
   throw configurationFailure(
     "unsupported_version",
-    `REA_JADX_MCP_JAR ${jar} does not contain the required metadata bridge classes: ${[...missing].join(", ")}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
+    `${variable} ${jar} does not contain the upstream JADX classes the REA bridge requires: ${[...missing].join(", ")}. ${JADX_JAR_CONFIGURATION_REMEDIATION}`,
     { jar_path: jar, phase: "jar-inspection", missing_classes: [...missing] },
     "jar",
   );
@@ -363,8 +405,10 @@ const requireSupportedHost = (): void => {
 
 const resolveJar = async (
   environment: Readonly<Record<string, string | undefined>>,
-): Promise<string> => {
-  const jar = environment.REA_JADX_MCP_JAR;
+): Promise<{ jar: string; variable: JadxJarVariable }> => {
+  const setting = selectJadxJarSetting(environment);
+  const jar = setting?.value;
+  const variable = setting?.variable ?? JADX_JAR_VARIABLE;
   if (jar === undefined || !isAbsolute(jar))
     throw configurationFailure(
       "not_configured",
@@ -377,16 +421,16 @@ const resolveJar = async (
     if (!(await stat(jar)).isFile())
       throw configurationFailure(
         "executable_missing",
-        `REA_JADX_MCP_JAR is not a regular file: ${jar}`,
+        `${variable} is not a regular file: ${jar}`,
         { jar_path: jar },
         "jar",
       );
-    return await realpath(jar);
+    return { jar: await realpath(jar), variable };
   } catch (cause) {
     if (cause instanceof JadxConfigurationFailure) throw cause;
     throw configurationFailure(
       "executable_missing",
-      `Cannot read REA_JADX_MCP_JAR ${jar}: ${cause instanceof Error ? cause.message : String(cause)}`,
+      `Cannot read ${variable} ${jar}: ${cause instanceof Error ? cause.message : String(cause)}`,
       { jar_path: jar },
       "jar",
       cause,

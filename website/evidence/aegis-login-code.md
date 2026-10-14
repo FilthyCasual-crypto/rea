@@ -20,6 +20,11 @@ The artifact's SHA-256 matches the official GitHub release asset digest and ever
 saved REA record. The APK and provider JAR were downloaded into temporary storage.
 They are linked from their official releases; neither file is a website asset.
 
+REA has since replaced that provider with upstream JADX 1.5.6 driven by REA's
+own bridge, selected with `REA_JADX_JAR`; the showcase's setup steps describe the
+current provider. The findings below remain the record of this 9 October
+inspection and have not been re-run with the new provider.
+
 The CLI used `REA_JADX_MCP_JAR` for its own process. The connected MCP server's
 Android provider was initially unavailable; it was not reconfigured. The page
 expresses the inspected selections as REA tool requests, using the same operation

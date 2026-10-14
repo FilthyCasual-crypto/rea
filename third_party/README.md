@@ -4,42 +4,49 @@ REA integrates existing tools through provider adapters. Upstream source remains
 unmodified and retains its own license; it is not copied into REA's domain or
 application code.
 
-## jadx-headless-mcp
+## JADX
 
-- Source: <https://github.com/1013503897/jadx-headless-mcp>
-- Submodule: `third_party/jadx-headless-mcp`
-- Release: `v0.7.1`
-- Commit: `5844800a486d2248fa949b74c9896285f5b54de2`
-- License: Apache-2.0; see the submodule's `LICENSE`.
+- Source: <https://github.com/skylot/jadx>
+- Release: `v1.5.6`, commit `28ff15e4ae69950aebea110a13e5ab895d234dfc`
+- Release asset: `jadx-1.5.6.zip`, SHA-256
+  `545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974`
+- Engine file: `lib/jadx-1.5.6-all.jar` inside that ZIP, SHA-256
+  `fe3e12c45acf75f92369685fd02d1d7a7323385dc725680a9b98a0dac0ea554b`
+- License: Apache-2.0; see the upstream `LICENSE`.
 - Release identity: `src/android/JadxRelease.ts`.
-- REA integration: `src/android/`; no upstream patches in this version.
+- REA integration: REA's own bridge `bridge/android/ReaJadxBridge.java` and the
+  adapter in `src/android/`; no upstream patches and no submodule.
 
-Fetch source for inspection with:
+The bridge links only against the `jadx.api`/`jadx.core` classes of the
+unmodified upstream JAR plus the JDK. It replaces the former
+`jadx-headless-mcp` integration and does not use that project's code, its
+Kotlin MCP SDK dependency, or Gson.
 
-```sh
-git submodule update --init third_party/jadx-headless-mcp
-```
+Normal REA builds and installed npm packages do not require JADX source or a
+Gradle build. Supply the separately obtained JAR with `REA_JADX_JAR`
+(`REA_JADX_MCP_JAR` remains a deprecated alias); REA never downloads engines
+during an analysis operation. The audited release JAR is identified by SHA-256.
+A caller-supplied build reporting the supported JADX version retains its actual
+digest and an unknown source revision unless its bytes match the audited
+release.
 
-Normal REA builds and installed npm packages do not require this submodule or a
-Gradle build. Supply a separately obtained JAR with `REA_JADX_MCP_JAR`; REA never
-downloads engines during an analysis operation. The audited release JAR is
-identified by SHA-256. A caller-supplied build reporting the supported protocol
-version retains its actual digest and an unknown source revision unless its
-bytes match the audited release.
-
-When updating: review upstream protocol and license changes, update the gitlink
-and release identity together, exercise the adapter's producer regressions, and
-run the real APK CLI/MCP lane. Never attribute modified engine bytes to the
-audited source revision.
+When updating: review upstream API changes the bridge links against
+(`JadxDecompiler`, `JavaClass`/`JavaMethod`, `ClassNode`/`MethodNode`, plugin
+loading and instruction decoding), update the release identity, run the bridge
+regression (`tests/conformance/android/ReaJadxMetadataRegression.java`) and the
+real APK CLI/MCP lane. Never attribute modified engine bytes to the audited
+source revision.
 
 ## Public APK fixture
 
-`npm run fixtures:android` (`scripts/fixtures/android/fetch.mjs`) downloads the audited engine and
-Appium ApiDemos v6.0.18 into ignored `_reference/apk-integration/`. Both downloads
-are checked against fixed SHA-256 values. Fixture provenance is recorded in
-`scripts/fixtures/android-apidemos.json`; the source uses Apache-2.0. This is a
-static analysis fixture: no emulator, device, SDK installation or app execution
-is needed. APKs and JARs are neither tracked nor included in npm packages.
+`npm run fixtures:android` (`scripts/fixtures/android/fetch.mjs`) downloads the
+upstream JADX release ZIP, extracts `lib/jadx-1.5.6-all.jar`, and downloads Appium
+ApiDemos v6.0.18 into ignored `_reference/apk-integration/`. The ZIP, the
+extracted JAR and the APK are each checked against fixed SHA-256 values. Fixture
+provenance is recorded in `scripts/fixtures/android/apidemos.json`; the source
+uses Apache-2.0. This is a static analysis fixture: no emulator, device, SDK
+installation or app execution is needed. APKs and JARs are neither tracked nor
+included in npm packages.
 
 ## Firmware engines
 

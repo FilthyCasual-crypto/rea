@@ -8,14 +8,17 @@ import {
   inspectJadxAvailability,
   JADX_FAILURE_KINDS,
   projectJadxFailureOutcome,
+  selectJadxJarSetting,
   type JadxFailureKind,
 } from "./JadxConfiguration.js";
+import { JADX_JAR_DEPRECATED_VARIABLE } from "./JadxRelease.js";
 
 /** Project the validated JADX configuration into the doctor contract. */
 export const inspectJadxProvider = async (
   environment: Readonly<Record<string, string | undefined>>,
 ): Promise<DoctorProviderInspection> => {
-  const configured = environment.REA_JADX_MCP_JAR !== undefined;
+  const setting = selectJadxJarSetting(environment);
+  const configured = setting !== undefined;
   const availability = await inspectJadxAvailability(environment);
   // diagnostics is a loosely-typed JsonValue map; guard the published path
   // even though the success path always sets jar_path today.
@@ -28,8 +31,9 @@ export const inspectJadxProvider = async (
     availability.status === "available" && jarPath !== undefined;
   // Preserve the caller-selected JAR path (it may be a stable symlink) and
   // the validated JAVA_HOME selection; the resolved jarPath stays in
-  // diagnostics as inspection evidence.
-  const configuredJar = environment.REA_JADX_MCP_JAR;
+  // diagnostics as inspection evidence. Registrations always use the current
+  // variable name, migrating callers off the deprecated alias.
+  const configuredJar = setting?.value;
   return {
     id: "jadx",
     configured,
@@ -39,7 +43,7 @@ export const inspectJadxProvider = async (
       jarPath === undefined || configuredJar === undefined
         ? {}
         : {
-            REA_JADX_MCP_JAR: configuredJar,
+            REA_JADX_JAR: configuredJar,
             ...optionalEntry("JAVA_HOME", environment.JAVA_HOME),
             ...optionalEntry(
               "REA_JADX_HEAP_MIB",
@@ -50,7 +54,14 @@ export const inspectJadxProvider = async (
               environment.REA_JADX_ACTIVE_PROCESSOR_COUNT,
             ),
           },
-    checks: [configurationCheck(configured, availability, jarPath)],
+    checks: [
+      configurationCheck(
+        configured,
+        availability,
+        jarPath,
+        setting?.variable === JADX_JAR_DEPRECATED_VARIABLE,
+      ),
+    ],
   };
 };
 
@@ -67,6 +78,7 @@ const configurationCheck = (
   configured: boolean,
   availability: ProviderAvailability,
   jarPath: string | undefined,
+  deprecatedVariable: boolean,
 ): DoctorProviderCheck => {
   const code = availability.status === "unavailable" ? availability.code : null;
   if (availability.status === "available" && jarPath !== undefined) {
@@ -74,7 +86,7 @@ const configurationCheck = (
       name: "configuration",
       ok: true,
       code: null,
-      detail: `JADX MCP bridge JAR validated at ${jarPath}; its path is recorded for agent registrations.`,
+      detail: `Upstream JADX JAR validated at ${jarPath}; its path is recorded for agent registrations as REA_JADX_JAR.${deprecatedVariable ? ` ${JADX_JAR_DEPRECATED_VARIABLE} is deprecated; rename it to REA_JADX_JAR.` : ""}`,
       remediation: null,
       classification: "config_drift",
     };
