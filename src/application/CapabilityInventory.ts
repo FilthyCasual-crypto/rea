@@ -431,7 +431,8 @@ const workflowAvailabilityFor = ({
     name === "inspect_pe_resources" ||
     name === "inspect_binary_triage" ||
     name === "decode_bytes" ||
-    name === "convert_number"
+    name === "convert_number" ||
+    name === "scan_with_yara"
   )
     return { reason: "available", remediation: null };
   if (name === "inspect_evm_interface")

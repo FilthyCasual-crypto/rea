@@ -232,6 +232,7 @@ export const providerCatalog = (sources) => {
               "inspect_binary_triage",
               "decode_bytes",
               "convert_number",
+              "scan_with_yara",
             ].includes(name),
         ),
     },
@@ -247,6 +248,13 @@ export const providerCatalog = (sources) => {
       contracts:
         sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
           ({ name }) => name === "decode_bytes" || name === "convert_number",
+        ),
+    },
+    {
+      identity: sources.artifactProviders.YARA_SCAN_PROVIDER,
+      contracts:
+        sources.binaryDiagnosticsContracts.BINARY_DIAGNOSTICS_TOOL_CONTRACTS.filter(
+          ({ name }) => name === "scan_with_yara",
         ),
     },
     {

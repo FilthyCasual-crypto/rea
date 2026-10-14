@@ -62,6 +62,13 @@ export const BYTE_DECODING_PROVIDER = Object.freeze({
   version: "1",
 } as const);
 
+/** Provider identity for caller-supplied YARA rules in the bundled engine. */
+export const YARA_SCAN_PROVIDER = Object.freeze({
+  id: "rea-yara-x",
+  name: "Ghostwire YARA-X scan",
+  version: "1",
+} as const);
+
 /** Provider identity for deterministic managed-code comparison workflows. */
 export const MANAGED_WORKFLOW_PROVIDER = {
   id: "rea-dotnet-workflows",

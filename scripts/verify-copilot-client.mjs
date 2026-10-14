@@ -330,8 +330,8 @@ try {
     // Select the existing presentation in this disposable native-client profile.
     const customized = JSON.parse(configured);
     assert(customized.mcpServers.ghostwire);
-    customized.mcpServers.rea.env = {
-      ...customized.mcpServers.rea.env,
+    customized.mcpServers.ghostwire.env = {
+      ...customized.mcpServers.ghostwire.env,
       REA_MCP_INPUT_SCHEMA_PROFILE: inputSchemaProfile,
     };
     await writeFile(configPath, JSON.stringify(customized, null, 2));

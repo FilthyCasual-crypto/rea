@@ -118,6 +118,13 @@ const pathRequests: readonly [string, Record<string, unknown>][] = [
   ["inspect_pe_resources", { path: nul }],
   ["inspect_binary_triage", { path: nul }],
   [
+    "scan_with_yara",
+    {
+      path: nul,
+      rules: { kind: "inline", source: "rule r { condition: true }" },
+    },
+  ],
+  [
     "decode_bytes",
     { input: { kind: "file", path: nul }, steps: [{ op: "reverse" }] },
   ],

@@ -28,6 +28,10 @@ import {
   decodeBytesInputSchema,
   decodeBytesResultSchema,
 } from "../../domain/native/byteDecoding.js";
+import {
+  scanWithYaraInputSchema,
+  yaraScanSchema,
+} from "../../domain/native/yaraScan.js";
 
 /** Caller-selected delivery of completed binary layout Evidence. */
 export const inspectBinaryLayoutRequestSchema =
@@ -119,6 +123,34 @@ export const BINARY_DIAGNOSTICS_TOOL_CONTRACTS = [
       {
         title: "Read four little-endian bytes as an integer",
         input: { bytes_hex: "efbeadde", byte_order: "little" },
+      },
+    ],
+  },
+  {
+    name: "scan_with_yara",
+    ...toolContractMetadata("scan_with_yara"),
+    kind: "native-provider",
+    description:
+      "Scan one explicit local file with caller-supplied YARA rules, given inline or as local rule files, in the bundled YARA-X 1.21.0 WebAssembly engine. Returns every matching rule with namespace, tags and metadata, and each pattern match's file offset, length and containing ELF/PE/Mach-O section, plus the SHA-256 of every rule source so the Evidence pins the exact rules used. Rule compile errors are reported against the rule input. A hard timeout and per-pattern and total match caps bound the scan, and truncation is reported. A match means the rule's conditions hold for these bytes, not that its name or labels are correct; no match does not establish a clean file. Ghostwire ships no rules and uploads nothing; no external tool required.",
+    inputSchema: scanWithYaraInputSchema,
+    outputSchema: evidenceResultOf(yaraScanSchema),
+    examples: [
+      {
+        title: "Scan with a local rule set",
+        input: {
+          path: "/artifacts/sample.bin",
+          rules: { kind: "files", paths: ["/rules/packers.yar"] },
+        },
+      },
+      {
+        title: "Scan with an inline rule",
+        input: {
+          path: "/artifacts/sample.bin",
+          rules: {
+            kind: "inline",
+            source: 'rule upx_marker { strings: $a = "UPX!" condition: $a }',
+          },
+        },
       },
     ],
   },

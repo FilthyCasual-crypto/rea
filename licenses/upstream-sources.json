@@ -68,5 +68,10 @@
     "file": "licenses/LGPL-2.0.txt",
     "source": "https://www.gnu.org/licenses/old-licenses/lgpl-2.0.txt",
     "sha256": "cc535c21133c895b56b374c8a1dc1eb948d99003ed2b47372069456b62f42b24"
+  },
+  {
+    "file": "licenses/yara-x-BSD-3-Clause.txt",
+    "source": "https://raw.githubusercontent.com/VirusTotal/yara-x/7b2637d4655155fdfaf68177edadb9a39406ece0/LICENSE",
+    "sha256": "fdf05444c9178e662fa28810d94a1fa6ec32d7be798241c98094213317265880"
   }
 ]

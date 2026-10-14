@@ -63,6 +63,7 @@ export const CLI_COMMANDS = Object.freeze({
   inspectBinaryTriage: "inspect-binary-triage",
   decodeBytes: "decode-bytes",
   convertNumber: "convert-number",
+  scanWithYara: "scan-with-yara",
   inspectAnalysisView: "inspect-analysis-view",
   listFridaDevices: "list-frida-devices",
   listFridaProcesses: "list-frida-processes",

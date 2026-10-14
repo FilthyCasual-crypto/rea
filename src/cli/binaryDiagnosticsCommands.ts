@@ -6,6 +6,7 @@ import {
   createPeResourcesService,
   createBinaryTriageService,
   createByteDecodingService,
+  createYaraScanService,
 } from "../composition/binaryDiagnostics.js";
 import { CLI_COMMANDS } from "../cliCommandNames.js";
 import { logCliCommand } from "../cliLogging.js";
@@ -18,6 +19,7 @@ import { projectAnalysisError } from "../domain/analysisErrorProjection.js";
 import { finishAnalysisCommand } from "./finishAnalysisCommand.js";
 import { parseCliJsonInput } from "../cliJsonInput.js";
 import { convertNumberInputSchema } from "../domain/native/byteDecoding.js";
+import { scanWithYaraInputSchema } from "../domain/native/yaraScan.js";
 
 /** Inspect operator-selected files through the same shared workflow as MCP. */
 export const registerBinaryDiagnosticsCommands = (
@@ -173,6 +175,55 @@ export const registerBinaryDiagnosticsCommands = (
               decoding,
               "rea-byte-decoding",
               "convert_number",
+            ),
+        );
+      }),
+  });
+  cli.command(CLI_COMMANDS.scanWithYara, {
+    description:
+      "Scan a file with your YARA rules (bundled YARA-X engine); reports rules, offsets and sections",
+    args: z.object({ path: z.string().describe("Local file to scan") }),
+    options: z.object({
+      rules: z
+        .array(z.string())
+        .optional()
+        .describe("YARA rule files; repeat for several"),
+      ruleSource: z
+        .string()
+        .optional()
+        .describe("Inline YARA rule source instead of rule files"),
+      timeoutMs: scanWithYaraInputSchema.shape.timeout_ms,
+      maxMatches: scanWithYaraInputSchema.shape.max_matches,
+    }),
+    run: ({ args, options }) =>
+      withCommandCancellation(async (signal) => {
+        const yara = createYaraScanService();
+        return await logCliCommand(
+          logger,
+          CLI_COMMANDS.scanWithYara,
+          async () =>
+            finishAnalysisCommand(
+              () =>
+                yara.scan(
+                  {
+                    path: resolve(args.path),
+                    rules:
+                      options.ruleSource === undefined
+                        ? {
+                            kind: "files",
+                            paths: (options.rules ?? []).map((path) =>
+                              resolve(path),
+                            ),
+                          }
+                        : { kind: "inline", source: options.ruleSource },
+                    timeout_ms: options.timeoutMs,
+                    max_matches: options.maxMatches,
+                  },
+                  { signal },
+                ),
+              yara,
+              "rea-yara-x",
+              "scan_with_yara",
             ),
         );
       }),

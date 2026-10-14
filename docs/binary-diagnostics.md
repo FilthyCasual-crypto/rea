@@ -195,6 +195,32 @@ instructions are not detected.
 The same scan runs over every successful result from tools that return target
 content; see [MCP contracts](mcp-contracts.md#untrusted-target-content).
 
+## YARA scanning
+
+`scan_with_yara` / `scan-with-yara` scans one explicit file with your YARA
+rules in the bundled [YARA-X](https://github.com/VirusTotal/yara-x) 1.21.0
+WebAssembly engine (BSD-3-Clause). Nothing is installed or uploaded, and
+Ghostwire ships no rules.
+
+```sh
+ghostwire scan-with-yara ./sample.bin --rules ./rules/packers.yar --rules ./rules/crypto.yar --json
+ghostwire scan-with-yara ./sample.bin --rule-source 'rule upx { strings: $a = "UPX!" condition: $a }' --json
+```
+
+Each matching rule comes back with its namespace, tags and metadata, and every
+pattern match with its file offset, length and the ELF section, PE section or
+Mach-O segment that contains it. Each rule file is compiled in its own
+namespace named after the file, so rule sets with overlapping names can be
+combined. The Evidence records the SHA-256 of every rule source, so a result
+always names the exact rules that produced it. Compile errors point at the
+rule input that failed. `timeout_ms`, `max_matches_per_pattern` and
+`max_matches` bound the scan and set `truncated` when offsets are dropped;
+matched rules are always complete.
+
+A match means the rule's conditions hold for these bytes, not that the rule's
+name or labels are right, and no match does not mean the file is clean. Rule
+`include` directives are not resolved; pass each file explicitly.
+
 ## Exact decoding and number conversion
 
 Models get base64 alphabets, XOR keys, byte orders and two's-complement

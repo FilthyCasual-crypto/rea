@@ -289,8 +289,9 @@ const verifyAbsentOpenCodeSetup = async ({ cli, environment, home }) => {
     result.status !== "ready" ||
     !result.appliedActions.includes("configured_opencode") ||
     config.mcp?.ghostwire?.type !== "local" ||
-    config.mcp.rea.enabled !== true ||
-    JSON.stringify(config.mcp.rea.command) !== JSON.stringify([cli, "mcp"])
+    config.mcp.ghostwire.enabled !== true ||
+    JSON.stringify(config.mcp.ghostwire.command) !==
+      JSON.stringify([cli, "mcp"])
   )
     throw new Error(
       `packaged setup did not configure explicitly selected OpenCode without a config file: ${JSON.stringify(result)}`,
@@ -452,8 +453,9 @@ const assertOpenCodeConfig = async ({
     mcp?.other?.command?.[0] !== "node" ||
     (expectedRegistration &&
       (mcp?.ghostwire?.type !== "local" ||
-        mcp.rea.enabled !== true ||
-        JSON.stringify(mcp.rea.command) !== JSON.stringify([cli, "mcp"]))) ||
+        mcp.ghostwire.enabled !== true ||
+        JSON.stringify(mcp.ghostwire.command) !==
+          JSON.stringify([cli, "mcp"]))) ||
     (!expectedRegistration && mcp?.ghostwire !== undefined)
   )
     throw new Error("packaged OpenCode JSONC registration readback failed");
