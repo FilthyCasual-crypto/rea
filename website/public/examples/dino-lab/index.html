@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chrome Dinosaur Game: Rebuild Its Speed Rule — REA</title>
+    <title>Chrome Dinosaur Game: Rebuild Its Speed Rule — Ghostwire</title>
     <meta
       name="description"
-      content="Read the dinosaur game’s speed rule with REA, rebuild it, then change the speed and play."
+      content="Read the dinosaur game’s speed rule with Ghostwire, rebuild it, then change the speed and play."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +58,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="Chrome Dinosaur Game: Rebuild Its Speed Rule — REA" />
+    <meta property="og:title" content="Chrome Dinosaur Game: Rebuild Its Speed Rule — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Read the dinosaur game’s speed rule with REA, rebuild it, then change the speed and play." />
+    <meta property="og:description" content="Read the dinosaur game’s speed rule with Ghostwire, rebuild it, then change the speed and play." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/examples/dino-lab/" />
     <!-- prettier-ignore -->
@@ -76,20 +76,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="Chrome Dinosaur Game: Rebuild Its Speed Rule — REA" />
+    <meta name="twitter:title" content="Chrome Dinosaur Game: Rebuild Its Speed Rule — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Read the dinosaur game’s speed rule with REA, rebuild it, then change the speed and play." />
+    <meta name="twitter:description" content="Read the dinosaur game’s speed rule with Ghostwire, rebuild it, then change the speed and play." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -108,8 +108,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -133,8 +133,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -153,8 +153,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -172,8 +172,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -201,7 +201,7 @@
         <h1>Rebuild the dinosaur’s speed rule.</h1>
         <p class="lede">
           To recreate the game’s acceleration, first find the rule that controls
-          its speed. <strong>REA returned the running script;</strong>
+          its speed. <strong>Ghostwire returned the running script;</strong>
           we used its rule to build this mini-game with
           <mark class="prose-highlight">adjustable speed.</mark>
         </p>
@@ -294,18 +294,18 @@
             </figure>
           </section>
           <section class="article-section" id="rule">
-            <h2>Read the script REA returned</h2>
+            <h2>Read the script Ghostwire returned</h2>
             <p>
               We inspected
               <a href="https://wayou.github.io/t-rex-runner/"
                 >wayou’s Chromium-derived browser edition</a
               >
-              with REA. It returned the loaded <code>index.js</code>, including
-              this branch in the game’s update function:
+              with Ghostwire. It returned the loaded <code>index.js</code>,
+              including this branch in the game’s update function:
             </p>
             <div class="code-block">
               <div class="code-header">
-                <span>REA · selected script source</span>
+                <span>Ghostwire · selected script source</span>
               </div>
               <pre><code>if (this.currentSpeed &lt; this.config.MAX_SPEED) {
   this.currentSpeed += this.config.ACCELERATION;
@@ -400,8 +400,8 @@
             <h2>Try the analysis yourself</h2>
             <ol>
               <li>
-                <a href="../../get-started/">Set up REA</a> with your coding
-                agent.
+                <a href="../../get-started/">Set up Ghostwire</a> with your
+                coding agent.
               </li>
               <li>
                 Follow the
@@ -433,7 +433,7 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="lab-analysis-prompt"
-                  >Use REA to inspect this dinosaur game. Why does it get
+                  >Use Ghostwire to inspect this dinosaur game. Why does it get
                   faster? Show the speed rule, then build a small version with
                   an adjustable speed.</span
                 ><span class="terminal-cursor" aria-hidden="true"></span>
@@ -454,7 +454,8 @@
               >, Chromium Authors.
               <a href="../../assets/licenses/dinosaur.txt"
                 >Copyright and BSD license</a
-              >. REA 4.1.0 inspected the running HTTP edition in Chrome 150.
+              >. Ghostwire 4.1.0 inspected the running HTTP edition in Chrome
+              150.
             </p>
           </section>
         </article>
@@ -464,7 +465,7 @@
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

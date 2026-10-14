@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>REA FAQ: Setup, Updates and Troubleshooting</title>
+    <title>Ghostwire FAQ: Setup, Updates and Troubleshooting</title>
     <meta
       name="description"
-      content="Answers to common REA questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples."
+      content="Answers to common Ghostwire questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +58,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="REA FAQ: Setup, Updates and Troubleshooting" />
+    <meta property="og:title" content="Ghostwire FAQ: Setup, Updates and Troubleshooting" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Answers to common REA questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples." />
+    <meta property="og:description" content="Answers to common Ghostwire questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/faq/" />
     <!-- prettier-ignore -->
@@ -76,20 +76,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="REA FAQ: Setup, Updates and Troubleshooting" />
+    <meta name="twitter:title" content="Ghostwire FAQ: Setup, Updates and Troubleshooting" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Answers to common REA questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples." />
+    <meta name="twitter:description" content="Answers to common Ghostwire questions: installation, updates, analysis tools, coding agents, troubleshooting and sharing examples." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -107,8 +107,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -132,8 +132,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -152,8 +152,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -171,8 +171,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -194,7 +194,7 @@
     <main id="main" class="container">
       <div class="page-heading">
         <p class="breadcrumb"><a href="../">Home</a> / FAQ</p>
-        <h1>REA FAQ.</h1>
+        <h1>Ghostwire FAQ.</h1>
         <p class="lede">Setup, updates, analysis and troubleshooting.</p>
       </div>
       <div class="article-layout">
@@ -210,13 +210,13 @@
         <article
           class="article"
           data-faq
-          aria-label="Frequently asked questions about REA"
+          aria-label="Frequently asked questions about Ghostwire"
         >
           <section class="article-section" id="setup">
             <h2>Setup and updates</h2>
             <div class="faq-list">
               <details class="faq-item" id="install">
-                <summary>How do I install REA?</summary>
+                <summary>How do I install Ghostwire?</summary>
                 <p>
                   With <span translate="no">Node.js</span> and npm available,
                   run setup, choose your coding agent and review the proposed
@@ -229,23 +229,23 @@
                       class="copy-button"
                       type="button"
                       data-copy="faq-setup"
-                      aria-label="Copy REA setup command"
+                      aria-label="Copy Ghostwire setup command"
                     >
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-setup">npx rea-agents@latest setup</code></pre>
+                  <pre><code id="faq-setup">npx ghostwire-agent@latest setup</code></pre>
                 </div>
                 <p>
-                  Setup registers REA's MCP connection and installs the matching
-                  investigation skill. Restart your agent when it finishes, then
-                  give it a target path and a question.
+                  Setup registers Ghostwire's MCP connection and installs the
+                  matching investigation skill. Restart your agent when it
+                  finishes, then give it a target path and a question.
                   <a href="../get-started/">Follow the setup guide</a> for
                   prerequisites and your first analysis.
                 </p>
               </details>
               <details class="faq-item" id="agents">
-                <summary>Which coding agents can use REA?</summary>
+                <summary>Which coding agents can use Ghostwire?</summary>
                 <p>
                   Any agent that supports local MCP servers. Setup includes
                   Claude Code, Claude Desktop, Codex, Cursor, Gemini CLI,
@@ -258,10 +258,10 @@
                 </p>
               </details>
               <details class="faq-item" id="update">
-                <summary>How do I update REA?</summary>
+                <summary>How do I update Ghostwire?</summary>
                 <p>
-                  REA releases frequently, including bug fixes. If you installed
-                  the CLI with npm:
+                  Ghostwire releases frequently, including bug fixes. If you
+                  installed the CLI with npm:
                 </p>
                 <div class="code-block">
                   <div class="code-header">
@@ -270,12 +270,12 @@
                       class="copy-button"
                       type="button"
                       data-copy="faq-update-cli"
-                      aria-label="Copy REA update command"
+                      aria-label="Copy Ghostwire update command"
                     >
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-update-cli">rea update</code></pre>
+                  <pre><code id="faq-update-cli">ghostwire update</code></pre>
                 </div>
                 <p>
                   Follow the setup refresh command printed by the update. If you
@@ -293,13 +293,14 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-update-agent">npx rea-agents@latest setup</code></pre>
+                  <pre><code id="faq-update-agent">npx ghostwire-agent@latest setup</code></pre>
                 </div>
                 <p>
-                  Review the changes and restart your agent. Its REA connection
-                  pins a package version, so refreshing setup makes it use the
-                  new release. For one-off CLI commands, use
-                  <code>npx -y rea-agents@latest</code> followed by the command.
+                  Review the changes and restart your agent. Its Ghostwire
+                  connection pins a package version, so refreshing setup makes
+                  it use the new release. For one-off CLI commands, use
+                  <code>npx -y ghostwire-agent@latest</code> followed by the
+                  command.
                 </p>
               </details>
               <details class="faq-item" id="skill">
@@ -308,9 +309,9 @@
                 </summary>
                 <p>
                   The skill gives your agent investigation instructions. Run
-                  <a href="#install">REA setup</a> to connect the MCP server and
-                  install the matching skill, then restart your agent so it can
-                  call the tools.
+                  <a href="#install">Ghostwire setup</a> to connect the MCP
+                  server and install the matching skill, then restart your agent
+                  so it can call the tools.
                 </p>
               </details>
             </div>
@@ -320,7 +321,7 @@
             <h2>Analysis</h2>
             <div class="faq-list">
               <details class="faq-item" id="targets">
-                <summary>What can I analyze with REA?</summary>
+                <summary>What can I analyze with Ghostwire?</summary>
                 <p>Start with the kind of software you have:</p>
                 <ul>
                   <li>
@@ -339,8 +340,8 @@
                   </li>
                 </ul>
                 <p>
-                  REA also has workflows for managed assemblies, Android APKs,
-                  firmware and packaged resources.
+                  Ghostwire also has workflows for managed assemblies, Android
+                  APKs, firmware and packaged resources.
                   <a href="../showcase/">See the case studies</a> for worked
                   investigations.
                 </p>
@@ -360,7 +361,7 @@
                 </p>
               </details>
               <details class="faq-item" id="cli">
-                <summary>Can I use REA without a coding agent?</summary>
+                <summary>Can I use Ghostwire without a coding agent?</summary>
                 <p>
                   Yes. The CLI uses the same analysis workflows. For a local
                   JavaScript or Electron app:
@@ -372,12 +373,12 @@
                       class="copy-button"
                       type="button"
                       data-copy="faq-cli-analysis"
-                      aria-label="Copy REA CLI analysis command"
+                      aria-label="Copy Ghostwire CLI analysis command"
                     >
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-cli-analysis">npx -y rea-agents@latest analyze-javascript-application \
+                  <pre><code id="faq-cli-analysis">npx -y ghostwire-agent@latest analyze-javascript-application \
   /absolute/path/to/app --json</code></pre>
                 </div>
                 <p>
@@ -387,7 +388,7 @@
                 </p>
               </details>
               <details class="faq-item" id="code">
-                <summary>What code does REA return?</summary>
+                <summary>What code does Ghostwire return?</summary>
                 <p>
                   Native analysis returns assembly and pseudocode, with calls,
                   references and relevant constants. JavaScript analysis returns
@@ -427,7 +428,7 @@
                   <p class="terminal-prompt">
                     <span class="prompt-symbol" aria-hidden="true">›</span
                     ><span id="faq-analysis-prompt"
-                      >Use REA to analyze
+                      >Use Ghostwire to analyze
                       <span translate="no">/absolute/path/to/app</span> and
                       explain how it exports data. Show the relevant code and
                       source locations.</span
@@ -447,10 +448,10 @@
             <h2>Troubleshooting</h2>
             <div class="faq-list">
               <details class="faq-item" id="connection">
-                <summary>Why can't my agent see the REA tools?</summary>
+                <summary>Why can't my agent see the Ghostwire tools?</summary>
                 <p>
-                  Restart or reconnect your agent after setup. Check its REA
-                  registration with <code>doctor</code>; for Codex:
+                  Restart or reconnect your agent after setup. Check its
+                  Ghostwire registration with <code>doctor</code>; for Codex:
                 </p>
                 <div class="code-block">
                   <div class="code-header">
@@ -464,7 +465,7 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-doctor">npx -y rea-agents@latest doctor --client codex --json</code></pre>
+                  <pre><code id="faq-doctor">npx -y ghostwire-agent@latest doctor --client codex --json</code></pre>
                 </div>
                 <p>
                   Replace <code>codex</code> with your client ID, such as
@@ -484,7 +485,7 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code id="faq-repair">npx rea-agents@latest setup --client codex</code></pre>
+                  <pre><code id="faq-repair">npx ghostwire-agent@latest setup --client codex</code></pre>
                 </div>
                 <p>
                   Review its plan and restart the client. If registration is
@@ -496,7 +497,7 @@
               <details class="faq-item" id="hopper">
                 <summary>Do I need to start Hopper first?</summary>
                 <p>
-                  REA starts Hopper when an operation needs it. On macOS,
+                  Ghostwire starts Hopper when an operation needs it. On macOS,
                   complete the first-run choice of demo mode or license
                   activation before unattended analysis.
                   <a href="../get-started/#native">See native provider setup</a
@@ -506,17 +507,18 @@
               <details class="faq-item" id="bugs">
                 <summary>What should I do if I hit a bug?</summary>
                 <p>
-                  <a href="#update">Update REA</a>, restart your agent and retry
-                  the same task. A recent release may already fix the problem.
+                  <a href="#update">Update Ghostwire</a>, restart your agent and
+                  retry the same task. A recent release may already fix the
+                  problem.
                 </p>
                 <p>
                   If it persists,
                   <a href="https://github.com/morluto/rea/issues/new/choose"
                     >open an issue</a
                   >
-                  with your REA version, operating system, target type, steps to
-                  reproduce and error output. Include the provider name when the
-                  problem involves native analysis.
+                  with your Ghostwire version, operating system, target type,
+                  steps to reproduce and error output. Include the provider name
+                  when the problem involves native analysis.
                 </p>
               </details>
             </div>
@@ -526,19 +528,19 @@
             <h2>Data and sharing</h2>
             <div class="faq-list">
               <details class="faq-item" id="privacy">
-                <summary>Does REA upload my app?</summary>
+                <summary>Does Ghostwire upload my app?</summary>
                 <p>
-                  REA analyzes targets on your machine. Your agent receives the
-                  results, and its model provider's data policy applies to those
-                  results.
+                  Ghostwire analyzes targets on your machine. Your agent
+                  receives the results, and its model provider's data policy
+                  applies to those results.
                 </p>
               </details>
               <details class="faq-item" id="contribute">
                 <summary>How can I share an example or contribute?</summary>
                 <p>
-                  Have a useful REA example? We'd love to see it. Share the
-                  target, your question, the findings and how you checked them
-                  in an
+                  Have a useful Ghostwire example? We'd love to see it. Share
+                  the target, your question, the findings and how you checked
+                  them in an
                   <a href="https://github.com/morluto/rea/issues/new/choose"
                     >issue</a
                   >
@@ -562,7 +564,7 @@
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

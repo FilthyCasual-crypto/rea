@@ -1,14 +1,14 @@
 # Notion clipboard case: sources and scope
 
-The case uses Notion Desktop 7.6.1's shipped JavaScript, a fresh REA inspection
+The case uses Notion Desktop 7.6.1's shipped JavaScript, a fresh Ghostwire inspection
 of its tab preload, and separately recorded probes of cached web-editor modules.
 The public page contains selected result fields, small code excerpts and generic
 example data. Original packages, complete analysis results and captured local
 state are not website assets.
 
-## Fresh REA result
+## Fresh Ghostwire result
 
-The published npm REA 4.1.0 package inspected the saved tab preload on
+The published npm Ghostwire 4.1.0 package inspected the saved tab preload on
 7 October 2026, using Node.js 24.18.0. An independent source build of public
 checkpoint [`810fe53e`](https://github.com/morluto/rea/tree/810fe53e) returned the
 same API and invoke findings. The page uses the published-package result.
@@ -57,7 +57,7 @@ SHA-256: `97c41bc14fc0ea8c91cd34f502660963dfdf294d5eb35165ccac9d30963069d4`.
 | `.webpack/main/index.js`                        | Handler wrapper around character 313027; clipboard receiver around 726249; sender-check adapter around 750262; underlying `isNotionWebContents` around 1281553 |
 
 Character anchors refer to decoded JavaScript, counted from the start of each
-file. They are distinct from REA's line/column ranges above.
+file. They are distinct from Ghostwire's line/column ranges above.
 
 Source digests:
 
@@ -120,7 +120,7 @@ JSON object or a persisted Notion page.
 The broader historical harness included stubs and several parser variants.
 This specimen comes from the intact structured-parser result, rather than a
 legacy table-creation record affected by a synthetic ID collision. Historical
-module probes are attributed to that harness; REA's new role in this page is
+module probes are attributed to that harness; Ghostwire's new role in this page is
 the separately verified preload analysis.
 
 ## SQLite follow-up

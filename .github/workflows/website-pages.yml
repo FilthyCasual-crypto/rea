@@ -1,4 +1,4 @@
-name: Publish REA website
+name: Publish Ghostwire website
 
 on:
   workflow_dispatch:
@@ -155,7 +155,7 @@ jobs:
                   try:
                       request = Request(url, headers={
                           "Cache-Control": "no-cache",
-                          "User-Agent": "REA-Website-Verifier/1.0 (+https://github.com/morluto/rea)",
+                          "User-Agent": "Ghostwire-Website-Verifier/1.0 (+https://github.com/morluto/rea)",
                       })
                       with urlopen(request, timeout=10) as response:
                           actual = json.load(response).get("commit")

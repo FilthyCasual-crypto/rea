@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aegis APK Reverse Engineering: Login Codes — REA</title>
+    <title>Aegis APK Reverse Engineering: Login Codes — Ghostwire</title>
     <meta
       name="description"
-      content="Inspect the Aegis Android APK with REA, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock."
+      content="Inspect the Aegis Android APK with Ghostwire, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +58,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="Aegis APK Reverse Engineering: Login Codes — REA" />
+    <meta property="og:title" content="Aegis APK Reverse Engineering: Login Codes — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Inspect the Aegis Android APK with REA, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock." />
+    <meta property="og:description" content="Inspect the Aegis Android APK with Ghostwire, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/showcase/aegis/" />
     <!-- prettier-ignore -->
@@ -76,20 +76,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="Aegis APK Reverse Engineering: Login Codes — REA" />
+    <meta name="twitter:title" content="Aegis APK Reverse Engineering: Login Codes — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Inspect the Aegis Android APK with REA, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock." />
+    <meta name="twitter:description" content="Inspect the Aegis Android APK with Ghostwire, recover its six-digit login-code calculation and try a reconstruction with an adjustable clock." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -108,8 +108,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -133,8 +133,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -153,8 +153,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -172,8 +172,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -200,7 +200,7 @@
         <p class="eyebrow">Case study · Aegis Authenticator</p>
         <h1>How does an authenticator<br />generate a login code?</h1>
         <p class="lede">
-          A six-digit code changes every 30 seconds. Use REA to find the
+          A six-digit code changes every 30 seconds. Use Ghostwire to find the
           calculation in an Android APK, then rebuild it with a clock you can
           control.
         </p>
@@ -220,16 +220,16 @@
             ><strong class="flow-node"
               >3,077 classes → generating methods</strong
             ><span class="flow-note"
-              >REA searches the package and traces the code used by the display
-              and copy actions.</span
+              >Ghostwire searches the package and traces the code used by the
+              display and copy actions.</span
             >
           </li>
           <li>
             <span class="flow-label">02 · Read the calculation</span
             ><strong class="flow-node">Time + account key → six digits</strong
             ><span class="flow-note"
-              >REA returns the methods and defaults. The agent explains how they
-              fit together.</span
+              >Ghostwire returns the methods and defaults. The agent explains
+              how they fit together.</span
             >
           </li>
           <li>
@@ -249,7 +249,7 @@
           <ul>
             <li><a href="#ask">Ask your agent</a></li>
             <li><a href="#demo">Try the code generator</a></li>
-            <li><a href="#find">Find the code with REA</a></li>
+            <li><a href="#find">Find the code with Ghostwire</a></li>
             <li><a href="#calculation">Read the calculation</a></li>
             <li><a href="#verify">Check the reconstruction</a></li>
             <li><a href="#try">Inspect the APK yourself</a></li>
@@ -280,7 +280,7 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="aegis-prompt"
-                  >Use REA to inspect
+                  >Use Ghostwire to inspect
                   <span translate="no">aegis-v3.4.3.apk</span>. Find how it
                   generates the six-digit login code, explain why it changes
                   every 30 seconds, and rebuild a small demo where I can change
@@ -289,7 +289,7 @@
               </p>
             </div>
             <p class="caption">
-              An example prompt for the downloaded APK, with REA's Android
+              An example prompt for the downloaded APK, with Ghostwire's Android
               analysis configured.
               <a href="#try">Get the APK and analysis setup ↓</a>
             </p>
@@ -392,13 +392,15 @@
           </section>
 
           <section class="article-section" id="find">
-            <h2>Find the code with REA</h2>
+            <h2>Find the code with Ghostwire</h2>
             <ol class="rea-queries">
               <li>
                 <h4>Narrow the APK to three classes</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
-                    <div class="code-header"><span>Agent → REA</span></div>
+                    <div class="code-header">
+                      <span>Agent → Ghostwire</span>
+                    </div>
                     <pre><code>inspect_android_package
 {"path": "aegis-v3.4.3.apk"}
 
@@ -408,7 +410,7 @@ search_android_classes
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · selected results</span>
+                      <span>Ghostwire → agent · selected results</span>
                     </div>
                     <pre><code>Package: com.beemdevelopment.aegis
 Version: 3.4.3
@@ -430,7 +432,9 @@ Three matches:
                 <h4>Connect the generator to the app's display</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
-                    <div class="code-header"><span>Agent → REA</span></div>
+                    <div class="code-header">
+                      <span>Agent → Ghostwire</span>
+                    </div>
                     <pre><code>inspect_android_class
 {"path": "aegis-v3.4.3.apk",
  "class_name":
@@ -444,7 +448,7 @@ trace_android_references
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · methods and callers</span>
+                      <span>Ghostwire → agent · methods and callers</span>
                     </div>
                     <pre><code>TotpInfo methods:
   getOtp()      · overload 0
@@ -456,7 +460,7 @@ OtpInfo.getOtp callers:
                   </div>
                 </div>
                 <p>
-                  REA identifies the timestamp overload and finds the base
+                  Ghostwire identifies the timestamp overload and finds the base
                   method's callers. Inspecting
                   <code>EntryHolder.getOtp</code> then shows the display calling
                   <code>TotpInfo.getOtp(timestamp)</code>.
@@ -472,7 +476,7 @@ OtpInfo.getOtp callers:
           <section class="article-section" id="calculation">
             <h2>Read the calculation</h2>
             <p>
-              REA returns
+              Ghostwire returns
               <strong
                 >the clock conversion, default settings and generating
                 methods.</strong
@@ -514,7 +518,7 @@ OtpInfo.getOtp callers:
               <div class="code-comparison">
                 <div class="code-block">
                   <div class="code-header">
-                    <span>REA · selected decompiled Java</span>
+                    <span>Ghostwire · selected decompiled Java</span>
                   </div>
                   <pre><code id="aegis-java"><span class="code-step is-active" data-step="1">// TotpInfo defaults and clock
 setPeriod(30);
@@ -593,13 +597,13 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
               <summary>Inside the generator</summary>
               <p>
                 The released APK puts <code>generateOTP</code> in
-                <code>kotlin.ExceptionsKt</code>. REA follows the call from
-                <code>TotpInfo</code> and returns this body; the original source
-                calls the helper <code>HOTP</code>.
+                <code>kotlin.ExceptionsKt</code>. Ghostwire follows the call
+                from <code>TotpInfo</code> and returns this body; the original
+                source calls the helper <code>HOTP</code>.
               </p>
               <div class="code-block">
                 <div class="code-header">
-                  <span>REA · generateOTP, complete body</span>
+                  <span>Ghostwire · generateOTP, complete body</span>
                 </div>
                 <pre><code>public static OTP generateOTP(byte[] bArr, String str,
         int i, long j)
@@ -632,10 +636,10 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
           <section class="article-section" id="verify">
             <h2>Check the reconstruction</h2>
             <p>
-              We assembled the selected REA-returned Java methods in a small
-              test program. Their output matched an independent reconstruction
-              on <strong>133 test cases</strong>, including time-block
-              boundaries and codes beginning with zero.
+              We assembled the selected Ghostwire-returned Java methods in a
+              small test program. Their output matched an independent
+              reconstruction on <strong>133 test cases</strong>, including
+              time-block boundaries and codes beginning with zero.
             </p>
             <div class="evidence-table-wrap">
               <table class="evidence-table">
@@ -707,9 +711,9 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
           <section class="article-section" id="try">
             <h2>Inspect the APK yourself</h2>
             <p>
-              <a href="../../get-started/">Set up REA</a> on macOS or Linux,
-              then download these two files into the same folder. On Windows,
-              use a Linux environment such as WSL.
+              <a href="../../get-started/">Set up Ghostwire</a> on macOS or
+              Linux, then download these two files into the same folder. On
+              Windows, use a Linux environment such as WSL.
             </p>
             <p>
               Android analysis needs a full JDK 17 or later. Select it with
@@ -727,7 +731,7 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
                 >Download Android analysis provider</a
               >
             </div>
-            <p>Point REA at the provider file and inspect the APK:</p>
+            <p>Point Ghostwire at the provider file and inspect the APK:</p>
             <div class="code-block">
               <div class="code-header">
                 <span>macOS / Linux</span
@@ -742,13 +746,13 @@ code = pad_with_zeroes(code, 6)</span></code></pre>
               </div>
               <pre><code id="aegis-inspect-command">unzip -o -j jadx-1.5.6.zip lib/jadx-1.5.6-all.jar
 REA_JADX_JAR="$PWD/jadx-1.5.6-all.jar" \
-npx rea-agents@latest inspect-android-package \
+npx ghostwire-agent@latest inspect-android-package \
   ./aegis-v3.4.3.apk --format json --full-output</code></pre>
             </div>
             <p>
-              Your agent can continue through REA's CLI using the prompt above.
-              For MCP, add <code>REA_JADX_JAR</code> to the REA server's
-              environment and reconnect it.
+              Your agent can continue through Ghostwire's CLI using the prompt
+              above. For MCP, add <code>REA_JADX_JAR</code> to the Ghostwire
+              server's environment and reconnect it.
             </p>
             <p>
               A next question:
@@ -786,9 +790,9 @@ npx rea-agents@latest inspect-android-package \
               </li>
             </ul>
             <p class="caption">
-              Inspected with REA 6.1.0 on 9 October 2026. Decompiled excerpts
-              are credited to Aegis; the diagram, readable summary and browser
-              reconstruction are new teaching material.
+              Inspected with Ghostwire 6.1.0 on 9 October 2026. Decompiled
+              excerpts are credited to Aegis; the diagram, readable summary and
+              browser reconstruction are new teaching material.
             </p>
           </section>
         </article>
@@ -798,7 +802,7 @@ npx rea-agents@latest inspect-android-package \
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

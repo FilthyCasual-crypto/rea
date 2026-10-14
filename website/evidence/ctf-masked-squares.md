@@ -1,7 +1,7 @@
 # DownUnderCTF masked-squares evidence
 
 Fresh inspection and process captures on 8 October 2026, using the published
-REA 4.1.0 package with Ghidra 12.1.4 on Linux x64. The challenge is
+Ghostwire 4.1.0 package with Ghidra 12.1.4 on Linux x64. The challenge is
 **masked squares flag checker**, by joseph, tagged easy in the
 [official DownUnderCTF 2023 repository](https://github.com/DownUnderCTF/Challenges_2023_Public/tree/b48f83db2984bc7fa2ec7879a32d7efb1be8d333/rev/masked-squares-flag-checker).
 
@@ -12,12 +12,12 @@ REA 4.1.0 package with Ghidra 12.1.4 on Linux x64. The challenge is
 - SHA-256: `dcd3bec4f608e11f3a12ce461100aaf5f621851ee63a1f870d7c90d4e3dd51ae`.
 - Upstream revision: `b48f83db2984bc7fa2ec7879a32d7efb1be8d333`.
 - Git blob: `af95d9e109b5b700b3285e7e9f3b341dc716d34a`.
-- REA analysis-profile digest:
+- Ghostwire analysis-profile digest:
   `7cb87eeb3886b20e336087d762d35caac496279cf9839dcc5e741b973627c1ba`.
 
 The original challenge was downloaded from GitHub's contents API and decoded
 from its base64 representation. The decoded length matches the API's size;
-REA's target digest matches the downloaded bytes. The byte digest was checked
+Ghostwire's target digest matches the downloaded bytes. The byte digest was checked
 again after analysis and execution. The page links to the original handout;
 the executable is not copied into the website.
 
@@ -25,7 +25,7 @@ The supplied AGENTS.md and website writing/design guidelines were followed in
 an isolated worktree. Raw results and local target paths stay in private scratch
 storage; the public page uses a shortened target name in its example request.
 
-## Discovery through REA
+## Discovery through Ghostwire
 
 The following requests preceded reading the organizers' source, solution or
 flag metadata. Searching the challenge README established its name/difficulty,
@@ -73,7 +73,7 @@ analysis-image addresses; the executable's PIE runtime load address can differ.
 
 ## Solver and source cross-check
 
-The downloadable Python script embeds the REA-extracted masks and targets,
+The downloadable Python script embeds the Ghostwire-extracted masks and targets,
 expands their run lengths and gives the 26 sums to Z3. It asks for 36 character
 codes using a conventional `DUCTF{...}` prefix/suffix and an alphabet of
 letters, digits, underscores and braces. Those format restrictions are analyst
@@ -101,7 +101,7 @@ scratch directory, supplied one line of input and retained terminal output.
 | `DUCTF{ezzzpzzz_07bcda7bfe81faf43caa}` | `Correct!`   | 0    | `ev_99f724502d14c798959f510d274f3de0f554a27b5df5dd6cb322acfa3e90a452` |
 | `DUCTF{ezyzpzzz_07bcda7bfe81faf43caa}` | `Incorrect!` | 255  | `ev_2d164f7f4c7eb139e5df8be21c1e52dc34f0ad238aea384e407a2bd6277024cb` |
 
-Both captures completed without truncation. REA verified its owned process-group
+Both captures completed without truncation. Ghostwire verified its owned process-group
 cleanup and removed the capture temporary roots. Filesystem observation paths
 were not requested. The native analysis session was closed afterward.
 

@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a problem in REA with observations or source evidence
+description: Report a problem in Ghostwire with observations or source evidence
 title: "[Bug] "
 labels:
   - bug
@@ -81,9 +81,9 @@ body:
   - type: input
     id: rea-version
     attributes:
-      label: REA version
-      description: Use `rea --version` or provide the source revision.
-      placeholder: Exact rea --version output or source commit SHA
+      label: Ghostwire version
+      description: Use `ghostwire --version` or provide the source revision.
+      placeholder: Exact ghostwire --version output or source commit SHA
     validations:
       required: true
 

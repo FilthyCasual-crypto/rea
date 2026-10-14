@@ -9,13 +9,13 @@ commit `a55dca27ec0a07018c1b2c95ae2be027f7d8c3c4` (7 October 2026).
 - Target: `DXBALL.EXE`, 158,208 bytes, PE i386.
 - SHA-256: `756da1ba09edce716d5bf8770320ca0d5ed4e525672b6bb605b9bdb4b88972ba`.
 - Function: `0x406400` through `0x40643e`, inclusive, 63 bytes.
-- Recorded analysis: REA 4.1.0, Ghidra 12.1.4, Linux x64 host.
+- Recorded analysis: Ghostwire 4.1.0, Ghidra 12.1.4, Linux x64 host.
 - Pan dossier: `ev_ddca58134d89a2eb0aba5bf5694bb06ce7b5cb28aac0eb847891506244e70490`.
 - Caller dossier: `ev_d09866ff22dc07f3ac28ef1d992c5876c1e58e1796dbe0f0c5c2814544aa27eb`.
 - Constants read: `ev_6a56fda997bcda2df677257601da0174ff8041d44c8c83c48356df31edf0f7ae`.
 - Scale read: `ev_64752f4ecf1ec74384ce01083c21fcfffb716931f6c31a7dac351a136df7979e`.
 
-The website update reused the matching saved REA results and verified the local
+The website update reused the matching saved Ghostwire results and verified the local
 target digest. It did not start a new provider session or repeat the project's
 execution/compiler checks. Complete dossiers, snapshots, the original
 executable and compiler products remain in the reconstruction project.
@@ -38,7 +38,7 @@ call, omitting the stack input and x87 expression. The website's pseudocode
 excerpt preserves that body and omits only its leading provider warning/comment
 and blank lines.
 
-## Displayed REA requests
+## Displayed Ghostwire requests
 
 The page shows the actual tool names with compact input excerpts:
 
@@ -53,9 +53,9 @@ The page shows the actual tool names with compact input excerpts:
 
 The page splits the first byte read into two eight-byte values and shows their
 little-endian double interpretations beside the observed hex. These are decoded
-values, not additional fields in the raw REA result. Query groups present the
+values, not additional fields in the raw Ghostwire result. Query groups present the
 reasoning sequence rather than reproducing an entire chronological session.
-Provider details are recorded here; the product narrative uses REA to describe
+Provider details are recorded here; the product narrative uses Ghostwire to describe
 the CLI/MCP operations the agent called.
 
 ## Complete recorded instruction listing

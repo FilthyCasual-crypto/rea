@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CTF Reverse Engineering: DownUnderCTF Flag Checker — REA</title>
+    <title>
+      CTF Reverse Engineering: DownUnderCTF Flag Checker — Ghostwire
+    </title>
     <meta
       name="description"
-      content="Use REA to solve DownUnderCTF's masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program."
+      content="Use Ghostwire to solve DownUnderCTF's masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +60,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="CTF Reverse Engineering: DownUnderCTF Flag Checker — REA" />
+    <meta property="og:title" content="CTF Reverse Engineering: DownUnderCTF Flag Checker — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Use REA to solve DownUnderCTF&#x27;s masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program." />
+    <meta property="og:description" content="Use Ghostwire to solve DownUnderCTF&#x27;s masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/showcase/ctf/" />
     <!-- prettier-ignore -->
@@ -76,20 +78,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="CTF Reverse Engineering: DownUnderCTF Flag Checker — REA" />
+    <meta name="twitter:title" content="CTF Reverse Engineering: DownUnderCTF Flag Checker — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Use REA to solve DownUnderCTF&#x27;s masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program." />
+    <meta name="twitter:description" content="Use Ghostwire to solve DownUnderCTF&#x27;s masked squares flag checker. Find the checking functions, extract the masks and compare a recovered flag with the original program." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -107,8 +109,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -132,8 +134,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -152,8 +154,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -171,8 +173,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -199,8 +201,8 @@
         <p class="eyebrow">Case study · DownUnderCTF 2023</p>
         <h1>Find the flag in<br />a CTF binary.</h1>
         <p class="lede">
-          Use REA to inspect a small flag checker, turn its rules into equations
-          and find an input that makes the original program print
+          Use Ghostwire to inspect a small flag checker, turn its rules into
+          equations and find an input that makes the original program print
           <code>Correct!</code>.
         </p>
         <p class="page-meta">
@@ -220,24 +222,24 @@
             <span class="flow-label">01 · Find the check</span
             ><strong class="flow-node">Strings → checking functions</strong
             ><span class="flow-note"
-              >REA finds the prompt, its references and the code that accepts or
-              rejects an input.</span
+              >Ghostwire finds the prompt, its references and the code that
+              accepts or rejects an input.</span
             >
           </li>
           <li>
             <span class="flow-label">02 · Extract the rules</span
             ><strong class="flow-node">36 characters · 26 sums</strong
             ><span class="flow-note"
-              >REA returns the instructions and data behind each check. The
-              agent turns them into equations.</span
+              >Ghostwire returns the instructions and data behind each check.
+              The agent turns them into equations.</span
             >
           </li>
           <li>
             <span class="flow-label">03 · Solve and run</span
             ><strong class="flow-node">Recovered flag → Correct!</strong
             ><span class="flow-note"
-              >A Python script solves the equations. REA captures the original
-              program accepting the result.</span
+              >A Python script solves the equations. Ghostwire captures the
+              original program accepting the result.</span
             >
           </li>
         </ol>
@@ -286,9 +288,9 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="ctf-prompt"
-                  >Use REA to analyze ms_flag_checker and find the flag. Explain
-                  how the checks work, then verify the answer with the original
-                  program.</span
+                  >Use Ghostwire to analyze ms_flag_checker and find the flag.
+                  Explain how the checks work, then verify the answer with the
+                  original program.</span
                 ><span class="terminal-cursor" aria-hidden="true"></span>
               </p>
             </div>
@@ -301,7 +303,9 @@
                 <h4>Follow the input prompt to its function</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
-                    <div class="code-header"><span>Agent → REA</span></div>
+                    <div class="code-header">
+                      <span>Agent → Ghostwire</span>
+                    </div>
                     <pre><code>open_binary
 {"path": "ms_flag_checker"}
 
@@ -317,7 +321,7 @@ resolve_containing_procedure
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · selected results</span>
+                      <span>Ghostwire → agent · selected results</span>
                     </div>
                     <pre><code>0x102004  "What is the flag? "
 0x10201c  "Incorrect!"
@@ -337,7 +341,9 @@ Containing function: 0x10124d</code></pre>
                 <h4>Read the checker and its two helpers</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
-                    <div class="code-header"><span>Agent → REA</span></div>
+                    <div class="code-header">
+                      <span>Agent → Ghostwire</span>
+                    </div>
                     <pre><code>analyze_function
 {"procedure": "0x10124d"}
 
@@ -349,7 +355,7 @@ analyze_function
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · selected instructions</span>
+                      <span>Ghostwire → agent · selected instructions</span>
                     </div>
                     <pre><code>0x1012c1: CMP EDI, 0x24
 0x1012c6: LEA RBX, [0x1040e0]
@@ -371,9 +377,9 @@ analyze_function
               </li>
             </ol>
             <p class="caption">
-              These are selected results from a fresh REA analysis. The local
-              target path is shortened for display; addresses refer to REA's
-              imported image.
+              These are selected results from a fresh Ghostwire analysis. The
+              local target path is shortened for display; addresses refer to
+              Ghostwire's imported image.
             </p>
           </section>
 
@@ -412,14 +418,14 @@ analyze_function
             <div class="rea-query-pair">
               <div class="code-block">
                 <div class="code-header">
-                  <span>Agent → REA · read_bytes</span>
+                  <span>Agent → Ghostwire · read_bytes</span>
                 </div>
                 <pre><code>{"address": "0x1040e0", "length": 624}
 {"address": "0x104060", "length": 144}</code></pre>
               </div>
               <div class="code-block">
                 <div class="code-header">
-                  <span>REA → agent · seventh entries</span>
+                  <span>Ghostwire → agent · seventh entries</span>
                 </div>
                 <pre><code>Mask at 0x104170:
 eb 01 f2 00  →  -21, +1, -14, stop
@@ -492,7 +498,7 @@ Target at 0x104078:
               <div class="code-comparison">
                 <div class="code-block">
                   <div class="code-header">
-                    <span>REA · selected original instructions</span
+                    <span>Ghostwire · selected original instructions</span
                     ><button
                       class="copy-button"
                       type="button"
@@ -628,8 +634,8 @@ print("".join(chr(model.eval(code).as_long()) for code in codes))</code></pre>
           <section class="article-section" id="verify">
             <h2>Check the answer with the original program</h2>
             <p>
-              REA's process capture records the original executable accepting
-              the solved flag. Changing one selected character from
+              Ghostwire's process capture records the original executable
+              accepting the solved flag. Changing one selected character from
               <code>z</code> to <code>y</code> makes the first sum 1440 instead
               of 1441, and the program rejects it.
             </p>
@@ -660,7 +666,7 @@ print("".join(chr(model.eval(code).as_long()) for code in codes))</code></pre>
               <summary>Show the recovered flag and captured output</summary>
               <div class="code-block">
                 <div class="code-header">
-                  <span>REA · original program output</span
+                  <span>Ghostwire · original program output</span
                   ><button
                     class="copy-button"
                     type="button"
@@ -682,7 +688,7 @@ Correct!</code></pre>
               <summary>Source, target identity and analysis details</summary>
               <p>
                 Fresh analysis and two process captures on 8 October 2026, using
-                REA 4.1.0 with Ghidra 12.1.4 on Linux x64. The binary is a
+                Ghostwire 4.1.0 with Ghidra 12.1.4 on Linux x64. The binary is a
                 stripped x86-64 ELF, 15,248 bytes.
               </p>
               <div class="code-block">
@@ -694,7 +700,7 @@ Correct!</code></pre>
               <p>
                 The string references, functions and constants were inspected
                 before reading the organizers' source or solution. The Python
-                solver and the diagram were built from those REA results.
+                solver and the diagram were built from those Ghostwire results.
               </p>
               <p>
                 <a
@@ -709,7 +715,7 @@ Correct!</code></pre>
                 ·
                 <a
                   href="https://github.com/morluto/rea/blob/main/website/evidence/ctf-masked-squares.md"
-                  >REA evidence notes</a
+                  >Ghostwire evidence notes</a
                 >
               </p>
             </details>
@@ -756,7 +762,7 @@ chmod +x ms_flag_checker
               the original executable needs Linux x86-64.
             </p>
             <a class="text-link" href="../../get-started/"
-              >Set up REA with your coding agent</a
+              >Set up Ghostwire with your coding agent</a
             >
           </section>
         </article>
@@ -766,7 +772,7 @@ chmod +x ms_flag_checker
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

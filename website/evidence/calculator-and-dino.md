@@ -1,10 +1,10 @@
 # Calculator and dinosaur beginner examples
 
-Evidence collected on 9 October 2026 with the published REA 4.1.0 package.
+Evidence collected on 9 October 2026 with the published Ghostwire 4.1.0 package.
 The homepage offers compact setup first, then a reverse-engineering definition,
 purpose and manual/agent comparison. Dinosaur is the first worked example;
 Calculator is the second. Each states its goal, why the program is inspected,
-what REA returned and how the agent uses it.
+what Ghostwire returned and how the agent uses it.
 Prompts and replies are examples based on the
 findings below. Selected code and generic inputs are public; raw captures stay
 outside the website.
@@ -20,17 +20,17 @@ The installed Windows Calculator package is version `11.2508.4.0`, x64.
 | Windows `calc.exe` launcher | `9c2c8a8588fe6db09c09337e78437cb056cd557db1bcf5240112cbfb7b600efb` |
 | Package `CalcViewModel.dll` | `07a1953bbf828a3495662c4b4bde1c80c9075061e0e389eabac5f8c544710df5` |
 
-REA's function dossier for launcher `0x1400019f4` includes the call to
+Ghostwire's function dossier for launcher `0x1400019f4` includes the call to
 `ShellExecuteW` with `ms-calculator:`. Evidence:
 `ev_e97a6a1a61bfe63476a13e6285d71dd838101066f7863c9af822861050203ea5`.
 
-The calculation is in the installed app's model DLL. REA inspected function
+The calculation is in the installed app's model DLL. Ghostwire inspected function
 `0x1801245d0`, whose body occupies two ranges, totaling 10,656 bytes:
 `0x1801245d0–0x180126f4c` and `0x180126f55–0x180126f77`.
 Evidence:
 `ev_830a710c7fb55a08ac896fb5783c14339480a57a96d6d45c57c024b6a43239d0`.
 
-REA supplied pseudocode, original instructions, calls and references. Its
+Ghostwire supplied pseudocode, original instructions, calls and references. Its
 `case 0x76` checks the operator field against `0x5c` and `0x5b` and constructs
 the constant 100 in both paths. One path divides the current value by 100;
 the other combines the current value with the previous value divided by 100.
@@ -46,7 +46,7 @@ The same percentage question appears in the agent prompt. Helper meanings and
 operator names are interpretations checked against the public source below.
 
 The binary is stripped. A local instruction scan located candidates using
-operator IDs and the constant 100; REA then produced the complete function
+operator IDs and the constant 100; Ghostwire then produced the complete function
 dossier. Function selection was analyst-assisted. The illustrative agent
 prompt is not a recording of an autonomous end-to-end discovery.
 
@@ -76,10 +76,10 @@ step; no completed Windows GUI input result is claimed.
 
 ### Running target and source
 
-REA inspected the HTTP page
+Ghostwire inspected the HTTP page
 <https://wayou.github.io/t-rex-runner/> in an owned Chrome 150.0.7871.124
 session through a loopback debugging connection. This is wayou's
-Chromium-derived browser edition. REA's HTTP(S) page inspection does not
+Chromium-derived browser edition. Ghostwire's HTTP(S) page inspection does not
 select `chrome://dino/`; the website identifies the HTTP edition as its target.
 
 The returned `index.js` source contains 90,241 UTF-8 bytes, SHA-256
@@ -99,10 +99,10 @@ copyright are reproduced in `public/assets/licenses/dinosaur.txt`.
 
 ### Controlled original-game check
 
-After the passive REA inspection, a separate Playwright controller called the
+After the passive Ghostwire inspection, a separate Playwright controller called the
 original page's `Runner.update()` repeatedly. It disabled future update
 scheduling and obstacle generation, set the starting speed to 6, and kept the
-game in its playing state. The control is credited separately from REA's
+game in its playing state. The control is credited separately from Ghostwire's
 read-only inspection.
 
 | Update count | Observed speed     | Display rounded to 3 decimals |

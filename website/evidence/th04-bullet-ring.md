@@ -4,20 +4,20 @@ This case examines one helper in the Japanese PC-98 DOS TH04 (Lotus Land Story)
 reconstruction. Source and historical compiler checks are pinned to
 `0d72e9801a5c14c10384efcbb6734ceccb74ee63` in
 [N0zoM1z0/th04](https://github.com/N0zoM1z0/th04). The page adds a fresh inspection
-of the supplied original target through REA on 7 October 2026.
+of the supplied original target through Ghostwire on 7 October 2026.
 
 ## Original target and analysis
 
 - Target: `MAIN.EXE`, 156,258 bytes, DOS MZ, x86 real mode.
 - SHA-256: `077440a3c4e9ab52e72e9bae411276c47edc11995b5c2b83dfc83fbc039dc58b`.
 - Header: 6,144 bytes (`0x1800`); module: 150,114 bytes; relocations: 1,136.
-- Connected analysis: published REA 4.1.0, Ghidra 12.1.4, Linux x64.
+- Connected analysis: published Ghostwire 4.1.0, Ghidra 12.1.4, Linux x64.
 - The connected runtime's 761 files under `dist`, `bridge` and `scripts` match
-  the cached published REA 4.1.0 package byte for byte.
+  the cached published Ghostwire 4.1.0 package byte for byte.
 - Load-image profile: `MzLoader`, `x86:LE:16:Real Mode`, compiler `default`,
   fixed load segment `0x1000`, linear byte addresses.
 - Profile digest: `0d7ec8473c44e8d0a979c0308f7260b7572866613a369c30550026c81beff0e9`.
-- Helper: `bullet_velocity_and_angle_set`, REA entry `0x2cfc8`, original
+- Helper: `bullet_velocity_and_angle_set`, Ghostwire entry `0x2cfc8`, original
   file offset `0x1e7c8` (124,872).
 
 The executable's identity passes the reconstruction manifest and MZ checks. Its
@@ -25,7 +25,7 @@ manifest provenance is `candidate-local-attested`; no independent pristine-dump
 claim is added. Windows is an emulator or port host here, not this executable's
 format.
 
-## Fresh REA requests
+## Fresh Ghostwire requests
 
 1. `open_binary` binds the original target with provider `ghidra`. The displayed
    input is compact: its local path is shortened to `MAIN.EXE` and the explicit
@@ -47,19 +47,19 @@ format.
 The selected helper comes from the project's reviewed source boundary. The
 example prompt is an invitation to the reader's agent, not a transcript or a
 claim that this inspection independently discovered every source owner.
-The ephemeral REA session was closed after these queries. The original
+The ephemeral Ghostwire session was closed after these queries. The original
 executable and the reconstruction's saved database were not modified.
 
 The returned function body is noncontiguous: `0x2cfc8..0x2d14f` and
 `0x2d15e..0x2d1cc`, 503 body bytes across a 517-byte enclosing span. The page's
 selected ring, aim and store instructions lie within those reported ranges.
 The historical project reconciles the omitted 14 bytes with raw decoding and
-reviewed compiler ownership; the page does not claim REA reported a contiguous
+reviewed compiler ownership; the page does not claim Ghostwire reported a contiguous
 517-byte body.
 
 ## Instructions and source meaning
 
-| REA instruction evidence                                                                               | Meaning supported by the maintained source                      |
+| Ghostwire instruction evidence                                                                         | Meaning supported by the maintained source                      |
 | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
 | `0x2cfcf: MOV SI, word ptr [BP + 0x4]`                                                                 | Group-member index                                              |
 | `0x2d0ed: SHL AX, 0x8` followed by count load and `IDIV BX`                                            | `(index * 256) / count`, multiplication before integer division |
@@ -67,7 +67,7 @@ reviewed compiler ownership; the page does not claim REA reported a contiguous
 | `0x2d1bc: ADD AL, byte ptr [0x53ad]`                                                                   | Add template rotation                                           |
 | `0x2d1c0: MOV [0xbcc8], AL`                                                                            | Store the final byte angle, wrapping at 256                     |
 
-Assembly is transcribed verbatim from the fresh REA result. Short request/result
+Assembly is transcribed verbatim from the fresh Ghostwire result. Short request/result
 panels select instructions, while the five-step comparison retains the complete
 19-byte ring quotient sequence. The names `count`, player/origin fields,
 `iatan2`, template rotation and spawn angle come from the maintained source and
@@ -120,7 +120,7 @@ evidence ledger. The matching extent contains the full helper and surrounding
 bullet-add functions; it is not a whole-executable or full-game equivalence
 claim. The original reconstruction used project-specific analysis and replay
 scripts. Its source and compiler evidence are credited separately from the
-fresh REA inspection.
+fresh Ghostwire inspection.
 
 ## Public source anchors
 

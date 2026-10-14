@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">REA — Find out how software works.</title>
-  <desc id="desc">Reverse engineering with your coding agent. REA connects your agent to analysis tools and returns evidence.</desc>
+  <title id="title">Ghostwire — Find out how software works.</title>
+  <desc id="desc">Reverse engineering with your coding agent. Ghostwire connects your agent to analysis tools and returns evidence.</desc>
   <rect width="1200" height="630" fill="#ffffff"/>
   <g font-family="DejaVu Sans, sans-serif" fill="#20252b">
-    <text x="72" y="110" font-size="44" font-weight="700">REA</text>
+    <text x="72" y="110" font-size="44" font-weight="700">Ghostwire</text>
     <text x="1128" y="106" font-size="24" text-anchor="end" fill="#5b6570">rea.tools</text>
     <path d="M72 142 H1128" stroke="#dce2e8" stroke-width="2"/>
     <text x="72" y="252" font-size="64" font-weight="700">Find out how</text>
@@ -16,7 +16,7 @@
     </g>
     <g text-anchor="middle" font-size="27">
       <text x="202" y="525">Your agent</text>
-      <text x="560" y="525" fill="#294f82" font-weight="700">REA + analysis tools</text>
+      <text x="560" y="525" fill="#294f82" font-weight="700">Ghostwire + analysis tools</text>
       <text x="958" y="525">Code &amp; evidence</text>
     </g>
     <g stroke="#5b6570" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">

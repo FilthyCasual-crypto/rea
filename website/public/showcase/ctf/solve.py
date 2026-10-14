@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Solve the DownUnderCTF 2023 masked-squares handout from REA-extracted checks.
+"""Solve the DownUnderCTF 2023 masked-squares handout from Ghostwire-extracted checks.
 
 Requires Python 3 and z3-solver. The constants below were read from the original
 ELF with SHA-256 dcd3bec4f608e11f3a12ce461100aaf5f621851ee63a1f870d7c90d4e3dd51ae.

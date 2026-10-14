@@ -28,7 +28,7 @@ for asset notes and the source of case-study claims.
   description once; derive sharing fields and canonicals from them. Use
   `new-page` for a reading-page scaffold, then add its index link. Keep a draft's
   visible label and `noindex` until the content is ready.
-- Show what REA returns and how the agent uses it. Preserve source attribution,
+- Show what Ghostwire returns and how the agent uses it. Preserve source attribution,
   target identity and verification scope.
 - Blog articles teach methods, decisions and workflows through concrete cases.
   Lead with the takeaway. Essays can develop a personal argument through

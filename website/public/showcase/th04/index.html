@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TH04 Reverse Engineering: DOS Bullet Patterns — REA</title>
+    <title>TH04 Reverse Engineering: DOS Bullet Patterns — Ghostwire</title>
     <meta
       name="description"
-      content="Inspect TH04's original 16-bit DOS code with REA. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player."
+      content="Inspect TH04's original 16-bit DOS code with Ghostwire. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +58,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="TH04 Reverse Engineering: DOS Bullet Patterns — REA" />
+    <meta property="og:title" content="TH04 Reverse Engineering: DOS Bullet Patterns — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Inspect TH04&#x27;s original 16-bit DOS code with REA. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player." />
+    <meta property="og:description" content="Inspect TH04&#x27;s original 16-bit DOS code with Ghostwire. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/showcase/th04/" />
     <!-- prettier-ignore -->
@@ -76,20 +76,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="TH04 Reverse Engineering: DOS Bullet Patterns — REA" />
+    <meta name="twitter:title" content="TH04 Reverse Engineering: DOS Bullet Patterns — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Inspect TH04&#x27;s original 16-bit DOS code with REA. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player." />
+    <meta name="twitter:description" content="Inspect TH04&#x27;s original 16-bit DOS code with Ghostwire. Follow the assembly and recovered C++ to see how a ring of bullets is spaced and aimed at the player." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -107,8 +107,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -132,8 +132,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -152,8 +152,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -171,8 +171,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -199,9 +199,9 @@
         <p class="eyebrow">Case study · Touhou 4: Lotus Land Story</p>
         <h1>Reconstructing TH04's<br />bullet patterns.</h1>
         <p class="lede">
-          A ring of bullets starts with a short angle calculation. Use REA to
-          inspect the original DOS function, then follow its instructions into
-          readable C++.
+          A ring of bullets starts with a short angle calculation. Use Ghostwire
+          to inspect the original DOS function, then follow its instructions
+          into readable C++.
         </p>
         <p class="page-meta">PC-98 · 16-bit DOS · C++ and assembly</p>
         <a class="text-link" href="https://github.com/N0zoM1z0/th04"
@@ -220,7 +220,7 @@
             >
           </li>
           <li>
-            <span class="flow-label">02 · Inspect with REA</span
+            <span class="flow-label">02 · Inspect with Ghostwire</span
             ><strong class="flow-node">Instructions + references</strong
             ><span class="flow-note"
               >Verify the loaded DOS code and read the angle calculation from
@@ -244,8 +244,8 @@
           </li>
         </ol>
         <figcaption>
-          REA returns the original code and its analysis evidence. The TH04
-          project supplies the maintained source and compiler checks.
+          Ghostwire returns the original code and its analysis evidence. The
+          TH04 project supplies the maintained source and compiler checks.
         </figcaption>
       </figure>
 
@@ -254,7 +254,7 @@
           <p>In this case study</p>
           <ul>
             <li><a href="#ring">The bullet ring</a></li>
-            <li><a href="#rea">What REA returns</a></li>
+            <li><a href="#ghostwire">What Ghostwire returns</a></li>
             <li><a href="#source">Assembly to C++</a></li>
             <li><a href="#checking">Checking the source</a></li>
             <li><a href="#project">The full project</a></li>
@@ -287,8 +287,8 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="th04-prompt"
-                  >Use REA to find how TH04 creates a ring of bullets and aims
-                  it at the player. Explain the calculation and show the
+                  >Use Ghostwire to find how TH04 creates a ring of bullets and
+                  aims it at the player. Explain the calculation and show the
                   code.</span
                 ><span class="terminal-cursor" aria-hidden="true"></span>
               </p>
@@ -355,20 +355,22 @@ bullet_template_tune();</code></pre>
             </p>
           </section>
 
-          <section class="article-section" id="rea">
-            <h2>What REA returns</h2>
+          <section class="article-section" id="ghostwire">
+            <h2>What Ghostwire returns</h2>
             <p>
               We inspect <code>bullet_velocity_and_angle_set()</code>, the
-              function that sets each bullet's velocity and angle. REA returns
-              its instructions, pseudocode and references. Three parts of that
-              result explain the pattern.
+              function that sets each bullet's velocity and angle. Ghostwire
+              returns its instructions, pseudocode and references. Three parts
+              of that result explain the pattern.
             </p>
             <ol class="rea-queries">
               <li>
                 <h4>Check the DOS image before reading its code</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
-                    <div class="code-header"><span>Agent → REA</span></div>
+                    <div class="code-header">
+                      <span>Agent → Ghostwire</span>
+                    </div>
                     <pre><code>open_binary
 {"path": "MAIN.EXE"}
 
@@ -377,7 +379,7 @@ inspect_native_load_image
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · selected fields</span>
+                      <span>Ghostwire → agent · selected fields</span>
                     </div>
                     <pre><code>status: "verified"
 format: "dos-mz"
@@ -396,13 +398,15 @@ module_bytes: 150114</code></pre>
                 <div class="rea-query-pair">
                   <div class="code-block">
                     <div class="code-header">
-                      <span>Agent → REA · <code>analyze_function</code></span>
+                      <span
+                        >Agent → Ghostwire · <code>analyze_function</code></span
+                      >
                     </div>
                     <pre><code>{"procedure": "0x2cfc8"}</code></pre>
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · instruction excerpt</span>
+                      <span>Ghostwire → agent · instruction excerpt</span>
                     </div>
                     <pre><code>0x2d0eb: MOV AX, SI
 0x2d0ed: SHL AX, 0x8
@@ -443,8 +447,9 @@ module_bytes: 150114</code></pre>
                 <p>
                   The instruction operands expose two coordinate differences and
                   a direction helper. Its return value is added to the relative
-                  ring angle. Source names make those addresses readable; REA
-                  lets the agent check the original operations behind them.
+                  ring angle. Source names make those addresses readable;
+                  Ghostwire lets the agent check the original operations behind
+                  them.
                 </p>
               </li>
             </ol>
@@ -507,7 +512,7 @@ module_bytes: 150114</code></pre>
               <div class="code-comparison">
                 <div class="code-block">
                   <div class="code-header">
-                    <span>REA · original 16-bit instructions</span
+                    <span>Ghostwire · original 16-bit instructions</span
                     ><button
                       class="copy-button"
                       type="button"
@@ -698,7 +703,7 @@ no_aim:
                     </tr>
                     <tr>
                       <th scope="row">Helper entry</th>
-                      <td><code>0x2cfc8</code> in REA's loaded image</td>
+                      <td><code>0x2cfc8</code> in Ghostwire's loaded image</td>
                     </tr>
                     <tr>
                       <th scope="row">Original file offset</th>
@@ -709,7 +714,7 @@ no_aim:
                     </tr>
                     <tr>
                       <th scope="row">Recorded code inspection</th>
-                      <td>REA 4.1.0 · 7 October 2026</td>
+                      <td>Ghostwire 4.1.0 · 7 October 2026</td>
                     </tr>
                   </tbody>
                 </table>
@@ -720,7 +725,7 @@ no_aim:
                 and overlapping relocation.
               </p>
               <p>
-                REA verified the static DOS load image at load segment
+                Ghostwire verified the static DOS load image at load segment
                 <code>0x1000</code>. Its addresses describe that analysis image.
                 The function result reports 503 body bytes in two ranges across
                 a 517-byte span; the selected instructions above lie in those
@@ -729,10 +734,10 @@ no_aim:
               <p>
                 The source names and compiler checks come from TH04 checkpoint
                 <code>0d72e980</code>. Earlier reconstruction observations used
-                the project's own analysis scripts; this page adds a fresh REA
-                inspection of the same original target. The supplied game's
-                identity is pinned by its repository manifest, with independent
-                pristine-dump provenance still open.
+                the project's own analysis scripts; this page adds a fresh
+                Ghostwire inspection of the same original target. The supplied
+                game's identity is pinned by its repository manifest, with
+                independent pristine-dump provenance still open.
               </p>
               <p>
                 The figure illustrates the angle calculation. Full-game
@@ -789,7 +794,7 @@ no_aim:
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

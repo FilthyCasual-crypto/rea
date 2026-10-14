@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1774" height="887" viewBox="0 0 1774 887" role="img" aria-labelledby="title desc">
   <title id="title">DX-Ball sound-pan investigation</title>
-  <desc id="desc">REA provides the instruction, caller and byte-read evidence for one DX-Ball function. A stack input is multiplied by 1.5625, offset by 500, scaled, and converted to an integer. Maintained C is checked in 3,205 original-x86 cases and a separate 63-byte compiler replay.</desc>
+  <desc id="desc">Ghostwire provides the instruction, caller and byte-read evidence for one DX-Ball function. A stack input is multiplied by 1.5625, offset by 500, scaled, and converted to an integer. Maintained C is checked in 3,205 original-x86 cases and a separate 63-byte compiler replay.</desc>
   <defs>
     <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L11 7 L1 13 Z" fill="#5b6570"/></marker>
   </defs>
@@ -35,7 +35,7 @@ svg{background-color:#181825}
     <g text-anchor="middle" font-weight="700">
       <text x="158" y="357" font-size="32">DXBALL.EXE</text>
       <text x="158" y="396" font-size="26" fill="#5b6570">0x00406400</text>
-      <text x="818" y="282" font-size="43" fill="#294f82">REA</text>
+      <text x="818" y="282" font-size="43" fill="#294f82">Ghostwire</text>
       <text x="420" y="347" font-size="33">Stack</text>
       <text x="420" y="386" font-size="33">input x</text>
       <text x="621" y="368" font-size="32">× 1.5625</text>

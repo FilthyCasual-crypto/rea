@@ -145,7 +145,7 @@ async function initializeWebsite() {
       const formatted = new Intl.NumberFormat(
         document.documentElement.lang,
       ).format(stars);
-      const label = t("REA on GitHub ({count})", { count: formatted });
+      const label = t("Ghostwire on GitHub ({count})", { count: formatted });
       count.textContent = formatted;
       count.hidden = false;
       link.setAttribute("aria-label", label);

@@ -1,5 +1,5 @@
 name: Design discussion
-description: Discuss an REA architecture, provider, contract, or scope decision
+description: Discuss an Ghostwire architecture, provider, contract, or scope decision
 title: "[Design] "
 labels:
   - enhancement
@@ -33,7 +33,7 @@ body:
     attributes:
       label: Decision needed
       description: What would you like maintainers to help decide? A short question is enough.
-      placeholder: Should REA ... or ...?
+      placeholder: Should Ghostwire ... or ...?
     validations:
       required: true
 

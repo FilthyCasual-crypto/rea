@@ -1,5 +1,5 @@
 name: Feature request
-description: Propose a focused improvement to REA
+description: Propose a focused improvement to Ghostwire
 title: "[Feature] "
 labels:
   - enhancement
@@ -128,7 +128,7 @@ body:
     id: alternatives
     attributes:
       label: Alternatives considered
-      description: Describe existing REA operations, upstream tools, or workarounds considered and why they do not meet the need.
+      description: Describe existing Ghostwire operations, upstream tools, or workarounds considered and why they do not meet the need.
 
   - type: textarea
     id: possible-direction

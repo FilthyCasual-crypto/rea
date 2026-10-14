@@ -1,4 +1,4 @@
-# REA website figures
+# Ghostwire website figures
 
 > A good website is like a good paper: easy to follow, clear and concise, with a clean, refined presentation.
 >
@@ -18,21 +18,21 @@ The published diagrams are SVG source assets:
 Two original layout references were generated with the built-in image generation
 tool and reviewed visually. Their prompts are retained below. The final SVGs
 preserve the white background, charcoal/slate/blue palette and layout while
-using REA as the reader-facing subject. Provider details remain in configuration
+using Ghostwire as the reader-facing subject. Provider details remain in configuration
 guides and the evidence provenance document. The SVGs keep text sharp when
 zoomed and can be maintained without committing raster binaries.
 
-The REA figure shows the agent's question, inspection through REA, evidence and
+The Ghostwire figure shows the agent's question, inspection through Ghostwire, evidence and
 follow-up work. The DX-Ball figure shows the ordered input/arithmetic evidence,
 the maintained C and separate execution/compiler checks. Recorded tool requests,
 instruction excerpts and decoded byte reads appear as HTML text in the case
-study; source reconstruction is the agent's work informed by REA results.
+study; source reconstruction is the agent's work informed by Ghostwire results.
 
 ## TH04 figure
 
 The TH04 figure is drawn directly as SVG from the byte-angle formula. It uses
 16 bullets, zero template rotation and illustrative player direction 40, with
-clockwise screen coordinates. The HTML overview separates REA's original-code
+clockwise screen coordinates. The HTML overview separates Ghostwire's original-code
 inspection from the reconstruction project's C++ and compiler replay. No
 image generation or game screenshot is used for this mathematical figure.
 
@@ -47,7 +47,7 @@ rendering at desktop and mobile widths.
 
 `public/assets/social-card.svg` is the 1200 × 630 preview source. It uses the
 homepage's direct headline, the site's white/charcoal/slate/blue palette, and a
-short agent → REA → evidence flow. CairoSVG renders the ignored PNG during asset
+short agent → Ghostwire → evidence flow. CairoSVG renders the ignored PNG during asset
 preparation. Check the rendered image for readable text and spacing before
 publishing. The build uses DejaVu Sans for consistent typography; only the SVG
 source is committed. Metadata and build instructions are in the website README.
@@ -64,14 +64,14 @@ analyst thoughts: decode operator branches, trace arithmetic calls, then name
 the percentage rule. The small analyst illustration is authored SVG; the
 thought bubbles, findings and labels are selectable HTML. The thoughts
 illustrate the analysis rather than reproduce a recorded conversation. The
-agent side asks the same question and separates REA’s evidence from the
+agent side asks the same question and separates Ghostwire’s evidence from the
 agent’s explanation. Keep those roles and the instruction highlights aligned
 when changing a step.
 
 The homepage explains reverse engineering before the worked examples. Each
 example opens with its goal and reason for inspecting the program. A selected
-highlight marks the intended result; the “REA returned” block identifies the
-evidence. The flows label REA’s inspection and the agent’s interpretation or
+highlight marks the intended result; the “Ghostwire returned” block identifies the
+evidence. The flows label Ghostwire’s inspection and the agent’s interpretation or
 reconstruction explicitly. Preserve this context when moving a demo.
 
 The dinosaur sequence uses an HTML flow: inspect the loaded script, rebuild the
@@ -123,13 +123,13 @@ disclosure. Their provenance is documented in
 ## Prompt 1
 
 Use case: scientific-educational
-Asset type: project-bound raster diagram for the REA website, readable at 1080px display width.
-Primary request: Make one exceptionally clear, publication-style flow figure explaining how an analyst and their agent use REA to investigate a local target. The reader should understand the roles and sequence in one glance.
+Asset type: project-bound raster diagram for the Ghostwire website, readable at 1080px display width.
+Primary request: Make one exceptionally clear, publication-style flow figure explaining how an analyst and their agent use Ghostwire to investigate a local target. The reader should understand the roles and sequence in one glance.
 Canvas: wide landscape 2:1 aspect ratio, approximately 2048 × 1024 pixels. Plain pure-white background. Generous clear outer margin. Flat vector-like graphic rendered as raster.
-Style: restrained technical-paper figure. Crisp large sans-serif type. Charcoal #20252b text, slate #5b6570 secondary text, thin gray connecting lines, one muted blue #294f82 accent for REA and meaningful connections. No decorative illustration.
+Style: restrained technical-paper figure. Crisp large sans-serif type. Charcoal #20252b text, slate #5b6570 secondary text, thin gray connecting lines, one muted blue #294f82 accent for Ghostwire and meaningful connections. No decorative illustration.
 
 Layout and exact labels:
-A short title at the top left: "REA investigation flow".
+A short title at the top left: "Ghostwire investigation flow".
 Four clear evenly spaced stages along a single left-to-right horizontal baseline. Each stage has a prominent numbered heading, concise centered labels, and ample whitespace. Main connectors are right-pointing arrows between adjacent stages.
 Stage 1:
 "1. Ask"
@@ -137,7 +137,7 @@ Stage 1:
 "App / binary / browser"
 Stage 2:
 "2. Inspect & trace"
-A large blue label "REA"
+A large blue label "Ghostwire"
 "CLI / MCP"
 Stage 3:
 "3. Read the evidence"
@@ -147,20 +147,20 @@ Stage 4:
 A large label "Your agent"
 "Explain / implement / test"
 
-Below stage 2 only, put a supporting box and a thin vertical connector to REA. Box labels verbatim:
+Below stage 2 only, put a supporting box and a thin vertical connector to Ghostwire. Box labels verbatim:
 "Analysis tools"
 "Ghidra / Hopper / IDA / other adapters"
 It is a set of available adapters, not a requirement that all engines be used. Do not put this box under other stages.
-Add exactly one subtle feedback arrow above the main row: from stage 4 back to stage 2, pointing into REA. Its label is "Follow-up question". Do not cross text.
-Semantics: REA provides inspection and analysis evidence via CLI/MCP. The user's agent uses that evidence to explain, implement, or test. Never imply REA automatically clones a program.
+Add exactly one subtle feedback arrow above the main row: from stage 4 back to stage 2, pointing into Ghostwire. Its label is "Follow-up question". Do not cross text.
+Semantics: Ghostwire provides inspection and analysis evidence via CLI/MCP. The user's agent uses that evidence to explain, implement, or test. Never imply Ghostwire automatically clones a program.
 Text: Render every supplied English label verbatim with correct spelling. Keep type large and dark enough to read when image is displayed at 1080px wide. Do not add additional captions, claims, legends, text, code, logos, icons, or numbers.
 Avoid: screenshots, assembly or source code, watermarks, shadows, gradients, 3D, cute icons, bold marketing banners, ornate borders, dense text, tiny labels, decorative arrows.
 
 ## Prompt 2
 
 Use case: scientific-educational
-Asset type: project-bound raster figure for a restrained REA technical case-study web page, readable at 1080px display width.
-Primary request: Draw one accurate, instantly understandable publication-style diagram of the DX-Ball sound-pan function investigation. Show the original executable feeding REA/Ghidra analysis, the ordered arithmetic evidence, the maintained C reconstruction, and two separate verification checks. This concerns ONE FUNCTION, not the entire game.
+Asset type: project-bound raster figure for a restrained Ghostwire technical case-study web page, readable at 1080px display width.
+Primary request: Draw one accurate, instantly understandable publication-style diagram of the DX-Ball sound-pan function investigation. Show the original executable feeding Ghostwire/Ghidra analysis, the ordered arithmetic evidence, the maintained C reconstruction, and two separate verification checks. This concerns ONE FUNCTION, not the entire game.
 Canvas: wide landscape 2:1 aspect ratio, approximately 2048 × 1024 pixels. Pure-white background, generous outer margins. Flat vector-like diagram rendered as raster.
 Style: crisp large sans-serif, charcoal #20252b primary text, slate #5b6570 secondary text and thin outlines, one restrained blue #294f82 accent. Only boxes, simple lines, arrows and typography. No shadows, gradients, 3D, icons or screenshots.
 
@@ -172,7 +172,7 @@ Exact labels and relationships:
 SOURCE: box text "DXBALL.EXE" with "0x00406400" underneath.
 Arrow from SOURCE into the first node of the central region.
 
-CENTRAL EVIDENCE REGION: heading "REA + Ghidra".
+CENTRAL EVIDENCE REGION: heading "Ghostwire + Ghidra".
 Five little arithmetic nodes in exactly this order, joined by right-pointing arrows:
 "Stack input x" → "× 1.5625" → "− 500.0" → "× pan_scale" → "Integer return"
 The last node connects to the maintained C box on the right.
@@ -197,7 +197,7 @@ Text constraints: render every supplied English label and number verbatim with c
 DownUnderCTF 2023's masked-squares flag checker. The original encoded mask is
 `-21, +1, -14, 0`: expand it to 36 cells, highlight zero-based cell 21 and
 compare its code with the recorded target 55 (`7`). Labels and selected cells
-come from the fresh REA byte reads documented in
+come from the fresh Ghostwire byte reads documented in
 [evidence/ctf-masked-squares.md](evidence/ctf-masked-squares.md).
 
 The diagram is maintained as SVG source using the shared blue/gray palette.

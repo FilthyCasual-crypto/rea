@@ -9,10 +9,10 @@ introduced by this iteration.
 This six-file, source-owned teaching fixture is in
 `website/public/examples/notes-electron/`. It is a static analysis target, not
 an installed Electron distribution. Its graph was obtained using the released
-`rea-agents` 4.1.0 package, Node.js 24.18.0 on Linux x64, on 7 October 2026:
+`ghostwire-agent` 4.1.0 package, Node.js 24.18.0 on Linux x64, on 7 October 2026:
 
 ```sh
-rea analyze-javascript-application \
+ghostwire analyze-javascript-application \
   /absolute/path/to/website/public/examples/notes-electron --json
 ```
 
@@ -41,11 +41,11 @@ checkpoint; subsequent metadata changes and checks are recorded separately.
 The first-investigation page reuses the unchanged Electron fixture and recorded
 static findings above. On 9 October 2026, its generated ZIP was unpacked and the
 page's formatter command was run with Node.js 24.18.0. The input
-`[{ id: 1, title: 'Hello, "REA"' }]` produced:
+`[{ id: 1, title: 'Hello, "Ghostwire"' }]` produced:
 
 ```csv
 id,title
-1,"Hello, ""REA"""
+1,"Hello, ""Ghostwire"""
 ```
 
 That check executes `toCsv` from the unzipped `csv.js`. It checks formatting;
@@ -56,10 +56,10 @@ launch or new native analysis was needed for this website revision.
 
 The three-file browser app is in `website/public/examples/notes-web/`.
 A dedicated headless Chrome profile opened it at
-`http://127.0.0.1:4173/examples/notes-web/`. REA 4.1.0 passively inspected that
+`http://127.0.0.1:4173/examples/notes-web/`. Ghostwire 4.1.0 passively inspected that
 existing page with an 8-second window, accessibility text and JSON body shapes.
 A separate Playwright controller clicked the button during the capture and
-saved the resulting CSV; REA did not perform the click.
+saved the resulting CSV; Ghostwire did not perform the click.
 
 - Evidence ID: `ev_7df243651c257e41f525e4225cbca5427467cf1e7b4b5b624ab41ab5717fe9c6`.
 - Window: `2026-10-07T09:38:43.492Z` to
@@ -85,8 +85,8 @@ Evidence: `ev_aeb777df405c09dc1bbdd4c185a5af2452abaa3cb493683c296c5afa97efbc11`.
 ## SEO metadata check — 9 October 2026
 
 Both Notes HTML heads gained descriptions and `noindex` directives. The Electron
-fixture was analyzed again with `rea-agents` 4.1.0 and Node.js 24.18.0 on Linux
-x64. REA still reports four parsed JavaScript files, zero parse failures, one
+fixture was analyzed again with `ghostwire-agent` 4.1.0 and Node.js 24.18.0 on Linux
+x64. Ghostwire still reports four parsed JavaScript files, zero parse failures, one
 exposed API member, one literal IPC channel, one renderer transmission, one main
 handler and one paired transmission, with zero ambiguous transmissions.
 

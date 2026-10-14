@@ -17,8 +17,8 @@ another gettext editor. Each entry includes its source page and line:
 ```po
 #: website/public/faq/index.html:200
 msgctxt "page:faq/index.html"
-msgid "How do I install REA?"
-msgstr "如何安装 REA？"
+msgid "How do I install Ghostwire?"
+msgstr "如何安装 Ghostwire？"
 ```
 
 Change `msgstr`. Keep `msgid` and `msgctxt`. Add reviewer notes with `#` comments
@@ -59,8 +59,8 @@ and broken tag nesting. Interaction messages use names such as `{speed}` and
 
 Code blocks, inline code and `translate="no"` spans are copied from the source.
 Commands, filenames, paths, URLs, hashes and observed values must retain their
-meaning. Never translate `npx rea-agents@latest setup` into prose. Preserve product
-names such as REA, Codex, Claude Code, Ghidra and Homebrew. Explain technical terms
+meaning. Never translate `npx ghostwire-agent@latest setup` into prose. Preserve product
+names such as Ghostwire, Codex, Claude Code, Ghidra and Homebrew. Explain technical terms
 in the surrounding text when needed.
 
 In these articles, an **agent** is the reader's AI coding assistant. A **call** is
@@ -72,7 +72,7 @@ and .NET assemblies from assembly instructions.
 Android names the operating system; C names the programming language. Read the
 whole sentence when a dictionary sense would change what the software does.
 
-Review the question, REA's findings, the agent's reasoning and the verification
+Review the question, Ghostwire's findings, the agent's reasoning and the verification
 result together. Keep recorded versions, milestone counts, unknowns and source
 attribution accurate. Blog essays can use a personal voice. Translated quotes
 should be identifiable as translations and retain a link to the original.

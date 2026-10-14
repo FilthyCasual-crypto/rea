@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Notion Electron Reverse Engineering: Clipboard — REA</title>
+    <title>Notion Electron Reverse Engineering: Clipboard — Ghostwire</title>
     <meta
       name="description"
       content="Follow Notion's clipboard API through Electron's preload, IPC wrappers and main process, with short code excerpts and a look at its rich clipboard format."
@@ -58,9 +58,9 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="Notion Electron Reverse Engineering: Clipboard — REA" />
+    <meta property="og:title" content="Notion Electron Reverse Engineering: Clipboard — Ghostwire" />
     <!-- prettier-ignore -->
     <meta property="og:description" content="Follow Notion&#x27;s clipboard API through Electron&#x27;s preload, IPC wrappers and main process, with short code excerpts and a look at its rich clipboard format." />
     <!-- prettier-ignore -->
@@ -76,12 +76,12 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="Notion Electron Reverse Engineering: Clipboard — REA" />
+    <meta name="twitter:title" content="Notion Electron Reverse Engineering: Clipboard — Ghostwire" />
     <!-- prettier-ignore -->
     <meta name="twitter:description" content="Follow Notion&#x27;s clipboard API through Electron&#x27;s preload, IPC wrappers and main process, with short code excerpts and a look at its rich clipboard format." />
     <!-- prettier-ignore -->
@@ -89,7 +89,7 @@
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -107,8 +107,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -132,8 +132,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -152,8 +152,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -171,8 +171,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -202,7 +202,7 @@
           Trace a clipboard call from Notion's page API, through the preload and
           main process, to Electron's clipboard writer.
         </p>
-        <p class="page-meta">Notion Desktop 7.6.1 · JavaScript · REA</p>
+        <p class="page-meta">Notion Desktop 7.6.1 · JavaScript · Ghostwire</p>
       </div>
 
       <figure class="workflow-figure">
@@ -283,7 +283,7 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="notion-prompt"
-                  >Use REA to trace how Notion copies text and HTML to the
+                  >Use Ghostwire to trace how Notion copies text and HTML to the
                   system clipboard. Show the code at each step.</span
                 ><span class="terminal-cursor" aria-hidden="true"></span>
               </p>
@@ -293,14 +293,18 @@
               available to your coding agent.
             </p>
 
-            <h3 class="small-heading">REA finds where to start reading</h3>
+            <h3 class="small-heading">
+              Ghostwire finds where to start reading
+            </h3>
             <p>
-              Analyzing the tab preload with REA locates the API exposed to the
-              page and the call that sends an IPC request. Both findings come
-              with source ranges in the minified bundle:
+              Analyzing the tab preload with Ghostwire locates the API exposed
+              to the page and the call that sends an IPC request. Both findings
+              come with source ranges in the minified bundle:
             </p>
             <figure class="workflow-figure">
-              <p class="figure-title">REA findings → two places to open</p>
+              <p class="figure-title">
+                Ghostwire findings → two places to open
+              </p>
               <div class="rea-query-pair">
                 <div class="code-block">
                   <div class="code-header"><span>Exposed page API</span></div>
@@ -318,8 +322,8 @@ source: preload.js:1:6486–6522</code></pre>
               <figcaption>
                 Selected fields from a fresh
                 <code>analyze_javascript_application</code> result on Notion's
-                tab preload, recorded with REA 4.1.0. Positions use the original
-                bundle's line and zero-based column.
+                tab preload, recorded with Ghostwire 4.1.0. Positions use the
+                original bundle's line and zero-based column.
               </figcaption>
             </figure>
             <p>
@@ -579,11 +583,11 @@ mimeTypes:
                 those probes rather than a captured desktop UI session.
               </p>
               <p>
-                The REA result shown here is a focused analysis of the saved tab
-                preload, recorded with the published REA 4.1.0 package. It
-                locates the API and invoke operation. The clipboard member and
-                matching receiver are connected by reading their wrapper
-                implementations in the package.
+                The Ghostwire result shown here is a focused analysis of the
+                saved tab preload, recorded with the published Ghostwire 4.1.0
+                package. It locates the API and invoke operation. The clipboard
+                member and matching receiver are connected by reading their
+                wrapper implementations in the package.
               </p>
               <p>
                 The Markdown example uses parser module <code>422457</code>.
@@ -620,7 +624,7 @@ mimeTypes:
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

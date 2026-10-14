@@ -17,10 +17,10 @@ The industrial-age analogy explains that method. The Factory's
 software architecture also uses the Abstract Factory pattern; the article's
 analogy should focus on the working process rather than that implementation.
 
-REA supplies analysis evidence to an agent. The historical projects also used
+Ghostwire supplies analysis evidence to an agent. The historical projects also used
 project-specific analysis bridges and tooling. The article should attribute
-historical work to those projects and explain where REA fits in the general
-workflow, without relabeling every historical tool result as REA output.
+historical work to those projects and explain where Ghostwire fits in the general
+workflow, without relabeling every historical tool result as Ghostwire output.
 
 ## Collection and counting
 
@@ -187,7 +187,7 @@ The flywheel is an explanatory model of this relationship. Its passing branch
 retains a checked result and its evidence; a mismatch returns to investigation.
 Code, checks and recorded lessons improve the next starting point, with TH08,
 TH095 and TH04 illustrating knowledge carried between projects. It does not
-depict a measured performance ratio or give REA sole credit for reconstruction.
+depict a measured performance ratio or give Ghostwire sole credit for reconstruction.
 
 The first inline reference to GensokyoClub's public README links to the author's
 selected [Internet Archive capture](https://web.archive.org/web/20260909051514/https://github.com/GensokyoClub/th08#important-notice).

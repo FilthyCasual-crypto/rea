@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DX-Ball Reverse Engineering: Sound Panning — REA</title>
+    <title>DX-Ball Reverse Engineering: Sound Panning — Ghostwire</title>
     <meta
       name="description"
-      content="Follow a DX-Ball reconstruction from binary analysis through REA to maintained C, original-x86 tests and matching compiled function bytes."
+      content="Follow a DX-Ball reconstruction from binary analysis through Ghostwire to maintained C, original-x86 tests and matching compiled function bytes."
     />
     <!-- website:sharing:start -->
     <!-- prettier-ignore -->
@@ -58,11 +58,11 @@
     <!-- prettier-ignore -->
     <meta property="og:type" content="website" />
     <!-- prettier-ignore -->
-    <meta property="og:site_name" content="REA" />
+    <meta property="og:site_name" content="Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:title" content="DX-Ball Reverse Engineering: Sound Panning — REA" />
+    <meta property="og:title" content="DX-Ball Reverse Engineering: Sound Panning — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta property="og:description" content="Follow a DX-Ball reconstruction from binary analysis through REA to maintained C, original-x86 tests and matching compiled function bytes." />
+    <meta property="og:description" content="Follow a DX-Ball reconstruction from binary analysis through Ghostwire to maintained C, original-x86 tests and matching compiled function bytes." />
     <!-- prettier-ignore -->
     <meta property="og:url" content="https://rea.tools/showcase/dx-ball/" />
     <!-- prettier-ignore -->
@@ -76,20 +76,20 @@
     <!-- prettier-ignore -->
     <meta
       property="og:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- prettier-ignore -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- prettier-ignore -->
-    <meta name="twitter:title" content="DX-Ball Reverse Engineering: Sound Panning — REA" />
+    <meta name="twitter:title" content="DX-Ball Reverse Engineering: Sound Panning — Ghostwire" />
     <!-- prettier-ignore -->
-    <meta name="twitter:description" content="Follow a DX-Ball reconstruction from binary analysis through REA to maintained C, original-x86 tests and matching compiled function bytes." />
+    <meta name="twitter:description" content="Follow a DX-Ball reconstruction from binary analysis through Ghostwire to maintained C, original-x86 tests and matching compiled function bytes." />
     <!-- prettier-ignore -->
     <meta name="twitter:image" content="https://rea.tools/assets/social-card.png" />
     <!-- prettier-ignore -->
     <meta
       name="twitter:image:alt"
-      content="REA — Find out how software works. Reverse engineering with your coding agent."
+      content="Ghostwire — Find out how software works. Reverse engineering with your coding agent."
     />
     <!-- website:sharing:end -->
     <!-- website:theme:start -->
@@ -107,8 +107,8 @@
     <!-- prettier-ignore -->
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../" aria-label="REA home"
-          ><span class="brand-name">REA</span
+        <a class="brand" href="../../" aria-label="Ghostwire home"
+          ><span class="brand-name">Ghostwire</span
           ><span class="brand-caption" data-i18n-skip>Reverse Engineer Anything</span></a
         >
         <nav class="navigation" aria-label="Main navigation">
@@ -132,8 +132,8 @@
           <a
             class="nav-github"
             href="https://github.com/morluto/rea"
-            aria-label="REA on GitHub"
-            title="REA on GitHub"
+            aria-label="Ghostwire on GitHub"
+            title="Ghostwire on GitHub"
           >
             <svg
               width="22"
@@ -152,8 +152,8 @@
           <a
             class="nav-discord"
             href="https://discord.gg/GkcryMnJDM"
-            aria-label="Join REA on Discord"
-            title="Join REA on Discord"
+            aria-label="Join Ghostwire on Discord"
+            title="Join Ghostwire on Discord"
           >
             <svg
               width="22"
@@ -171,8 +171,8 @@
           <a
             class="nav-x"
             href="https://x.com/reatools"
-            aria-label="Follow REA on X"
-            title="Follow REA on X"
+            aria-label="Follow Ghostwire on X"
+            title="Follow Ghostwire on X"
           >
             <svg
               width="18"
@@ -199,10 +199,11 @@
         <p class="eyebrow">Case study · DX-Ball 1.07</p>
         <h1>Rebuilding DX-Ball<br />from its executable.</h1>
         <p class="lede">
-          The goal is a maintainable C version of the 1996 Windows game. REA
-          helps the agent inspect the original, one function at a time.
+          The goal is a maintainable C version of the 1996 Windows game.
+          Ghostwire helps the agent inspect the original, one function at a
+          time.
         </p>
-        <p class="page-meta">Windows i386 · C · REA</p>
+        <p class="page-meta">Windows i386 · C · Ghostwire</p>
       </div>
       <figure class="explanatory-figure case-figure">
         <div
@@ -215,12 +216,12 @@
             src="../../assets/figures/dx-ball-sound-pan-investigation.svg"
             width="1774"
             height="887"
-            alt="DXBALL.EXE function 0x00406400 is inspected with REA. A brick-hit caller supplies 20 plus 30 times tile_x. Instructions load x, multiply by 1.5625, subtract 500.0, apply pan_scale and return an integer. The maintained C is checked independently against the original x86 in 3,205 cases and by VC4.0 compiler replay matching 63 bytes."
+            alt="DXBALL.EXE function 0x00406400 is inspected with Ghostwire. A brick-hit caller supplies 20 plus 30 times tile_x. Instructions load x, multiply by 1.5625, subtract 500.0, apply pan_scale and return an integer. The maintained C is checked independently against the original x86 in 3,205 cases and by VC4.0 compiler replay matching 63 bytes."
             decoding="async"
           />
         </div>
         <figcaption>
-          One function, from executable to checked C. REA supplies the
+          One function, from executable to checked C. Ghostwire supplies the
           instructions, callers and data reads; the reconstruction project
           implements and tests the result.
           <a href="../../assets/figures/dx-ball-sound-pan-investigation.svg"
@@ -301,21 +302,21 @@
               <p class="terminal-prompt">
                 <span class="prompt-symbol" aria-hidden="true">›</span
                 ><span id="dxball-prompt"
-                  >Use REA to find how DX-Ball calculates sound panning. Explain
-                  the calculation and show the code.</span
+                  >Use Ghostwire to find how DX-Ball calculates sound panning.
+                  Explain the calculation and show the code.</span
                 ><span class="terminal-cursor" aria-hidden="true"></span>
               </p>
             </div>
             <p class="caption">
               An example prompt for your coding agent, with the local executable
-              available. The investigation below shows the REA queries and
+              available. The investigation below shows the Ghostwire queries and
               evidence behind the answer.
             </p>
             <p>
-              The agent used REA to inspect the function, follow its brick-hit
-              caller and read the constants from the executable. Those results
-              supplied the input and arithmetic needed to write the C function
-              below.
+              The agent used Ghostwire to inspect the function, follow its
+              brick-hit caller and read the constants from the executable. Those
+              results supplied the input and arithmetic needed to write the C
+              function below.
             </p>
             <p>
               The first function result for <code>0x406400</code> included
@@ -328,7 +329,7 @@
               <summary>The first decompiler view</summary>
               <div class="code-block">
                 <div class="code-header">
-                  <span>REA result · pseudocode excerpt</span>
+                  <span>Ghostwire result · pseudocode excerpt</span>
                 </div>
                 <pre><code>longlong FUN_00406400(void)
 {
@@ -344,20 +345,24 @@
               </p>
             </details>
 
-            <h3 class="small-heading">Three questions answered through REA</h3>
+            <h3 class="small-heading">
+              Three questions answered through Ghostwire
+            </h3>
             <ol class="rea-queries">
               <li>
                 <h4>Recover the missing input</h4>
                 <div class="rea-query-pair">
                   <div class="code-block">
                     <div class="code-header">
-                      <span>Agent → REA · <code>analyze_function</code></span>
+                      <span
+                        >Agent → Ghostwire · <code>analyze_function</code></span
+                      >
                     </div>
                     <pre><code>{"procedure": "0x406400"}</code></pre>
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · instruction excerpt</span>
+                      <span>Ghostwire → agent · instruction excerpt</span>
                     </div>
                     <pre><code>0x406409: MOV EAX, dword ptr [EBP + 0x8]
 0x40640c: MOV dword ptr [EBP + -0xc], EAX
@@ -375,13 +380,15 @@
                 <div class="rea-query-pair">
                   <div class="code-block">
                     <div class="code-header">
-                      <span>Agent → REA · <code>analyze_function</code></span>
+                      <span
+                        >Agent → Ghostwire · <code>analyze_function</code></span
+                      >
                     </div>
                     <pre><code>{"procedure": "0x411f40"}</code></pre>
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA → agent · caller excerpt</span>
+                      <span>Ghostwire → agent · caller excerpt</span>
                     </div>
                     <pre><code>0x411f5b: ADD EAX, 0x14
 0x411f5e: PUSH EAX
@@ -389,9 +396,10 @@
                   </div>
                 </div>
                 <p>
-                  REA identified this caller in the first result. Its preceding
-                  instructions scale <code>tile_x</code> by 30; adding 20 gives
-                  the brick's screen coordinate, <code>20 + 30 × tile_x</code>.
+                  Ghostwire identified this caller in the first result. Its
+                  preceding instructions scale <code>tile_x</code> by 30; adding
+                  20 gives the brick's screen coordinate,
+                  <code>20 + 30 × tile_x</code>.
                 </p>
               </li>
               <li>
@@ -400,7 +408,7 @@
                   <div class="code-block">
                     <div class="code-header">
                       <span
-                        >Agent → REA · two
+                        >Agent → Ghostwire · two
                         <code>read_bytes</code> requests</span
                       >
                     </div>
@@ -409,7 +417,7 @@
                   </div>
                   <div class="code-block">
                     <div class="code-header">
-                      <span>REA byte results · decoded as doubles</span>
+                      <span>Ghostwire byte results · decoded as doubles</span>
                     </div>
                     <pre><code>000000000000f93f → 1.5625
 0000000000407f40 → 500.0
@@ -424,7 +432,7 @@
               </li>
             </ol>
 
-            <h3 class="small-heading">From REA's findings to C</h3>
+            <h3 class="small-heading">From Ghostwire's findings to C</h3>
             <p>
               Follow the five steps below. Each selection highlights the
               original instructions and the C lines they informed.
@@ -529,34 +537,36 @@
               >
                 <p data-step-note="1">
                   <strong>01 · Read the input.</strong>
-                  The instruction view in REA's function result reads
+                  The instruction view in Ghostwire's function result reads
                   <code>[EBP+8]</code> and uses <code>FILD</code> to load the
-                  integer. Following its caller through REA establishes the
-                  screen-coordinate meaning of the C parameter <code>x</code>.
+                  integer. Following its caller through Ghostwire establishes
+                  the screen-coordinate meaning of the C parameter
+                  <code>x</code>.
                 </p>
                 <p data-step-note="2" hidden>
                   <strong>02 · Multiply by 1.5625.</strong>
                   <code>FMUL</code> reads the double at <code>0x420068</code>.
-                  The bytes returned by REA's <code>read_bytes</code> decode to
-                  <code>1.5625</code>; the C uses the same constant.
+                  The bytes returned by Ghostwire's
+                  <code>read_bytes</code> decode to <code>1.5625</code>; the C
+                  uses the same constant.
                 </p>
                 <p data-step-note="3" hidden>
                   <strong>03 · Subtract 500.0.</strong> <code>FSUB</code> reads
-                  the double at <code>0x420070</code>. REA's byte result decodes
-                  to <code>500.0</code>, shifting the calculation's center to
-                  screen coordinate <code>320</code>.
+                  the double at <code>0x420070</code>. Ghostwire's byte result
+                  decodes to <code>500.0</code>, shifting the calculation's
+                  center to screen coordinate <code>320</code>.
                 </p>
                 <p data-step-note="4" hidden>
                   <strong>04 · Apply the stored scale.</strong> The second
                   <code>FMUL</code> reads <code>0x4210a0</code>. That global is
                   named <code>dxball_pan_scale</code> in the maintained source.
-                  REA's second byte read establishes its initial value of
+                  Ghostwire's second byte read establishes its initial value of
                   <code>1.0</code>.
                 </p>
                 <p data-step-note="5" hidden>
                   <strong>05 · Return an integer.</strong> The call at
                   <code>0x406430</code> reaches <code>__ftol</code>, identified
-                  in REA's callee results. The C casts the result to
+                  in Ghostwire's callee results. The C casts the result to
                   <code>DxBallInt</code>; original-x86 comparisons check the
                   returned value.
                 </p>
@@ -571,7 +581,7 @@
               <summary>Full assembly and supporting evidence</summary>
               <div class="code-block">
                 <div class="code-header">
-                  <span>REA result · 0x406400–0x40643e</span
+                  <span>Ghostwire result · 0x406400–0x40643e</span
                   ><button
                     class="copy-button"
                     type="button"
@@ -624,7 +634,7 @@
               <div class="evidence-table-wrap">
                 <table class="evidence-table">
                   <caption>
-                    REA byte reads, decoded as little-endian doubles
+                    Ghostwire byte reads, decoded as little-endian doubles
                   </caption>
                   <thead>
                     <tr>
@@ -653,8 +663,8 @@
                 </table>
               </div>
               <p class="caption">
-                Recorded with REA 4.1.0 for the hash-pinned DX-Ball 1.07 target.
-                The linked investigation notes retain the Evidence IDs.
+                Recorded with Ghostwire 4.1.0 for the hash-pinned DX-Ball 1.07
+                target. The linked investigation notes retain the Evidence IDs.
               </p>
             </details>
             <p class="caption">
@@ -745,7 +755,7 @@
                 ><span>Current source, progress and local setup.</span>
               </li>
               <li>
-                <a href="../../guides/native/">REA analysis workflow</a
+                <a href="../../guides/native/">Ghostwire analysis workflow</a
                 ><span
                   >Follow the calculation, then use the same approach with your
                   own binary.</span
@@ -774,7 +784,7 @@
     <!-- prettier-ignore -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>REA · Reverse Engineer Anything</p>
+        <p>Ghostwire · Reverse Engineer Anything</p>
         <div class="footer-links">
           <a href="https://github.com/morluto/rea">Source</a
           ><a href="https://github.com/morluto/rea/blob/main/LICENSE">MIT license</a

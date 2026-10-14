@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: REA website\n"
+"Project-Id-Version: Ghostwire website\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,76 +88,17 @@ msgstr "{ph0}↑{ph1} Топ"
 
 #: website/public/blog/index.html:6
 msgctxt "page:blog/index.html"
-msgid "REA Blog — Thoughts on Reverse Engineering"
-msgstr "Блог REA - думки про реверс-інжиніринг"
+msgid "Ghostwire Blog — Thoughts on Reverse Engineering"
+msgstr "Блог Ghostwire - думки про реверс-інжиніринг"
 
 #: website/public/blog/index.html:7
 msgctxt "page:blog/index.html"
 msgid ""
-"Thoughts on reverse engineering, drawing on practical experience with REA "
-"and AI agents."
+"Thoughts on reverse engineering, drawing on practical experience with "
+"Ghostwire and AI agents."
 msgstr ""
-"Роздуми про реверс-інжиніринг, засновані на практичному досвіді роботи з REA"
-" і агентами штучного інтелекту."
-
-#: website/public/blog/index.html:77 website/public/blog/index.html:90
-#: website/public/blog/reverse-engineering-models/index.html:77
-#: website/public/blog/reverse-engineering-models/index.html:90
-#: website/public/blog/touhou-reconstruction/index.html:77
-#: website/public/blog/touhou-reconstruction/index.html:90
-#: website/public/examples/dino-lab/index.html:77
-#: website/public/examples/dino-lab/index.html:90
-#: website/public/faq/index.html:77 website/public/faq/index.html:90
-#: website/public/first-investigation/index.html:77
-#: website/public/first-investigation/index.html:90
-#: website/public/get-started/index.html:77
-#: website/public/get-started/index.html:90
-#: website/public/guides/browser/index.html:77
-#: website/public/guides/browser/index.html:90
-#: website/public/guides/index.html:77 website/public/guides/index.html:90
-#: website/public/guides/javascript/index.html:77
-#: website/public/guides/javascript/index.html:90
-#: website/public/guides/native/index.html:77
-#: website/public/guides/native/index.html:90 website/public/index.html:77
-#: website/public/index.html:90 website/public/showcase/aegis/index.html:77
-#: website/public/showcase/aegis/index.html:90
-#: website/public/showcase/ctf/index.html:77
-#: website/public/showcase/ctf/index.html:90
-#: website/public/showcase/dx-ball/index.html:77
-#: website/public/showcase/dx-ball/index.html:90
-#: website/public/showcase/index.html:77 website/public/showcase/index.html:90
-#: website/public/showcase/notion/index.html:77
-#: website/public/showcase/notion/index.html:90
-#: website/public/showcase/th04/index.html:77
-#: website/public/showcase/th04/index.html:90
-msgctxt "shared"
-msgid ""
-"REA — Find out how software works. Reverse engineering with your coding "
-"agent."
-msgstr ""
-"REA-Дізнайтеся, як працює програмне забезпечення. Зворотне проектування за "
-"допомогою вашого програміста."
-
-#: website/public/blog/index.html:110
-#: website/public/blog/reverse-engineering-models/index.html:110
-#: website/public/blog/touhou-reconstruction/index.html:110
-#: website/public/examples/dino-lab/index.html:111
-#: website/public/faq/index.html:110
-#: website/public/first-investigation/index.html:110
-#: website/public/get-started/index.html:110
-#: website/public/guides/browser/index.html:110
-#: website/public/guides/index.html:110
-#: website/public/guides/javascript/index.html:110
-#: website/public/guides/native/index.html:110 website/public/index.html:112
-#: website/public/showcase/aegis/index.html:111
-#: website/public/showcase/ctf/index.html:110
-#: website/public/showcase/dx-ball/index.html:110
-#: website/public/showcase/index.html:110
-#: website/public/showcase/notion/index.html:110
-#: website/public/showcase/th04/index.html:110
-msgctxt "shared"
-msgid "REA home"
-msgstr "Головна REA"
+"Роздуми про реверс-інжиніринг, засновані на практичному досвіді роботи з "
+"Ghostwire і агентами штучного інтелекту."
 
 #: website/public/blog/index.html:114
 #: website/public/blog/reverse-engineering-models/index.html:114
@@ -179,69 +120,6 @@ msgstr "Головна REA"
 msgctxt "shared"
 msgid "Main navigation"
 msgstr "Основна навігація"
-
-#: website/public/blog/index.html:132
-#: website/public/blog/reverse-engineering-models/index.html:132
-#: website/public/blog/touhou-reconstruction/index.html:132
-#: website/public/examples/dino-lab/index.html:133
-#: website/public/faq/index.html:132
-#: website/public/first-investigation/index.html:132
-#: website/public/get-started/index.html:132
-#: website/public/guides/browser/index.html:132
-#: website/public/guides/index.html:132
-#: website/public/guides/javascript/index.html:132
-#: website/public/guides/native/index.html:132 website/public/index.html:134
-#: website/public/showcase/aegis/index.html:133
-#: website/public/showcase/ctf/index.html:132
-#: website/public/showcase/dx-ball/index.html:132
-#: website/public/showcase/index.html:132
-#: website/public/showcase/notion/index.html:132
-#: website/public/showcase/th04/index.html:132
-msgctxt "shared"
-msgid "REA on GitHub"
-msgstr "REA на GitHub"
-
-#: website/public/blog/index.html:152
-#: website/public/blog/reverse-engineering-models/index.html:152
-#: website/public/blog/touhou-reconstruction/index.html:152
-#: website/public/examples/dino-lab/index.html:153
-#: website/public/faq/index.html:152
-#: website/public/first-investigation/index.html:152
-#: website/public/get-started/index.html:152
-#: website/public/guides/browser/index.html:152
-#: website/public/guides/index.html:152
-#: website/public/guides/javascript/index.html:152
-#: website/public/guides/native/index.html:152 website/public/index.html:154
-#: website/public/showcase/aegis/index.html:153
-#: website/public/showcase/ctf/index.html:152
-#: website/public/showcase/dx-ball/index.html:152
-#: website/public/showcase/index.html:152
-#: website/public/showcase/notion/index.html:152
-#: website/public/showcase/th04/index.html:152
-msgctxt "shared"
-msgid "Join REA on Discord"
-msgstr "Приєднатися до REA в Discord"
-
-#: website/public/blog/index.html:171
-#: website/public/blog/reverse-engineering-models/index.html:171
-#: website/public/blog/touhou-reconstruction/index.html:171
-#: website/public/examples/dino-lab/index.html:172
-#: website/public/faq/index.html:171
-#: website/public/first-investigation/index.html:171
-#: website/public/get-started/index.html:171
-#: website/public/guides/browser/index.html:171
-#: website/public/guides/index.html:171
-#: website/public/guides/javascript/index.html:171
-#: website/public/guides/native/index.html:171 website/public/index.html:173
-#: website/public/showcase/aegis/index.html:172
-#: website/public/showcase/ctf/index.html:171
-#: website/public/showcase/dx-ball/index.html:171
-#: website/public/showcase/index.html:171
-#: website/public/showcase/notion/index.html:171
-#: website/public/showcase/th04/index.html:171
-msgctxt "shared"
-msgid "Follow REA on X"
-msgstr "Стежити за REA в X"
 
 #: website/public/blog/index.html:246
 msgctxt "page:blog/index.html"
@@ -1471,17 +1349,17 @@ msgstr ""
 #: website/public/blog/touhou-reconstruction/index.html:854
 msgctxt "page:blog/touhou-reconstruction/index.html"
 msgid ""
-"REA gives the agent access to analysis tools. A question about a function's "
-"caller can lead straight into inspecting that caller. The reconstruction "
-"project supplies the compiler and its own reference checks. The agent can "
-"use those to test the source it proposes and see where its explanation holds"
-" up."
+"Ghostwire gives the agent access to analysis tools. A question about a "
+"function's caller can lead straight into inspecting that caller. The "
+"reconstruction project supplies the compiler and its own reference checks. "
+"The agent can use those to test the source it proposes and see where its "
+"explanation holds up."
 msgstr ""
-"REA надає агенту доступ до інструментів аналізу. Питання про викликає об'єкт"
-" функції може привести безпосередньо до перевірки цього викликає об'єкта. "
-"Проект реконструкції надає компілятор і свої власні перевірки посилань. "
-"Агент може використовувати їх, щоб протестувати запропоноване джерело та "
-"перевірити, чи відповідає його пояснення дійсності."
+"Ghostwire надає агенту доступ до інструментів аналізу. Питання про викликає "
+"об'єкт функції може привести безпосередньо до перевірки цього викликає "
+"об'єкта. Проект реконструкції надає компілятор і свої власні перевірки "
+"посилань. Агент може використовувати їх, щоб протестувати запропоноване "
+"джерело та перевірити, чи відповідає його пояснення дійсності."
 
 #: website/public/blog/touhou-reconstruction/index.html:861
 msgctxt "page:blog/touhou-reconstruction/index.html"
@@ -1832,8 +1710,8 @@ msgstr ""
 
 #: website/public/blog/touhou-reconstruction/index.html:6
 msgctxt "page:blog/touhou-reconstruction/index.html"
-msgid "Reverse Engineering’s Industrial Revolution — REA"
-msgstr "Промислова революція в галузі реверс-інжинірингу-REA"
+msgid "Reverse Engineering’s Industrial Revolution — Ghostwire"
+msgstr "Промислова революція в галузі реверс-інжинірингу-Ghostwire"
 
 #: website/public/blog/touhou-reconstruction/index.html:7
 msgctxt "page:blog/touhou-reconstruction/index.html"
@@ -1900,12 +1778,13 @@ msgstr "Відновіть правило швидкості динозавра.
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
 "To recreate the game’s acceleration, first find the rule that controls its "
-"speed. {ph0}REA returned the running script;{ph1} we used its rule to build "
-"this mini-game with {ph2}adjustable speed.{ph3}"
+"speed. {ph0}Ghostwire returned the running script;{ph1} we used its rule to "
+"build this mini-game with {ph2}adjustable speed.{ph3}"
 msgstr ""
 "Щоб відтворити прискорення гри, спочатку знайдіть правило, яке керує її "
-"швидкістю.  {ph0}REA повернув запущений сценарій;{ph1} ми використовували "
-"його правило для створення цієї міні-гри з {ph2}регульованою швидкістю.{ph3}"
+"швидкістю.  {ph0}Ghostwire повернув запущений сценарій;{ph1} ми "
+"використовували його правило для створення цієї міні-гри з {ph2}регульованою"
+" швидкістю.{ph3}"
 
 #: website/public/examples/dino-lab/index.html:211
 #: website/public/examples/dino-lab/index.html:210
@@ -2015,8 +1894,8 @@ msgstr ""
 
 #: website/public/examples/dino-lab/index.html:297
 msgctxt "page:examples/dino-lab/index.html"
-msgid "Read the script REA returned"
-msgstr "Прочитав повернутий скрипт REA"
+msgid "Read the script Ghostwire returned"
+msgstr "Прочитав повернутий скрипт Ghostwire"
 
 #. {ph0}: <a href="https://wayou.github.io/t-rex-runner/" >
 #. {ph1}: </a >
@@ -2025,13 +1904,13 @@ msgstr "Прочитав повернутий скрипт REA"
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"We inspected {ph0}wayou’s Chromium-derived browser edition{ph1} with REA. It"
-" returned the loaded {ph2}, including this branch in the game’s update "
-"function:"
+"We inspected {ph0}wayou’s Chromium-derived browser edition{ph1} with "
+"Ghostwire. It returned the loaded {ph2}, including this branch in the game’s"
+" update function:"
 msgstr ""
 "Ми перевірили {ph0}версію браузера wayou, засновану{ph1} на Chromium, за "
-"допомогою REA. Вона повернула завантажений {ph2} index.js, включивши цю тему"
-" у функцію оновлення гри:"
+"допомогою Ghostwire. Вона повернула завантажений {ph2} index.js, включивши "
+"цю тему у функцію оновлення гри:"
 
 #. {ph0}: <code>SPEED: 6</code>
 #. {ph1}: <code>ACCELERATION: 0.001</code>
@@ -2135,8 +2014,8 @@ msgstr "Спробуйте провести аналіз самостійно"
 #: website/public/examples/dino-lab/index.html:402
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
-msgid "{ph0}Set up REA{ph1} with your coding agent."
-msgstr "{ph0}Налаштуйте REA{ph1} за допомогою вашого агента кодування."
+msgid "{ph0}Set up Ghostwire{ph1} with your coding agent."
+msgstr "{ph0}Налаштуйте Ghostwire{ph1} за допомогою вашого агента кодування."
 
 #. {ph0}: <a href="../../guides/browser/#prepare" >
 #. {ph1}: </a >
@@ -2183,11 +2062,11 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}Ваш кодуючий аген
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this dinosaur game. Why does it get "
-"faster? Show the speed rule, then build a small version with an adjustable "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this dinosaur game. Why does it get"
+" faster? Show the speed rule, then build a small version with an adjustable "
 "speed.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб ознайомитися з цією грою "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб ознайомитися з цією грою "
 "динозаврів. Чому вона стала швидше? Покажіть правило швидкості, а потім "
 "створіть зменшену версію зі змінною швидкістю.{ph3}{ph4}{ph5}"
 
@@ -2213,26 +2092,26 @@ msgstr ""
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
 "Source: {ph0}inspected speed code{ph1}, Chromium Authors. {ph2}Copyright and"
-" BSD license{ph3}. REA 4.1.0 inspected the running HTTP edition in Chrome "
-"150."
+" BSD license{ph3}. Ghostwire 4.1.0 inspected the running HTTP edition in "
+"Chrome 150."
 msgstr ""
 "Джерело: {ph0}перевірений код швидкості{ph1}, автори Chromium. "
-"{ph2}Авторське право та ліцензія BSD{ph3}.  REA 4.1.0 перевірив запущену "
-"версію HTTP у Chrome 150."
+"{ph2}Авторське право та ліцензія BSD{ph3}.  Ghostwire 4.1.0 перевірив "
+"запущену версію HTTP у Chrome 150."
 
 #: website/public/examples/dino-lab/index.html:6
 msgctxt "page:examples/dino-lab/index.html"
-msgid "Chrome Dinosaur Game: Rebuild Its Speed Rule — REA"
-msgstr "Chrome гра про динозаврів: перебудувати правила швидкості-REA"
+msgid "Chrome Dinosaur Game: Rebuild Its Speed Rule — Ghostwire"
+msgstr "Chrome гра про динозаврів: перебудувати правила швидкості-Ghostwire"
 
 #: website/public/examples/dino-lab/index.html:7
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"Read the dinosaur game’s speed rule with REA, rebuild it, then change the "
-"speed and play."
+"Read the dinosaur game’s speed rule with Ghostwire, rebuild it, then change "
+"the speed and play."
 msgstr ""
-"Прочитайте правила швидкості в грі динозаврів за допомогою REA, перебудуйте "
-"їх, потім змініть швидкість і грайте."
+"Прочитайте правила швидкості в грі динозаврів за допомогою Ghostwire, "
+"перебудуйте їх, потім змініть швидкість і грайте."
 
 #: website/public/examples/dino-lab/index.html:219
 msgctxt "page:examples/dino-lab/index.html"
@@ -2278,8 +2157,8 @@ msgstr "{ph0}Головний{ph1} сторінка / поширені запи�
 
 #: website/public/faq/index.html:197
 msgctxt "page:faq/index.html"
-msgid "REA FAQ."
-msgstr "Поширені запитання щодо REA."
+msgid "Ghostwire FAQ."
+msgstr "Поширені запитання щодо Ghostwire."
 
 #: website/public/faq/index.html:198
 msgctxt "page:faq/index.html"
@@ -2330,8 +2209,8 @@ msgstr "Налаштування та оновлення"
 
 #: website/public/faq/index.html:219
 msgctxt "page:faq/index.html"
-msgid "How do I install REA?"
-msgstr "Як встановити REA ?"
+msgid "How do I install Ghostwire?"
+msgstr "Як встановити Ghostwire ?"
 
 #: website/public/faq/index.html:227
 msgctxt "page:faq/index.html"
@@ -2353,20 +2232,20 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Setup registers REA's MCP connection and installs the matching investigation"
-" skill. Restart your agent when it finishes, then give it a target path and "
-"a question. {ph0}Follow the setup guide{ph1} for prerequisites and your "
-"first analysis."
+"Setup registers Ghostwire's MCP connection and installs the matching "
+"investigation skill. Restart your agent when it finishes, then give it a "
+"target path and a question. {ph0}Follow the setup guide{ph1} for "
+"prerequisites and your first analysis."
 msgstr ""
-"Налаштування реєструє MCP-підключення REA та встановлює відповідну навичку "
-"аналізу. Після завершення перезапустіть агента й передайте йому шлях до "
-"файлу та запитання. Вимоги й перші кроки описані в {ph0}посібнику з "
+"Налаштування реєструє MCP-підключення Ghostwire та встановлює відповідну "
+"навичку аналізу. Після завершення перезапустіть агента й передайте йому шлях"
+" до файлу та запитання. Вимоги й перші кроки описані в {ph0}посібнику з "
 "налаштування{ph1}."
 
 #: website/public/faq/index.html:248
 msgctxt "page:faq/index.html"
-msgid "Which coding agents can use REA?"
-msgstr "Які агенти кодування можуть використовувати REA?"
+msgid "Which coding agents can use Ghostwire?"
+msgstr "Які агенти кодування можуть використовувати Ghostwire?"
 
 #: website/public/faq/index.html:249
 msgctxt "page:faq/index.html"
@@ -2391,17 +2270,17 @@ msgstr "{ph0}Підключіть свій кодуючий агент{ph1}."
 
 #: website/public/faq/index.html:261
 msgctxt "page:faq/index.html"
-msgid "How do I update REA?"
-msgstr "Як оновити REA ?"
+msgid "How do I update Ghostwire?"
+msgstr "Як оновити Ghostwire ?"
 
 #: website/public/faq/index.html:262
 msgctxt "page:faq/index.html"
 msgid ""
-"REA releases frequently, including bug fixes. If you installed the CLI with "
-"npm:"
+"Ghostwire releases frequently, including bug fixes. If you installed the CLI"
+" with npm:"
 msgstr ""
-"REA релізи часто, включаючи виправлення помилок. Якщо ви встановили CLI з "
-"npm:"
+"Ghostwire релізи часто, включаючи виправлення помилок. Якщо ви встановили "
+"CLI з npm:"
 
 #: website/public/faq/index.html:268
 msgctxt "page:faq/index.html"
@@ -2425,18 +2304,19 @@ msgid "Terminal · refresh agent setup"
 msgstr "Термінал * Налаштування агента оновлення"
 
 # Reviewed for readable setup and analysis terminology.
-#. {ph0}: <code>npx -y rea-agents@latest</code>
+#. {ph0}: <code>npx -y ghostwire-agent@latest</code>
 #: website/public/faq/index.html:298
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Review the changes and restart your agent. Its REA connection pins a package"
-" version, so refreshing setup makes it use the new release. For one-off CLI "
-"commands, use {ph0} followed by the command."
+"Review the changes and restart your agent. Its Ghostwire connection pins a "
+"package version, so refreshing setup makes it use the new release. For one-"
+"off CLI commands, use {ph0} followed by the command."
 msgstr ""
-"Перевірте зміни й перезапустіть агента. Підключення до REA використовує "
-"визначену версію пакета. Повторіть налаштування, щоб агент перейшов на нову "
-"версію. Для разового виклику CLI додайте потрібну команду після {ph0}."
+"Перевірте зміни й перезапустіть агента. Підключення до Ghostwire "
+"використовує визначену версію пакета. Повторіть налаштування, щоб агент "
+"перейшов на нову версію. Для разового виклику CLI додайте потрібну команду "
+"після {ph0}."
 
 #: website/public/faq/index.html:306
 msgctxt "page:faq/index.html"
@@ -2449,14 +2329,14 @@ msgstr "Встановлюється навик з навичок.цього д�
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"The skill gives your agent investigation instructions. Run {ph0}REA "
+"The skill gives your agent investigation instructions. Run {ph0}Ghostwire "
 "setup{ph1} to connect the MCP server and install the matching skill, then "
 "restart your agent so it can call the tools."
 msgstr ""
 "Навик надає Вашому агенту інструкції з розслідування. Запустивши "
-"{ph0}програму установки{ph1} REA, щоб підключити сервер MCP і встановити "
-"відповідну навичку, а потім перезапустіть свій агент, щоб він міг викликати "
-"інструменти."
+"{ph0}програму установки{ph1} Ghostwire, щоб підключити сервер MCP і "
+"встановити відповідну навичку, а потім перезапустіть свій агент, щоб він міг"
+" викликати інструменти."
 
 #: website/public/faq/index.html:320
 msgctxt "page:faq/index.html"
@@ -2465,8 +2345,8 @@ msgstr "Аналіз"
 
 #: website/public/faq/index.html:323
 msgctxt "page:faq/index.html"
-msgid "What can I analyze with REA?"
-msgstr "Що я можу проаналізувати за допомогою REA?"
+msgid "What can I analyze with Ghostwire?"
+msgstr "Що я можу проаналізувати за допомогою Ghostwire?"
 
 #: website/public/faq/index.html:324
 msgctxt "page:faq/index.html"
@@ -2513,12 +2393,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"REA also has workflows for managed assemblies, Android APKs, firmware and "
-"packaged resources. {ph0}See the case studies{ph1} for worked "
+"Ghostwire also has workflows for managed assemblies, Android APKs, firmware "
+"and packaged resources. {ph0}See the case studies{ph1} for worked "
 "investigations."
 msgstr ""
-"REA також підтримує робочі процеси для керованих збірок, додатків APK для "
-"Android, вбудованого ПЗ і упакованих ресурсів. {ph0}Дивіться приклади "
+"Ghostwire також підтримує робочі процеси для керованих збірок, додатків APK "
+"для Android, вбудованого ПЗ і упакованих ресурсів. {ph0}Дивіться приклади "
 "проведених досліджень{ph1}."
 
 #: website/public/faq/index.html:349
@@ -2553,8 +2433,8 @@ msgstr ""
 
 #: website/public/faq/index.html:363
 msgctxt "page:faq/index.html"
-msgid "Can I use REA without a coding agent?"
-msgstr "Чи можу я використовувати REA без кодуючого агента?"
+msgid "Can I use Ghostwire without a coding agent?"
+msgstr "Чи можу я використовувати Ghostwire без кодуючого агента?"
 
 #: website/public/faq/index.html:364
 msgctxt "page:faq/index.html"
@@ -2585,8 +2465,8 @@ msgstr ""
 # Reviewed for readable setup and analysis terminology.
 #: website/public/faq/index.html:390
 msgctxt "page:faq/index.html"
-msgid "What code does REA return?"
-msgstr "Який код повертає REA?"
+msgid "What code does Ghostwire return?"
+msgstr "Який код повертає Ghostwire?"
 
 # Reviewed for readable setup and analysis terminology.
 #: website/public/faq/index.html:391
@@ -2663,19 +2543,19 @@ msgstr "Діагностика"
 
 #: website/public/faq/index.html:450
 msgctxt "page:faq/index.html"
-msgid "Why can't my agent see the REA tools?"
-msgstr "Чому мій агент не може бачити інструменти REA?"
+msgid "Why can't my agent see the Ghostwire tools?"
+msgstr "Чому мій агент не може бачити інструменти Ghostwire?"
 
 #. {ph0}: <code>doctor</code>
 #: website/public/faq/index.html:451
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Restart or reconnect your agent after setup. Check its REA registration with"
-" {ph0}; for Codex:"
+"Restart or reconnect your agent after setup. Check its Ghostwire "
+"registration with {ph0}; for Codex:"
 msgstr ""
 "Перезапустіть або підключіть агент після налаштування. Перевірте його "
-"реєстрацію REA в {ph0}; для Codex :"
+"реєстрацію Ghostwire в {ph0}; для Codex :"
 
 #: website/public/faq/index.html:457
 msgctxt "page:faq/index.html"
@@ -2726,12 +2606,12 @@ msgstr "Чи потрібно спочатку запускати Hopper?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"REA starts Hopper when an operation needs it. On macOS, complete the first-"
-"run choice of demo mode or license activation before unattended analysis. "
-"{ph0}See native provider setup{ph1}."
+"Ghostwire starts Hopper when an operation needs it. On macOS, complete the "
+"first-run choice of demo mode or license activation before unattended "
+"analysis. {ph0}See native provider setup{ph1}."
 msgstr ""
-"REA запускає Hopper, коли це необхідно для виконання операції. На macOS "
-"перед автоматичним аналізом виконайте перший запуск, вибравши "
+"Ghostwire запускає Hopper, коли це необхідно для виконання операції. На "
+"macOS перед автоматичним аналізом виконайте перший запуск, вибравши "
 "демонстраційний режим або активацію ліцензії. {ph0}Дивіться розділ "
 "Налаштування власного провайдера{ph1}."
 
@@ -2746,10 +2626,10 @@ msgstr "Що робити, якщо я знайшов помилку?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"{ph0}Update REA{ph1}, restart your agent and retry the same task. A recent "
-"release may already fix the problem."
+"{ph0}Update Ghostwire{ph1}, restart your agent and retry the same task. A "
+"recent release may already fix the problem."
 msgstr ""
-"{ph0}Оновіть REA{ph1} , перезапустіть свій агент і повторіть те саме "
+"{ph0}Оновіть Ghostwire{ph1} , перезапустіть свій агент і повторіть те саме "
 "завдання. Можливо, проблема вже вирішена в недавньому випуску."
 
 #. {ph0}: <a href="https://github.com/morluto/rea/issues/new/choose" >
@@ -2758,14 +2638,14 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"If it persists, {ph0}open an issue{ph1} with your REA version, operating "
-"system, target type, steps to reproduce and error output. Include the "
-"provider name when the problem involves native analysis."
+"If it persists, {ph0}open an issue{ph1} with your Ghostwire version, "
+"operating system, target type, steps to reproduce and error output. Include "
+"the provider name when the problem involves native analysis."
 msgstr ""
-"Якщо {ph0}проблема{ph1} чи не усувається, вкажіть версію REA, операційну "
-"систему, тип пристрою, кроки для відтворення і висновок помилки. Вкажіть "
-"ім'я постачальника, якщо проблема пов'язана з аналізом програм з машинним "
-"кодом."
+"Якщо {ph0}проблема{ph1} чи не усувається, вкажіть версію Ghostwire, "
+"операційну систему, тип пристрою, кроки для відтворення і висновок помилки. "
+"Вкажіть ім'я постачальника, якщо проблема пов'язана з аналізом програм з "
+"машинним кодом."
 
 #: website/public/faq/index.html:526
 msgctxt "page:faq/index.html"
@@ -2774,17 +2654,17 @@ msgstr "Дані та обмін ними"
 
 #: website/public/faq/index.html:529
 msgctxt "page:faq/index.html"
-msgid "Does REA upload my app?"
-msgstr "Чи завантажує REA мій додаток?"
+msgid "Does Ghostwire upload my app?"
+msgstr "Чи завантажує Ghostwire мій додаток?"
 
 #: website/public/faq/index.html:530
 msgctxt "page:faq/index.html"
 msgid ""
-"REA analyzes targets on your machine. Your agent receives the results, and "
-"its model provider's data policy applies to those results."
+"Ghostwire analyzes targets on your machine. Your agent receives the results,"
+" and its model provider's data policy applies to those results."
 msgstr ""
-"REA аналізує цілі на вашому комп'ютері. Ваш агент отримує результати, і до "
-"цих результатів застосовується політика щодо даних, встановлена його "
+"Ghostwire аналізує цілі на вашому комп'ютері. Ваш агент отримує результати, "
+"і до цих результатів застосовується політика щодо даних, встановлена його "
 "постачальником моделей."
 
 #: website/public/faq/index.html:537
@@ -2800,15 +2680,16 @@ msgstr "Як я можу поділитися прикладом або зроб
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Have a useful REA example? We'd love to see it. Share the target, your "
-"question, the findings and how you checked them in an {ph0}issue{ph1} or "
+"Have a useful Ghostwire example? We'd love to see it. Share the target, your"
+" question, the findings and how you checked them in an {ph0}issue{ph1} or "
 "{ph2}pull request{ph3}. Short code excerpts and figures help others follow "
 "the investigation."
 msgstr ""
-"Чи є у вас корисний приклад REA? Ми були б раді його побачити. Розкажіть про"
-" мету, своє запитання, результати та про те, як ви їх перевірили, у дописі "
-"про {ph0}проблема{ph1} або {ph2}запит{ph3} на оновлення. Короткі витяги з "
-"коду та цифри допомагають іншим стежити за ходом розслідування."
+"Чи є у вас корисний приклад Ghostwire? Ми були б раді його побачити. "
+"Розкажіть про мету, своє запитання, результати та про те, як ви їх "
+"перевірили, у дописі про {ph0}проблема{ph1} або {ph2}запит{ph3} на "
+"оновлення. Короткі витяги з коду та цифри допомагають іншим стежити за ходом"
+" розслідування."
 
 #. {ph0}: <a href="https://discord.gg/GkcryMnJDM">
 #. {ph1}: </a>
@@ -2825,18 +2706,18 @@ msgstr ""
 
 #: website/public/faq/index.html:6
 msgctxt "page:faq/index.html"
-msgid "REA FAQ: Setup, Updates and Troubleshooting"
+msgid "Ghostwire FAQ: Setup, Updates and Troubleshooting"
 msgstr ""
-"Поширені запитання щодо REA: Налаштування, Оновлення та усунення "
+"Поширені запитання щодо Ghostwire: Налаштування, Оновлення та усунення "
 "несправностей"
 
 #: website/public/faq/index.html:7
 msgctxt "page:faq/index.html"
 msgid ""
-"Answers to common REA questions: installation, updates, analysis tools, "
-"coding agents, troubleshooting and sharing examples."
+"Answers to common Ghostwire questions: installation, updates, analysis "
+"tools, coding agents, troubleshooting and sharing examples."
 msgstr ""
-"Відповіді на поширені питання REA: установка, оновлення, інструменти "
+"Відповіді на поширені питання Ghostwire: установка, оновлення, інструменти "
 "аналізу, засоби програмування, усунення неполадок і обмін прикладами."
 
 #: website/public/faq/index.html:201
@@ -2846,18 +2727,18 @@ msgstr "На цій сторінці"
 
 #: website/public/faq/index.html:210
 msgctxt "page:faq/index.html"
-msgid "Frequently asked questions about REA"
-msgstr "Поширені запитання про REA"
+msgid "Frequently asked questions about Ghostwire"
+msgstr "Поширені запитання про Ghostwire"
 
 #: website/public/faq/index.html:228
 msgctxt "page:faq/index.html"
-msgid "Copy REA setup command"
-msgstr "Скопіювати інсталяційну команду REA"
+msgid "Copy Ghostwire setup command"
+msgstr "Скопіювати інсталяційну команду Ghostwire"
 
 #: website/public/faq/index.html:269
 msgctxt "page:faq/index.html"
-msgid "Copy REA update command"
-msgstr "Скопіювати команду оновлення REA"
+msgid "Copy Ghostwire update command"
+msgstr "Скопіювати команду оновлення Ghostwire"
 
 #: website/public/faq/index.html:287
 msgctxt "page:faq/index.html"
@@ -2866,8 +2747,8 @@ msgstr "Команда оновлення Налаштування агента 
 
 #: website/public/faq/index.html:371
 msgctxt "page:faq/index.html"
-msgid "Copy REA CLI analysis command"
-msgstr "Скопіювати команду аналізу REA CLI"
+msgid "Copy Ghostwire CLI analysis command"
+msgstr "Скопіювати команду аналізу Ghostwire CLI"
 
 #: website/public/faq/index.html:418
 msgctxt "page:faq/index.html"
@@ -2912,11 +2793,11 @@ msgstr "Дізнайтеся, куди відправляються{ph0}експ
 #: website/public/first-investigation/index.html:200
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Use REA to inspect a small app, follow its Export notes button and check one"
-" detail yourself."
+"Use Ghostwire to inspect a small app, follow its Export notes button and "
+"check one detail yourself."
 msgstr ""
-"Використовуйте REA для перевірки невеликого додатки, натисніть на кнопку "
-"\"Експорт заміток\" і перевірте одну деталь самостійно."
+"Використовуйте Ghostwire для перевірки невеликого додатки, натисніть на "
+"кнопку \"Експорт заміток\" і перевірте одну деталь самостійно."
 
 #: website/public/first-investigation/index.html:211
 msgctxt "page:first-investigation/index.html"
@@ -2965,8 +2846,8 @@ msgstr "{ph0}5. Задайте ще одне питання{ph1}"
 
 #: website/public/first-investigation/index.html:222
 msgctxt "page:first-investigation/index.html"
-msgid "1. Connect your agent to REA"
-msgstr "1. Підключіть свого агента до REA."
+msgid "1. Connect your agent to Ghostwire"
+msgstr "1. Підключіть свого агента до Ghostwire."
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -3029,10 +2910,11 @@ msgstr ""
 #: website/public/first-investigation/index.html:309
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Your agent downloads the files and gives the unpacked folder to REA for "
-"inspection."
+"Your agent downloads the files and gives the unpacked folder to Ghostwire "
+"for inspection."
 msgstr ""
-"Ваш агент завантажує файли та передає розпаковану папку REA для перевірки."
+"Ваш агент завантажує файли та передає розпаковану папку Ghostwire для "
+"перевірки."
 
 #. {ph0}: <a class="button" href="../examples/notes-example.zip"
 #. download="notes-example.zip" >
@@ -3087,11 +2969,11 @@ msgstr "Від кнопки до пристрою запису файлів"
 #: website/public/first-investigation/index.html:368
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"REA’s static analysis pairs the message with its handler. The destination is"
-" read from code."
+"Ghostwire’s static analysis pairs the message with its handler. The "
+"destination is read from code."
 msgstr ""
-"Статичний аналіз REA відображає повідомлення з його обробником. Адресат "
-"зчитується з коду."
+"Статичний аналіз Ghostwire відображає повідомлення з його обробником. "
+"Адресат зчитується з коду."
 
 #: website/public/first-investigation/index.html:384
 msgctxt "page:first-investigation/index.html"
@@ -3108,9 +2990,10 @@ msgstr ""
 #: website/public/first-investigation/index.html:389
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
-msgid "{ph0}See the full code trace and recorded REA result{ph1}."
+msgid "{ph0}See the full code trace and recorded Ghostwire result{ph1}."
 msgstr ""
-"{ph0}Перегляньте повний трасування коду та записаний результат{ph1} REA."
+"{ph0}Перегляньте повний трасування коду та записаний результат{ph1} "
+"Ghostwire."
 
 #: website/public/first-investigation/index.html:396
 msgctxt "page:first-investigation/index.html"
@@ -3212,26 +3095,26 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"{ph0}Troubleshoot setup or analysis{ph1}{ph2}Update REA and check the "
+"{ph0}Troubleshoot setup or analysis{ph1}{ph2}Update Ghostwire and check the "
 "connection if you get stuck.{ph3}"
 msgstr ""
 "{ph0}Усуньте неполадки в програмі установки або аналітичному{ph1}{ph2} "
-"оновіть REA і перевірте з'єднання, якщо воно не працює.{ph3}"
+"оновіть Ghostwire і перевірте з'єднання, якщо воно не працює.{ph3}"
 
 #: website/public/first-investigation/index.html:6
 msgctxt "page:first-investigation/index.html"
-msgid "Your First Reverse Engineering Investigation — REA"
-msgstr "Ваше перше дослідження в області реверс-інжинірингу-REA"
+msgid "Your First Reverse Engineering Investigation — Ghostwire"
+msgstr "Ваше перше дослідження в області реверс-інжинірингу-Ghostwire"
 
 #: website/public/first-investigation/index.html:7
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Try REA on a small Notes app. Set up your agent, ask where exported notes "
-"go, and check the CSV formatter with a sample title."
+"Try Ghostwire on a small Notes app. Set up your agent, ask where exported "
+"notes go, and check the CSV formatter with a sample title."
 msgstr ""
-"Спробуйте REA у невеликому додатку для нотаток. Налаштуйте свого агента, "
-"запитайте, куди надсилаються експортовані нотатки, і перевірте форматування "
-"CSV із прикладом заголовка."
+"Спробуйте Ghostwire у невеликому додатку для нотаток. Налаштуйте свого "
+"агента, запитайте, куди надсилаються експортовані нотатки, і перевірте "
+"форматування CSV із прикладом заголовка."
 
 #: website/public/first-investigation/index.html:210
 msgctxt "page:first-investigation/index.html"
@@ -3240,13 +3123,13 @@ msgstr "На цій сторінці"
 
 #: website/public/first-investigation/index.html:220
 msgctxt "page:first-investigation/index.html"
-msgid "Your first REA investigation"
-msgstr "Ваше перше розслідування REA"
+msgid "Your first Ghostwire investigation"
+msgstr "Ваше перше розслідування Ghostwire"
 
 #: website/public/first-investigation/index.html:236
 msgctxt "page:first-investigation/index.html"
-msgid "Copy REA installation prompt"
-msgstr "Скопіюйте запит на встановлення REA"
+msgid "Copy Ghostwire installation prompt"
+msgstr "Скопіюйте запит на встановлення Ghostwire"
 
 #: website/public/first-investigation/index.html:258
 msgctxt "page:first-investigation/index.html"
@@ -3288,16 +3171,17 @@ msgstr "{ph0}Головний{ph1} сторінка / початок робот�
 
 #: website/public/get-started/index.html:197
 msgctxt "page:get-started/index.html"
-msgid "Set up REA."
-msgstr "Налаштуйте REA ."
+msgid "Set up Ghostwire."
+msgstr "Налаштуйте Ghostwire ."
 
 #: website/public/get-started/index.html:198
 msgctxt "page:get-started/index.html"
 msgid ""
-"Connect REA to your coding agent, or inspect a local app from your terminal."
+"Connect Ghostwire to your coding agent, or inspect a local app from your "
+"terminal."
 msgstr ""
-"Підключіть REA до свого програміста або перевірте локальну програму зі свого"
-" терміналу."
+"Підключіть Ghostwire до свого програміста або перевірте локальну програму зі"
+" свого терміналу."
 
 #: website/public/get-started/index.html:210
 msgctxt "page:get-started/index.html"
@@ -3462,14 +3346,14 @@ msgstr "Підключіть свій кодуючий агент"
 #: website/public/get-started/index.html:374
 msgctxt "page:get-started/index.html"
 msgid ""
-"Run setup to connect REA to your coding agent. Client choices include Claude"
-" Code, Codex, Cursor, Gemini CLI, Windsurf, Grok Build, and other supported "
-"MCP clients. Grok Bot's connector is added from its chat."
+"Run setup to connect Ghostwire to your coding agent. Client choices include "
+"Claude Code, Codex, Cursor, Gemini CLI, Windsurf, Grok Build, and other "
+"supported MCP clients. Grok Bot's connector is added from its chat."
 msgstr ""
-"Запустіть програму встановлення, щоб підключити REA до свого програміста. "
-"Серед доступних клієнтів Claude Code, Codex, Cursor, Gemini CLI, Windsurf, "
-"Grok Build та інші підтримувані клієнти MCP. Коннектор Grok Bot доданий з "
-"його чату."
+"Запустіть програму встановлення, щоб підключити Ghostwire до свого "
+"програміста. Серед доступних клієнтів Claude Code, Codex, Cursor, Gemini "
+"CLI, Windsurf, Grok Build та інші підтримувані клієнти MCP. Коннектор Grok "
+"Bot доданий з його чату."
 
 #: website/public/get-started/index.html:381
 msgctxt "page:get-started/index.html"
@@ -3481,11 +3365,11 @@ msgctxt "page:get-started/index.html"
 msgid ""
 "A coding agent is an AI assistant that works on your computer instead of in "
 "a browser tab. It can read files and run commands, and it asks before making"
-" changes. REA gives it reverse-engineering tools."
+" changes. Ghostwire gives it reverse-engineering tools."
 msgstr ""
 "Програміст-це помічник зі штучним інтелектом, який працює на вашому "
 "комп'ютері, а не на вкладці браузера. Він може читати файли та виконувати "
-"команди, а також запитує їх перед внесенням змін.  REA надає йому "
+"команди, а також запитує їх перед внесенням змін.  Ghostwire надає йому "
 "інструменти для зворотного проектування."
 
 #: website/public/get-started/index.html:388
@@ -3539,11 +3423,11 @@ msgstr ""
 #: website/public/get-started/index.html:413
 msgctxt "page:get-started/index.html"
 msgid ""
-"Then open it and copy the prompt below into it. The agent runs REA's setup "
-"and shows you the plan before changing anything."
+"Then open it and copy the prompt below into it. The agent runs Ghostwire's "
+"setup and shows you the plan before changing anything."
 msgstr ""
 "Потім відкрийте його і скопіюйте в нього наведене нижче запрошення. Перш ніж"
-" щось змінити, агент запустить Налаштування REA і покаже вам план."
+" щось змінити, агент запустить Налаштування Ghostwire і покаже вам план."
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -3631,13 +3515,14 @@ msgstr ""
 #: website/public/get-started/index.html:483
 msgctxt "page:get-started/index.html"
 msgid ""
-"Choose your client and review the setup plan. REA adds its MCP connection "
-"and the matching investigation skill, keeping a backup of existing "
-"configuration. It asks before applying the changes."
+"Choose your client and review the setup plan. Ghostwire adds its MCP "
+"connection and the matching investigation skill, keeping a backup of "
+"existing configuration. It asks before applying the changes."
 msgstr ""
-"Виберіть свого клієнта та ознайомтеся з планом Налаштування.  REA додає "
-"підключення MCP і відповідний навик дослідження, зберігаючи резервну копію "
-"існуючої конфігурації. Перед застосуванням змін програма запитує доступ."
+"Виберіть свого клієнта та ознайомтеся з планом Налаштування.  Ghostwire "
+"додає підключення MCP і відповідний навик дослідження, зберігаючи резервну "
+"копію існуючої конфігурації. Перед застосуванням змін програма запитує "
+"доступ."
 
 #: website/public/get-started/index.html:488
 msgctxt "page:get-started/index.html"
@@ -3847,14 +3732,14 @@ msgstr ""
 msgctxt "page:get-started/index.html"
 msgid ""
 "The result identifies the app, shows connections between modules and gives "
-"their source locations. Connections REA cannot resolve are marked in the "
-"result."
+"their source locations. Connections Ghostwire cannot resolve are marked in "
+"the result."
 msgstr ""
 "Результат ідентифікує додаток, показує з'єднання між модулями і вказує місце"
-" розташування їх джерел. В результаті відзначаються з'єднання, які REA не "
-"може вирішити."
+" розташування їх джерел. В результаті відзначаються з'єднання, які Ghostwire"
+" не може вирішити."
 
-#. {ph0}: <code>rea</code>
+#. {ph0}: <code>ghostwire</code>
 #: website/public/get-started/index.html:600
 #, python-brace-format
 msgctxt "page:get-started/index.html"
@@ -3883,11 +3768,11 @@ msgstr "Налаштування аналізу програм з машинни
 msgctxt "page:get-started/index.html"
 msgid ""
 "Native binaries need a local analysis tool. Choose and configure one below, "
-"then give REA your executable or library."
+"then give Ghostwire your executable or library."
 msgstr ""
 "Програмам з машинним кодом потрібен локальний інструмент аналізу. Виберіть і"
-" налаштуйте один із наведених нижче інструментів, а потім вкажіть REA ваш "
-"виконуваний файл або бібліотеку."
+" налаштуйте один із наведених нижче інструментів, а потім вкажіть Ghostwire "
+"ваш виконуваний файл або бібліотеку."
 
 #: website/public/get-started/index.html:631
 msgctxt "page:get-started/index.html"
@@ -4003,11 +3888,11 @@ msgctxt "page:get-started/index.html"
 msgid ""
 "Keep the upstream server's working {ph0}, {ph1} and optional {ph2} in a JSON"
 " file. An existing {ph3} object with an {ph4} entry is also accepted. Point "
-"REA at that file before setup:"
+"Ghostwire at that file before setup:"
 msgstr ""
 "Збережіть робочу {ph0} вищого сервера, {ph1} і необов'язковий {ph2} у файлі "
 "JSON. Також приймається існуючий {ph3}об'єкт mcpServers із записом {ph4}. "
-"Вкажіть REA у цьому файлі перед встановленням:"
+"Вкажіть Ghostwire у цьому файлі перед встановленням:"
 
 #: website/public/get-started/index.html:735
 msgctxt "page:get-started/index.html"
@@ -4037,13 +3922,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"Give REA the original executable path, with {ph0} in a CLI query. For an "
-"agent, include {ph1} in the REA registration's environment and select IDA "
-"when opening the binary."
+"Give Ghostwire the original executable path, with {ph0} in a CLI query. For "
+"an agent, include {ph1} in the Ghostwire registration's environment and "
+"select IDA when opening the binary."
 msgstr ""
-"Вкажіть REA вихідний шлях до виконуваного файлу за допомогою {ph0} у запиті "
-"CLI. Для агента включіть {ph1} у середу реєстрації REA і виберіть IDA при "
-"відкритті двійкового файлу."
+"Вкажіть Ghostwire вихідний шлях до виконуваного файлу за допомогою {ph0} у "
+"запиті CLI. Для агента включіть {ph1} у середу реєстрації Ghostwire і "
+"виберіть IDA при відкритті двійкового файлу."
 
 #: website/public/get-started/index.html:771
 msgctxt "page:get-started/index.html"
@@ -4097,19 +3982,19 @@ msgstr "Отримання допомоги"
 
 #: website/public/get-started/index.html:809
 msgctxt "page:get-started/index.html"
-msgid "If your agent doesn't see REA"
-msgstr "Якщо ваш агент не бачить REA"
+msgid "If your agent doesn't see Ghostwire"
+msgstr "Якщо ваш агент не бачить Ghostwire"
 
 #. {ph0}: <code>doctor</code>
 #: website/public/get-started/index.html:810
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"Restart or reconnect the client after setup. Check its REA connection with "
-"{ph0}; for Codex:"
+"Restart or reconnect the client after setup. Check its Ghostwire connection "
+"with {ph0}; for Codex:"
 msgstr ""
 "Перезапустіть або підключіть клієнт після встановлення. Перевірте його "
-"REA-з'єднання з {ph0}; для Codex :"
+"Ghostwire-з'єднання з {ph0}; для Codex :"
 
 #: website/public/get-started/index.html:816
 msgctxt "page:get-started/index.html"
@@ -4146,9 +4031,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}REA FAQ{ph1}{ph2}Quick answers on updates, agents and analysis.{ph3}"
+"{ph0}Ghostwire FAQ{ph1}{ph2}Quick answers on updates, agents and "
+"analysis.{ph3}"
 msgstr ""
-"{ph0}REA задаваний{ph1}{ph2} питання щодо оновлень, агентів та аналізу.{ph3}"
+"{ph0}Ghostwire задаваний{ph1}{ph2} питання щодо оновлень, агентів та "
+"аналізу.{ph3}"
 
 #. {ph0}: <a href="../guides/">
 #. {ph1}: </a >
@@ -4186,25 +4073,27 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}REA community{ph1}{ph2}Questions, investigations and work in "
+"{ph0}Ghostwire community{ph1}{ph2}Questions, investigations and work in "
 "progress.{ph3}"
 msgstr ""
-"{ph0} REA питання спільноти{ph1}{ph2}, розслідування та поточна робота.{ph3}"
+"{ph0} Ghostwire питання спільноти{ph1}{ph2}, розслідування та поточна "
+"робота.{ph3}"
 
 #: website/public/get-started/index.html:6
 msgctxt "page:get-started/index.html"
-msgid "Install REA and Set Up Your Coding Agent"
-msgstr "Встановіть REA і налаштуйте свій кодуючий агент"
+msgid "Install Ghostwire and Set Up Your Coding Agent"
+msgstr "Встановіть Ghostwire і налаштуйте свій кодуючий агент"
 
 #: website/public/get-started/index.html:7
 msgctxt "page:get-started/index.html"
 msgid ""
-"Connect REA to your coding agent or inspect a local JavaScript or Electron "
-"app from the terminal. Setup, first questions and native provider guides."
+"Connect Ghostwire to your coding agent or inspect a local JavaScript or "
+"Electron app from the terminal. Setup, first questions and native provider "
+"guides."
 msgstr ""
-"Підключіть REA до Вашого програміста або скористайтеся локальним додатком "
-"JavaScript або Electron з терміналу. Налаштування, перші Питання та "
-"інструкції для місцевих провайдерів."
+"Підключіть Ghostwire до Вашого програміста або скористайтеся локальним "
+"додатком JavaScript або Electron з терміналу. Налаштування, перші Питання та"
+" інструкції для місцевих провайдерів."
 
 #: website/public/get-started/index.html:214
 msgctxt "page:get-started/index.html"
@@ -4253,13 +4142,13 @@ msgstr "На цій сторінці"
 
 #: website/public/get-started/index.html:371
 msgctxt "page:get-started/index.html"
-msgid "REA getting started guide"
-msgstr "REA Керівництво по початку роботи"
+msgid "Ghostwire getting started guide"
+msgstr "Ghostwire Керівництво по початку роботи"
 
 #: website/public/get-started/index.html:425
 msgctxt "page:get-started/index.html"
-msgid "Copy REA installation prompt"
-msgstr "Скопіюйте запит на встановлення REA"
+msgid "Copy Ghostwire installation prompt"
+msgstr "Скопіюйте запит на встановлення Ghostwire"
 
 #: website/public/get-started/index.html:471
 msgctxt "page:get-started/index.html"
@@ -4440,10 +4329,10 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"{ph0}02 · REA{ph1}{ph2}Record the request{ph3}{ph4}Capture the request URL, "
-"response status and JSON structure from the selected page.{ph5}"
+"{ph0}02 · Ghostwire{ph1}{ph2}Record the request{ph3}{ph4}Capture the request"
+" URL, response status and JSON structure from the selected page.{ph5}"
 msgstr ""
-"{ph0}02 · REA{ph1}{ph2} Запишіть запит{ph3}{ph4}, захопіть URL-адресу "
+"{ph0}02 · Ghostwire{ph1}{ph2} Запишіть запит{ph3}{ph4}, захопіть URL-адресу "
 "запиту, статус відповіді та структуру JSON із вибраної сторінки.{ph5}"
 
 #. {ph0}: <span class="flow-label">
@@ -4510,11 +4399,11 @@ msgstr ""
 #: website/public/guides/browser/index.html:292
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"REA connects to this existing browser. You keep control of the page, perform"
-" the action, and close the browser when finished."
+"Ghostwire connects to this existing browser. You keep control of the page, "
+"perform the action, and close the browser when finished."
 msgstr ""
-"REA підключається до цього існуючого браузера. Ви зберігаєте контроль над "
-"сторінкою, виконуєте дію та закриваєте браузер після завершення."
+"Ghostwire підключається до цього існуючого браузера. Ви зберігаєте контроль "
+"над сторінкою, виконуєте дію та закриваєте браузер після завершення."
 
 #: website/public/guides/browser/index.html:298
 msgctxt "page:guides/browser/index.html"
@@ -4545,11 +4434,11 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}Ваш кодуючий аген
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this page while I click Export notes. "
-"What request does it make, and how is the CSV built?{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this page while I click Export "
+"notes. What request does it make, and how is the CSV built?{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб переглянути цю сторінку, поки я "
-"натискаю \"експортувати нотатки\". Який запит вона надсилає та як працює "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб переглянути цю сторінку, поки"
+" я натискаю \"експортувати нотатки\". Який запит вона надсилає та як працює "
 "CSV?{ph3}{ph4}{ph5}"
 
 #. {ph0}: <code>http://127.0.0.1:9222</code>
@@ -4636,8 +4525,8 @@ msgstr "Прочитайте запит і експортуйте скрипт"
 
 #: website/public/guides/browser/index.html:388
 msgctxt "page:guides/browser/index.html"
-msgid "Recorded with REA 4.1.0 on the local Notes example"
-msgstr "Записано за допомогою REA 4.1.0 на прикладі local Notes"
+msgid "Recorded with Ghostwire 4.1.0 on the local Notes example"
+msgstr "Записано за допомогою Ghostwire 4.1.0 на прикладі local Notes"
 
 #: website/public/guides/browser/index.html:393
 msgctxt "page:guides/browser/index.html"
@@ -4695,12 +4584,12 @@ msgstr "Прочитайте завантажені скрипти"
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"The request identifies the data source, and REA records {ph0} as its "
+"The request identifies the data source, and Ghostwire records {ph0} as its "
 "initiator. Read the captured script source to see how the data is used:"
 msgstr ""
-"Запит ідентифікує джерело даних, а REA записує export.js {ph0} як ініціатор "
-"запиту. Прочитайте захоплений вихідний код сценарію, щоб побачити, як "
-"використовуються дані:"
+"Запит ідентифікує джерело даних, а Ghostwire записує export.js {ph0} як "
+"ініціатор запиту. Прочитайте захоплений вихідний код сценарію, щоб побачити,"
+" як використовуються дані:"
 
 #. {ph0}: <code>notes.json</code>
 #: website/public/guides/browser/index.html:456
@@ -4740,17 +4629,17 @@ msgstr ""
 
 #: website/public/guides/browser/index.html:6
 msgctxt "page:guides/browser/index.html"
-msgid "Browser and Network Analysis — REA"
-msgstr "Аналіз браузера та мережі-REA"
+msgid "Browser and Network Analysis — Ghostwire"
+msgstr "Аналіз браузера та мережі-Ghostwire"
 
 #: website/public/guides/browser/index.html:7
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"Observe a Notes export with REA: select a browser page, capture a click, "
-"inspect the request and follow the export script."
+"Observe a Notes export with Ghostwire: select a browser page, capture a "
+"click, inspect the request and follow the export script."
 msgstr ""
-"Спостерігайте за експортом нотаток за допомогою REA: виберіть сторінку "
-"браузера, зафіксуйте клацання, перегляньте запит і дотримуйтесь сценарію "
+"Спостерігайте за експортом нотаток за допомогою Ghostwire: виберіть сторінку"
+" браузера, зафіксуйте клацання, перегляньте запит і дотримуйтесь сценарію "
 "експорту."
 
 #: website/public/guides/browser/index.html:207
@@ -4808,8 +4697,8 @@ msgstr "{ph0}Головний{ph1} сторінка / Путівники"
 
 #: website/public/guides/index.html:197
 msgctxt "page:guides/index.html"
-msgid "REA guides."
-msgstr "Напрямні REA."
+msgid "Ghostwire guides."
+msgstr "Напрямні Ghostwire."
 
 #: website/public/guides/index.html:198
 msgctxt "page:guides/index.html"
@@ -4827,18 +4716,18 @@ msgstr "Перше розслідування"
 
 #: website/public/guides/index.html:207
 msgctxt "page:guides/index.html"
-msgid "Set up REA"
-msgstr "Налаштування REA"
+msgid "Set up Ghostwire"
+msgstr "Налаштування Ghostwire"
 
 #: website/public/guides/index.html:208
 msgctxt "page:guides/index.html"
-msgid "Connect your coding agent or use REA from the terminal."
-msgstr "Підключіть свій кодер або використовуйте REA з терміналу."
+msgid "Connect your coding agent or use Ghostwire from the terminal."
+msgstr "Підключіть свій кодер або використовуйте Ghostwire з терміналу."
 
 #: website/public/guides/index.html:209
 msgctxt "page:guides/index.html"
-msgid "Get started with REA"
-msgstr "Почніть роботу з REA"
+msgid "Get started with Ghostwire"
+msgstr "Почніть роботу з Ghostwire"
 
 #: website/public/guides/index.html:213
 msgctxt "page:guides/index.html"
@@ -4879,11 +4768,11 @@ msgstr "Слідкуйте за експортом CSV"
 msgctxt "page:guides/index.html"
 msgid ""
 "A small Notes app spreads one feature across the renderer, preload and main "
-"process. Use REA to connect the API, IPC channel and file writer."
+"process. Use Ghostwire to connect the API, IPC channel and file writer."
 msgstr ""
 "Невеликий додаток Notes поєднує в собі функції рендеринга, попереднього "
-"завантаження і основного процесу. Використовуйте REA для підключення API, "
-"каналу IPC та запису файлів."
+"завантаження і основного процесу. Використовуйте Ghostwire для підключення "
+"API, каналу IPC та запису файлів."
 
 #: website/public/guides/index.html:243
 msgctxt "page:guides/index.html"
@@ -4926,17 +4815,17 @@ msgstr "Керівництво по спостереженню за браузе
 
 #: website/public/guides/index.html:6
 msgctxt "page:guides/index.html"
-msgid "Reverse Engineering Guides — REA"
-msgstr "Посібники з реверс-інжинірингу-REA"
+msgid "Reverse Engineering Guides — Ghostwire"
+msgstr "Посібники з реверс-інжинірингу-Ghostwire"
 
 #: website/public/guides/index.html:7
 msgctxt "page:guides/index.html"
 msgid ""
-"Learn REA through short worked examples: a native calculation, an Electron "
-"CSV export and a browser request."
+"Learn Ghostwire through short worked examples: a native calculation, an "
+"Electron CSV export and a browser request."
 msgstr ""
-"Вивчіть REA на коротких прикладах: власні обчислення, експорт Electron, CSV "
-"і запит з браузера."
+"Вивчіть Ghostwire на коротких прикладах: власні обчислення, експорт "
+"Electron, CSV і запит з браузера."
 
 #: website/public/guides/index.html:284
 msgctxt "page:guides/index.html"
@@ -5111,12 +5000,12 @@ msgstr "{ph0} форматує нотатки → {ph1} записує файл�
 #: website/public/guides/javascript/index.html:260
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA matches the literal IPC call to its handler and identifies the exposed "
-"API. The path is inferred from code; a runtime capture can check what "
-"executes."
+"Ghostwire matches the literal IPC call to its handler and identifies the "
+"exposed API. The path is inferred from code; a runtime capture can check "
+"what executes."
 msgstr ""
-"REA відображає буквальний виклик IPC до свого обробника та ідентифікує "
-"відкритий API. Шлях виводиться з коду; під час перехоплення під час "
+"Ghostwire відображає буквальний виклик IPC до свого обробника та ідентифікує"
+" відкритий API. Шлях виводиться з коду; під час перехоплення під час "
 "виконання можна перевірити, що виконується."
 
 #: website/public/guides/javascript/index.html:268
@@ -5130,11 +5019,11 @@ msgstr "Запитайте про експорт CSV"
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"{ph0}Connect your agent to REA{ph1} and give it the app directory or ASAR "
-"file:"
+"{ph0}Connect your agent to Ghostwire{ph1} and give it the app directory or "
+"ASAR file:"
 msgstr ""
-"{ph0}Підключіть свій агент до REA{ph1} і передайте йому каталог програм або "
-"файл ASAR:"
+"{ph0}Підключіть свій агент до Ghostwire{ph1} і передайте йому каталог "
+"програм або файл ASAR:"
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -5166,11 +5055,11 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find what happens when I export notes in this "
-"app. Where is the CSV created?{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to find what happens when I export notes in "
+"this app. Where is the CSV created?{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб побачити, що відбувається, коли я "
-"експортую нотатки до цієї програми. Де створено CSV?{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб побачити, що відбувається, "
+"коли я експортую нотатки до цієї програми. Де створено CSV?{ph3}{ph4}{ph5}"
 
 #. {ph0}: <code>app.asar</code>
 #: website/public/guides/javascript/index.html:296
@@ -5184,12 +5073,12 @@ msgstr "Приклад запиту. Вкажіть абсолютний шля�
 #: website/public/guides/javascript/index.html:300
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA reads the application files and builds a map of entrypoints, modules and"
-" process boundaries. Your agent uses that map to narrow the investigation to"
-" the export feature."
+"Ghostwire reads the application files and builds a map of entrypoints, "
+"modules and process boundaries. Your agent uses that map to narrow the "
+"investigation to the export feature."
 msgstr ""
-"REA зчитує файли програми та створює карту точок входу, модулів та меж "
-"процесів. Ваш агент використовує цю карту, щоб звузити пошук до функції "
+"Ghostwire зчитує файли програми та створює карту точок входу, модулів та меж"
+" процесів. Ваш агент використовує цю карту, щоб звузити пошук до функції "
 "експорту."
 
 #: website/public/guides/javascript/index.html:307
@@ -5217,11 +5106,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA records {ph0} and the literal channel {ph1}. It pairs that invocation "
-"with the single matching handler in the main process."
+"Ghostwire records {ph0} and the literal channel {ph1}. It pairs that "
+"invocation with the single matching handler in the main process."
 msgstr ""
-"REA записує {ph0} і буквений канал {ph1}. Він пов'язує цей виклик з єдиним "
-"відповідним обробником в основному процесі."
+"Ghostwire записує {ph0} і буквений канал {ph1}. Він пов'язує цей виклик з "
+"єдиним відповідним обробником в основному процесі."
 
 #. {ph0}: <code>csv.js</code>
 #. {ph1}: <code>notes.csv</code>
@@ -5239,11 +5128,12 @@ msgstr ""
 #: website/public/guides/javascript/index.html:369
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"Recorded by REA 4.1.0 on the downloadable example below. Source locations "
-"accompany the API, channel and handler findings."
+"Recorded by Ghostwire 4.1.0 on the downloadable example below. Source "
+"locations accompany the API, channel and handler findings."
 msgstr ""
-"Записано за допомогою REA 4.1.0 на прикладі, який можна завантажити нижче. "
-"Розташування вихідних текстів відповідає висновкам API, каналу та обробника."
+"Записано за допомогою Ghostwire 4.1.0 на прикладі, який можна завантажити "
+"нижче. Розташування вихідних текстів відповідає висновкам API, каналу та "
+"обробника."
 
 #: website/public/guides/javascript/index.html:375
 msgctxt "page:guides/javascript/index.html"
@@ -5286,12 +5176,12 @@ msgstr ""
 msgctxt "page:guides/javascript/index.html"
 msgid ""
 "For your own app, use the same command with its directory or ASAR path. An "
-"agent can follow a literal string, API name or IPC channel with REA's "
+"agent can follow a literal string, API name or IPC channel with Ghostwire's "
 "feature tracing tools."
 msgstr ""
 "Для власної програми використовуйте ту саму команду, вказавши її каталог або"
 " шлях до ASAR. Агент може використовувати рядок літер, ІМ'Я API або канал "
-"IPC за допомогою інструментів відстеження функцій REA."
+"IPC за допомогою інструментів відстеження функцій Ghostwire."
 
 #: website/public/guides/javascript/index.html:453
 msgctxt "page:guides/javascript/index.html"
@@ -5364,19 +5254,19 @@ msgstr ""
 
 #: website/public/guides/javascript/index.html:6
 msgctxt "page:guides/javascript/index.html"
-msgid "JavaScript and Electron Analysis — REA"
-msgstr "Аналіз JavaScript і Electron-REA"
+msgid "JavaScript and Electron Analysis — Ghostwire"
+msgstr "Аналіз JavaScript і Electron-Ghostwire"
 
 #: website/public/guides/javascript/index.html:7
 msgctxt "page:guides/javascript/index.html"
 msgid ""
 "Trace a Notes CSV export through a renderer API, preload and IPC handler "
-"with REA. Includes downloadable example files and a verified analysis "
+"with Ghostwire. Includes downloadable example files and a verified analysis "
 "result."
 msgstr ""
 "Відстежуйте експорт Notes CSV за допомогою API візуалізації, попереднього "
-"завантаження та обробника IPC за допомогою REA. Включає завантажувані файли "
-"прикладів і перевірений результат аналізу."
+"завантаження та обробника IPC за допомогою Ghostwire. Включає завантажувані "
+"файли прикладів і перевірений результат аналізу."
 
 #: website/public/guides/javascript/index.html:207
 msgctxt "page:guides/javascript/index.html"
@@ -5462,8 +5352,8 @@ msgstr "{ph0}Запитайте свого агента{ph1}"
 #: website/public/guides/native/index.html:211
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
-msgid "{ph0}Read the REA results{ph1}"
-msgstr "{ph0}Ознайомтеся з результатами REA{ph1}"
+msgid "{ph0}Read the Ghostwire results{ph1}"
+msgstr "{ph0}Ознайомтеся з результатами Ghostwire{ph1}"
 
 #. {ph0}: <a href="#result">
 #. {ph1}: </a>
@@ -5502,12 +5392,12 @@ msgstr ""
 msgctxt "page:guides/native/index.html"
 msgid ""
 "The starting function, {ph0}, has a short decompiler result: a call to "
-"{ph1}. REA also returns its instructions and callers, which give the agent a"
-" way to investigate the missing arithmetic."
+"{ph1}. Ghostwire also returns its instructions and callers, which give the "
+"agent a way to investigate the missing arithmetic."
 msgstr ""
 "Початкова функція, {ph0}, видає короткий результат декомпіляції: виклик "
-"функції {ph1}.  REA також повертає свої інструкції та пристрої виклику, які "
-"дають агенту можливість знайти відсутню арифметику."
+"функції {ph1}.  Ghostwire також повертає свої інструкції та пристрої "
+"виклику, які дають агенту можливість знайти відсутню арифметику."
 
 #: website/public/guides/native/index.html:230
 msgctxt "page:guides/native/index.html"
@@ -5637,10 +5527,10 @@ msgstr ""
 #: website/public/guides/native/index.html:289
 msgctxt "page:guides/native/index.html"
 msgid ""
-"REA supplies the instructions, call relationship and bytes. The agent "
+"Ghostwire supplies the instructions, call relationship and bytes. The agent "
 "interprets them together."
 msgstr ""
-"REA надає інструкції, зв'язок між викликами функцій і байти. Агент "
+"Ghostwire надає інструкції, зв'язок між викликами функцій і байти. Агент "
 "інтерпретує їх разом."
 
 #: website/public/guides/native/index.html:296
@@ -5656,10 +5546,10 @@ msgstr "Запитайте про поведінку"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"After {ph0}connecting REA to your agent{ph1} and {ph2}setting up a native "
-"analysis tool{ph3}, provide the local executable and a question:"
+"After {ph0}connecting Ghostwire to your agent{ph1} and {ph2}setting up a "
+"native analysis tool{ph3}, provide the local executable and a question:"
 msgstr ""
-"Після {ph0}підключення REA до вашого агента{ph1} і {ph2}налаштування "
+"Після {ph0}підключення Ghostwire до вашого агента{ph1} і {ph2}налаштування "
 "інструменту аналізу програм з машинним кодом{ph3} надайте локальний "
 "виконуваний файл та запитання:"
 
@@ -5670,8 +5560,8 @@ msgstr "Який інструмент аналізу слід використо
 
 #: website/public/guides/native/index.html:309
 msgctxt "page:guides/native/index.html"
-msgid "REA needs one of these to read native programs:"
-msgstr "REA потрібен один з них для читання власних програм:"
+msgid "Ghostwire needs one of these to read native programs:"
+msgstr "Ghostwire потрібен один з них для читання власних програм:"
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -5679,13 +5569,13 @@ msgstr "REA потрібен один з них для читання власн
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"{ph0}Hopper{ph1} (macOS or Linux): REA's setup detects it or offers to "
-"install it. On macOS, open Hopper once and choose demo mode or activate a "
+"{ph0}Hopper{ph1} (macOS or Linux): Ghostwire's setup detects it or offers to"
+" install it. On macOS, open Hopper once and choose demo mode or activate a "
 "license before your first analysis."
 msgstr ""
-"{ph0} Hopper{ph1} (macOS або Linux ): програма встановлення REA виявляє його"
-" або пропонує встановити. На macOS відкрийте Hopper один раз і виберіть "
-"демонстраційний режим або активуйте ліцензію перед першим аналізом."
+"{ph0} Hopper{ph1} (macOS або Linux ): програма встановлення Ghostwire "
+"виявляє його або пропонує встановити. На macOS відкрийте Hopper один раз і "
+"виберіть демонстраційний режим або активуйте ліцензію перед першим аналізом."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -5750,22 +5640,24 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how DX-Ball calculates sound panning. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how DX-Ball calculates sound panning. "
 "Explain the calculation and show the code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб дізнатися, як DX-Ball обчислює "
-"розташування стереозвуку. Поясніть розрахунок і покажіть код.{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб дізнатися, як DX-Ball "
+"обчислює розташування стереозвуку. Поясніть розрахунок і покажіть "
+"код.{ph3}{ph4}{ph5}"
 
 #: website/public/guides/native/index.html:356
 msgctxt "page:guides/native/index.html"
 msgid ""
 "Example prompt. Give your agent the path to your local DX-Ball 1.07 "
-"executable. REA doesn't include DX-Ball, so use your own copy, or ask the "
-"same kind of question about another small Windows program you have."
+"executable. Ghostwire doesn't include DX-Ball, so use your own copy, or ask "
+"the same kind of question about another small Windows program you have."
 msgstr ""
 "Приклад запиту. Вкажіть своєму агенту шлях до локального виконуваного файлу "
-"DX-Ball 1.07.  REA не включає DX-Ball, тому використовуйте власну копію або "
-"задайте те саме питання про іншу невелику програму Windows, яку ви маєте."
+"DX-Ball 1.07.  Ghostwire не включає DX-Ball, тому використовуйте власну "
+"копію або задайте те саме питання про іншу невелику програму Windows, яку ви"
+" маєте."
 
 #: website/public/guides/native/index.html:363
 msgctxt "page:guides/native/index.html"
@@ -5815,8 +5707,8 @@ msgstr ""
 
 #: website/public/guides/native/index.html:382
 msgctxt "page:guides/native/index.html"
-msgid "Read the REA results"
-msgstr "Ознайомтеся з результатами REA"
+msgid "Read the Ghostwire results"
+msgstr "Ознайомтеся з результатами Ghostwire"
 
 #: website/public/guides/native/index.html:383
 msgctxt "page:guides/native/index.html"
@@ -5842,10 +5734,11 @@ msgstr "Слідуйте за абонентом"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"REA identifies the brick-hit caller. Its earlier instructions multiply the "
-"tile coordinate by 30; adding {ph0} (20) gives the brick's screen position."
+"Ghostwire identifies the brick-hit caller. Its earlier instructions multiply"
+" the tile coordinate by 30; adding {ph0} (20) gives the brick's screen "
+"position."
 msgstr ""
-"REA ідентифікує об'єкт, на який впала цегла. У попередніх інструкціях "
+"Ghostwire ідентифікує об'єкт, на який впала цегла. У попередніх інструкціях "
 "координату плитки множили на 30; додавання {ph0} (20) дає положення цегли на"
 " екрані."
 
@@ -5883,13 +5776,13 @@ msgstr ""
 #: website/public/guides/native/index.html:443
 msgctxt "page:guides/native/index.html"
 msgid ""
-"The agent used REA's findings to write the C. Separate checks compared 3,205"
-" inputs against the original x86 function and reproduced all 63 compiled "
-"bytes of the complete function."
+"The agent used Ghostwire's findings to write the C. Separate checks compared"
+" 3,205 inputs against the original x86 function and reproduced all 63 "
+"compiled bytes of the complete function."
 msgstr ""
-"Агент використовував результати REA для написання коду C. окремі перевірки "
-"порівняли 3205 входів з оригінальною функцією x86 і відтворили всі 63 "
-"скомпільовані байти повної функції."
+"Агент використовував результати Ghostwire для написання коду C. окремі "
+"перевірки порівняли 3205 входів з оригінальною функцією x86 і відтворили всі"
+" 63 скомпільовані байти повної функції."
 
 #. {ph0}: <a href="../../showcase/dx-ball/#sound-pan" >
 #. {ph1}: </a >
@@ -5961,16 +5854,16 @@ msgstr ""
 
 #: website/public/guides/native/index.html:6
 msgctxt "page:guides/native/index.html"
-msgid "Native Binary Analysis — REA"
-msgstr "Власний Бінарний аналіз-REA"
+msgid "Native Binary Analysis — Ghostwire"
+msgstr "Власний Бінарний аналіз-Ghostwire"
 
 #: website/public/guides/native/index.html:7
 msgctxt "page:guides/native/index.html"
 msgid ""
-"Recover a native calculation with REA: inspect instructions, follow a "
+"Recover a native calculation with Ghostwire: inspect instructions, follow a "
 "caller, read constants and check reconstructed C."
 msgstr ""
-"Відновіть власні обчислення за допомогою REA: перегляньте інструкції, "
+"Відновіть власні обчислення за допомогою Ghostwire: перегляньте інструкції, "
 "дотримуйтесь абонента, прочитайте константи та перевірте відновлений C."
 
 #: website/public/guides/native/index.html:206
@@ -6011,16 +5904,16 @@ msgstr "На цій сторінці"
 
 #: website/public/index.html:199 website/public/index.html:253
 msgctxt "page:index.html"
-msgid "Set up REA"
-msgstr "Налаштування REA"
+msgid "Set up Ghostwire"
+msgstr "Налаштування Ghostwire"
 
 #. {ph0}: <a href="#setup" aria-current="location">
 #. {ph1}: </a>
 #: website/public/index.html:210
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}Set up REA{ph1}"
-msgstr "{ph0}Налаштування REA{ph1}"
+msgid "{ph0}Set up Ghostwire{ph1}"
+msgstr "{ph0}Налаштування Ghostwire{ph1}"
 
 #. {ph0}: <a href="#what-is-re">
 #. {ph1}: </a>
@@ -6035,8 +5928,8 @@ msgstr "{ph0}Що таке вогонь?{ph1}"
 #: website/public/index.html:212
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}How REA helps{ph1}"
-msgstr "{ph0}Як допомагає REA{ph1}"
+msgid "{ph0}How Ghostwire helps{ph1}"
+msgstr "{ph0}Як допомагає Ghostwire{ph1}"
 
 #. {ph0}: <a href="#dinosaur">
 #. {ph1}: </a>
@@ -6059,8 +5952,8 @@ msgstr "{ph0}Калькулятор{ph1}"
 #: website/public/index.html:215
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}Try REA{ph1}"
-msgstr "{ph0}Спробуйте REA{ph1}"
+msgid "{ph0}Try Ghostwire{ph1}"
+msgstr "{ph0}Спробуйте Ghostwire{ph1}"
 
 #. {ph0}: <a href="#analyze">
 #. {ph1}: </a>
@@ -6101,11 +5994,11 @@ msgstr "Дізнайтеся, як{ph0}працює програма."
 #: website/public/index.html:229
 msgctxt "page:index.html"
 msgid ""
-"REA gives your agent the tools to inspect a program and explain what it "
-"does."
+"Ghostwire gives your agent the tools to inspect a program and explain what "
+"it does."
 msgstr ""
-"REA надає вашому ШІ-помічнику інструменти, щоб дослідити програму й пояснити"
-" її поведінку."
+"Ghostwire надає вашому ШІ-помічнику інструменти, щоб дослідити програму й "
+"пояснити її поведінку."
 
 #. {ph0}: <a href="#analysis-guides">
 #. {ph1}: </a>
@@ -6197,8 +6090,8 @@ msgstr ""
 #: website/public/index.html:332
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "Before REA · You investigate it {ph0}yourself{ph1}"
-msgstr "До REA · Ви досліджуєте {ph0}самостійно{ph1}"
+msgid "Before Ghostwire · You investigate it {ph0}yourself{ph1}"
+msgstr "До Ghostwire · Ви досліджуєте {ph0}самостійно{ph1}"
 
 #. {ph0}: <span>
 #. {ph1}: </span>
@@ -6337,8 +6230,8 @@ msgstr ""
 #: website/public/index.html:484
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "With REA · You ask {ph0}your agent{ph1}"
-msgstr "З REA · Ви запитуєте {ph0}свого помічника{ph1}"
+msgid "With Ghostwire · You ask {ph0}your agent{ph1}"
+msgstr "З Ghostwire · Ви запитуєте {ph0}свого помічника{ph1}"
 
 #: website/public/index.html:488
 msgctxt "page:index.html"
@@ -6385,8 +6278,8 @@ msgstr ""
 
 #: website/public/index.html:531
 msgctxt "page:index.html"
-msgid "REA supplies"
-msgstr "REA надає"
+msgid "Ghostwire supplies"
+msgstr "Ghostwire надає"
 
 #: website/public/index.html:532
 msgctxt "page:index.html"
@@ -6522,8 +6415,8 @@ msgstr ""
 
 #: website/public/index.html:653 website/public/index.html:883
 msgctxt "page:index.html"
-msgid "REA returned"
-msgstr "REA повернув"
+msgid "Ghostwire returned"
+msgstr "Ghostwire повернув"
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -6563,11 +6456,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this dinosaur game. Why does it get "
-"faster? Show the speed rule, then build a small version with an adjustable "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this dinosaur game. Why does it get"
+" faster? Show the speed rule, then build a small version with an adjustable "
 "speed.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб ознайомитися з цією грою "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб ознайомитися з цією грою "
 "динозаврів. Чому вона стала швидше? Покажіть правило швидкості, а потім "
 "створіть зменшену версію зі змінною швидкістю.{ph3}{ph4}{ph5}"
 
@@ -6616,11 +6509,11 @@ msgstr "Що робить кожна частина"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}01 · REA{ph1}{ph2}Read the running game’s script{ph3}{ph4}Return its "
-"actual code and settings to the agent.{ph5}"
+"{ph0}01 · Ghostwire{ph1}{ph2}Read the running game’s script{ph3}{ph4}Return "
+"its actual code and settings to the agent.{ph5}"
 msgstr ""
-"{ph0}01 · REA{ph1}{ph2} Зчитує скрипт запущеної гри{ph3}{ph4} і повертає "
-"його дійсний код та налаштування агенту.{ph5}"
+"{ph0}01 · Ghostwire{ph1}{ph2} Зчитує скрипт запущеної гри{ph3}{ph4} і "
+"повертає його дійсний код та налаштування агенту.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -6665,11 +6558,12 @@ msgstr "Ознайомтеся зі сценарієм, перевірками �
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"REA inspected the HTTP browser edition through a local debugging connection "
-"and returned the loaded {ph0}, including its source and digest."
+"Ghostwire inspected the HTTP browser edition through a local debugging "
+"connection and returned the loaded {ph0}, including its source and digest."
 msgstr ""
-"REA перевірив версію браузера HTTP через локальне з'єднання Налагодження та "
-"повернув завантажений {ph0}, включаючи його вихідний код та дайджест."
+"Ghostwire перевірив версію браузера HTTP через локальне з'єднання "
+"Налагодження та повернув завантажений {ph0}, включаючи його вихідний код та "
+"дайджест."
 
 #: website/public/index.html:757
 msgctxt "page:index.html"
@@ -6831,13 +6725,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator’s % button. Recover "
-"the rules after + and ×, then build a small calculator that uses "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator’s % button. "
+"Recover the rules after + and ×, then build a small calculator that uses "
 "both.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA для перевірки кнопки % у калькуляторі "
-"Windows. Відновіть правила після + і×, а потім створіть невеликий "
-"калькулятор, який використовує обидва параметри.{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire для перевірки кнопки % у "
+"калькуляторі Windows. Відновіть правила після + і×, а потім створіть "
+"невеликий калькулятор, який використовує обидва параметри.{ph3}{ph4}{ph5}"
 
 #: website/public/index.html:933
 msgctxt "page:index.html"
@@ -6883,11 +6777,11 @@ msgstr "Від встановленого додатка до робочої к�
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}02 · REA reads the library{ph1}{ph2}Return the % handler’s "
+"{ph0}02 · Ghostwire reads the library{ph1}{ph2}Return the % handler’s "
 "code{ph3}{ph4}The function checks the operator and uses the constant "
 "{ph5}.{ph6}"
 msgstr ""
-"{ph0}02 * REA читає бібліотеку{ph1}{ph2}, повертає код обробника "
+"{ph0}02 * Ghostwire читає бібліотеку{ph1}{ph2}, повертає код обробника "
 "%{ph3}{ph4}, функція перевіряє оператор і використовує константу {ph5}.{ph6}"
 
 #. {ph0}: <span class="flow-label">
@@ -6916,12 +6810,12 @@ msgstr "Подивіться реальний код і те, як була пе
 #: website/public/index.html:1008
 msgctxt "page:index.html"
 msgid ""
-"Inspected with REA 4.1.0: Windows Calculator 11.2508.4.0, x64. The readable "
-"summary uses names from Microsoft’s public source to explain the recovered "
-"branch."
+"Inspected with Ghostwire 4.1.0: Windows Calculator 11.2508.4.0, x64. The "
+"readable summary uses names from Microsoft’s public source to explain the "
+"recovered branch."
 msgstr ""
-"Перевірено за допомогою REA 4.1.0: Windows Calculator 11.2508.4.0, x64. "
-"Резюме, доступне для читання, використовує імена з загальнодоступного "
+"Перевірено за допомогою Ghostwire 4.1.0: Windows Calculator 11.2508.4.0, "
+"x64. Резюме, доступне для читання, використовує імена з загальнодоступного "
 "Джерела Microsoft для опису відновленої гілки."
 
 #. {ph0}: <a
@@ -6951,8 +6845,8 @@ msgstr "Ваше перше розслідування"
 
 #: website/public/index.html:1033
 msgctxt "page:index.html"
-msgid "Try REA on a small app."
-msgstr "Спробуйте REA у невеликому додатку."
+msgid "Try Ghostwire on a small app."
+msgstr "Спробуйте Ghostwire у невеликому додатку."
 
 #: website/public/index.html:1034
 msgctxt "page:index.html"
@@ -6981,12 +6875,12 @@ msgstr "Хочете дізнатися більше?"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"Tell your agent what you want to understand or build. With REA, you can work"
-" together on anything from {ph0}cloning this website{ph1} to "
+"Tell your agent what you want to understand or build. With Ghostwire, you "
+"can work together on anything from {ph0}cloning this website{ph1} to "
 "{ph2}reconstructing a game from its executable.{ph3}"
 msgstr ""
-"Скажіть своєму агенту, що ви хочете зрозуміти або доопрацювати. З REA ви "
-"можете працювати разом над чим завгодно-від {ph0}клонування цього веб-"
+"Скажіть своєму агенту, що ви хочете зрозуміти або доопрацювати. З Ghostwire "
+"ви можете працювати разом над чим завгодно-від {ph0}клонування цього веб-"
 "сайту{ph1} до {ph2}відтворення гри по її виконуваному файлу.{ph3}"
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
@@ -7034,13 +6928,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to reconstruct this game from its executable. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to reconstruct this game from its executable. "
 "Recover the gameplay logic in C and test it against the "
 "original.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб відтворити цю гру за її виконуваним"
-" файлом. Відновіть логіку ігрового процесу на C і порівняйте її з "
-"оригіналом.{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб відтворити цю гру за її "
+"виконуваним файлом. Відновіть логіку ігрового процесу на C і порівняйте її з"
+" оригіналом.{ph3}{ph4}{ph5}"
 
 #. {ph0}: <a href="showcase/dx-ball/">
 #. {ph1}: </a>
@@ -7143,31 +7037,31 @@ msgstr "Приєднатися до спільноти"
 #: website/public/index.html:1164
 msgctxt "page:index.html"
 msgid ""
-"Share investigations and get help from other REA users on Discord. Follow "
-"REA on X for project updates."
+"Share investigations and get help from other Ghostwire users on Discord. "
+"Follow Ghostwire on X for project updates."
 msgstr ""
 "Діліться результатами досліджень і отримуйте допомогу від інших користувачів"
-" REA на Discord. Слідкуйте за оновленнями проекту REA на X."
+" Ghostwire на Discord. Слідкуйте за оновленнями проекту Ghostwire на X."
 
 #: website/public/index.html:6
 msgctxt "page:index.html"
-msgid "REA — Reverse Engineering for Your Coding Agent"
-msgstr "REA-реверс-інжиніринг для вашого програміста"
+msgid "Ghostwire — Reverse Engineering for Your Coding Agent"
+msgstr "Ghostwire-реверс-інжиніринг для вашого програміста"
 
 #: website/public/index.html:7
 msgctxt "page:index.html"
 msgid ""
 "Reverse engineer apps, binaries and browser behavior with your coding agent."
-" Follow clear guides and try interactive examples with REA."
+" Follow clear guides and try interactive examples with Ghostwire."
 msgstr ""
 "Реінжиніринг програм, двійкових файлів та поведінки браузера за допомогою "
 "агента кодування. Дотримуйтесь чітких інструкцій та спробуйте інтерактивні "
-"приклади з REA."
+"приклади з Ghostwire."
 
 #: website/public/index.html:262
 msgctxt "page:index.html"
-msgid "Copy REA installation prompt"
-msgstr "Скопіюйте запит на встановлення REA"
+msgid "Copy Ghostwire installation prompt"
+msgstr "Скопіюйте запит на встановлення Ghostwire"
 
 #: website/public/index.html:284
 msgctxt "page:index.html"
@@ -7253,12 +7147,12 @@ msgstr "Звідки Аутентифікатор{ph0}генерувати ко�
 #: website/public/showcase/aegis/index.html:202
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"A six-digit code changes every 30 seconds. Use REA to find the calculation "
-"in an Android APK, then rebuild it with a clock you can control."
+"A six-digit code changes every 30 seconds. Use Ghostwire to find the "
+"calculation in an Android APK, then rebuild it with a clock you can control."
 msgstr ""
-"Шестизначний код змінюється кожні 30 секунд. Використовуйте REA , щоб знайти"
-" обчислення в Android APK, а потім відновіть їх за допомогою годинника, яким"
-" ви можете керувати."
+"Шестизначний код змінюється кожні 30 секунд. Використовуйте Ghostwire , щоб "
+"знайти обчислення в Android APK, а потім відновіть їх за допомогою "
+"годинника, яким ви можете керувати."
 
 #: website/public/showcase/aegis/index.html:207
 msgctxt "page:showcase/aegis/index.html"
@@ -7286,12 +7180,12 @@ msgstr "Від APK до коду, який ви можете відтворит�
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
 "{ph0}01 · Locate the feature{ph1}{ph2}3,077 classes → generating "
-"methods{ph3}{ph4}REA searches the package and traces the code used by the "
-"display and copy actions.{ph5}"
+"methods{ph3}{ph4}Ghostwire searches the package and traces the code used by "
+"the display and copy actions.{ph5}"
 msgstr ""
 "{ph0}01 * знайдіть функцію{ph1}{ph2} 3077 класи → методи генерації{ph3}{ph4}"
-" REA здійснює пошук у пакеті та відстежує код, який використовується для "
-"відображення та копіювання дій.{ph5}"
+" Ghostwire здійснює пошук у пакеті та відстежує код, який використовується "
+"для відображення та копіювання дій.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -7304,12 +7198,12 @@ msgstr ""
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
 "{ph0}02 · Read the calculation{ph1}{ph2}Time + account key → six "
-"digits{ph3}{ph4}REA returns the methods and defaults. The agent explains how"
-" they fit together.{ph5}"
+"digits{ph3}{ph4}Ghostwire returns the methods and defaults. The agent "
+"explains how they fit together.{ph5}"
 msgstr ""
 "{ph0}02 * Прочитайте час розрахунку{ph1}{ph2} + ключ облікового запису → "
-"шестизначний{ph3}{ph4} REA повертає методи та значення за замовчуванням. "
-"Агент пояснює, як вони поєднуються.{ph5}"
+"шестизначний{ph3}{ph4} Ghostwire повертає методи та значення за "
+"замовчуванням. Агент пояснює, як вони поєднуються.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -7355,8 +7249,8 @@ msgstr "{ph0}Спробуйте скористатися генератором 
 #: website/public/showcase/aegis/index.html:252
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
-msgid "{ph0}Find the code with REA{ph1}"
-msgstr "{ph0}Знайдіть код за допомогою REA{ph1}"
+msgid "{ph0}Find the code with Ghostwire{ph1}"
+msgstr "{ph0}Знайдіть код за допомогою Ghostwire{ph1}"
 
 #. {ph0}: <a href="#calculation">
 #. {ph1}: </a>
@@ -7425,10 +7319,10 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"An example prompt for the downloaded APK, with REA's Android analysis "
+"An example prompt for the downloaded APK, with Ghostwire's Android analysis "
 "configured. {ph0}Get the APK and analysis setup ↓{ph1}"
 msgstr ""
-"Приклад запиту для завантаженого APK з налаштованим аналізом REA для "
+"Приклад запиту для завантаженого APK з налаштованим аналізом Ghostwire для "
 "Android. {ph0}Отримайте APK і налаштування аналізу ↓{ph1}"
 
 #: website/public/showcase/aegis/index.html:299
@@ -7555,8 +7449,8 @@ msgstr ""
 
 #: website/public/showcase/aegis/index.html:395
 msgctxt "page:showcase/aegis/index.html"
-msgid "Find the code with REA"
-msgstr "Знайдіть код за допомогою REA"
+msgid "Find the code with Ghostwire"
+msgstr "Знайдіть код за допомогою Ghostwire"
 
 #: website/public/showcase/aegis/index.html:398
 msgctxt "page:showcase/aegis/index.html"
@@ -7586,11 +7480,11 @@ msgstr "Підключіть генератор до дисплея програ
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"REA identifies the timestamp overload and finds the base method's callers. "
-"Inspecting {ph0} then shows the display calling {ph1}."
+"Ghostwire identifies the timestamp overload and finds the base method's "
+"callers. Inspecting {ph0} then shows the display calling {ph1}."
 msgstr ""
-"REA визначає перевантаження часової мітки і знаходить викликають базовий "
-"метод. При перевірці {ph0} на дисплеї відображається виклик {ph1}."
+"Ghostwire визначає перевантаження часової мітки і знаходить викликають "
+"базовий метод. При перевірці {ph0} на дисплеї відображається виклик {ph1}."
 
 #. {ph0}: <code>com.beemdevelopment.aegis</code>
 #: website/public/showcase/aegis/index.html:466
@@ -7614,13 +7508,13 @@ msgstr "Ознайомтеся з розрахунком"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"REA returns {ph0}the clock conversion, default settings and generating "
-"methods.{ph1} The constructors set a 30-second interval and six digits; the "
-"timestamp method turns seconds into a block number."
+"Ghostwire returns {ph0}the clock conversion, default settings and generating"
+" methods.{ph1} The constructors set a 30-second interval and six digits; the"
+" timestamp method turns seconds into a block number."
 msgstr ""
-"REA повертає {ph0}перетворення годин, налаштування за замовчуванням і методи"
-" генерації.{ph1} Розробники встановили 30-секундний інтервал і шість цифр; "
-"метод часової позначки перетворює секунди в номер блоку."
+"Ghostwire повертає {ph0}перетворення годин, налаштування за замовчуванням і "
+"методи генерації.{ph1} Розробники встановили 30-секундний інтервал і шість "
+"цифр; метод часової позначки перетворює секунди в номер блоку."
 
 #. {ph0}: <span>
 #. {ph1}: </span>
@@ -7712,11 +7606,11 @@ msgstr "Всередині генератора"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"The released APK puts {ph0} in {ph1}. REA follows the call from {ph2} and "
-"returns this body; the original source calls the helper {ph3}."
+"The released APK puts {ph0} in {ph1}. Ghostwire follows the call from {ph2} "
+"and returns this body; the original source calls the helper {ph3}."
 msgstr ""
-"Випущений APK перекладає {ph0} в {ph1}.  REA слідує за викликом з {ph2} і "
-"повертає це тіло; оригінальне джерело викликає допоміжне {ph3}."
+"Випущений APK перекладає {ph0} в {ph1}.  Ghostwire слідує за викликом з "
+"{ph2} і повертає це тіло; оригінальне джерело викликає допоміжне {ph3}."
 
 #: website/public/showcase/aegis/index.html:616
 msgctxt "page:showcase/aegis/index.html"
@@ -7752,14 +7646,14 @@ msgstr "Перевірте реконструкцію"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"We assembled the selected REA-returned Java methods in a small test program."
-" Their output matched an independent reconstruction on {ph0}133 test "
-"cases{ph1}, including time-block boundaries and codes beginning with zero."
+"We assembled the selected Ghostwire-returned Java methods in a small test "
+"program. Their output matched an independent reconstruction on {ph0}133 test"
+" cases{ph1}, including time-block boundaries and codes beginning with zero."
 msgstr ""
-"Ми зібрали вибрані методи Java, повернуті REA, у невелику тестову програму. "
-"Їх результати відповідали незалежній реконструкції {ph0}133 тестових "
-"прикладів{ph1}, включаючи межі тимчасових блоків і коди, що починаються з "
-"нуля."
+"Ми зібрали вибрані методи Java, повернуті Ghostwire, у невелику тестову "
+"програму. Їх результати відповідали незалежній реконструкції {ph0}133 "
+"тестових прикладів{ph1}, включаючи межі тимчасових блоків і коди, що "
+"починаються з нуля."
 
 #: website/public/showcase/aegis/index.html:644
 msgctxt "page:showcase/aegis/index.html"
@@ -7832,11 +7726,11 @@ msgstr "Перевірте APK самостійно"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"{ph0}Set up REA{ph1} on macOS or Linux, then download these two files into "
-"the same folder. On Windows, use a Linux environment such as WSL."
+"{ph0}Set up Ghostwire{ph1} on macOS or Linux, then download these two files "
+"into the same folder. On Windows, use a Linux environment such as WSL."
 msgstr ""
-"{ph0}Налаштуйте REA{ph1} на macOS або Linux , потім завантажте ці два файли "
-"в одну папку. У Windows використовуйте середовище Linux, таке як WSL."
+"{ph0}Налаштуйте Ghostwire{ph1} на macOS або Linux , потім завантажте ці два "
+"файли в одну папку. У Windows використовуйте середовище Linux, таке як WSL."
 
 #. {ph0}: <code>JAVA_HOME</code>
 #. {ph1}: <code>PATH</code>
@@ -7852,8 +7746,8 @@ msgstr ""
 
 #: website/public/showcase/aegis/index.html:730
 msgctxt "page:showcase/aegis/index.html"
-msgid "Point REA at the provider file and inspect the APK:"
-msgstr "Наведіть курсор REA на файл постачальника та перевірте APK :"
+msgid "Point Ghostwire at the provider file and inspect the APK:"
+msgstr "Наведіть курсор Ghostwire на файл постачальника та перевірте APK :"
 
 #: website/public/showcase/aegis/index.html:733
 msgctxt "page:showcase/aegis/index.html"
@@ -7865,12 +7759,12 @@ msgstr "macOS / Linux"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Your agent can continue through REA's CLI using the prompt above. For MCP, "
-"add {ph0} to the REA server's environment and reconnect it."
+"Your agent can continue through Ghostwire's CLI using the prompt above. For "
+"MCP, add {ph0} to the Ghostwire server's environment and reconnect it."
 msgstr ""
-"Ваш агент може продовжити роботу через CLI від REA, скориставшись наведеною "
-"вище інструкцією. Для MCP додайте {ph0} у середу сервера REA і повторно "
-"підключіть його."
+"Ваш агент може продовжити роботу через CLI від Ghostwire, скориставшись "
+"наведеною вище інструкцією. Для MCP додайте {ph0} у середу сервера Ghostwire"
+" і повторно підключіть його."
 
 #. {ph0}: <strong >
 #. {ph1}: </strong >
@@ -7925,27 +7819,27 @@ msgstr ""
 #: website/public/showcase/aegis/index.html:788
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Inspected with REA 6.1.0 on 9 October 2026. Decompiled excerpts are credited"
-" to Aegis; the diagram, readable summary and browser reconstruction are new "
-"teaching material."
+"Inspected with Ghostwire 6.1.0 on 9 October 2026. Decompiled excerpts are "
+"credited to Aegis; the diagram, readable summary and browser reconstruction "
+"are new teaching material."
 msgstr ""
-"Перевірено за допомогою REA 6.1.0 9 жовтня 2026 року. Декомпільовані "
+"Перевірено за допомогою Ghostwire 6.1.0 9 жовтня 2026 року. Декомпільовані "
 "фрагменти додаються до Aegis; діаграма, читабельне резюме та реконструкція "
 "браузера-це новий навчальний матеріал."
 
 #: website/public/showcase/aegis/index.html:6
 msgctxt "page:showcase/aegis/index.html"
-msgid "Aegis APK Reverse Engineering: Login Codes — REA"
-msgstr "Aegis APK зворотний інжиніринг: коди для входу-REA"
+msgid "Aegis APK Reverse Engineering: Login Codes — Ghostwire"
+msgstr "Aegis APK зворотний інжиніринг: коди для входу-Ghostwire"
 
 #: website/public/showcase/aegis/index.html:7
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Inspect the Aegis Android APK with REA, recover its six-digit login-code "
-"calculation and try a reconstruction with an adjustable clock."
+"Inspect the Aegis Android APK with Ghostwire, recover its six-digit login-"
+"code calculation and try a reconstruction with an adjustable clock."
 msgstr ""
-"Перевірити Aegis Андроїд APK з REA, відновити його шестизначний логін-код "
-"розрахунків і спробувати реконструкція з регульованим годинник."
+"Перевірити Aegis Андроїд APK з Ghostwire, відновити його шестизначний логін-"
+"код розрахунків і спробувати реконструкція з регульованим годинник."
 
 #: website/public/showcase/aegis/index.html:247
 msgctxt "page:showcase/aegis/index.html"
@@ -8009,11 +7903,11 @@ msgstr "Знайдіть прапор у{ph0}двійковому форматі
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Use REA to inspect a small flag checker, turn its rules into equations and "
-"find an input that makes the original program print {ph0}."
+"Use Ghostwire to inspect a small flag checker, turn its rules into equations"
+" and find an input that makes the original program print {ph0}."
 msgstr ""
-"Використовуйте REA для перевірки невеликого засобу перевірки прапорів, "
-"перетворіть його правила в рівняння та знайдіть вхідні дані, які {ph0}."
+"Використовуйте Ghostwire для перевірки невеликого засобу перевірки прапорів,"
+" перетворіть його правила в рівняння та знайдіть вхідні дані, які {ph0}."
 
 #: website/public/showcase/ctf/index.html:206
 msgctxt "page:showcase/ctf/index.html"
@@ -8042,13 +7936,13 @@ msgstr "Від двійкового коду до перевіреної від�
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}01 · Find the check{ph1}{ph2}Strings → checking functions{ph3}{ph4}REA "
-"finds the prompt, its references and the code that accepts or rejects an "
-"input.{ph5}"
+"{ph0}01 · Find the check{ph1}{ph2}Strings → checking "
+"functions{ph3}{ph4}Ghostwire finds the prompt, its references and the code "
+"that accepts or rejects an input.{ph5}"
 msgstr ""
 "{ph0}01 * знайдіть рядки перевірки{ph1}{ph2} → функція{ph3}{ph4} перевірки "
-"REA знаходить запит, посилання на нього і код, який приймає або відхиляє "
-"дані, що вводяться.{ph5}"
+"Ghostwire знаходить запит, посилання на нього і код, який приймає або "
+"відхиляє дані, що вводяться.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -8060,13 +7954,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}02 · Extract the rules{ph1}{ph2}36 characters · 26 sums{ph3}{ph4}REA "
-"returns the instructions and data behind each check. The agent turns them "
-"into equations.{ph5}"
+"{ph0}02 · Extract the rules{ph1}{ph2}36 characters · 26 "
+"sums{ph3}{ph4}Ghostwire returns the instructions and data behind each check."
+" The agent turns them into equations.{ph5}"
 msgstr ""
-"{ph0}02 * витягніть правила{ph1}{ph2} з 36 символів * 26 Сум{ph3}{ph4} REA "
-"повертає інструкції та дані, що стоять за кожною перевіркою. Агент "
-"перетворює їх у рівняння.{ph5}"
+"{ph0}02 * витягніть правила{ph1}{ph2} з 36 символів * 26 Сум{ph3}{ph4} "
+"Ghostwire повертає інструкції та дані, що стоять за кожною перевіркою. Агент"
+" перетворює їх у рівняння.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -8079,12 +7973,12 @@ msgstr ""
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "{ph0}03 · Solve and run{ph1}{ph2}Recovered flag → Correct!{ph3}{ph4}A Python"
-" script solves the equations. REA captures the original program accepting "
-"the result.{ph5}"
+" script solves the equations. Ghostwire captures the original program "
+"accepting the result.{ph5}"
 msgstr ""
 "{ph0}03 * Вирішіть і запустіть{ph1}{ph2} відновлений прапор → "
-"виправити!{ph3}{ph4}Рівняння вирішуються сценарієм Python.  REA фіксує "
-"вихідну програму, яка приймає результат.{ph5}"
+"виправити!{ph3}{ph4}Рівняння вирішуються сценарієм Python.  Ghostwire фіксує"
+" вихідну програму, яка приймає результат.{ph5}"
 
 #: website/public/showcase/ctf/index.html:244
 msgctxt "page:showcase/ctf/index.html"
@@ -8197,13 +8091,13 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to analyze ms_flag_checker and find the flag. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to analyze ms_flag_checker and find the flag. "
 "Explain how the checks work, then verify the answer with the original "
 "program.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA для аналізу ms_flag_checker та пошуку "
-"прапора. Поясніть, як працюють перевірки, а потім перевірте відповідь за "
-"допомогою оригінальної програми.{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire для аналізу ms_flag_checker та "
+"пошуку прапора. Поясніть, як працюють перевірки, а потім перевірте відповідь"
+" за допомогою оригінальної програми.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/ctf/index.html:295
 msgctxt "page:showcase/ctf/index.html"
@@ -8250,12 +8144,13 @@ msgstr ""
 #: website/public/showcase/ctf/index.html:373
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"These are selected results from a fresh REA analysis. The local target path "
-"is shortened for display; addresses refer to REA's imported image."
+"These are selected results from a fresh Ghostwire analysis. The local target"
+" path is shortened for display; addresses refer to Ghostwire's imported "
+"image."
 msgstr ""
-"Це вибрані результати нового аналізу REA. Шлях до локального цільового "
-"об'єкта скорочено для відображення; адреси стосуються імпортованого "
-"зображення REA."
+"Це вибрані результати нового аналізу Ghostwire. Шлях до локального цільового"
+" об'єкта скорочено для відображення; адреси стосуються імпортованого "
+"зображення Ghostwire."
 
 #: website/public/showcase/ctf/index.html:381
 msgctxt "page:showcase/ctf/index.html"
@@ -8361,8 +8256,8 @@ msgstr "{ph0}05{ph1} Порівнювати"
 
 #: website/public/showcase/ctf/index.html:495
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA · selected original instructions"
-msgstr "REA * вибрані оригінальні інструкції"
+msgid "Ghostwire · selected original instructions"
+msgstr "Ghostwire * вибрані оригінальні інструкції"
 
 #: website/public/showcase/ctf/index.html:519
 msgctxt "page:showcase/ctf/index.html"
@@ -8491,13 +8386,13 @@ msgstr "Перевірте відповідь за допомогою оригі
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"REA's process capture records the original executable accepting the solved "
-"flag. Changing one selected character from {ph0} to {ph1} makes the first "
-"sum 1440 instead of 1441, and the program rejects it."
+"Ghostwire's process capture records the original executable accepting the "
+"solved flag. Changing one selected character from {ph0} to {ph1} makes the "
+"first sum 1440 instead of 1441, and the program rejects it."
 msgstr ""
-"Програма захоплення процесу REA записує оригінальний виконуваний файл, який "
-"приймає прапор solved. Зміна одного вибраного символу з {ph0} на {ph1} "
-"призводить до отримання першої суми 1440 замість 1441, і програма відхиляє "
+"Програма захоплення процесу Ghostwire записує оригінальний виконуваний файл,"
+" який приймає прапор solved. Зміна одного вибраного символу з {ph0} на {ph1}"
+" призводить до отримання першої суми 1440 замість 1441, і програма відхиляє "
 "її."
 
 #: website/public/showcase/ctf/index.html:640
@@ -8532,8 +8427,8 @@ msgstr "Відобразити відновлений прапор і захоп
 
 #: website/public/showcase/ctf/index.html:663
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA · original program output"
-msgstr "REA * вихідний програмний результат"
+msgid "Ghostwire · original program output"
+msgstr "Ghostwire * вихідний програмний результат"
 
 #: website/public/showcase/ctf/index.html:664
 msgctxt "page:showcase/ctf/index.html"
@@ -8557,24 +8452,24 @@ msgstr "Ідентифікація джерела, цілі та деталі а
 #: website/public/showcase/ctf/index.html:683
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Fresh analysis and two process captures on 8 October 2026, using REA 4.1.0 "
-"with Ghidra 12.1.4 on Linux x64. The binary is a stripped x86-64 ELF, 15,248"
-" bytes."
+"Fresh analysis and two process captures on 8 October 2026, using Ghostwire "
+"4.1.0 with Ghidra 12.1.4 on Linux x64. The binary is a stripped x86-64 ELF, "
+"15,248 bytes."
 msgstr ""
 "Новий аналіз та два записи процесів, опубліковані 8 жовтня 2026 року, "
-"використовуючи REA 4.1.0 та Ghidra 12.1.4 на Linux x64. Двійковий файл являє"
-" собою урізаний x86-64 ELF, об'ємом 15 248 байт."
+"використовуючи Ghostwire 4.1.0 та Ghidra 12.1.4 на Linux x64. Двійковий файл"
+" являє собою урізаний x86-64 ELF, об'ємом 15 248 байт."
 
 #: website/public/showcase/ctf/index.html:694
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "The string references, functions and constants were inspected before reading"
 " the organizers' source or solution. The Python solver and the diagram were "
-"built from those REA results."
+"built from those Ghostwire results."
 msgstr ""
 "Посилання на рядки, функції та константи були перевірені перед читанням "
-"вихідного коду або рішення організаторів. На основі цих результатів REA було"
-" створено вирішувач Python та діаграму."
+"вихідного коду або рішення організаторів. На основі цих результатів "
+"Ghostwire було створено вирішувач Python та діаграму."
 
 #. {ph0}: <a
 #. href="https://github.com/DownUnderCTF/Challenges_2023_Public/blob/b48f83db2984bc7fa2ec7879a32d7efb1be8d333/rev/masked-
@@ -8593,10 +8488,10 @@ msgstr ""
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "{ph0}Compare with the organizers' source{ph1} · {ph2}Challenge metadata and "
-"flag{ph3} · {ph4}REA evidence notes{ph5}"
+"flag{ph3} · {ph4}Ghostwire evidence notes{ph5}"
 msgstr ""
 "{ph0}Порівняйте з джерелом, наданим організаторами{ph1} · {ph2}Метадані та "
-"прапор конкурсу{ph3} · {ph4}Примітки до доказів REA{ph5}"
+"прапор конкурсу{ph3} · {ph4}Примітки до доказів Ghostwire{ph5}"
 
 #: website/public/showcase/ctf/index.html:719
 msgctxt "page:showcase/ctf/index.html"
@@ -8633,24 +8528,24 @@ msgstr ""
 
 #: website/public/showcase/ctf/index.html:758
 msgctxt "page:showcase/ctf/index.html"
-msgid "Set up REA with your coding agent"
-msgstr "Налаштуйте REA за допомогою агента кодування"
+msgid "Set up Ghostwire with your coding agent"
+msgstr "Налаштуйте Ghostwire за допомогою агента кодування"
 
 #: website/public/showcase/ctf/index.html:6
 msgctxt "page:showcase/ctf/index.html"
-msgid "CTF Reverse Engineering: DownUnderCTF Flag Checker — REA"
-msgstr "Зворотна інженерія CTF: перевірка прапора DownUnderCTF-REA"
+msgid "CTF Reverse Engineering: DownUnderCTF Flag Checker — Ghostwire"
+msgstr "Зворотна інженерія CTF: перевірка прапора DownUnderCTF-Ghostwire"
 
 #: website/public/showcase/ctf/index.html:7
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Use REA to solve DownUnderCTF's masked squares flag checker. Find the "
+"Use Ghostwire to solve DownUnderCTF's masked squares flag checker. Find the "
 "checking functions, extract the masks and compare a recovered flag with the "
 "original program."
 msgstr ""
-"Використовуйте REA для вирішення проблеми перевірки прапорів маскованих "
-"квадратів у DOWNDERCTF. Знайдіть функції перевірки, витягніть маски та "
-"порівняйте відновлений прапор з оригінальною програмою."
+"Використовуйте Ghostwire для вирішення проблеми перевірки прапорів "
+"маскованих квадратів у DOWNDERCTF. Знайдіть функції перевірки, витягніть "
+"маски та порівняйте відновлений прапор з оригінальною програмою."
 
 #: website/public/showcase/ctf/index.html:251
 msgctxt "page:showcase/ctf/index.html"
@@ -8748,17 +8643,17 @@ msgstr "Відновлюємо DX-Ball {ph0}з його виконуваного
 #: website/public/showcase/dx-ball/index.html:201
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"The goal is a maintainable C version of the 1996 Windows game. REA helps the"
-" agent inspect the original, one function at a time."
+"The goal is a maintainable C version of the 1996 Windows game. Ghostwire "
+"helps the agent inspect the original, one function at a time."
 msgstr ""
 "Метою є створення підтримуваної версії гри Windows на мові C, випущеної в "
-"1996 році.  REA допомагає агенту перевіряти оригінал, по одній функції за "
-"раз."
+"1996 році.  Ghostwire допомагає агенту перевіряти оригінал, по одній функції"
+" за раз."
 
 #: website/public/showcase/dx-ball/index.html:205
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Windows i386 · C · REA"
-msgstr "Windows для i386 · s * REA"
+msgid "Windows i386 · C · Ghostwire"
+msgstr "Windows для i386 · s * Ghostwire"
 
 #. {ph0}: <a href="../../assets/figures/dx-ball-sound-pan-investigation.svg" >
 #. {ph1}: </a >
@@ -8766,13 +8661,13 @@ msgstr "Windows для i386 · s * REA"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"One function, from executable to checked C. REA supplies the instructions, "
-"callers and data reads; the reconstruction project implements and tests the "
-"result. {ph0}Open figure{ph1}"
+"One function, from executable to checked C. Ghostwire supplies the "
+"instructions, callers and data reads; the reconstruction project implements "
+"and tests the result. {ph0}Open figure{ph1}"
 msgstr ""
-"Одна функція, від виконуваної до перевіряється C. REA надає інструкції, що "
-"викликають пристрої і дані для читання; проект реконструкції реалізує і "
-"тестує результат. {ph0}Відкрити малюнок{ph1}"
+"Одна функція, від виконуваної до перевіряється C. Ghostwire надає "
+"інструкції, що викликають пристрої і дані для читання; проект реконструкції "
+"реалізує і тестує результат. {ph0}Відкрити малюнок{ph1}"
 
 #: website/public/showcase/dx-ball/index.html:233
 msgctxt "page:showcase/dx-ball/index.html"
@@ -8910,33 +8805,35 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how DX-Ball calculates sound panning. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how DX-Ball calculates sound panning. "
 "Explain the calculation and show the code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб дізнатися, як DX-Ball обчислює "
-"розташування стереозвуку. Поясніть розрахунок і покажіть код.{ph3}{ph4}{ph5}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб дізнатися, як DX-Ball "
+"обчислює розташування стереозвуку. Поясніть розрахунок і покажіть "
+"код.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/dx-ball/index.html:309
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "An example prompt for your coding agent, with the local executable "
-"available. The investigation below shows the REA queries and evidence behind"
-" the answer."
+"available. The investigation below shows the Ghostwire queries and evidence "
+"behind the answer."
 msgstr ""
 "Приклад запиту для вашого coding agent з доступним локальним виконуваним "
-"файлом. У наведеному нижче дослідженні Показані запити REA та докази, що "
-"лежать в основі відповіді."
+"файлом. У наведеному нижче дослідженні Показані запити Ghostwire та докази, "
+"що лежать в основі відповіді."
 
 #: website/public/showcase/dx-ball/index.html:314
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"The agent used REA to inspect the function, follow its brick-hit caller and "
-"read the constants from the executable. Those results supplied the input and"
-" arithmetic needed to write the C function below."
+"The agent used Ghostwire to inspect the function, follow its brick-hit "
+"caller and read the constants from the executable. Those results supplied "
+"the input and arithmetic needed to write the C function below."
 msgstr ""
-"Агент використовував REA для перевірки функції, відстеження її абонента та "
-"зчитування констант із виконуваного файлу. Ці результати надали вхідні дані "
-"та арифметику, необхідні для написання функції на мові Сі, наведеної нижче."
+"Агент використовував Ghostwire для перевірки функції, відстеження її "
+"абонента та зчитування констант із виконуваного файлу. Ці результати надали "
+"вхідні дані та арифметику, необхідні для написання функції на мові Сі, "
+"наведеної нижче."
 
 #. {ph0}: <code>0x406400</code>
 #. {ph1}: <code>FUN_00406400(void)</code>
@@ -8972,8 +8869,8 @@ msgstr ""
 
 #: website/public/showcase/dx-ball/index.html:347
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Three questions answered through REA"
-msgstr "Відповіді на три запитання за допомогою REA"
+msgid "Three questions answered through Ghostwire"
+msgstr "Відповіді на три запитання за допомогою Ghostwire"
 
 #: website/public/showcase/dx-ball/index.html:350
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9003,12 +8900,13 @@ msgstr "Слідкуйте за абонентом, щоб зрозуміти в
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"REA identified this caller in the first result. Its preceding instructions "
-"scale {ph0} by 30; adding 20 gives the brick's screen coordinate, {ph1}."
+"Ghostwire identified this caller in the first result. Its preceding "
+"instructions scale {ph0} by 30; adding 20 gives the brick's screen "
+"coordinate, {ph1}."
 msgstr ""
-"REA визначив цього абонента в першому результаті. У попередніх інструкціях "
-"tile_x масштабується {ph0}на 30; додавання 20 дає екранну координату цегли, "
-"{ph1}."
+"Ghostwire визначив цього абонента в першому результаті. У попередніх "
+"інструкціях tile_x масштабується {ph0}на 30; додавання 20 дає екранну "
+"координату цегли, {ph1}."
 
 #: website/public/showcase/dx-ball/index.html:398
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9026,8 +8924,8 @@ msgstr ""
 
 #: website/public/showcase/dx-ball/index.html:427
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "From REA's findings to C"
-msgstr "Від штифтів REA до C"
+msgid "From Ghostwire's findings to C"
+msgstr "Від штифтів Ghostwire до C"
 
 #: website/public/showcase/dx-ball/index.html:428
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9097,15 +8995,15 @@ msgstr "Реконструйований C"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}01 · Read the input.{ph1} The instruction view in REA's function result"
-" reads {ph2} and uses {ph3} to load the integer. Following its caller "
-"through REA establishes the screen-coordinate meaning of the C parameter "
-"{ph4}."
+"{ph0}01 · Read the input.{ph1} The instruction view in Ghostwire's function "
+"result reads {ph2} and uses {ph3} to load the integer. Following its caller "
+"through Ghostwire establishes the screen-coordinate meaning of the C "
+"parameter {ph4}."
 msgstr ""
 "{ph0}01 * прочитайте вхідні дані.{ph1} У вікні команд в результаті роботи "
-"функції REA відображається {ph2} і використовується {ph3} для завантаження "
-"цілого числа. Відстеження абонента через REA встановлює значення екранної "
-"координати параметра C {ph4}."
+"функції Ghostwire відображається {ph2} і використовується {ph3} для "
+"завантаження цілого числа. Відстеження абонента через Ghostwire встановлює "
+"значення екранної координати параметра C {ph4}."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -9118,11 +9016,12 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}02 · Multiply by 1.5625.{ph1} {ph2} reads the double at {ph3}. The "
-"bytes returned by REA's {ph4} decode to {ph5}; the C uses the same constant."
+"bytes returned by Ghostwire's {ph4} decode to {ph5}; the C uses the same "
+"constant."
 msgstr ""
 "{ph0}02 * помножити на 1,5625.{ph1} {ph2} зчитує подвоєне значення {ph3}. "
-"Байти, повернуті функцією REA'S {ph4}, декодуються як {ph5}; C використовує "
-"ту саму константу."
+"Байти, повернуті функцією Ghostwire'S {ph4}, декодуються як {ph5}; C "
+"використовує ту саму константу."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -9134,13 +9033,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}03 · Subtract 500.0.{ph1} {ph2} reads the double at {ph3}. REA's byte "
-"result decodes to {ph4}, shifting the calculation's center to screen "
+"{ph0}03 · Subtract 500.0.{ph1} {ph2} reads the double at {ph3}. Ghostwire's "
+"byte result decodes to {ph4}, shifting the calculation's center to screen "
 "coordinate {ph5}."
 msgstr ""
 "{ph0}03 * відніміть 500,0.{ph1} {ph2} зчитує подвійне значення в {ph3}.  "
-"Результат у байтах REA розшифровується як {ph4}, зміщуючи центр обчислення "
-"на екранну координату {ph5}."
+"Результат у байтах Ghostwire розшифровується як {ph4}, зміщуючи центр "
+"обчислення на екранну координату {ph5}."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -9153,12 +9052,12 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}04 · Apply the stored scale.{ph1} The second {ph2} reads {ph3}. That "
-"global is named {ph4} in the maintained source. REA's second byte read "
-"establishes its initial value of {ph5}."
+"global is named {ph4} in the maintained source. Ghostwire's second byte read"
+" establishes its initial value of {ph5}."
 msgstr ""
 "{ph0}04 * застосуйте збережену шкалу.{ph1} Друге {ph2} показує значення "
 "{ph3}. У підтримуваному джерелі цей глобал називається {ph4}.  При читанні "
-"другого байта REA його початкове значення дорівнює {ph5}."
+"другого байта Ghostwire його початкове значення дорівнює {ph5}."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -9170,13 +9069,13 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}05 · Return an integer.{ph1} The call at {ph2} reaches {ph3}, "
-"identified in REA's callee results. The C casts the result to {ph4}; "
+"identified in Ghostwire's callee results. The C casts the result to {ph4}; "
 "original-x86 comparisons check the returned value."
 msgstr ""
 "{ph0}05 * повертає ціле число.{ph1} Виклик по {ph2} 0x406430 досягає "
-"значення {ph3}, зазначеного в результатах пошуку абонента REA. C перетворює "
-"результат у {ph4}; оригінальні порівняння з x86 перевіряють повернене "
-"значення."
+"значення {ph3}, зазначеного в результатах пошуку абонента Ghostwire. C "
+"перетворює результат у {ph4}; оригінальні порівняння з x86 перевіряють "
+"повернене значення."
 
 #: website/public/showcase/dx-ball/index.html:565
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9196,8 +9095,8 @@ msgstr "Повна збірка та підтверджуючі докази"
 
 #: website/public/showcase/dx-ball/index.html:574
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA result · 0x406400–0x40643e"
-msgstr "Результат REA · 0X406400–0X40643E"
+msgid "Ghostwire result · 0x406400–0x40643e"
+msgstr "Результат Ghostwire · 0X406400–0X40643E"
 
 #: website/public/showcase/dx-ball/index.html:608
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9222,8 +9121,9 @@ msgstr "Те, що читають дані, встановлює"
 
 #: website/public/showcase/dx-ball/index.html:626
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA byte reads, decoded as little-endian doubles"
-msgstr "Зчитується байт REA, декодується як подвоєння в порядку убування"
+msgid "Ghostwire byte reads, decoded as little-endian doubles"
+msgstr ""
+"Зчитується байт Ghostwire, декодується як подвоєння в порядку убування"
 
 #: website/public/showcase/dx-ball/index.html:631
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9265,11 +9165,12 @@ msgstr "Збережені ваги для піддонів"
 #: website/public/showcase/dx-ball/index.html:655
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"Recorded with REA 4.1.0 for the hash-pinned DX-Ball 1.07 target. The linked "
-"investigation notes retain the Evidence IDs."
+"Recorded with Ghostwire 4.1.0 for the hash-pinned DX-Ball 1.07 target. The "
+"linked investigation notes retain the Evidence IDs."
 msgstr ""
-"Записано за допомогою REA 4.1.0 для цілі DX-Ball 1.07 з прив'язкою до хешу. "
-"У пов'язаних матеріалах розслідування зберігаються ідентифікатори доказів."
+"Записано за допомогою Ghostwire 4.1.0 для цілі DX-Ball 1.07 з прив'язкою до "
+"хешу. У пов'язаних матеріалах розслідування зберігаються ідентифікатори "
+"доказів."
 
 #. {ph0}: <a href="https://github.com/N0zoM1z0/dx-
 #. ball/blob/a55dca27ec0a07018c1b2c95ae2be027f7d8c3c4/src/gameplay.c#L41" >
@@ -9409,11 +9310,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}REA analysis workflow{ph1}{ph2}Follow the calculation, then use the "
-"same approach with your own binary.{ph3}"
+"{ph0}Ghostwire analysis workflow{ph1}{ph2}Follow the calculation, then use "
+"the same approach with your own binary.{ph3}"
 msgstr ""
-"{ph0} Робочий процес аналізу{ph1}{ph2} REA завершується обчисленням, а потім"
-" використовуйте той самий підхід із власним двійковим файлом.{ph3}"
+"{ph0} Робочий процес аналізу{ph1}{ph2} Ghostwire завершується обчисленням, а"
+" потім використовуйте той самий підхід із власним двійковим файлом.{ph3}"
 
 #. {ph0}: <a href="https://github.com/N0zoM1z0/dx-
 #. ball/blob/a55dca27ec0a07018c1b2c95ae2be027f7d8c3c4/docs/ENTITIES_OWNER.md"
@@ -9433,16 +9334,16 @@ msgstr ""
 
 #: website/public/showcase/dx-ball/index.html:6
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "DX-Ball Reverse Engineering: Sound Panning — REA"
-msgstr "DX-Ball зворотний інжиніринг: панорамування звуку-REA"
+msgid "DX-Ball Reverse Engineering: Sound Panning — Ghostwire"
+msgstr "DX-Ball зворотний інжиніринг: панорамування звуку-Ghostwire"
 
 #: website/public/showcase/dx-ball/index.html:7
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"Follow a DX-Ball reconstruction from binary analysis through REA to "
+"Follow a DX-Ball reconstruction from binary analysis through Ghostwire to "
 "maintained C, original-x86 tests and matching compiled function bytes."
 msgstr ""
-"Виконайте реконструкцію DX-Ball від бінарного аналізу через REA до "
+"Виконайте реконструкцію DX-Ball від бінарного аналізу через Ghostwire до "
 "підтримуваних тестів на C, вихідних x86 і зіставлення скомпільованих байтів "
 "функцій."
 
@@ -9457,18 +9358,18 @@ msgstr ""
 #: website/public/showcase/dx-ball/index.html:214
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"DXBALL.EXE function 0x00406400 is inspected with REA. A brick-hit caller "
-"supplies 20 plus 30 times tile_x. Instructions load x, multiply by 1.5625, "
-"subtract 500.0, apply pan_scale and return an integer. The maintained C is "
-"checked independently against the original x86 in 3,205 cases and by VC4.0 "
-"compiler replay matching 63 bytes."
+"DXBALL.EXE function 0x00406400 is inspected with Ghostwire. A brick-hit "
+"caller supplies 20 plus 30 times tile_x. Instructions load x, multiply by "
+"1.5625, subtract 500.0, apply pan_scale and return an integer. The "
+"maintained C is checked independently against the original x86 in 3,205 "
+"cases and by VC4.0 compiler replay matching 63 bytes."
 msgstr ""
-"DXBALL.EXE функція 0x00406400 перевіряється за допомогою REA . Абонент, який"
-" потрапив у глухий кут, видає значення tile_x в 20 і 30 разів більше. "
-"Інструкції завантажують x, множать на 1,5625, віднімають 500,0, застосовують"
-" pan_scale і повертають ціле число. Підтримуваний C перевіряється незалежно "
-"від вихідного x86 в 3205 випадках і за допомогою компілятора VC4.0 "
-"відтворюється на відповідність 63 байтам."
+"DXBALL.EXE функція 0x00406400 перевіряється за допомогою Ghostwire . "
+"Абонент, який потрапив у глухий кут, видає значення tile_x в 20 і 30 разів "
+"більше. Інструкції завантажують x, множать на 1,5625, віднімають 500,0, "
+"застосовують pan_scale і повертають ціле число. Підтримуваний C "
+"перевіряється незалежно від вихідного x86 в 3205 випадках і за допомогою "
+"компілятора VC4.0 відтворюється на відповідність 63 байтам."
 
 #: website/public/showcase/dx-ball/index.html:232
 msgctxt "page:showcase/dx-ball/index.html"
@@ -9530,8 +9431,8 @@ msgstr "{ph0}Головний{ph1} сторінка / вітрини"
 
 #: website/public/showcase/index.html:197
 msgctxt "page:showcase/index.html"
-msgid "REA case studies."
-msgstr "Тематичні дослідження REA."
+msgid "Ghostwire case studies."
+msgstr "Тематичні дослідження Ghostwire."
 
 #: website/public/showcase/index.html:198
 msgctxt "page:showcase/index.html"
@@ -9556,12 +9457,12 @@ msgstr "Як аутентифікатор генерує код входу"
 msgctxt "page:showcase/index.html"
 msgid ""
 "Find Aegis's six-digit code calculation in its released APK. Trace the "
-"generating methods with REA, then move a demo clock to see why the code "
-"changes every 30 seconds."
+"generating methods with Ghostwire, then move a demo clock to see why the "
+"code changes every 30 seconds."
 msgstr ""
 "Дізнайтеся, як Aegis обчислює шестизначний код у опублікованому APK . "
-"Слідкуйте за методами генерації за допомогою REA, а потім подивіться на "
-"демонстраційний годинник, щоб зрозуміти, чому код змінюється кожні 30 "
+"Слідкуйте за методами генерації за допомогою Ghostwire, а потім подивіться "
+"на демонстраційний годинник, щоб зрозуміти, чому код змінюється кожні 30 "
 "секунд."
 
 #: website/public/showcase/index.html:219
@@ -9582,13 +9483,13 @@ msgstr "Вирішіть проблему перевірки прапора CTF"
 #: website/public/showcase/index.html:226
 msgctxt "page:showcase/index.html"
 msgid ""
-"Inspect an easy DownUnderCTF challenge with REA. Find its checking "
+"Inspect an easy DownUnderCTF challenge with Ghostwire. Find its checking "
 "functions, turn masks and sums into equations, then verify the solved flag "
 "with the original program."
 msgstr ""
-"Вивчіть просте завдання DOWNDERCTF за допомогою REA. Знайдіть її функції "
-"перевірки, Перетворіть маски та суми в рівняння, а потім перевірте прапорець"
-" \"вирішено\" за допомогою оригінальної програми."
+"Вивчіть просте завдання DOWNDERCTF за допомогою Ghostwire. Знайдіть її "
+"функції перевірки, Перетворіть маски та суми в рівняння, а потім перевірте "
+"прапорець \"вирішено\" за допомогою оригінальної програми."
 
 #: website/public/showcase/index.html:237
 msgctxt "page:showcase/index.html"
@@ -9608,12 +9509,12 @@ msgstr "DX-Ball обчислює положення звуку зліва / сп
 #: website/public/showcase/index.html:244
 msgctxt "page:showcase/index.html"
 msgid ""
-"Recover a sound-pan calculation from a 1996 Windows game. REA's "
+"Recover a sound-pan calculation from a 1996 Windows game. Ghostwire's "
 "instructions, caller references and numeric constants lead to a small C "
 "function, checked against the original behavior and all 63 compiled bytes."
 msgstr ""
 "Відновіть розрахунок положення звуку зліва / справа з гри Windows 1996 року "
-"випуску.  Інструкції REA, посилання на виклик та Числові константи "
+"випуску.  Інструкції Ghostwire, посилання на виклик та Числові константи "
 "призводять до невеликої функції C, яка перевіряється на відповідність "
 "вихідній поведінці та всім 63 скомпільованим байтам."
 
@@ -9662,13 +9563,13 @@ msgstr "Як TH04 цілиться в кільце з куль"
 #: website/public/showcase/index.html:281
 msgctxt "page:showcase/index.html"
 msgid ""
-"Inspect the original 16-bit angle helper with REA. Match its multiply, "
-"divide and coordinate operations to readable C++, then see how they produce "
-"a ring aimed at the player."
+"Inspect the original 16-bit angle helper with Ghostwire. Match its multiply,"
+" divide and coordinate operations to readable C++, then see how they produce"
+" a ring aimed at the player."
 msgstr ""
-"Перевірте оригінальний 16-розрядний angle helper за допомогою REA . Зіставте"
-" його операції множення, ділення та координації з зрозумілим C++, а потім "
-"подивіться, як вони створюють кільце, спрямоване на гравця."
+"Перевірте оригінальний 16-розрядний angle helper за допомогою Ghostwire . "
+"Зіставте його операції множення, ділення та координації з зрозумілим C++, а "
+"потім подивіться, як вони створюють кільце, спрямоване на гравця."
 
 #: website/public/showcase/index.html:292
 msgctxt "page:showcase/index.html"
@@ -9696,18 +9597,18 @@ msgstr "Ознайомтеся з посібниками"
 
 #: website/public/showcase/index.html:6
 msgctxt "page:showcase/index.html"
-msgid "Reverse Engineering Case Studies — REA"
-msgstr "Тематичні дослідження з реверс-інжинірингу-REA"
+msgid "Reverse Engineering Case Studies — Ghostwire"
+msgstr "Тематичні дослідження з реверс-інжинірингу-Ghostwire"
 
 #: website/public/showcase/index.html:7
 msgctxt "page:showcase/index.html"
 msgid ""
-"Follow REA investigations through code, figures and demos: an Android "
+"Follow Ghostwire investigations through code, figures and demos: an Android "
 "authenticator, DX-Ball, Notion, TH04 and a DownUnderCTF flag checker."
 msgstr ""
-"Слідкуйте за розслідуваннями REA за допомогою коду, малюнків і демонстрацій:"
-" Android authenticator, DX-Ball, Notion, TH04 і засоби перевірки прапора "
-"downunderctf."
+"Слідкуйте за розслідуваннями Ghostwire за допомогою коду, малюнків і "
+"демонстрацій: Android authenticator, DX-Ball, Notion, TH04 і засоби "
+"перевірки прапора downunderctf."
 
 #: website/public/showcase/index.html:319
 msgctxt "page:showcase/index.html"
@@ -9752,8 +9653,8 @@ msgstr ""
 
 #: website/public/showcase/notion/index.html:205
 msgctxt "page:showcase/notion/index.html"
-msgid "Notion Desktop 7.6.1 · JavaScript · REA"
-msgstr "Робочий стіл Notion 7.6.1 * JavaScript * REA"
+msgid "Notion Desktop 7.6.1 · JavaScript · Ghostwire"
+msgstr "Робочий стіл Notion 7.6.1 * JavaScript * Ghostwire"
 
 #: website/public/showcase/notion/index.html:209
 msgctxt "page:showcase/notion/index.html"
@@ -9925,11 +9826,11 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to trace how Notion copies text and HTML to the "
-"system clipboard. Show the code at each step.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to trace how Notion copies text and HTML to "
+"the system clipboard. Show the code at each step.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб простежити, як Notion копіює текст "
-"і HTML в системний буфер обміну. Показуйте код на кожному "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб простежити, як Notion копіює "
+"текст і HTML в системний буфер обміну. Показуйте код на кожному "
 "кроці.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/notion/index.html:291
@@ -9943,24 +9844,25 @@ msgstr ""
 
 #: website/public/showcase/notion/index.html:296
 msgctxt "page:showcase/notion/index.html"
-msgid "REA finds where to start reading"
-msgstr "REA знаходить, з чого почати читання"
+msgid "Ghostwire finds where to start reading"
+msgstr "Ghostwire знаходить, з чого почати читання"
 
 #: website/public/showcase/notion/index.html:297
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"Analyzing the tab preload with REA locates the API exposed to the page and "
-"the call that sends an IPC request. Both findings come with source ranges in"
-" the minified bundle:"
+"Analyzing the tab preload with Ghostwire locates the API exposed to the page"
+" and the call that sends an IPC request. Both findings come with source "
+"ranges in the minified bundle:"
 msgstr ""
-"Аналіз попереднього завантаження вкладок за допомогою REA дозволяє знайти "
-"API, доступний для сторінки, і виклик, який відправляє запит IPC. Обидва "
-"результати представлені з діапазонами вихідних текстів у зменшеному пакеті:"
+"Аналіз попереднього завантаження вкладок за допомогою Ghostwire дозволяє "
+"знайти API, доступний для сторінки, і виклик, який відправляє запит IPC. "
+"Обидва результати представлені з діапазонами вихідних текстів у зменшеному "
+"пакеті:"
 
 #: website/public/showcase/notion/index.html:303
 msgctxt "page:showcase/notion/index.html"
-msgid "REA findings → two places to open"
-msgstr "REA висновки → два місця для відкриття"
+msgid "Ghostwire findings → two places to open"
+msgstr "Ghostwire висновки → два місця для відкриття"
 
 #. {ph0}: <code>analyze_javascript_application</code>
 #: website/public/showcase/notion/index.html:318
@@ -9968,12 +9870,12 @@ msgstr "REA висновки → два місця для відкриття"
 msgctxt "page:showcase/notion/index.html"
 msgid ""
 "Selected fields from a fresh {ph0} result on Notion's tab preload, recorded "
-"with REA 4.1.0. Positions use the original bundle's line and zero-based "
-"column."
+"with Ghostwire 4.1.0. Positions use the original bundle's line and zero-"
+"based column."
 msgstr ""
 "Вибрані поля з нового {ph0}результату застосування "
 "analyze_javascript_application в попередньому завантаженні вкладки Notion, "
-"записаного за допомогою REA 4.1.0. Для позицій використовуються рядок "
+"записаного за допомогою Ghostwire 4.1.0. Для позицій використовуються рядок "
 "вихідного пакета і стовпець, заснований на нулі."
 
 #. {ph0}: <code>invokerInMain</code>
@@ -10242,16 +10144,16 @@ msgstr ""
 #: website/public/showcase/notion/index.html:581
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"The REA result shown here is a focused analysis of the saved tab preload, "
-"recorded with the published REA 4.1.0 package. It locates the API and invoke"
-" operation. The clipboard member and matching receiver are connected by "
-"reading their wrapper implementations in the package."
+"The Ghostwire result shown here is a focused analysis of the saved tab "
+"preload, recorded with the published Ghostwire 4.1.0 package. It locates the"
+" API and invoke operation. The clipboard member and matching receiver are "
+"connected by reading their wrapper implementations in the package."
 msgstr ""
-"Показаний тут результат REA - це цілеспрямований аналіз збереженого "
+"Показаний тут результат Ghostwire - це цілеспрямований аналіз збереженого "
 "попереднього завантаження вкладок, записаний за допомогою опублікованого "
-"пакету REA 4.1.0. Він визначає розташування API і запускає операцію. Елемент"
-" буфера обміну і відповідний приймач підключаються шляхом зчитування їх "
-"реалізацій-оболонок в пакеті."
+"пакету Ghostwire 4.1.0. Він визначає розташування API і запускає операцію. "
+"Елемент буфера обміну і відповідний приймач підключаються шляхом зчитування "
+"їх реалізацій-оболонок в пакеті."
 
 #. {ph0}: <code>422457</code>
 #: website/public/showcase/notion/index.html:588
@@ -10298,8 +10200,8 @@ msgstr ""
 
 #: website/public/showcase/notion/index.html:6
 msgctxt "page:showcase/notion/index.html"
-msgid "Notion Electron Reverse Engineering: Clipboard — REA"
-msgstr "Notion Electron зворотна інженерія: Буфер обміну-REA"
+msgid "Notion Electron Reverse Engineering: Clipboard — Ghostwire"
+msgstr "Notion Electron зворотна інженерія: Буфер обміну-Ghostwire"
 
 #: website/public/showcase/notion/index.html:7
 msgctxt "page:showcase/notion/index.html"
@@ -10387,12 +10289,13 @@ msgstr "Реконструкції TH04 з{ph0}візерунки кулі."
 #: website/public/showcase/th04/index.html:201
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"A ring of bullets starts with a short angle calculation. Use REA to inspect "
-"the original DOS function, then follow its instructions into readable C++."
+"A ring of bullets starts with a short angle calculation. Use Ghostwire to "
+"inspect the original DOS function, then follow its instructions into "
+"readable C++."
 msgstr ""
-"Набір маркерів починається з обчислення короткого кута. Використовуйте REA "
-"для перевірки оригінальної функції DOS, а потім дотримуйтесь її інструкцій "
-"на читабельному C++."
+"Набір маркерів починається з обчислення короткого кута. Використовуйте "
+"Ghostwire для перевірки оригінальної функції DOS, а потім дотримуйтесь її "
+"інструкцій на читабельному C++."
 
 #: website/public/showcase/th04/index.html:206
 msgctxt "page:showcase/th04/index.html"
@@ -10436,11 +10339,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"{ph0}02 · Inspect with REA{ph1}{ph2}Instructions + "
+"{ph0}02 · Inspect with Ghostwire{ph1}{ph2}Instructions + "
 "references{ph3}{ph4}Verify the loaded DOS code and read the angle "
 "calculation from the executable.{ph5}"
 msgstr ""
-"{ph0}02 * перевірте за допомогою{ph1}{ph2} інструкцій REA + "
+"{ph0}02 * перевірте за допомогою{ph1}{ph2} інструкцій Ghostwire + "
 "посилань{ph3}{ph4}, перевірте завантажений код DOS і прочитайте розрахунок "
 "кута з виконуваного файлу.{ph5}"
 
@@ -10481,11 +10384,11 @@ msgstr ""
 #: website/public/showcase/th04/index.html:246
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"REA returns the original code and its analysis evidence. The TH04 project "
-"supplies the maintained source and compiler checks."
+"Ghostwire returns the original code and its analysis evidence. The TH04 "
+"project supplies the maintained source and compiler checks."
 msgstr ""
-"REA повертає вихідний код і результати його аналізу. Проект TH04 забезпечує "
-"підтримувані перевірки вихідного коду та компілятора."
+"Ghostwire повертає вихідний код і результати його аналізу. Проект TH04 "
+"забезпечує підтримувані перевірки вихідного коду та компілятора."
 
 #: website/public/showcase/th04/index.html:254
 msgctxt "page:showcase/th04/index.html"
@@ -10500,13 +10403,13 @@ msgctxt "page:showcase/th04/index.html"
 msgid "{ph0}The bullet ring{ph1}"
 msgstr "{ph0}Кільце з кулями{ph1}"
 
-#. {ph0}: <a href="#rea">
+#. {ph0}: <a href="#ghostwire">
 #. {ph1}: </a>
 #: website/public/showcase/th04/index.html:257
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "{ph0}What REA returns{ph1}"
-msgstr "{ph0}Що повертає REA{ph1}"
+msgid "{ph0}What Ghostwire returns{ph1}"
+msgstr "{ph0}Що повертає Ghostwire{ph1}"
 
 #. {ph0}: <a href="#source">
 #. {ph1}: </a>
@@ -10580,11 +10483,12 @@ msgstr "Копіювати"
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how TH04 creates a ring of bullets and aims "
-"it at the player. Explain the calculation and show the code.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how TH04 creates a ring of bullets and"
+" aims it at the player. Explain the calculation and show the "
+"code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA, щоб дізнатися, як TH04 створює кільце з"
-" куль і направляє його на гравця. Поясніть розрахунок і покажіть "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire, щоб дізнатися, як TH04 створює "
+"кільце з куль і направляє його на гравця. Поясніть розрахунок і покажіть "
 "код.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/th04/index.html:296
@@ -10647,8 +10551,8 @@ msgstr ""
 
 #: website/public/showcase/th04/index.html:359
 msgctxt "page:showcase/th04/index.html"
-msgid "What REA returns"
-msgstr "Що повертає REA"
+msgid "What Ghostwire returns"
+msgstr "Що повертає Ghostwire"
 
 #. {ph0}: <code>bullet_velocity_and_angle_set()</code>
 #: website/public/showcase/th04/index.html:360
@@ -10656,12 +10560,12 @@ msgstr "Що повертає REA"
 msgctxt "page:showcase/th04/index.html"
 msgid ""
 "We inspect {ph0}, the function that sets each bullet's velocity and angle. "
-"REA returns its instructions, pseudocode and references. Three parts of that"
-" result explain the pattern."
+"Ghostwire returns its instructions, pseudocode and references. Three parts "
+"of that result explain the pattern."
 msgstr ""
-"Ми перевіряємо {ph0}, які задають швидкість і кут нахилу кожної кулі.  REA "
-"повертає свої інструкції, псевдокод та посилання. Три частини цього "
-"результату пояснюють закономірність."
+"Ми перевіряємо {ph0}, які задають швидкість і кут нахилу кожної кулі.  "
+"Ghostwire повертає свої інструкції, псевдокод та посилання. Три частини "
+"цього результату пояснюють закономірність."
 
 #: website/public/showcase/th04/index.html:368
 msgctxt "page:showcase/th04/index.html"
@@ -10708,13 +10612,13 @@ msgctxt "page:showcase/th04/index.html"
 msgid ""
 "The instruction operands expose two coordinate differences and a direction "
 "helper. Its return value is added to the relative ring angle. Source names "
-"make those addresses readable; REA lets the agent check the original "
+"make those addresses readable; Ghostwire lets the agent check the original "
 "operations behind them."
 msgstr ""
 "Операнди команд надають дві різниці координат і допоміжне значення напрямку."
 " Повернене значення додається до відносного кільцевого кута. Імена джерел "
-"роблять ці адреси читабельними; REA дозволяє агенту перевіряти початкові "
-"операції, що стоять за ними."
+"роблять ці адреси читабельними; Ghostwire дозволяє агенту перевіряти "
+"початкові операції, що стоять за ними."
 
 #: website/public/showcase/th04/index.html:454
 msgctxt "page:showcase/th04/index.html"
@@ -10774,8 +10678,8 @@ msgstr "{ph0}05{ph1} Магазин"
 
 #: website/public/showcase/th04/index.html:510
 msgctxt "page:showcase/th04/index.html"
-msgid "REA · original 16-bit instructions"
-msgstr "REA * оригінальні 16-розрядні інструкції"
+msgid "Ghostwire · original 16-bit instructions"
+msgstr "Ghostwire * оригінальні 16-розрядні інструкції"
 
 #: website/public/showcase/th04/index.html:544
 msgctxt "page:showcase/th04/index.html"
@@ -10980,8 +10884,8 @@ msgstr "Допоміжний запис"
 #: website/public/showcase/th04/index.html:701
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "{ph0} in REA's loaded image"
-msgstr "{ph0} у завантаженому зображенні REA"
+msgid "{ph0} in Ghostwire's loaded image"
+msgstr "{ph0} у завантаженому зображенні Ghostwire"
 
 #: website/public/showcase/th04/index.html:704
 msgctxt "page:showcase/th04/index.html"
@@ -11003,8 +10907,8 @@ msgstr "Перевірка записаного коду"
 
 #: website/public/showcase/th04/index.html:712
 msgctxt "page:showcase/th04/index.html"
-msgid "REA 4.1.0 · 7 October 2026"
-msgstr "REA 4.1.0 * 7 жовтня 2026"
+msgid "Ghostwire 4.1.0 · 7 October 2026"
+msgstr "Ghostwire 4.1.0 * 7 жовтня 2026"
 
 #: website/public/showcase/th04/index.html:717
 msgctxt "page:showcase/th04/index.html"
@@ -11021,15 +10925,15 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"REA verified the static DOS load image at load segment {ph0}. Its addresses "
-"describe that analysis image. The function result reports 503 body bytes in "
-"two ranges across a 517-byte span; the selected instructions above lie in "
-"those reported ranges."
+"Ghostwire verified the static DOS load image at load segment {ph0}. Its "
+"addresses describe that analysis image. The function result reports 503 body"
+" bytes in two ranges across a 517-byte span; the selected instructions above"
+" lie in those reported ranges."
 msgstr ""
-"REA перевірив статичне зображення завантаження DOS у сегменті завантаження "
-"{ph0}. Його адреси описують цей аналітичний образ. Результат функції "
-"повідомляє про 503 байти тіла в двох діапазонах по 517 байт; вибрані "
-"інструкції, наведені вище, знаходяться в цих повідомлених діапазонах."
+"Ghostwire перевірив статичне зображення завантаження DOS у сегменті "
+"завантаження {ph0}. Його адреси описують цей аналітичний образ. Результат "
+"функції повідомляє про 503 байти тіла в двох діапазонах по 517 байт; вибрані"
+" інструкції, наведені вище, знаходяться в цих повідомлених діапазонах."
 
 #. {ph0}: <code>0d72e980</code>
 #: website/public/showcase/th04/index.html:729
@@ -11038,15 +10942,15 @@ msgctxt "page:showcase/th04/index.html"
 msgid ""
 "The source names and compiler checks come from TH04 checkpoint {ph0}. "
 "Earlier reconstruction observations used the project's own analysis scripts;"
-" this page adds a fresh REA inspection of the same original target. The "
-"supplied game's identity is pinned by its repository manifest, with "
+" this page adds a fresh Ghostwire inspection of the same original target. "
+"The supplied game's identity is pinned by its repository manifest, with "
 "independent pristine-dump provenance still open."
 msgstr ""
 "Імена вихідних текстів та перевірки компілятором походять з контрольної "
 "точки TH04 {ph0}. Попередні спостереження за реконструкцією використовували "
 "власні аналітичні сценарії проекту; на цій сторінці додано нову перевірку "
-"REA для тієї ж початкової мети. Надана гра ідентифікується в маніфесті "
-"сховища, при цьому незалежне Походження незайманого дампа все ще відкрите."
+"Ghostwire для тієї ж початкової мети. Надана гра ідентифікується в маніфесті"
+" сховища, при цьому незалежне Походження незайманого дампа все ще відкрите."
 
 #: website/public/showcase/th04/index.html:737
 msgctxt "page:showcase/th04/index.html"
@@ -11133,17 +11037,17 @@ msgstr ""
 
 #: website/public/showcase/th04/index.html:6
 msgctxt "page:showcase/th04/index.html"
-msgid "TH04 Reverse Engineering: DOS Bullet Patterns — REA"
-msgstr "TH04 зворотний інжиніринг: шаблони маркерів DOS-REA"
+msgid "TH04 Reverse Engineering: DOS Bullet Patterns — Ghostwire"
+msgstr "TH04 зворотний інжиніринг: шаблони маркерів DOS-Ghostwire"
 
 #: website/public/showcase/th04/index.html:7
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"Inspect TH04's original 16-bit DOS code with REA. Follow the assembly and "
-"recovered C++ to see how a ring of bullets is spaced and aimed at the "
+"Inspect TH04's original 16-bit DOS code with Ghostwire. Follow the assembly "
+"and recovered C++ to see how a ring of bullets is spaced and aimed at the "
 "player."
 msgstr ""
-"Перевірте оригінальний 16-розрядний dos-код TH04 за допомогою REA . "
+"Перевірте оригінальний 16-розрядний dos-код TH04 за допомогою Ghostwire . "
 "Слідкуйте за збіркою та відновленим C++, щоб побачити, як розставлено кільце"
 " куль і як вони націлені на гравця."
 
@@ -11232,8 +11136,8 @@ msgstr "Обраний код. Скопіюйте його з клавіатур
 #: website/public/assets/main.js:148
 #, python-brace-format
 msgctxt "runtime"
-msgid "REA on GitHub ({count})"
-msgstr "REA на GitHub ({count})"
+msgid "Ghostwire on GitHub ({count})"
+msgstr "Ghostwire на GitHub ({count})"
 
 #: website/public/assets/dino-demo.js:77
 #, python-brace-format
@@ -11446,16 +11350,16 @@ msgstr "Дослідження звуку DX-Ball-панорамування"
 #: website/public/assets/figures/dx-ball-sound-pan-investigation.svg:3
 msgctxt "figure:dx-ball-sound-pan-investigation.svg"
 msgid ""
-"REA provides the instruction, caller and byte-read evidence for one DX-Ball "
-"function. A stack input is multiplied by 1.5625, offset by 500, scaled, and "
-"converted to an integer. Maintained C is checked in 3,205 original-x86 cases"
-" and a separate 63-byte compiler replay."
+"Ghostwire provides the instruction, caller and byte-read evidence for one "
+"DX-Ball function. A stack input is multiplied by 1.5625, offset by 500, "
+"scaled, and converted to an integer. Maintained C is checked in 3,205 "
+"original-x86 cases and a separate 63-byte compiler replay."
 msgstr ""
-"REA надає інструкцію, що викликає елемент і дані для зчитування байтів для "
-"однієї функції DX-Ball. Вхідні дані стека множаться на 1,5625, зміщуються на"
-" 500, масштабуються та перетворюються на ціле число. Підтримуваний C "
-"перевіряється в 3205 оригінальних x86 випадках і в окремому 63-байтовому "
-"відтворенні компілятором."
+"Ghostwire надає інструкцію, що викликає елемент і дані для зчитування байтів"
+" для однієї функції DX-Ball. Вхідні дані стека множаться на 1,5625, "
+"зміщуються на 500, масштабуються та перетворюються на ціле число. "
+"Підтримуваний C перевіряється в 3205 оригінальних x86 випадках і в окремому "
+"63-байтовому відтворенні компілятором."
 
 # Reviewed for technical meaning and concise diagram labels.
 #: website/public/assets/figures/dx-ball-sound-pan-investigation.svg:39
@@ -11538,19 +11442,19 @@ msgstr "Збіг 63 байтів"
 #: website/public/assets/figures/rea-investigation-flow.svg:2
 #: website/public/assets/figures/rea-investigation-flow.svg:22
 msgctxt "figure:rea-investigation-flow.svg"
-msgid "REA investigation flow"
-msgstr "Хід розслідування REA"
+msgid "Ghostwire investigation flow"
+msgstr "Хід розслідування Ghostwire"
 
 #: website/public/assets/figures/rea-investigation-flow.svg:3
 msgctxt "figure:rea-investigation-flow.svg"
 msgid ""
-"Ask a question about a local target. REA inspects and traces through local "
-"analysis adapters, returns evidence, and supports follow-up questions as "
-"your agent explains, implements and tests."
+"Ask a question about a local target. Ghostwire inspects and traces through "
+"local analysis adapters, returns evidence, and supports follow-up questions "
+"as your agent explains, implements and tests."
 msgstr ""
-"Задайте питання про локальний об'єкт.  REA перевіряє та відстежує дані за "
-"допомогою локальних адаптерів аналізу, повертає докази та підтримує подальші"
-" запитання, коли ваш агент пояснює, впроваджує та тестує."
+"Задайте питання про локальний об'єкт.  Ghostwire перевіряє та відстежує дані"
+" за допомогою локальних адаптерів аналізу, повертає докази та підтримує "
+"подальші запитання, коли ваш агент пояснює, впроваджує та тестує."
 
 # Reviewed for technical meaning and concise diagram labels.
 #: website/public/assets/figures/rea-investigation-flow.svg:31
@@ -11861,8 +11765,8 @@ msgstr "Стежити в X"
 
 #: website/public/examples/dino-lab/index.html:308
 msgctxt "page:examples/dino-lab/index.html"
-msgid "REA · selected script source"
-msgstr "REA * вибране джерело сценарію"
+msgid "Ghostwire · selected script source"
+msgstr "Ghostwire * вибране джерело сценарію"
 
 #: website/public/first-investigation/index.html:376
 msgctxt "page:first-investigation/index.html"
@@ -11931,24 +11835,25 @@ msgstr "Експорт скрипта"
 
 #: website/public/guides/javascript/index.html:359
 msgctxt "page:guides/javascript/index.html"
-msgid "REA result · summary.ipc excerpt"
-msgstr "REA результат * підсумок.витяг з ipc"
+msgid "Ghostwire result · summary.ipc excerpt"
+msgstr "Ghostwire результат * підсумок.витяг з ipc"
 
 #: website/public/guides/native/index.html:386
 msgctxt "page:guides/native/index.html"
-msgid "REA instruction excerpt · 0x406409"
-msgstr "REA витяг з інструкції * 0x406409"
+msgid "Ghostwire instruction excerpt · 0x406409"
+msgstr "Ghostwire витяг з інструкції * 0x406409"
 
 #: website/public/guides/native/index.html:400
 msgctxt "page:guides/native/index.html"
-msgid "REA caller excerpt · 0x411f5b"
-msgstr "REA запит абонента * 0x411f5b"
+msgid "Ghostwire caller excerpt · 0x411f5b"
+msgstr "Ghostwire запит абонента * 0x411f5b"
 
 #: website/public/guides/native/index.html:414
 msgctxt "page:guides/native/index.html"
-msgid "REA byte results · interpreted as little-endian doubles"
+msgid "Ghostwire byte results · interpreted as little-endian doubles"
 msgstr ""
-"Результати в байтах REA * інтерпретуються як подвоєння в порядку зменшення"
+"Результати в байтах Ghostwire * інтерпретуються як подвоєння в порядку "
+"зменшення"
 
 #: website/public/guides/native/index.html:431
 msgctxt "page:guides/native/index.html"
@@ -11957,8 +11862,8 @@ msgstr "Відновлений уривок з C ·"
 
 #: website/public/index.html:234
 msgctxt "page:index.html"
-msgid "See how REA works ↓"
-msgstr "Подивіться, як працює REA ↓"
+msgid "See how Ghostwire works ↓"
+msgstr "Подивіться, як працює Ghostwire ↓"
 
 #: website/public/index.html:241
 msgctxt "page:index.html"
@@ -11977,8 +11882,8 @@ msgstr "Читається зведення про обробнику %"
 
 #: website/public/index.html:987
 msgctxt "page:index.html"
-msgid "REA · selected original instructions"
-msgstr "REA * вибрані оригінальні інструкції"
+msgid "Ghostwire · selected original instructions"
+msgstr "Ghostwire * вибрані оригінальні інструкції"
 
 #: website/public/index.html:998
 msgctxt "page:index.html"
@@ -11993,23 +11898,23 @@ msgstr "Слідкуйте за @reatools на X"
 #: website/public/showcase/aegis/index.html:401
 #: website/public/showcase/aegis/index.html:433
 msgctxt "page:showcase/aegis/index.html"
-msgid "Agent → REA"
-msgstr "Агент → REA"
+msgid "Agent → Ghostwire"
+msgstr "Агент → Ghostwire"
 
 #: website/public/showcase/aegis/index.html:411
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA → agent · selected results"
-msgstr "REA → агент * вибрані результати"
+msgid "Ghostwire → agent · selected results"
+msgstr "Ghostwire → агент * вибрані результати"
 
 #: website/public/showcase/aegis/index.html:447
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA → agent · methods and callers"
-msgstr "REA → агент * методи та абоненти"
+msgid "Ghostwire → agent · methods and callers"
+msgstr "Ghostwire → агент * методи та абоненти"
 
 #: website/public/showcase/aegis/index.html:517
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA · selected decompiled Java"
-msgstr "REA * вибраний Декомпільований Java"
+msgid "Ghostwire · selected decompiled Java"
+msgstr "Ghostwire * вибраний Декомпільований Java"
 
 #: website/public/showcase/aegis/index.html:547
 msgctxt "page:showcase/aegis/index.html"
@@ -12018,8 +11923,8 @@ msgstr "Читабельне резюме * інтерпретація аген�
 
 #: website/public/showcase/aegis/index.html:602
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA · generateOTP, complete body"
-msgstr "REA * generateOTP, повний корпус"
+msgid "Ghostwire · generateOTP, complete body"
+msgstr "Ghostwire * generateOTP, повний корпус"
 
 #: website/public/showcase/aegis/index.html:720
 msgctxt "page:showcase/aegis/index.html"
@@ -12034,28 +11939,28 @@ msgstr "Завантажити Android analysis provider"
 #: website/public/showcase/ctf/index.html:304
 #: website/public/showcase/ctf/index.html:340
 msgctxt "page:showcase/ctf/index.html"
-msgid "Agent → REA"
-msgstr "Агент → REA"
+msgid "Agent → Ghostwire"
+msgstr "Агент → Ghostwire"
 
 #: website/public/showcase/ctf/index.html:320
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · selected results"
-msgstr "REA → агент * вибрані результати"
+msgid "Ghostwire → agent · selected results"
+msgstr "Ghostwire → агент * вибрані результати"
 
 #: website/public/showcase/ctf/index.html:352
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · selected instructions"
-msgstr "REA → агент * вибрані інструкції"
+msgid "Ghostwire → agent · selected instructions"
+msgstr "Ghostwire → агент * вибрані інструкції"
 
 #: website/public/showcase/ctf/index.html:415
 msgctxt "page:showcase/ctf/index.html"
-msgid "Agent → REA · read_bytes"
-msgstr "Агент → REA * прочитано_байт"
+msgid "Agent → Ghostwire · read_bytes"
+msgstr "Агент → Ghostwire * прочитано_байт"
 
 #: website/public/showcase/ctf/index.html:422
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · seventh entries"
-msgstr "REA → агент * сьомі записи"
+msgid "Ghostwire → agent · seventh entries"
+msgstr "Ghostwire → агент * сьомі записи"
 
 #: website/public/showcase/ctf/index.html:690
 msgctxt "page:showcase/ctf/index.html"
@@ -12074,38 +11979,38 @@ msgstr "Завантажити вирішувач"
 
 #: website/public/showcase/dx-ball/index.html:331
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA result · pseudocode excerpt"
-msgstr "Результат REA * фрагмент псевдокоду"
+msgid "Ghostwire result · pseudocode excerpt"
+msgstr "Результат Ghostwire * фрагмент псевдокоду"
 
 #. {ph0}: <code>analyze_function</code>
 #: website/public/showcase/dx-ball/index.html:354
 #: website/public/showcase/dx-ball/index.html:378
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Agent → REA · {ph0}"
-msgstr "Агент → REA * функція {ph0}"
+msgid "Agent → Ghostwire · {ph0}"
+msgstr "Агент → Ghostwire * функція {ph0}"
 
 #: website/public/showcase/dx-ball/index.html:360
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA → agent · instruction excerpt"
-msgstr "REA → агент * уривок з інструкції"
+msgid "Ghostwire → agent · instruction excerpt"
+msgstr "Ghostwire → агент * уривок з інструкції"
 
 #: website/public/showcase/dx-ball/index.html:384
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA → agent · caller excerpt"
-msgstr "REA → агент * уривок з повідомлення про абонента"
+msgid "Ghostwire → agent · caller excerpt"
+msgstr "Ghostwire → агент * уривок з повідомлення про абонента"
 
 #. {ph0}: <code>read_bytes</code>
 #: website/public/showcase/dx-ball/index.html:402
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Agent → REA · two {ph0} requests"
-msgstr "Агент → REA * два {ph0}запиту на читання в байтах"
+msgid "Agent → Ghostwire · two {ph0} requests"
+msgstr "Агент → Ghostwire * два {ph0}запиту на читання в байтах"
 
 #: website/public/showcase/dx-ball/index.html:412
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA byte results · decoded as doubles"
-msgstr "Результати в байтах REA * декодуються як подвійні"
+msgid "Ghostwire byte results · decoded as doubles"
+msgstr "Результати в байтах Ghostwire * декодуються як подвійні"
 
 #: website/public/showcase/dx-ball/index.html:765
 msgctxt "page:showcase/dx-ball/index.html"
@@ -12159,8 +12064,8 @@ msgstr "Здійсненний"
 
 #: website/public/showcase/index.html:252
 msgctxt "page:showcase/index.html"
-msgid "REA findings"
-msgstr "Висновки REA"
+msgid "Ghostwire findings"
+msgstr "Висновки Ghostwire"
 
 #: website/public/showcase/index.html:253
 msgctxt "page:showcase/index.html"
@@ -12199,8 +12104,8 @@ msgstr "Вихідний код DOS"
 
 #: website/public/showcase/index.html:288
 msgctxt "page:showcase/index.html"
-msgid "REA instructions"
-msgstr "Інструкції щодо REA"
+msgid "Ghostwire instructions"
+msgstr "Інструкції щодо Ghostwire"
 
 #: website/public/showcase/index.html:289
 msgctxt "page:showcase/index.html"
@@ -12249,25 +12154,25 @@ msgstr "Проаналізуйте свій власний додаток"
 
 #: website/public/showcase/th04/index.html:371
 msgctxt "page:showcase/th04/index.html"
-msgid "Agent → REA"
-msgstr "Агент → REA"
+msgid "Agent → Ghostwire"
+msgstr "Агент → Ghostwire"
 
 #: website/public/showcase/th04/index.html:380
 msgctxt "page:showcase/th04/index.html"
-msgid "REA → agent · selected fields"
-msgstr "REA → агент * вибрані поля"
+msgid "Ghostwire → agent · selected fields"
+msgstr "Ghostwire → агент * вибрані поля"
 
 #. {ph0}: <code>analyze_function</code>
 #: website/public/showcase/th04/index.html:399
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "Agent → REA · {ph0}"
-msgstr "Агент → REA * функція {ph0}"
+msgid "Agent → Ghostwire · {ph0}"
+msgstr "Агент → Ghostwire * функція {ph0}"
 
 #: website/public/showcase/th04/index.html:405
 msgctxt "page:showcase/th04/index.html"
-msgid "REA → agent · instruction excerpt"
-msgstr "REA → агент * уривок з інструкції"
+msgid "Ghostwire → agent · instruction excerpt"
+msgstr "Ghostwire → агент * уривок з інструкції"
 
 #: website/public/showcase/th04/index.html:426
 msgctxt "page:showcase/th04/index.html"
@@ -12320,17 +12225,17 @@ msgstr "Переклад оновлюється. Поки прочитайте �
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to analyze {ph3} and explain how it exports data. "
-"Show the relevant code and source locations.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to analyze {ph3} and explain how it exports "
+"data. Show the relevant code and source locations.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA для аналізу {ph3}і пояснення того, як "
-"він експортує дані. Покажіть відповідний код та розташування "
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire для аналізу {ph3}і пояснення того,"
+" як він експортує дані. Покажіть відповідний код та розташування "
 "джерел.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="first-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -12338,13 +12243,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}›{ph1}{ph2}Встанови REA та підключи його до цього ШІ-помічника за "
-"допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. Потім"
-" перевір встановлення.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Встанови Ghostwire та підключи його до цього ШІ-помічника за"
+" допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. "
+"Потім перевір встановлення.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
@@ -12360,19 +12265,19 @@ msgstr ""
 msgctxt "page:first-investigation/index.html"
 msgid ""
 "{ph0}›{ph1}{ph2}Download {ph3} into a new example folder and unpack it. Use "
-"REA to find what happens when I click Export notes. Show where {ph4} is "
-"written, which fields it contains, and the relevant files and "
+"Ghostwire to find what happens when I click Export notes. Show where {ph4} "
+"is written, which fields it contains, and the relevant files and "
 "lines.{ph5}{ph6}{ph7}"
 msgstr ""
 "{ph0}\"{ph1}{ph2}Завантаживши {ph3}в нову папку з прикладами і розпакуйте "
-"її. Використовуйте REA, щоб побачити, що відбувається, коли я натискаю "
-"\"експортувати нотатки\". Покажіть, де {ph4}що записано, які поля воно "
+"її. Використовуйте Ghostwire, щоб побачити, що відбувається, коли я натискаю"
+" \"експортувати нотатки\". Покажіть, де {ph4}що записано, які поля воно "
 "містить, а також відповідні файли і рядки.{ph5}{ph6}{ph7}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="agent-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -12380,18 +12285,18 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}›{ph1}{ph2}Встанови REA та підключи його до цього ШІ-помічника за "
-"допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. Потім"
-" перевір встановлення.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Встанови Ghostwire та підключи його до цього ШІ-помічника за"
+" допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. "
+"Потім перевір встановлення.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="home-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -12399,13 +12304,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}›{ph1}{ph2}Встанови REA та підключи його до цього ШІ-помічника за "
-"допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. Потім"
-" перевір встановлення.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Встанови Ghostwire та підключи його до цього ШІ-помічника за"
+" допомогою {ph3}. Спочатку покажи план змін і дочекайся мого схвалення. "
+"Потім перевір встановлення.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
@@ -12418,11 +12323,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect {ph3}. Clone this website for "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect {ph3}. Clone this website for "
 "me.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовуйте REA для перевірки {ph3}. Скопіюйте цей веб-"
-"сайт для мене.{ph4}{ph5}{ph6}"
+"{ph0}\"{ph1}{ph2}Використовуйте Ghostwire для перевірки {ph3}. Скопіюйте цей"
+" веб-сайт для мене.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span translate="no">dino-speed.js</span>
 #: website/public/examples/dino-lab/index.html:322
@@ -12526,7 +12431,7 @@ msgstr "{ph0} * рядки 8-12"
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="first-check-prompt" >
-#. {ph3}: <span translate="no">Hello, "REA"</span>
+#. {ph3}: <span translate="no">Hello, "Ghostwire"</span>
 #. {ph4}: <span translate="no">toCsv</span>
 #. {ph5}: <span translate="no">Node.js</span>
 #. {ph6}: </span >
@@ -12676,18 +12581,18 @@ msgstr "Наприклад: {ph0}чому калькулятор дає 220 дл
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator. Why does {ph3} give "
-"220?{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator. Why does {ph3} "
+"give 220?{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}\"{ph1}{ph2}Використовувати REA для перевірки Windows Calculator. Чому "
-"{ph3} дають 220?{ph4}{ph5}{ph6}"
+"{ph0}\"{ph1}{ph2}Використовувати Ghostwire для перевірки Windows Calculator."
+" Чому {ph3} дають 220?{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span translate="no">index.js</span>
 #: website/public/index.html:693
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "REA · loaded {ph0} · selected lines"
-msgstr "REA · завантажено {ph0} * вибрані рядки"
+msgid "Ghostwire · loaded {ph0} · selected lines"
+msgstr "Ghostwire · завантажено {ph0} * вибрані рядки"
 
 #. {ph0}: <strong>
 #. {ph1}: <span translate="no">200 + 10%</span>
@@ -12714,11 +12619,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}01 · REA reads {ph1}{ph2}{ph3}It launches the Calculator "
+"{ph0}01 · Ghostwire reads {ph1}{ph2}{ph3}It launches the Calculator "
 "app{ph4}{ph5}The code opens {ph6}. The agent then selects the installed "
 "app’s library.{ph7}"
 msgstr ""
-"{ph0}01 · REA читає {ph1}{ph2}{ph3} При запуску програми "
+"{ph0}01 · Ghostwire читає {ph1}{ph2}{ph3} При запуску програми "
 "Calculator{ph4}{ph5} код відкриває {ph6}. Потім агент вибирає бібліотеку "
 "встановленого додатка.{ph7}"
 
@@ -12733,12 +12638,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect {ph3}. Find how it generates the six-"
-"digit login code, explain why it changes every 30 seconds, and rebuild a "
-"small demo where I can change the time.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect {ph3}. Find how it generates the "
+"six-digit login code, explain why it changes every 30 seconds, and rebuild a"
+" small demo where I can change the time.{ph4}{ph5}{ph6}"
 msgstr ""
-"{ph0}›{ph1}{ph2}Досліди {ph3} за допомогою REA. Поясни, як створюється "
-"шестизначний код входу й чому він змінюється кожні 30 секунд. Зроби "
+"{ph0}›{ph1}{ph2}Досліди {ph3} за допомогою Ghostwire. Поясни, як створюється"
+" шестизначний код входу й чому він змінюється кожні 30 секунд. Зроби "
 "невеликий приклад, у якому можна змінювати час.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span translate="no">preload.js</span>
@@ -12797,15 +12702,15 @@ msgstr "Перемкнути на темну тему"
 msgctxt "page:guides/browser/index.html"
 msgid ""
 "For HTTP request and response bodies, use {ph0}Fiddler Everywhere: SAZ "
-"captures, MCP and public skills{ph1}. Export SAZ or HAR 1.2 for offline REA "
-"capture Evidence, or connect Everywhere's MCP server to inspect captured "
-"traffic with your agent."
+"captures, MCP and public skills{ph1}. Export SAZ or HAR 1.2 for offline "
+"Ghostwire capture Evidence, or connect Everywhere's MCP server to inspect "
+"captured traffic with your agent."
 msgstr ""
 "Для дослідження тіл запитів і відповідей HTTP використовуйте {ph0}Fiddler "
 "Everywhere: захоплення SAZ, MCP і загальнодоступні навички{ph1}. Експортуйте"
-" SAZ ??? HAR 1.2 для отримання Evidence захоплення в REA без підключення до "
-"мережі або підключіть MCP-сервер Everywhere, щоб досліджувати записаний "
-"трафік разом з агентом."
+" SAZ ??? HAR 1.2 для отримання Evidence захоплення в Ghostwire без "
+"підключення до мережі або підключіть MCP-сервер Everywhere, щоб досліджувати"
+" записаний трафік разом з агентом."
 
 #. {ph0}: <br />
 #: website/public/blog/index.html:202
@@ -14122,8 +14027,8 @@ msgstr ""
 
 #: website/public/blog/reverse-engineering-models/index.html:6
 msgctxt "page:blog/reverse-engineering-models/index.html"
-msgid "Does reverse engineering need a bigger model? | REA"
-msgstr "Чи потрібна для зворотного проектування більша модель? | REA"
+msgid "Does reverse engineering need a bigger model? | Ghostwire"
+msgstr "Чи потрібна для зворотного проектування більша модель? | Ghostwire"
 
 #: website/public/blog/reverse-engineering-models/index.html:7
 msgctxt "page:blog/reverse-engineering-models/index.html"
@@ -14168,6 +14073,159 @@ msgid ""
 msgstr ""
 "{ph0}Докладні записи доказів{ph1} містять результати порівнянь і контекст "
 "експериментів."
+
+#: website/public/blog/index.html:77 website/public/blog/index.html:90
+#: website/public/blog/reverse-engineering-models/index.html:77
+#: website/public/blog/reverse-engineering-models/index.html:90
+#: website/public/blog/touhou-reconstruction/index.html:77
+#: website/public/blog/touhou-reconstruction/index.html:90
+#: website/public/examples/dino-lab/index.html:77
+#: website/public/examples/dino-lab/index.html:90
+#: website/public/faq/index.html:77 website/public/faq/index.html:90
+#: website/public/first-investigation/index.html:77
+#: website/public/first-investigation/index.html:90
+#: website/public/get-started/index.html:77
+#: website/public/get-started/index.html:90
+#: website/public/guides/browser/index.html:77
+#: website/public/guides/browser/index.html:90
+#: website/public/guides/index.html:77 website/public/guides/index.html:90
+#: website/public/guides/javascript/index.html:77
+#: website/public/guides/javascript/index.html:90
+#: website/public/guides/native/index.html:77
+#: website/public/guides/native/index.html:90 website/public/index.html:77
+#: website/public/index.html:90 website/public/showcase/aegis/index.html:77
+#: website/public/showcase/aegis/index.html:90
+#: website/public/showcase/ctf/index.html:77
+#: website/public/showcase/ctf/index.html:90
+#: website/public/showcase/dx-ball/index.html:77
+#: website/public/showcase/dx-ball/index.html:90
+#: website/public/showcase/index.html:77 website/public/showcase/index.html:90
+#: website/public/showcase/notion/index.html:77
+#: website/public/showcase/notion/index.html:90
+#: website/public/showcase/th04/index.html:77
+#: website/public/showcase/th04/index.html:90
+msgctxt "shared"
+msgid ""
+"Ghostwire — Find out how software works. Reverse engineering with your "
+"coding agent."
+msgstr ""
+"Ghostwire-Дізнайтеся, як працює програмне забезпечення. Зворотне "
+"проектування за допомогою вашого програміста."
+
+#: website/public/blog/index.html:110
+#: website/public/blog/reverse-engineering-models/index.html:110
+#: website/public/blog/touhou-reconstruction/index.html:110
+#: website/public/examples/dino-lab/index.html:111
+#: website/public/faq/index.html:110
+#: website/public/first-investigation/index.html:110
+#: website/public/get-started/index.html:110
+#: website/public/guides/browser/index.html:110
+#: website/public/guides/index.html:110
+#: website/public/guides/javascript/index.html:110
+#: website/public/guides/native/index.html:110 website/public/index.html:112
+#: website/public/showcase/aegis/index.html:111
+#: website/public/showcase/ctf/index.html:110
+#: website/public/showcase/dx-ball/index.html:110
+#: website/public/showcase/index.html:110
+#: website/public/showcase/notion/index.html:110
+#: website/public/showcase/th04/index.html:110
+msgctxt "shared"
+msgid "Ghostwire home"
+msgstr "Головна Ghostwire"
+
+#: website/public/blog/index.html:132
+#: website/public/blog/reverse-engineering-models/index.html:132
+#: website/public/blog/touhou-reconstruction/index.html:132
+#: website/public/examples/dino-lab/index.html:133
+#: website/public/faq/index.html:132
+#: website/public/first-investigation/index.html:132
+#: website/public/get-started/index.html:132
+#: website/public/guides/browser/index.html:132
+#: website/public/guides/index.html:132
+#: website/public/guides/javascript/index.html:132
+#: website/public/guides/native/index.html:132 website/public/index.html:134
+#: website/public/showcase/aegis/index.html:133
+#: website/public/showcase/ctf/index.html:132
+#: website/public/showcase/dx-ball/index.html:132
+#: website/public/showcase/index.html:132
+#: website/public/showcase/notion/index.html:132
+#: website/public/showcase/th04/index.html:132
+msgctxt "shared"
+msgid "Ghostwire on GitHub"
+msgstr "Ghostwire на GitHub"
+
+#: website/public/blog/index.html:152
+#: website/public/blog/reverse-engineering-models/index.html:152
+#: website/public/blog/touhou-reconstruction/index.html:152
+#: website/public/examples/dino-lab/index.html:153
+#: website/public/faq/index.html:152
+#: website/public/first-investigation/index.html:152
+#: website/public/get-started/index.html:152
+#: website/public/guides/browser/index.html:152
+#: website/public/guides/index.html:152
+#: website/public/guides/javascript/index.html:152
+#: website/public/guides/native/index.html:152 website/public/index.html:154
+#: website/public/showcase/aegis/index.html:153
+#: website/public/showcase/ctf/index.html:152
+#: website/public/showcase/dx-ball/index.html:152
+#: website/public/showcase/index.html:152
+#: website/public/showcase/notion/index.html:152
+#: website/public/showcase/th04/index.html:152
+msgctxt "shared"
+msgid "Join Ghostwire on Discord"
+msgstr "Приєднатися до Ghostwire в Discord"
+
+#: website/public/blog/index.html:171
+#: website/public/blog/reverse-engineering-models/index.html:171
+#: website/public/blog/touhou-reconstruction/index.html:171
+#: website/public/examples/dino-lab/index.html:172
+#: website/public/faq/index.html:171
+#: website/public/first-investigation/index.html:171
+#: website/public/get-started/index.html:171
+#: website/public/guides/browser/index.html:171
+#: website/public/guides/index.html:171
+#: website/public/guides/javascript/index.html:171
+#: website/public/guides/native/index.html:171 website/public/index.html:173
+#: website/public/showcase/aegis/index.html:172
+#: website/public/showcase/ctf/index.html:171
+#: website/public/showcase/dx-ball/index.html:171
+#: website/public/showcase/index.html:171
+#: website/public/showcase/notion/index.html:171
+#: website/public/showcase/th04/index.html:171
+msgctxt "shared"
+msgid "Follow Ghostwire on X"
+msgstr "Стежити за Ghostwire в X"
+
+#, python-brace-format
+#~ msgctxt "shared"
+#~ msgid "{ph0}REA{ph1}{ph2}"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA · Reverse Engineer Anything"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid ""
+#~ "REA — Find out how software works. Reverse engineering with your coding "
+#~ "agent."
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA home"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA on GitHub"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "Join REA on Discord"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "Follow REA on X"
+#~ msgstr ""
 
 #~ msgctxt "page:blog/index.html"
 #~ msgid "By N0zoM1z0 · 13 October 2026 · Draft for review"
@@ -14249,13 +14307,13 @@ msgstr ""
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
 #~ "{ph0}›{ph1}{ph2}Predict the CSV for a note with id 1 and title Hello, "
-#~ "\"REA\". Then run the example’s toCsv formatter with Node.js to check it. "
-#~ "Show the prediction and actual output.{ph3}{ph4}{ph5}"
+#~ "\"Ghostwire\". Then run the example’s toCsv formatter with Node.js to check "
+#~ "it. Show the prediction and actual output.{ph3}{ph4}{ph5}"
 #~ msgstr ""
 #~ "{ph0}\"{ph1}{ph2}Спрогнозувавши CSV- файл для нотатки з ідентифікатором 1 та"
-#~ " заголовком \" Привіт, REA\". Потім запустіть інструмент форматування toCsv "
-#~ "у прикладі за допомогою Node.jsNode.js щоб перевірити його. Покажіть прогноз"
-#~ " і фактичний результат.{ph3}{ph4}{ph5}"
+#~ " заголовком \" Привіт, Ghostwire\". Потім запустіть інструмент форматування "
+#~ "toCsv у прикладі за допомогою Node.jsNode.js щоб перевірити його. Покажіть "
+#~ "прогноз і фактичний результат.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
@@ -14329,11 +14387,11 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator. Why does 200 + 10% "
-#~ "give 220?{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator. Why does 200 + "
+#~ "10% give 220?{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Використовувати REA для перевірки Windows Calculator. Чому "
-#~ "200 + 10% дають 220?{ph3}{ph4}{ph5}"
+#~ "{ph0}\"{ph1}{ph2}Використовувати Ghostwire для перевірки Windows Calculator."
+#~ " Чому 200 + 10% дають 220?{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
@@ -14347,22 +14405,22 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}01 · REA reads calc.exe{ph1}{ph2}It launches the Calculator "
+#~ "{ph0}01 · Ghostwire reads calc.exe{ph1}{ph2}It launches the Calculator "
 #~ "app{ph3}{ph4}The code opens {ph5}. The agent then selects the installed "
 #~ "app’s library.{ph6}"
 #~ msgstr ""
-#~ "{ph0}01 · REA читає calc.exe{ph1}{ph2} При запуску програми "
+#~ "{ph0}01 · Ghostwire читає calc.exe{ph1}{ph2} При запуску програми "
 #~ "Calculator{ph3}{ph4} код відкриває {ph5}. Потім агент вибирає бібліотеку "
 #~ "встановленого додатка.{ph6}"
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect aegis-v3.4.3.apk. Find how it generates "
-#~ "the six-digit login code, explain why it changes every 30 seconds, and "
-#~ "rebuild a small demo where I can change the time.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect aegis-v3.4.3.apk. Find how it "
+#~ "generates the six-digit login code, explain why it changes every 30 seconds,"
+#~ " and rebuild a small demo where I can change the time.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Використовувати REA для перевірки aegis-v3.4. 3.apk. "
+#~ "{ph0}\"{ph1}{ph2}Використовувати Ghostwire для перевірки aegis-v3.4. 3.apk. "
 #~ "Дізнайтеся, як він генерує шестизначний код для входу, поясніть, чому він "
 #~ "змінюється кожні 30 секунд, і відновіть невелику демонстрацію, де я можу "
 #~ "змінити час.{ph3}{ph4}{ph5}"
@@ -14404,67 +14462,68 @@ msgstr ""
 #~ msgstr "main.js * приклад джерела"
 
 #~ msgctxt "page:index.html"
-#~ msgid "REA · loaded index.js · selected lines"
-#~ msgstr "REA · завантажено index.js * вибрані рядки"
+#~ msgid "Ghostwire · loaded index.js · selected lines"
+#~ msgstr "Ghostwire · завантажено index.js * вибрані рядки"
 
 #, python-brace-format
 #~ msgctxt "page:faq/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to analyze /absolute/path/to/app and explain how it "
-#~ "exports data. Show the relevant code and source locations.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to analyze /absolute/path/to/app and explain "
+#~ "how it exports data. Show the relevant code and source "
+#~ "locations.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Використовувати REA для аналізу / абсолютного / шляху/до / "
-#~ "програми та поясніть, як вона експортує дані. Покажіть відповідний код та "
-#~ "розташування джерел.{ph3}{ph4}{ph5}"
+#~ "{ph0}\"{ph1}{ph2}Використовувати Ghostwire для аналізу / абсолютного / "
+#~ "шляху/до / програми та поясніть, як вона експортує дані. Покажіть "
+#~ "відповідний код та розташування джерел.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Установивши REA і підключіть його до цього агента "
-#~ "програмування за допомогою npx rea-agents@latest setup. Покажіть мені план "
-#~ "встановлення для затвердження, а потім перевірте правильність "
+#~ "{ph0}\"{ph1}{ph2}Установивши Ghostwire і підключіть його до цього агента "
+#~ "програмування за допомогою npx ghostwire-agent@latest setup. Покажіть мені "
+#~ "план встановлення для затвердження, а потім перевірте правильність "
 #~ "встановлення.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
 #~ "{ph0}›{ph1}{ph2}Download https://rea.tools/examples/notes-example.zip into a"
-#~ " new example folder and unpack it. Use REA to find what happens when I click"
-#~ " Export notes. Show where notes.csv is written, which fields it contains, "
-#~ "and the relevant files and lines.{ph3}{ph4}{ph5}"
+#~ " new example folder and unpack it. Use Ghostwire to find what happens when I"
+#~ " click Export notes. Show where notes.csv is written, which fields it "
+#~ "contains, and the relevant files and lines.{ph3}{ph4}{ph5}"
 #~ msgstr ""
 #~ "{ph0}\"{ph1}{ph2}Завантаживши https://rea.tools/examples/notes-example.zip в"
-#~ " нову папку з прикладами і розпакуйте її. Використовувати REA, щоб побачити,"
-#~ " що відбувається, коли я натискаю \"експортувати нотатки\". Покажіть, де "
-#~ "записаний файл notes.csv, які поля він містить, а також відповідні файли та "
-#~ "рядки.{ph3}{ph4}{ph5}"
+#~ " нову папку з прикладами і розпакуйте її. Використовувати Ghostwire, щоб "
+#~ "побачити, що відбувається, коли я натискаю \"експортувати нотатки\". "
+#~ "Покажіть, де записаний файл notes.csv, які поля він містить, а також "
+#~ "відповідні файли та рядки.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:get-started/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Установивши REA і підключіть його до цього агента "
-#~ "програмування за допомогою npx rea-agents@latest setup. Покажіть мені план "
-#~ "встановлення для затвердження, а потім перевірте правильність "
+#~ "{ph0}\"{ph1}{ph2}Установивши Ghostwire і підключіть його до цього агента "
+#~ "програмування за допомогою npx ghostwire-agent@latest setup. Покажіть мені "
+#~ "план встановлення для затвердження, а потім перевірте правильність "
 #~ "встановлення.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Установивши REA і підключіть його до цього агента "
-#~ "програмування за допомогою npx rea-agents@latest setup. Покажіть мені план "
-#~ "встановлення для затвердження, а потім перевірте правильність "
+#~ "{ph0}\"{ph1}{ph2}Установивши Ghostwire і підключіть його до цього агента "
+#~ "програмування за допомогою npx ghostwire-agent@latest setup. Покажіть мені "
+#~ "план встановлення для затвердження, а потім перевірте правильність "
 #~ "встановлення.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "page:index.html"
@@ -14482,11 +14541,11 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect https://rea.tools/. Clone this website "
-#~ "for me.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect https://rea.tools/. Clone this "
+#~ "website for me.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}\"{ph1}{ph2}Використовувати REA для перевірки https://rea.tools/. "
-#~ "Клонуйте цей веб-сайт для мене.{ph3}{ph4}{ph5}"
+#~ "{ph0}\"{ph1}{ph2}Використовувати Ghostwire для перевірки https://rea.tools/."
+#~ " Клонуйте цей веб-сайт для мене.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "figure:ctf-mask-equation.svg"
 #~ msgid "code[21] = 55"
@@ -14502,8 +14561,8 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "shared"
-#~ msgid "{ph0}REA{ph1}{ph2}Reverse Engineer Anything{ph3}"
-#~ msgstr "{ph0}REA{ph1}{ph2} зворотне проектування чого завгодно{ph3}"
+#~ msgid "{ph0}Ghostwire{ph1}{ph2}Reverse Engineer Anything{ph3}"
+#~ msgstr "{ph0}Ghostwire{ph1}{ph2} зворотне проектування чого завгодно{ph3}"
 
 #, python-brace-format
 #~ msgctxt "shared"
@@ -14526,7 +14585,7 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:examples/dino-lab/index.html"
-#~ msgid "{ph0}REA · selected script source{ph1}"
+#~ msgid "{ph0}Ghostwire · selected script source{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14582,22 +14641,23 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/javascript/index.html"
-#~ msgid "{ph0}REA result · summary.ipc excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire result · summary.ipc excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA instruction excerpt · 0x406409{ph1}"
+#~ msgid "{ph0}Ghostwire instruction excerpt · 0x406409{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA caller excerpt · 0x411f5b{ph1}"
+#~ msgid "{ph0}Ghostwire caller excerpt · 0x411f5b{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA byte results · interpreted as little-endian doubles{ph1}"
+#~ msgid ""
+#~ "{ph0}Ghostwire byte results · interpreted as little-endian doubles{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14608,12 +14668,13 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}See how REA works ↓{ph1} {ph2}Setup guide{ph3} {ph4}Showcases →{ph5}"
+#~ "{ph0}See how Ghostwire works ↓{ph1} {ph2}Setup guide{ph3} {ph4}Showcases "
+#~ "→{ph5}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
-#~ msgid "{ph0}REA · loaded index.js · selected lines{ph1}"
+#~ msgid "{ph0}Ghostwire · loaded index.js · selected lines{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14628,7 +14689,7 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
-#~ msgid "{ph0}REA · selected original instructions{ph1}"
+#~ msgid "{ph0}Ghostwire · selected original instructions{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14643,22 +14704,22 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA → agent · selected results{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected results{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA → agent · methods and callers{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · methods and callers{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA · selected decompiled Java{ph1}"
+#~ msgid "{ph0}Ghostwire · selected decompiled Java{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14668,7 +14729,7 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA · generateOTP, complete body{ph1}"
+#~ msgid "{ph0}Ghostwire · generateOTP, complete body{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14679,27 +14740,27 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · selected results{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected results{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · selected instructions{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected instructions{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}Agent → REA · read_bytes{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire · read_bytes{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · seventh entries{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · seventh entries{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14714,32 +14775,32 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA result · pseudocode excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire result · pseudocode excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}Agent → REA · {ph1}{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · {ph1}{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA → agent · instruction excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · instruction excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA → agent · caller excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · caller excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}Agent → REA · two {ph1} requests{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · two {ph1} requests{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA byte results · decoded as doubles{ph1}"
+#~ msgid "{ph0}Ghostwire byte results · decoded as doubles{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -14764,7 +14825,7 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:showcase/index.html"
 #~ msgid ""
-#~ "{ph0}Executable{ph1} {ph2}→{ph3} {ph4}REA findings{ph5} {ph6}→{ph7} "
+#~ "{ph0}Executable{ph1} {ph2}→{ph3} {ph4}Ghostwire findings{ph5} {ph6}→{ph7} "
 #~ "{ph8}Recovered C{ph9} {ph10}→{ph11} {ph12}Validation{ph13}"
 #~ msgstr ""
 
@@ -14778,7 +14839,7 @@ msgstr ""
 #, python-brace-format
 #~ msgctxt "page:showcase/index.html"
 #~ msgid ""
-#~ "{ph0}Original DOS code{ph1} {ph2}→{ph3} {ph4}REA instructions{ph5} "
+#~ "{ph0}Original DOS code{ph1} {ph2}→{ph3} {ph4}Ghostwire instructions{ph5} "
 #~ "{ph6}→{ph7} {ph8}Angle calculation{ph9} {ph10}→{ph11} {ph12}Bullet "
 #~ "ring{ph13}"
 #~ msgstr ""
@@ -14820,22 +14881,22 @@ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}REA → agent · selected fields{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected fields{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}Agent → REA · {ph1}{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · {ph1}{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}REA → agent · instruction excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · instruction excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format

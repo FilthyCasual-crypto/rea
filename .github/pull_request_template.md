@@ -16,7 +16,7 @@ describe the use case and observable outcome. -->
 
 ## Change and scope
 
-<!-- Explain the chosen approach, why it fits REA's architecture, and what is
+<!-- Explain the chosen approach, why it fits Ghostwire's architecture, and what is
 intentionally not included. -->
 
 Follow the [contribution scope](https://github.com/morluto/rea/blob/main/CONTRIBUTING.md#contribution-scope).
@@ -99,7 +99,7 @@ limits, security/privacy/containment implications, and meaningful proof gaps. --
 <!-- The human owner completes these declarations before requesting review.
 The PR author is the owner by default. A different owner must explicitly accept
 ownership on this PR.
-AI agents must leave these declarations to a human to dictate to them or there could be catastrophic consequences for many users of REA.
+AI agents must leave these declarations to a human to dictate to them or there could be catastrophic consequences for many users of Ghostwire.
 Draft PRs may leave them unchecked. After further changes, clear the final checkbox
 until the owner reviews the updated diff and refreshes affected validation.
 See CONTRIBUTING.md#pull-request-ownership-and-readiness. -->

@@ -1,10 +1,10 @@
-# REA website writing and design guide
+# Ghostwire website writing and design guide
 
 > A good website is like a good paper: easy to follow, clear and concise, with a clean, refined presentation.
 >
 > — N0zoM1z0
 
-For REA, that means a concrete question, a figure that explains the process,
+For Ghostwire, that means a concrete question, a figure that explains the process,
 evidence the reader can inspect, and a useful next step. A clean, refined
 appearance comes from precise wording, readable figures, consistent typography
 and deliberate spacing.
@@ -39,11 +39,11 @@ read, compare and calculate.
 
 | General wording                                  | More useful wording                                                |
 | ------------------------------------------------ | ------------------------------------------------------------------ |
-| Start with a question.                           | Set up REA.                                                        |
+| Start with a question.                           | Set up Ghostwire.                                                  |
 | Follow a feature across the app.                 | Trace an Electron CSV export.                                      |
 | Following a copy through Notion.                 | How Notion copies text and HTML.                                   |
 | A position becomes a sound.                      | Calculate left/right sound panning.                                |
-| Follow the investigation.                        | REA case studies.                                                  |
+| Follow the investigation.                        | Ghostwire case studies.                                            |
 | Reviewed boundary / source owner / target extent | The helper / its surrounding code / the code section being checked |
 
 Questions also work when they name a behavior: “Where is the CSV created?” and
@@ -55,7 +55,7 @@ as a named message between Electron processes. Keep exact API names, addresses
 and JSON paths in the code or result they identify.
 
 Give each paragraph new information. A diagram can summarize a sequence, while
-the code below explains individual steps. Repeating that REA supplies
+the code below explains individual steps. Repeating that Ghostwire supplies
 instructions, callers and constants in several surrounding paragraphs adds no
 new step. Explain that role once, then show the results.
 
@@ -78,13 +78,13 @@ for canonical URLs, automatic sitemap generation and sharing assets.
 Explain reverse engineering with a familiar behavior. Pair a short, authentic
 code excerpt with readable logic and a figure that explains the result without
 requiring the reader to understand either language. Show a simple agent prompt
-and the specific facts REA supplies to answer it.
+and the specific facts Ghostwire supplies to answer it.
 
 Put compact setup at the beginning of the homepage: a copyable installation
 prompt and the ordinary setup command. Then explain what reverse engineering
 means and what it lets someone do, before the worked examples.
 Begin each example with its goal and the reason to inspect that program.
-Name the actual evidence REA returned and what the agent did with it.
+Name the actual evidence Ghostwire returned and what the agent did with it.
 Give long pages a short table of contents with concrete section names. Preserve
 the reading width: the homepage uses the side gutter when it has room,
 and a collapsible sticky menu on smaller screens. Highlight the current
@@ -97,7 +97,7 @@ those facts visible when scanning. Keep source, interpretation and new code
 attributed to their respective roles. On mobile, the demo can precede its
 supporting code once its purpose is clear.
 Show how the reader's task changes using the same question on both sides of a
-manual/agent comparison. Let returned evidence make REA's contribution visible.
+manual/agent comparison. Let returned evidence make Ghostwire's contribution visible.
 When showing manual analysis, use authentic instructions and specific analyst
 questions: what a command ID means, which call performs arithmetic, or which
 operand enters a calculation. Numbered selections can connect the code to
@@ -134,12 +134,12 @@ target paths, debugging endpoints and other required inputs explicit.
 1. Introduce the project and the particular feature being examined.
 2. Show a figure that explains the investigation or behavior.
 3. Give a short example prompt.
-4. Pair important REA queries with selected returned evidence.
+4. Pair important Ghostwire queries with selected returned evidence.
 5. Connect that evidence to readable source or an explanation.
 6. Explain how the result was checked.
 7. Link the reconstruction repository and supporting sources.
 
-Show REA's useful contribution through a concrete finding: a missing stack
+Show Ghostwire's useful contribution through a concrete finding: a missing stack
 argument, a caller, bytes behind a constant, or source ranges in a packaged
 bundle. Explain what the agent does with that finding. Credit source
 interpretation, reconstruction and external checks to the work that performed
@@ -274,7 +274,7 @@ language. Put lengthy provenance in an evidence document or collapsed details.
 
 Label simplified source and selected instruction excerpts. When compiler checks
 apply to the maintained project source, say so; a readable summary is a separate
-presentation of the calculation. Historical checks and a fresh REA inspection
+presentation of the calculation. Historical checks and a fresh Ghostwire inspection
 retain their own dates and attribution.
 
 Use generic example data and display paths. Machine paths, personal account

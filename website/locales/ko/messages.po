@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: REA website\n"
+"Project-Id-Version: Ghostwire website\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,72 +86,15 @@ msgstr "{ph0}↑{ph1} 상단"
 
 #: website/public/blog/index.html:6
 msgctxt "page:blog/index.html"
-msgid "REA Blog — Thoughts on Reverse Engineering"
+msgid "Ghostwire Blog — Thoughts on Reverse Engineering"
 msgstr "REA블로그—에 대한 생각을 리버스 엔지니어링"
 
 #: website/public/blog/index.html:7
 msgctxt "page:blog/index.html"
 msgid ""
-"Thoughts on reverse engineering, drawing on practical experience with REA "
-"and AI agents."
-msgstr "리버스 엔지니어링에 대한 생각,실제 경험을 바탕으로 REA 그리고 인공지능 요원들도"
-
-#: website/public/blog/index.html:77 website/public/blog/index.html:90
-#: website/public/blog/reverse-engineering-models/index.html:77
-#: website/public/blog/reverse-engineering-models/index.html:90
-#: website/public/blog/touhou-reconstruction/index.html:77
-#: website/public/blog/touhou-reconstruction/index.html:90
-#: website/public/examples/dino-lab/index.html:77
-#: website/public/examples/dino-lab/index.html:90
-#: website/public/faq/index.html:77 website/public/faq/index.html:90
-#: website/public/first-investigation/index.html:77
-#: website/public/first-investigation/index.html:90
-#: website/public/get-started/index.html:77
-#: website/public/get-started/index.html:90
-#: website/public/guides/browser/index.html:77
-#: website/public/guides/browser/index.html:90
-#: website/public/guides/index.html:77 website/public/guides/index.html:90
-#: website/public/guides/javascript/index.html:77
-#: website/public/guides/javascript/index.html:90
-#: website/public/guides/native/index.html:77
-#: website/public/guides/native/index.html:90 website/public/index.html:77
-#: website/public/index.html:90 website/public/showcase/aegis/index.html:77
-#: website/public/showcase/aegis/index.html:90
-#: website/public/showcase/ctf/index.html:77
-#: website/public/showcase/ctf/index.html:90
-#: website/public/showcase/dx-ball/index.html:77
-#: website/public/showcase/dx-ball/index.html:90
-#: website/public/showcase/index.html:77 website/public/showcase/index.html:90
-#: website/public/showcase/notion/index.html:77
-#: website/public/showcase/notion/index.html:90
-#: website/public/showcase/th04/index.html:77
-#: website/public/showcase/th04/index.html:90
-msgctxt "shared"
-msgid ""
-"REA — Find out how software works. Reverse engineering with your coding "
-"agent."
-msgstr "REA -소프트웨어가 어떻게 작동하는지 알아보십시오. 코딩 에이전트로 리버스 엔지니어링."
-
-#: website/public/blog/index.html:110
-#: website/public/blog/reverse-engineering-models/index.html:110
-#: website/public/blog/touhou-reconstruction/index.html:110
-#: website/public/examples/dino-lab/index.html:111
-#: website/public/faq/index.html:110
-#: website/public/first-investigation/index.html:110
-#: website/public/get-started/index.html:110
-#: website/public/guides/browser/index.html:110
-#: website/public/guides/index.html:110
-#: website/public/guides/javascript/index.html:110
-#: website/public/guides/native/index.html:110 website/public/index.html:112
-#: website/public/showcase/aegis/index.html:111
-#: website/public/showcase/ctf/index.html:110
-#: website/public/showcase/dx-ball/index.html:110
-#: website/public/showcase/index.html:110
-#: website/public/showcase/notion/index.html:110
-#: website/public/showcase/th04/index.html:110
-msgctxt "shared"
-msgid "REA home"
-msgstr "REA 홈"
+"Thoughts on reverse engineering, drawing on practical experience with "
+"Ghostwire and AI agents."
+msgstr "리버스 엔지니어링에 대한 생각,실제 경험을 바탕으로 Ghostwire 그리고 인공지능 요원들도"
 
 #: website/public/blog/index.html:114
 #: website/public/blog/reverse-engineering-models/index.html:114
@@ -173,69 +116,6 @@ msgstr "REA 홈"
 msgctxt "shared"
 msgid "Main navigation"
 msgstr "주 메뉴"
-
-#: website/public/blog/index.html:132
-#: website/public/blog/reverse-engineering-models/index.html:132
-#: website/public/blog/touhou-reconstruction/index.html:132
-#: website/public/examples/dino-lab/index.html:133
-#: website/public/faq/index.html:132
-#: website/public/first-investigation/index.html:132
-#: website/public/get-started/index.html:132
-#: website/public/guides/browser/index.html:132
-#: website/public/guides/index.html:132
-#: website/public/guides/javascript/index.html:132
-#: website/public/guides/native/index.html:132 website/public/index.html:134
-#: website/public/showcase/aegis/index.html:133
-#: website/public/showcase/ctf/index.html:132
-#: website/public/showcase/dx-ball/index.html:132
-#: website/public/showcase/index.html:132
-#: website/public/showcase/notion/index.html:132
-#: website/public/showcase/th04/index.html:132
-msgctxt "shared"
-msgid "REA on GitHub"
-msgstr "GitHub에서 REA 보기"
-
-#: website/public/blog/index.html:152
-#: website/public/blog/reverse-engineering-models/index.html:152
-#: website/public/blog/touhou-reconstruction/index.html:152
-#: website/public/examples/dino-lab/index.html:153
-#: website/public/faq/index.html:152
-#: website/public/first-investigation/index.html:152
-#: website/public/get-started/index.html:152
-#: website/public/guides/browser/index.html:152
-#: website/public/guides/index.html:152
-#: website/public/guides/javascript/index.html:152
-#: website/public/guides/native/index.html:152 website/public/index.html:154
-#: website/public/showcase/aegis/index.html:153
-#: website/public/showcase/ctf/index.html:152
-#: website/public/showcase/dx-ball/index.html:152
-#: website/public/showcase/index.html:152
-#: website/public/showcase/notion/index.html:152
-#: website/public/showcase/th04/index.html:152
-msgctxt "shared"
-msgid "Join REA on Discord"
-msgstr "REA Discord 참여"
-
-#: website/public/blog/index.html:171
-#: website/public/blog/reverse-engineering-models/index.html:171
-#: website/public/blog/touhou-reconstruction/index.html:171
-#: website/public/examples/dino-lab/index.html:172
-#: website/public/faq/index.html:171
-#: website/public/first-investigation/index.html:171
-#: website/public/get-started/index.html:171
-#: website/public/guides/browser/index.html:171
-#: website/public/guides/index.html:171
-#: website/public/guides/javascript/index.html:171
-#: website/public/guides/native/index.html:171 website/public/index.html:173
-#: website/public/showcase/aegis/index.html:172
-#: website/public/showcase/ctf/index.html:171
-#: website/public/showcase/dx-ball/index.html:171
-#: website/public/showcase/index.html:171
-#: website/public/showcase/notion/index.html:171
-#: website/public/showcase/th04/index.html:171
-msgctxt "shared"
-msgid "Follow REA on X"
-msgstr "X에서 REA 팔로우"
 
 #: website/public/blog/index.html:246
 msgctxt "page:blog/index.html"
@@ -1336,15 +1216,15 @@ msgstr ""
 #: website/public/blog/touhou-reconstruction/index.html:854
 msgctxt "page:blog/touhou-reconstruction/index.html"
 msgid ""
-"REA gives the agent access to analysis tools. A question about a function's "
-"caller can lead straight into inspecting that caller. The reconstruction "
-"project supplies the compiler and its own reference checks. The agent can "
-"use those to test the source it proposes and see where its explanation holds"
-" up."
+"Ghostwire gives the agent access to analysis tools. A question about a "
+"function's caller can lead straight into inspecting that caller. The "
+"reconstruction project supplies the compiler and its own reference checks. "
+"The agent can use those to test the source it proposes and see where its "
+"explanation holds up."
 msgstr ""
-"REA 에이전트가 분석 도구에 액세스할 수 있도록 합니다. 함수의 호출자에 대한 질문은 바로 그 호출자를 검사 할 수 있습니다. 재구성 "
-"프로젝트는 컴파일러와 자체 참조 검사를 제공합니다. 에이전트는 그것을 사용하여 제안된 출처를 테스트하고 그 설명이 어디에 있는지 볼 수 "
-"있습니다."
+"Ghostwire 에이전트가 분석 도구에 액세스할 수 있도록 합니다. 함수의 호출자에 대한 질문은 바로 그 호출자를 검사 할 수 "
+"있습니다. 재구성 프로젝트는 컴파일러와 자체 참조 검사를 제공합니다. 에이전트는 그것을 사용하여 제안된 출처를 테스트하고 그 설명이 "
+"어디에 있는지 볼 수 있습니다."
 
 #: website/public/blog/touhou-reconstruction/index.html:861
 msgctxt "page:blog/touhou-reconstruction/index.html"
@@ -1668,8 +1548,8 @@ msgstr "{ph0}더 많은 기사{ph1} · {ph2}탐색 TH04 조사{ph3}"
 
 #: website/public/blog/touhou-reconstruction/index.html:6
 msgctxt "page:blog/touhou-reconstruction/index.html"
-msgid "Reverse Engineering’s Industrial Revolution — REA"
-msgstr "리버스 엔지니어링의 산업 혁명—REA"
+msgid "Reverse Engineering’s Industrial Revolution — Ghostwire"
+msgstr "리버스 엔지니어링의 산업 혁명—Ghostwire"
 
 #: website/public/blog/touhou-reconstruction/index.html:7
 msgctxt "page:blog/touhou-reconstruction/index.html"
@@ -1734,11 +1614,11 @@ msgstr "공룡의 속도 규칙을 다시 작성하십시오."
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
 "To recreate the game’s acceleration, first find the rule that controls its "
-"speed. {ph0}REA returned the running script;{ph1} we used its rule to build "
-"this mini-game with {ph2}adjustable speed.{ph3}"
+"speed. {ph0}Ghostwire returned the running script;{ph1} we used its rule to "
+"build this mini-game with {ph2}adjustable speed.{ph3}"
 msgstr ""
-"게임의 가속을 재현하려면 먼저 속도를 제어하는 규칙을 찾으십시오. {ph0}REA 실행 중인 스크립트를 반환했습니다;{ph1} 우리는이 "
-"미니 게임을 구축하기 위해 규칙을 사용 {ph2}조정 가능한 속도.{ph3}"
+"게임의 가속을 재현하려면 먼저 속도를 제어하는 규칙을 찾으십시오. {ph0}Ghostwire 실행 중인 스크립트를 반환했습니다;{ph1}"
+" 우리는이 미니 게임을 구축하기 위해 규칙을 사용 {ph2}조정 가능한 속도.{ph3}"
 
 #: website/public/examples/dino-lab/index.html:211
 #: website/public/examples/dino-lab/index.html:210
@@ -1842,8 +1722,8 @@ msgstr "사용JavaScript을 재생하는 재건. 위의 코드와 설명은 읽�
 
 #: website/public/examples/dino-lab/index.html:297
 msgctxt "page:examples/dino-lab/index.html"
-msgid "Read the script REA returned"
-msgstr "스크립트 읽기 REA 반환"
+msgid "Read the script Ghostwire returned"
+msgstr "스크립트 읽기 Ghostwire 반환"
 
 #. {ph0}: <a href="https://wayou.github.io/t-rex-runner/" >
 #. {ph1}: </a >
@@ -1852,12 +1732,12 @@ msgstr "스크립트 읽기 REA 반환"
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"We inspected {ph0}wayou’s Chromium-derived browser edition{ph1} with REA. It"
-" returned the loaded {ph2}, including this branch in the game’s update "
-"function:"
+"We inspected {ph0}wayou’s Chromium-derived browser edition{ph1} with "
+"Ghostwire. It returned the loaded {ph2}, including this branch in the game’s"
+" update function:"
 msgstr ""
-"우리는 검사 {ph0}와이우의 Chromium-파생 브라우저 에디션{ph1} 함께 REA. 그것은 로드 된 반환 {ph2},게임의 "
-"업데이트 기능에 이 지점을 포함:"
+"우리는 검사 {ph0}와이우의 Chromium-파생 브라우저 에디션{ph1} 함께 Ghostwire. 그것은 로드 된 반환 "
+"{ph2},게임의 업데이트 기능에 이 지점을 포함:"
 
 #. {ph0}: <code>SPEED: 6</code>
 #. {ph1}: <code>ACCELERATION: 0.001</code>
@@ -1954,8 +1834,8 @@ msgstr "직접 분석해 보세요"
 #: website/public/examples/dino-lab/index.html:402
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
-msgid "{ph0}Set up REA{ph1} with your coding agent."
-msgstr "{ph0}설정 REA{ph1} 코딩 에이전트와 함께."
+msgid "{ph0}Set up Ghostwire{ph1} with your coding agent."
+msgstr "{ph0}설정 Ghostwire{ph1} 코딩 에이전트와 함께."
 
 #. {ph0}: <a href="../../guides/browser/#prepare" >
 #. {ph1}: </a >
@@ -1998,12 +1878,12 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}코딩 에이전트"
 #, python-brace-format
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this dinosaur game. Why does it get "
-"faster? Show the speed rule, then build a small version with an adjustable "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this dinosaur game. Why does it get"
+" faster? Show the speed rule, then build a small version with an adjustable "
 "speed.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 이 공룡 게임을 검사합니다. 왜 더 빨리 얻을 수 있습니까? 속도 규칙을 표시 한 다음 조정 "
-"가능한 속도로 작은 버전을 만듭니다.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 이 공룡 게임을 검사합니다. 왜 더 빨리 얻을 수 있습니까? 속도 규칙을 표시 한 "
+"다음 조정 가능한 속도로 작은 버전을 만듭니다.{ph3}{ph4}{ph5}"
 
 #. {ph0}: <strong >
 #. {ph1}: </strong >
@@ -2025,23 +1905,23 @@ msgstr "후속 조치 요청: {ph0}\"점프 높이는 어디에서 계산됩니�
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
 "Source: {ph0}inspected speed code{ph1}, Chromium Authors. {ph2}Copyright and"
-" BSD license{ph3}. REA 4.1.0 inspected the running HTTP edition in Chrome "
-"150."
+" BSD license{ph3}. Ghostwire 4.1.0 inspected the running HTTP edition in "
+"Chrome 150."
 msgstr ""
-"출처: {ph0}검사된 속도 코드{ph1}, Chromium 저자. {ph2}저작권 및 라이선스{ph3}. REA 4.1.0 에서 "
-"실행중인 버전을 검사했습니다. Chrome 150."
+"출처: {ph0}검사된 속도 코드{ph1}, Chromium 저자. {ph2}저작권 및 라이선스{ph3}. Ghostwire 4.1.0 "
+"에서 실행중인 버전을 검사했습니다. Chrome 150."
 
 #: website/public/examples/dino-lab/index.html:6
 msgctxt "page:examples/dino-lab/index.html"
-msgid "Chrome Dinosaur Game: Rebuild Its Speed Rule — REA"
-msgstr "Chrome공룡:게임을 다시 속도 원칙—REA"
+msgid "Chrome Dinosaur Game: Rebuild Its Speed Rule — Ghostwire"
+msgstr "Chrome공룡:게임을 다시 속도 원칙—Ghostwire"
 
 #: website/public/examples/dino-lab/index.html:7
 msgctxt "page:examples/dino-lab/index.html"
 msgid ""
-"Read the dinosaur game’s speed rule with REA, rebuild it, then change the "
-"speed and play."
-msgstr "공룡 게임의 속도 규칙을 읽으십시오 REA,다시 만든 다음 속도를 바꾸고 재생하십시오."
+"Read the dinosaur game’s speed rule with Ghostwire, rebuild it, then change "
+"the speed and play."
+msgstr "공룡 게임의 속도 규칙을 읽으십시오 Ghostwire,다시 만든 다음 속도를 바꾸고 재생하십시오."
 
 #: website/public/examples/dino-lab/index.html:219
 msgctxt "page:examples/dino-lab/index.html"
@@ -2085,8 +1965,8 @@ msgstr "{ph0}홈{ph1} / 자주 묻는 질문"
 
 #: website/public/faq/index.html:197
 msgctxt "page:faq/index.html"
-msgid "REA FAQ."
-msgstr "REA 자주 묻는 질문."
+msgid "Ghostwire FAQ."
+msgstr "Ghostwire 자주 묻는 질문."
 
 #: website/public/faq/index.html:198
 msgctxt "page:faq/index.html"
@@ -2137,7 +2017,7 @@ msgstr "설정 및 업데이트"
 
 #: website/public/faq/index.html:219
 msgctxt "page:faq/index.html"
-msgid "How do I install REA?"
+msgid "How do I install Ghostwire?"
 msgstr "REA는 어떻게 설치하나요?"
 
 #: website/public/faq/index.html:227
@@ -2160,17 +2040,17 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Setup registers REA's MCP connection and installs the matching investigation"
-" skill. Restart your agent when it finishes, then give it a target path and "
-"a question. {ph0}Follow the setup guide{ph1} for prerequisites and your "
-"first analysis."
+"Setup registers Ghostwire's MCP connection and installs the matching "
+"investigation skill. Restart your agent when it finishes, then give it a "
+"target path and a question. {ph0}Follow the setup guide{ph1} for "
+"prerequisites and your first analysis."
 msgstr ""
 "설정 명령은 REA의 MCP 연결을 등록하고 분석 스킬을 설치합니다. 완료되면 에이전트를 다시 시작한 뒤 분석할 파일 경로와 질문을 "
 "전달하세요. 필요한 환경과 첫 분석 방법은 {ph0}설정 가이드{ph1}에서 확인할 수 있습니다."
 
 #: website/public/faq/index.html:248
 msgctxt "page:faq/index.html"
-msgid "Which coding agents can use REA?"
+msgid "Which coding agents can use Ghostwire?"
 msgstr "어떤 코딩 에이전트에서 REA를 사용할 수 있나요?"
 
 # Reviewed for readable instructions and accurate software terminology.
@@ -2197,14 +2077,14 @@ msgstr "{ph0}코딩 에이전트 연결{ph1}."
 
 #: website/public/faq/index.html:261
 msgctxt "page:faq/index.html"
-msgid "How do I update REA?"
+msgid "How do I update Ghostwire?"
 msgstr "REA는 어떻게 업데이트하나요?"
 
 #: website/public/faq/index.html:262
 msgctxt "page:faq/index.html"
 msgid ""
-"REA releases frequently, including bug fixes. If you installed the CLI with "
-"npm:"
+"Ghostwire releases frequently, including bug fixes. If you installed the CLI"
+" with npm:"
 msgstr "REA는 버그 수정을 포함해 자주 릴리스됩니다. npm으로 CLI를 설치했다면 다음 명령을 실행하세요:"
 
 #: website/public/faq/index.html:268
@@ -2228,17 +2108,17 @@ msgid "Terminal · refresh agent setup"
 msgstr "터미널 · 에이전트 설정 갱신"
 
 # Reviewed for readable setup and analysis terminology.
-#. {ph0}: <code>npx -y rea-agents@latest</code>
+#. {ph0}: <code>npx -y ghostwire-agent@latest</code>
 #: website/public/faq/index.html:298
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Review the changes and restart your agent. Its REA connection pins a package"
-" version, so refreshing setup makes it use the new release. For one-off CLI "
-"commands, use {ph0} followed by the command."
+"Review the changes and restart your agent. Its Ghostwire connection pins a "
+"package version, so refreshing setup makes it use the new release. For one-"
+"off CLI commands, use {ph0} followed by the command."
 msgstr ""
-"변경 내용을 확인하고 에이전트를 다시 시작하세요. REA 연결 설정은 특정 패키지 버전을 사용하므로 설정 명령을 다시 실행해야 새 버전이"
-" 적용됩니다. CLI를 한 번 실행할 때는 {ph0} 뒤에 원하는 명령을 붙이세요."
+"변경 내용을 확인하고 에이전트를 다시 시작하세요. Ghostwire 연결 설정은 특정 패키지 버전을 사용하므로 설정 명령을 다시 실행해야"
+" 새 버전이 적용됩니다. CLI를 한 번 실행할 때는 {ph0} 뒤에 원하는 명령을 붙이세요."
 
 #: website/public/faq/index.html:306
 msgctxt "page:faq/index.html"
@@ -2252,12 +2132,12 @@ msgstr "skills.sh에서 스킬만 설치하면 되나요?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"The skill gives your agent investigation instructions. Run {ph0}REA "
+"The skill gives your agent investigation instructions. Run {ph0}Ghostwire "
 "setup{ph1} to connect the MCP server and install the matching skill, then "
 "restart your agent so it can call the tools."
 msgstr ""
-"스킬은 에이전트에게 분석 방법을 알려줍니다. {ph0}REA 설정{ph1}을 실행해 MCP 서버를 연결하고 스킬을 설치하세요. 도구를 "
-"사용하려면 에이전트를 다시 시작해야 합니다."
+"스킬은 에이전트에게 분석 방법을 알려줍니다. {ph0}Ghostwire 설정{ph1}을 실행해 MCP 서버를 연결하고 스킬을 설치하세요."
+" 도구를 사용하려면 에이전트를 다시 시작해야 합니다."
 
 #: website/public/faq/index.html:320
 msgctxt "page:faq/index.html"
@@ -2266,7 +2146,7 @@ msgstr "분석"
 
 #: website/public/faq/index.html:323
 msgctxt "page:faq/index.html"
-msgid "What can I analyze with REA?"
+msgid "What can I analyze with Ghostwire?"
 msgstr "REA로 무엇을 분석할 수 있나요?"
 
 #: website/public/faq/index.html:324
@@ -2310,8 +2190,8 @@ msgstr "{ph0}브라우저 페이지{ph1}: 스크립트, 요청, 런타임 관찰
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"REA also has workflows for managed assemblies, Android APKs, firmware and "
-"packaged resources. {ph0}See the case studies{ph1} for worked "
+"Ghostwire also has workflows for managed assemblies, Android APKs, firmware "
+"and packaged resources. {ph0}See the case studies{ph1} for worked "
 "investigations."
 msgstr ""
 "REA는 .NET 등의 관리형 어셈블리, Android APK, 펌웨어, 패키지 리소스도 분석합니다. 실제 분석 과정은 {ph0}사례 "
@@ -2348,7 +2228,7 @@ msgstr ""
 
 #: website/public/faq/index.html:363
 msgctxt "page:faq/index.html"
-msgid "Can I use REA without a coding agent?"
+msgid "Can I use Ghostwire without a coding agent?"
 msgstr "코딩 에이전트 없이도 REA를 사용할 수 있나요?"
 
 # Reviewed for readable instructions and accurate software terminology.
@@ -2378,7 +2258,7 @@ msgstr "경로를 압축 해제한 앱 폴더나 ASAR 파일로 바꾸세요. �
 # Reviewed for readable setup and analysis terminology.
 #: website/public/faq/index.html:390
 msgctxt "page:faq/index.html"
-msgid "What code does REA return?"
+msgid "What code does Ghostwire return?"
 msgstr "REA는 어떤 코드를 반환하나요?"
 
 # Reviewed for readable setup and analysis terminology.
@@ -2454,8 +2334,8 @@ msgstr "문제 해결"
 
 #: website/public/faq/index.html:450
 msgctxt "page:faq/index.html"
-msgid "Why can't my agent see the REA tools?"
-msgstr "왜 에이전트에서 REA 도구가 보이지 않나요?"
+msgid "Why can't my agent see the Ghostwire tools?"
+msgstr "왜 에이전트에서 Ghostwire 도구가 보이지 않나요?"
 
 # Reviewed for readable instructions and accurate software terminology.
 #. {ph0}: <code>doctor</code>
@@ -2463,9 +2343,10 @@ msgstr "왜 에이전트에서 REA 도구가 보이지 않나요?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Restart or reconnect your agent after setup. Check its REA registration with"
-" {ph0}; for Codex:"
-msgstr "설정 후 에이전트를 다시 시작하거나 다시 연결하세요. {ph0}로 REA 등록 상태를 확인할 수 있습니다. Codex의 예:"
+"Restart or reconnect your agent after setup. Check its Ghostwire "
+"registration with {ph0}; for Codex:"
+msgstr ""
+"설정 후 에이전트를 다시 시작하거나 다시 연결하세요. {ph0}로 Ghostwire 등록 상태를 확인할 수 있습니다. Codex의 예:"
 
 #: website/public/faq/index.html:457
 msgctxt "page:faq/index.html"
@@ -2517,9 +2398,9 @@ msgstr "Hopper를 먼저 실행해야 하나요?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"REA starts Hopper when an operation needs it. On macOS, complete the first-"
-"run choice of demo mode or license activation before unattended analysis. "
-"{ph0}See native provider setup{ph1}."
+"Ghostwire starts Hopper when an operation needs it. On macOS, complete the "
+"first-run choice of demo mode or license activation before unattended "
+"analysis. {ph0}See native provider setup{ph1}."
 msgstr ""
 "REA는 작업에 필요할 때 Hopper를 실행합니다. macOS에서는 자동 분석 전에 첫 실행 화면에서 데모 모드나 라이선스 활성화를 "
 "선택해야 합니다. {ph0}네이티브 분석 도구 설정{ph1}."
@@ -2536,8 +2417,8 @@ msgstr "버그가 발생하면 어떻게 하나요?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"{ph0}Update REA{ph1}, restart your agent and retry the same task. A recent "
-"release may already fix the problem."
+"{ph0}Update Ghostwire{ph1}, restart your agent and retry the same task. A "
+"recent release may already fix the problem."
 msgstr ""
 "{ph0}REA를 업데이트{ph1}하고 에이전트를 다시 시작한 뒤 같은 작업을 시도하세요. 최신 버전에서 이미 문제가 해결되었을 수 "
 "있습니다."
@@ -2549,12 +2430,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"If it persists, {ph0}open an issue{ph1} with your REA version, operating "
-"system, target type, steps to reproduce and error output. Include the "
-"provider name when the problem involves native analysis."
+"If it persists, {ph0}open an issue{ph1} with your Ghostwire version, "
+"operating system, target type, steps to reproduce and error output. Include "
+"the provider name when the problem involves native analysis."
 msgstr ""
-"문제가 계속되면 REA 버전, 운영체제, 대상 종류, 재현 방법, 오류 출력을 포함해 {ph0}이슈를 등록하세요{ph1}. 네이티브 분석"
-" 문제라면 분석 도구 이름도 알려주세요."
+"문제가 계속되면 Ghostwire 버전, 운영체제, 대상 종류, 재현 방법, 오류 출력을 포함해 {ph0}이슈를 등록하세요{ph1}. "
+"네이티브 분석 문제라면 분석 도구 이름도 알려주세요."
 
 #: website/public/faq/index.html:526
 msgctxt "page:faq/index.html"
@@ -2563,15 +2444,15 @@ msgstr "데이터 및 공유"
 
 #: website/public/faq/index.html:529
 msgctxt "page:faq/index.html"
-msgid "Does REA upload my app?"
+msgid "Does Ghostwire upload my app?"
 msgstr "REA가 내 앱을 업로드하나요?"
 
 # Reviewed for readable instructions and accurate software terminology.
 #: website/public/faq/index.html:530
 msgctxt "page:faq/index.html"
 msgid ""
-"REA analyzes targets on your machine. Your agent receives the results, and "
-"its model provider's data policy applies to those results."
+"Ghostwire analyzes targets on your machine. Your agent receives the results,"
+" and its model provider's data policy applies to those results."
 msgstr "REA는 사용자의 컴퓨터에서 대상을 분석합니다. 결과는 에이전트가 받으므로 해당 모델 제공자의 데이터 정책이 적용됩니다."
 
 #: website/public/faq/index.html:537
@@ -2588,12 +2469,12 @@ msgstr "사례를 공유하거나 기여하려면 어떻게 하나요?"
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"Have a useful REA example? We'd love to see it. Share the target, your "
-"question, the findings and how you checked them in an {ph0}issue{ph1} or "
+"Have a useful Ghostwire example? We'd love to see it. Share the target, your"
+" question, the findings and how you checked them in an {ph0}issue{ph1} or "
 "{ph2}pull request{ph3}. Short code excerpts and figures help others follow "
 "the investigation."
 msgstr ""
-"유용한 REA 사례가 있나요? 함께 보고 싶습니다. 대상, 질문, 발견한 내용, 검증 방법을 {ph0}이슈{ph1}나 "
+"유용한 Ghostwire 사례가 있나요? 함께 보고 싶습니다. 대상, 질문, 발견한 내용, 검증 방법을 {ph0}이슈{ph1}나 "
 "{ph2}PR{ph3}로 공유해 주세요. 짧은 코드와 그림을 곁들이면 과정을 이해하기 쉽습니다."
 
 # Reviewed for readable instructions and accurate software terminology.
@@ -2609,15 +2490,15 @@ msgstr "버그 보고, 기능 요청, 문서와 코드 개선도 환영합니다
 
 #: website/public/faq/index.html:6
 msgctxt "page:faq/index.html"
-msgid "REA FAQ: Setup, Updates and Troubleshooting"
-msgstr "REA 자주 묻는 질문: 설정, 업데이트, 문제 해결"
+msgid "Ghostwire FAQ: Setup, Updates and Troubleshooting"
+msgstr "Ghostwire 자주 묻는 질문: 설정, 업데이트, 문제 해결"
 
 # Reviewed for readable instructions and accurate software terminology.
 #: website/public/faq/index.html:7
 msgctxt "page:faq/index.html"
 msgid ""
-"Answers to common REA questions: installation, updates, analysis tools, "
-"coding agents, troubleshooting and sharing examples."
+"Answers to common Ghostwire questions: installation, updates, analysis "
+"tools, coding agents, troubleshooting and sharing examples."
 msgstr "REA의 설치, 업데이트, 분석 도구, 코딩 에이전트, 문제 해결, 사례 공유에 관한 자주 묻는 질문."
 
 #: website/public/faq/index.html:201
@@ -2627,18 +2508,18 @@ msgstr "이 페이지 목차"
 
 #: website/public/faq/index.html:210
 msgctxt "page:faq/index.html"
-msgid "Frequently asked questions about REA"
+msgid "Frequently asked questions about Ghostwire"
 msgstr "REA에 관한 자주 묻는 질문"
 
 #: website/public/faq/index.html:228
 msgctxt "page:faq/index.html"
-msgid "Copy REA setup command"
-msgstr "REA 설정 명령 복사"
+msgid "Copy Ghostwire setup command"
+msgstr "Ghostwire 설정 명령 복사"
 
 #: website/public/faq/index.html:269
 msgctxt "page:faq/index.html"
-msgid "Copy REA update command"
-msgstr "REA 업데이트 명령 복사"
+msgid "Copy Ghostwire update command"
+msgstr "Ghostwire 업데이트 명령 복사"
 
 #: website/public/faq/index.html:287
 msgctxt "page:faq/index.html"
@@ -2647,8 +2528,8 @@ msgstr "에이전트 설정 갱신 명령 복사"
 
 #: website/public/faq/index.html:371
 msgctxt "page:faq/index.html"
-msgid "Copy REA CLI analysis command"
-msgstr "REA CLI 분석 명령 복사"
+msgid "Copy Ghostwire CLI analysis command"
+msgstr "Ghostwire CLI 분석 명령 복사"
 
 #: website/public/faq/index.html:418
 msgctxt "page:faq/index.html"
@@ -2693,9 +2574,9 @@ msgstr "어디 찾기{ph0}내 보낸 노트는 이동합니다."
 #: website/public/first-investigation/index.html:200
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Use REA to inspect a small app, follow its Export notes button and check one"
-" detail yourself."
-msgstr "사용 REA 작은 응용 프로그램을 검사하려면 내보내기 노트 버튼을 따라 하나의 세부 사항을 직접 확인하십시오."
+"Use Ghostwire to inspect a small app, follow its Export notes button and "
+"check one detail yourself."
+msgstr "사용 Ghostwire 작은 응용 프로그램을 검사하려면 내보내기 노트 버튼을 따라 하나의 세부 사항을 직접 확인하십시오."
 
 #: website/public/first-investigation/index.html:211
 msgctxt "page:first-investigation/index.html"
@@ -2744,8 +2625,8 @@ msgstr "{ph0}5. 다른 질문{ph1}"
 
 #: website/public/first-investigation/index.html:222
 msgctxt "page:first-investigation/index.html"
-msgid "1. Connect your agent to REA"
-msgstr "1. 에이전트에 연결 REA"
+msgid "1. Connect your agent to Ghostwire"
+msgstr "1. 에이전트에 연결 Ghostwire"
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -2805,9 +2686,9 @@ msgstr ""
 #: website/public/first-investigation/index.html:309
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Your agent downloads the files and gives the unpacked folder to REA for "
-"inspection."
-msgstr "에이전트가 파일을 다운로드하고 압축을 푼 폴더를 REA 검사를 위해."
+"Your agent downloads the files and gives the unpacked folder to Ghostwire "
+"for inspection."
+msgstr "에이전트가 파일을 다운로드하고 압축을 푼 폴더를 Ghostwire 검사를 위해."
 
 #. {ph0}: <a class="button" href="../examples/notes-example.zip"
 #. download="notes-example.zip" >
@@ -2861,8 +2742,8 @@ msgstr "버튼에서 파일 작성기로"
 #: website/public/first-investigation/index.html:368
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"REA’s static analysis pairs the message with its handler. The destination is"
-" read from code."
+"Ghostwire’s static analysis pairs the message with its handler. The "
+"destination is read from code."
 msgstr "REA정적 분석은 메시지와 핸들러를 결합합니다. 대상은 코드에서 읽습니다."
 
 #: website/public/first-investigation/index.html:384
@@ -2879,8 +2760,8 @@ msgstr ""
 #: website/public/first-investigation/index.html:389
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
-msgid "{ph0}See the full code trace and recorded REA result{ph1}."
-msgstr "{ph0}전체 코드 추적 및 기록보기 REA 결과{ph1}."
+msgid "{ph0}See the full code trace and recorded Ghostwire result{ph1}."
+msgstr "{ph0}전체 코드 추적 및 기록보기 Ghostwire 결과{ph1}."
 
 #: website/public/first-investigation/index.html:396
 msgctxt "page:first-investigation/index.html"
@@ -2970,21 +2851,23 @@ msgstr "{ph0}어떻게 DX-Ball 사운드 패닝 계산{ph1}{ph2}원래 지침과
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"{ph0}Troubleshoot setup or analysis{ph1}{ph2}Update REA and check the "
+"{ph0}Troubleshoot setup or analysis{ph1}{ph2}Update Ghostwire and check the "
 "connection if you get stuck.{ph3}"
-msgstr "{ph0}설정 또는 분석 문제 해결{ph1}{ph2}업데이트 REA 문제가 발생할 경우 연결을 확인합니다.{ph3}"
+msgstr ""
+"{ph0}설정 또는 분석 문제 해결{ph1}{ph2}업데이트 Ghostwire 문제가 발생할 경우 연결을 확인합니다.{ph3}"
 
 #: website/public/first-investigation/index.html:6
 msgctxt "page:first-investigation/index.html"
-msgid "Your First Reverse Engineering Investigation — REA"
-msgstr "당신의 첫번째 리버스 엔지니어링 조사—REA"
+msgid "Your First Reverse Engineering Investigation — Ghostwire"
+msgstr "당신의 첫번째 리버스 엔지니어링 조사—Ghostwire"
 
 #: website/public/first-investigation/index.html:7
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"Try REA on a small Notes app. Set up your agent, ask where exported notes "
-"go, and check the CSV formatter with a sample title."
-msgstr "시도해봐 REA 작은 메모 앱에. 당신의 에이전트를 설정,내 보낸 노트가 어디로 물어,그리고 확인 CSV 샘플 제목 포맷터."
+"Try Ghostwire on a small Notes app. Set up your agent, ask where exported "
+"notes go, and check the CSV formatter with a sample title."
+msgstr ""
+"시도해봐 Ghostwire 작은 메모 앱에. 당신의 에이전트를 설정,내 보낸 노트가 어디로 물어,그리고 확인 CSV 샘플 제목 포맷터."
 
 #: website/public/first-investigation/index.html:210
 msgctxt "page:first-investigation/index.html"
@@ -2993,12 +2876,12 @@ msgstr "이 페이지에"
 
 #: website/public/first-investigation/index.html:220
 msgctxt "page:first-investigation/index.html"
-msgid "Your first REA investigation"
+msgid "Your first Ghostwire investigation"
 msgstr "귀하의 첫 번째REA조사"
 
 #: website/public/first-investigation/index.html:236
 msgctxt "page:first-investigation/index.html"
-msgid "Copy REA installation prompt"
+msgid "Copy Ghostwire installation prompt"
 msgstr "복사REA설치 프롬프트"
 
 #: website/public/first-investigation/index.html:258
@@ -3041,14 +2924,15 @@ msgstr "{ph0}홈{ph1} /시작"
 
 #: website/public/get-started/index.html:197
 msgctxt "page:get-started/index.html"
-msgid "Set up REA."
+msgid "Set up Ghostwire."
 msgstr "설정REA."
 
 #: website/public/get-started/index.html:198
 msgctxt "page:get-started/index.html"
 msgid ""
-"Connect REA to your coding agent, or inspect a local app from your terminal."
-msgstr "연결 REA 코딩 에이전트에,또는 터미널에서 로컬 응용 프로그램을 검사합니다."
+"Connect Ghostwire to your coding agent, or inspect a local app from your "
+"terminal."
+msgstr "연결 Ghostwire 코딩 에이전트에,또는 터미널에서 로컬 응용 프로그램을 검사합니다."
 
 #: website/public/get-started/index.html:210
 msgctxt "page:get-started/index.html"
@@ -3204,12 +3088,12 @@ msgstr "코딩 에이전트 연결"
 #: website/public/get-started/index.html:374
 msgctxt "page:get-started/index.html"
 msgid ""
-"Run setup to connect REA to your coding agent. Client choices include Claude"
-" Code, Codex, Cursor, Gemini CLI, Windsurf, Grok Build, and other supported "
-"MCP clients. Grok Bot's connector is added from its chat."
+"Run setup to connect Ghostwire to your coding agent. Client choices include "
+"Claude Code, Codex, Cursor, Gemini CLI, Windsurf, Grok Build, and other "
+"supported MCP clients. Grok Bot's connector is added from its chat."
 msgstr ""
-"설치 프로그램을 실행하여 연결 REA 코딩 에이전트에. 고객 선택은 Claude Code, Codex, Cursor, Gemini "
-"CLI, Windsurf, Grok Build,및 기타 지원 MCP 고객. Grok Bot의 커넥터는 채팅에서 추가됩니다."
+"설치 프로그램을 실행하여 연결 Ghostwire 코딩 에이전트에. 고객 선택은 Claude Code, Codex, Cursor, "
+"Gemini CLI, Windsurf, Grok Build,및 기타 지원 MCP 고객. Grok Bot의 커넥터는 채팅에서 추가됩니다."
 
 #: website/public/get-started/index.html:381
 msgctxt "page:get-started/index.html"
@@ -3221,7 +3105,7 @@ msgctxt "page:get-started/index.html"
 msgid ""
 "A coding agent is an AI assistant that works on your computer instead of in "
 "a browser tab. It can read files and run commands, and it asks before making"
-" changes. REA gives it reverse-engineering tools."
+" changes. Ghostwire gives it reverse-engineering tools."
 msgstr ""
 "코딩 에이전트는 브라우저 탭이 아닌 컴퓨터에서 작동하는 인공지능 보조자입니다. 파일을 읽고 명령을 실행할 수 있으며 변경하기 전에 "
 "묻습니다. REA그것을 리버스 엔지니어링 도구입니다."
@@ -3269,8 +3153,8 @@ msgstr "{ph0}{ph1}OpenCode{ph2}{ph3},오픈 소스. 원하는 모델 공급자�
 #: website/public/get-started/index.html:413
 msgctxt "page:get-started/index.html"
 msgid ""
-"Then open it and copy the prompt below into it. The agent runs REA's setup "
-"and shows you the plan before changing anything."
+"Then open it and copy the prompt below into it. The agent runs Ghostwire's "
+"setup and shows you the plan before changing anything."
 msgstr ""
 "그런 다음 그것을 열고 아래 프롬프트를 복사하십시오. 에이전트 실행 REA의 설치 및 아무것도 변경하기 전에 당신에게 계획을 보여줍니다."
 
@@ -3354,9 +3238,9 @@ msgstr ""
 #: website/public/get-started/index.html:483
 msgctxt "page:get-started/index.html"
 msgid ""
-"Choose your client and review the setup plan. REA adds its MCP connection "
-"and the matching investigation skill, keeping a backup of existing "
-"configuration. It asks before applying the changes."
+"Choose your client and review the setup plan. Ghostwire adds its MCP "
+"connection and the matching investigation skill, keeping a backup of "
+"existing configuration. It asks before applying the changes."
 msgstr ""
 "클라이언트를 선택하고 설치 계획을 검토합니다. REA추가MCP연결와 일치하는 조사 기술,유지 백업 기존의 구성이 있습니다. 변경 사항을 "
 "적용하기 전에 묻습니다."
@@ -3555,11 +3439,12 @@ msgstr "일부 앱은 다른 곳에 설치됩니다. 에 대한 응용 프로그
 msgctxt "page:get-started/index.html"
 msgid ""
 "The result identifies the app, shows connections between modules and gives "
-"their source locations. Connections REA cannot resolve are marked in the "
-"result."
-msgstr "결과는 앱을 식별하고 모듈 간의 연결을 표시하며 소스 위치를 제공합니다. 연결 REA 확인할 수 없습니다 결과에 표시됩니다."
+"their source locations. Connections Ghostwire cannot resolve are marked in "
+"the result."
+msgstr ""
+"결과는 앱을 식별하고 모듈 간의 연결을 표시하며 소스 위치를 제공합니다. 연결 Ghostwire 확인할 수 없습니다 결과에 표시됩니다."
 
-#. {ph0}: <code>rea</code>
+#. {ph0}: <code>ghostwire</code>
 #: website/public/get-started/index.html:600
 #, python-brace-format
 msgctxt "page:get-started/index.html"
@@ -3588,8 +3473,9 @@ msgstr "기계 코드 프로그램 분석 설정"
 msgctxt "page:get-started/index.html"
 msgid ""
 "Native binaries need a local analysis tool. Choose and configure one below, "
-"then give REA your executable or library."
-msgstr "네이티브 바이너리에는 로컬 분석 도구가 필요합니다. 선택하고 아래 하나를 구성,다음 제공 REA 실행 파일 또는 라이브러리."
+"then give Ghostwire your executable or library."
+msgstr ""
+"네이티브 바이너리에는 로컬 분석 도구가 필요합니다. 선택하고 아래 하나를 구성,다음 제공 Ghostwire 실행 파일 또는 라이브러리."
 
 #: website/public/get-started/index.html:631
 msgctxt "page:get-started/index.html"
@@ -3694,10 +3580,10 @@ msgctxt "page:get-started/index.html"
 msgid ""
 "Keep the upstream server's working {ph0}, {ph1} and optional {ph2} in a JSON"
 " file. An existing {ph3} object with an {ph4} entry is also accepted. Point "
-"REA at that file before setup:"
+"Ghostwire at that file before setup:"
 msgstr ""
 "업스트림 서버의 작동 유지 {ph0}, {ph1} 그리고 선택 {ph2} 제슨 파일에 기존 {ph3} 객체 {ph4} 입장도 허용됩니다."
-" 포인트 REA 설정 전에 해당 파일에서:"
+" 포인트 Ghostwire 설정 전에 해당 파일에서:"
 
 #: website/public/get-started/index.html:735
 msgctxt "page:get-started/index.html"
@@ -3725,12 +3611,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"Give REA the original executable path, with {ph0} in a CLI query. For an "
-"agent, include {ph1} in the REA registration's environment and select IDA "
-"when opening the binary."
+"Give Ghostwire the original executable path, with {ph0} in a CLI query. For "
+"an agent, include {ph1} in the Ghostwire registration's environment and "
+"select IDA when opening the binary."
 msgstr ""
-"줘 REA 원래 실행 경로, {ph0} 에 CLI 쿼리 에이전트의 경우 다음을 포함합니다 {ph1} 그 안에 REA 등록 환경 및 선택 "
-"IDA 바이너리를 열 때."
+"줘 Ghostwire 원래 실행 경로, {ph0} 에 CLI 쿼리 에이전트의 경우 다음을 포함합니다 {ph1} 그 안에 Ghostwire"
+" 등록 환경 및 선택 IDA 바이너리를 열 때."
 
 #: website/public/get-started/index.html:771
 msgctxt "page:get-started/index.html"
@@ -3781,17 +3667,17 @@ msgstr "도움 받기"
 
 #: website/public/get-started/index.html:809
 msgctxt "page:get-started/index.html"
-msgid "If your agent doesn't see REA"
-msgstr "에이전트가 표시되지 않는 경우 REA"
+msgid "If your agent doesn't see Ghostwire"
+msgstr "에이전트가 표시되지 않는 경우 Ghostwire"
 
 #. {ph0}: <code>doctor</code>
 #: website/public/get-started/index.html:810
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"Restart or reconnect the client after setup. Check its REA connection with "
-"{ph0}; for Codex:"
-msgstr "설치 후 클라이언트를 다시 시작하거나 다시 연결합니다. 그 확인 REA 연결 {ph0};를 위해 Codex:"
+"Restart or reconnect the client after setup. Check its Ghostwire connection "
+"with {ph0}; for Codex:"
+msgstr "설치 후 클라이언트를 다시 시작하거나 다시 연결합니다. 그 확인 Ghostwire 연결 {ph0};를 위해 Codex:"
 
 #: website/public/get-started/index.html:816
 msgctxt "page:get-started/index.html"
@@ -3826,8 +3712,9 @@ msgstr "이 보고서는 실패한 확인 및 제안 된 다음 단계를 제공
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}REA FAQ{ph1}{ph2}Quick answers on updates, agents and analysis.{ph3}"
-msgstr "{ph0}REA 제품소개{ph1}{ph2}업데이트,에이전트 및 분석에 대한 빠른 답변.{ph3}"
+"{ph0}Ghostwire FAQ{ph1}{ph2}Quick answers on updates, agents and "
+"analysis.{ph3}"
+msgstr "{ph0}Ghostwire 제품소개{ph1}{ph2}업데이트,에이전트 및 분석에 대한 빠른 답변.{ph3}"
 
 #. {ph0}: <a href="../guides/">
 #. {ph1}: </a >
@@ -3861,20 +3748,21 @@ msgstr "{ph0}GitHub 문제{ph1}{ph2}명령 및 진단 문제를 보고합니다.
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}REA community{ph1}{ph2}Questions, investigations and work in "
+"{ph0}Ghostwire community{ph1}{ph2}Questions, investigations and work in "
 "progress.{ph3}"
-msgstr "{ph0}REA 커뮤니티{ph1}{ph2}질문,조사 및 진행중인 작업.{ph3}"
+msgstr "{ph0}Ghostwire 커뮤니티{ph1}{ph2}질문,조사 및 진행중인 작업.{ph3}"
 
 #: website/public/get-started/index.html:6
 msgctxt "page:get-started/index.html"
-msgid "Install REA and Set Up Your Coding Agent"
-msgstr "설치 REA 그리고 코딩 에이전트 설정"
+msgid "Install Ghostwire and Set Up Your Coding Agent"
+msgstr "설치 Ghostwire 그리고 코딩 에이전트 설정"
 
 #: website/public/get-started/index.html:7
 msgctxt "page:get-started/index.html"
 msgid ""
-"Connect REA to your coding agent or inspect a local JavaScript or Electron "
-"app from the terminal. Setup, first questions and native provider guides."
+"Connect Ghostwire to your coding agent or inspect a local JavaScript or "
+"Electron app from the terminal. Setup, first questions and native provider "
+"guides."
 msgstr ""
 "에 연결REA를 코딩의 에이전트 또는 검사 지역JavaScript또는Electron에서 응용 프로그램 터미널도 있습니다. 설정,첫 번째 "
 "질문 및 기본 공급자 가이드."
@@ -3926,12 +3814,12 @@ msgstr "이 페이지에"
 
 #: website/public/get-started/index.html:371
 msgctxt "page:get-started/index.html"
-msgid "REA getting started guide"
+msgid "Ghostwire getting started guide"
 msgstr "REA시작 안내"
 
 #: website/public/get-started/index.html:425
 msgctxt "page:get-started/index.html"
-msgid "Copy REA installation prompt"
+msgid "Copy Ghostwire installation prompt"
 msgstr "복사REA설치 프롬프트"
 
 #: website/public/get-started/index.html:471
@@ -4110,10 +3998,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"{ph0}02 · REA{ph1}{ph2}Record the request{ph3}{ph4}Capture the request URL, "
-"response status and JSON structure from the selected page.{ph5}"
+"{ph0}02 · Ghostwire{ph1}{ph2}Record the request{ph3}{ph4}Capture the request"
+" URL, response status and JSON structure from the selected page.{ph5}"
 msgstr ""
-"{ph0}02 · REA{ph1}{ph2}요청 기록{ph3}{ph4}선택한 페이지에서 요청 상태 및 응답 상태를 캡처합니다.{ph5}"
+"{ph0}02 · Ghostwire{ph1}{ph2}요청 기록{ph3}{ph4}선택한 페이지에서 요청 상태 및 응답 상태를 "
+"캡처합니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -4174,8 +4063,8 @@ msgstr "사용된 브라우저의 실행 파일 경로에macOS또는Windows. 페
 #: website/public/guides/browser/index.html:292
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"REA connects to this existing browser. You keep control of the page, perform"
-" the action, and close the browser when finished."
+"Ghostwire connects to this existing browser. You keep control of the page, "
+"perform the action, and close the browser when finished."
 msgstr "REA연결하는 이러한 기존 브라우저입니다. 당신은 페이지의 제어를 유지 작업을 수행하고 완료되면 브라우저를 닫습니다."
 
 #: website/public/guides/browser/index.html:298
@@ -4207,11 +4096,11 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}코딩 에이전트"
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this page while I click Export notes. "
-"What request does it make, and how is the CSV built?{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this page while I click Export "
+"notes. What request does it make, and how is the CSV built?{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 내가 수출 노트를 클릭하는 동안이 페이지를 검사합니다. 그것은 어떤 요청을하고,어떻게 CSV "
-"내장?{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 내가 수출 노트를 클릭하는 동안이 페이지를 검사합니다. 그것은 어떤 요청을하고,어떻게"
+" CSV 내장?{ph3}{ph4}{ph5}"
 
 #. {ph0}: <code>http://127.0.0.1:9222</code>
 #: website/public/guides/browser/index.html:322
@@ -4287,8 +4176,8 @@ msgstr "요청 및 내보내기 스크립트 읽기"
 
 #: website/public/guides/browser/index.html:388
 msgctxt "page:guides/browser/index.html"
-msgid "Recorded with REA 4.1.0 on the local Notes example"
-msgstr "녹음된 REA 4.1.0 로컬 노트 예제"
+msgid "Recorded with Ghostwire 4.1.0 on the local Notes example"
+msgstr "녹음된 Ghostwire 4.1.0 로컬 노트 예제"
 
 #: website/public/guides/browser/index.html:393
 msgctxt "page:guides/browser/index.html"
@@ -4346,10 +4235,11 @@ msgstr "로드된 스크립트 읽기"
 #, python-brace-format
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"The request identifies the data source, and REA records {ph0} as its "
+"The request identifies the data source, and Ghostwire records {ph0} as its "
 "initiator. Read the captured script source to see how the data is used:"
 msgstr ""
-"요청은 데이터 원본을 식별하고 REA 기록 {ph0} 그 시작자로서 캡처된 스크립트 원본을 읽고 데이터 사용 방법을 확인합니다:"
+"요청은 데이터 원본을 식별하고 Ghostwire 기록 {ph0} 그 시작자로서 캡처된 스크립트 원본을 읽고 데이터 사용 방법을 "
+"확인합니다:"
 
 #. {ph0}: <code>notes.json</code>
 #: website/public/guides/browser/index.html:456
@@ -4385,15 +4275,16 @@ msgstr ""
 
 #: website/public/guides/browser/index.html:6
 msgctxt "page:guides/browser/index.html"
-msgid "Browser and Network Analysis — REA"
-msgstr "브라우저와 네트워크 분석—REA"
+msgid "Browser and Network Analysis — Ghostwire"
+msgstr "브라우저와 네트워크 분석—Ghostwire"
 
 #: website/public/guides/browser/index.html:7
 msgctxt "page:guides/browser/index.html"
 msgid ""
-"Observe a Notes export with REA: select a browser page, capture a click, "
-"inspect the request and follow the export script."
-msgstr "함께 노트 내보내기 관찰 REA:브라우저 페이지를 선택,클릭을 캡처,요청을 검사하고 내보내기 스크립트를 따르십시오."
+"Observe a Notes export with Ghostwire: select a browser page, capture a "
+"click, inspect the request and follow the export script."
+msgstr ""
+"함께 노트 내보내기 관찰 Ghostwire:브라우저 페이지를 선택,클릭을 캡처,요청을 검사하고 내보내기 스크립트를 따르십시오."
 
 #: website/public/guides/browser/index.html:207
 msgctxt "page:guides/browser/index.html"
@@ -4450,7 +4341,7 @@ msgstr "{ph0}홈{ph1} /가이드"
 
 #: website/public/guides/index.html:197
 msgctxt "page:guides/index.html"
-msgid "REA guides."
+msgid "Ghostwire guides."
 msgstr "REA가이드에 있습니다."
 
 #: website/public/guides/index.html:198
@@ -4467,18 +4358,18 @@ msgstr "첫 번째 조사"
 
 #: website/public/guides/index.html:207
 msgctxt "page:guides/index.html"
-msgid "Set up REA"
+msgid "Set up Ghostwire"
 msgstr "설정REA"
 
 #: website/public/guides/index.html:208
 msgctxt "page:guides/index.html"
-msgid "Connect your coding agent or use REA from the terminal."
-msgstr "코딩 에이전트 연결 또는 사용 REA 터미널에서"
+msgid "Connect your coding agent or use Ghostwire from the terminal."
+msgstr "코딩 에이전트 연결 또는 사용 Ghostwire 터미널에서"
 
 #: website/public/guides/index.html:209
 msgctxt "page:guides/index.html"
-msgid "Get started with REA"
-msgstr "시작 REA"
+msgid "Get started with Ghostwire"
+msgstr "시작 Ghostwire"
 
 #: website/public/guides/index.html:213
 msgctxt "page:guides/index.html"
@@ -4517,7 +4408,7 @@ msgstr "따라CSV내보내기"
 msgctxt "page:guides/index.html"
 msgid ""
 "A small Notes app spreads one feature across the renderer, preload and main "
-"process. Use REA to connect the API, IPC channel and file writer."
+"process. Use Ghostwire to connect the API, IPC channel and file writer."
 msgstr ""
 "작은 노트 앱은 렌더러,프리로드 및 메인 프로세스에 하나의 기능을 분산시킵니다. 사용REA연결하 API,IPC 채널 파일 작가입니다."
 
@@ -4558,15 +4449,15 @@ msgstr "브라우저 관찰 가이드"
 
 #: website/public/guides/index.html:6
 msgctxt "page:guides/index.html"
-msgid "Reverse Engineering Guides — REA"
-msgstr "리버스 엔지니어링 가이드 — REA"
+msgid "Reverse Engineering Guides — Ghostwire"
+msgstr "리버스 엔지니어링 가이드 — Ghostwire"
 
 #: website/public/guides/index.html:7
 msgctxt "page:guides/index.html"
 msgid ""
-"Learn REA through short worked examples: a native calculation, an Electron "
-"CSV export and a browser request."
-msgstr "학습 REA 짧은 작업 예제를 통해:네이티브 계산, Electron CSV 내보내기 및 브라우저 요청."
+"Learn Ghostwire through short worked examples: a native calculation, an "
+"Electron CSV export and a browser request."
+msgstr "학습 Ghostwire 짧은 작업 예제를 통해:네이티브 계산, Electron CSV 내보내기 및 브라우저 요청."
 
 #: website/public/guides/index.html:284
 msgctxt "page:guides/index.html"
@@ -4730,9 +4621,9 @@ msgstr "{ph0} 메모의 형식을 지정합니다. {ph1} 글쓰기 {ph2}."
 #: website/public/guides/javascript/index.html:260
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA matches the literal IPC call to its handler and identifies the exposed "
-"API. The path is inferred from code; a runtime capture can check what "
-"executes."
+"Ghostwire matches the literal IPC call to its handler and identifies the "
+"exposed API. The path is inferred from code; a runtime capture can check "
+"what executes."
 msgstr ""
 "REA치 리터럴 IPC 함수 호출 핸들러를 식별하고 노출된 API 를 사용합니다. 경로는 코드에서 추론됩니다.런타임 캡처는 실행되는 것을"
 " 확인할 수 있습니다."
@@ -4748,9 +4639,9 @@ msgstr "에 대해 물어 CSV 수출"
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"{ph0}Connect your agent to REA{ph1} and give it the app directory or ASAR "
-"file:"
-msgstr "{ph0}에이전트에 연결 REA{ph1} 그리고 그것을 응용 프로그램 디렉토리 또는 제공 ASAR 파일:"
+"{ph0}Connect your agent to Ghostwire{ph1} and give it the app directory or "
+"ASAR file:"
+msgstr "{ph0}에이전트에 연결 Ghostwire{ph1} 그리고 그것을 응용 프로그램 디렉토리 또는 제공 ASAR 파일:"
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -4782,10 +4673,10 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find what happens when I export notes in this "
-"app. Where is the CSV created?{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to find what happens when I export notes in "
+"this app. Where is the CSV created?{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 이 응용 프로그램에 메모를 내보낼 때 어떻게되는지 찾을 수 있습니다. 어디 CSV "
+"{ph0}›{ph1}{ph2}사용 Ghostwire 이 응용 프로그램에 메모를 내보낼 때 어떻게되는지 찾을 수 있습니다. 어디 CSV "
 "생성?{ph3}{ph4}{ph5}"
 
 #. {ph0}: <code>app.asar</code>
@@ -4800,12 +4691,12 @@ msgstr "예 프롬프트. 응용 프로그램 폴더에 대한 절대 경로를 
 #: website/public/guides/javascript/index.html:300
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA reads the application files and builds a map of entrypoints, modules and"
-" process boundaries. Your agent uses that map to narrow the investigation to"
-" the export feature."
+"Ghostwire reads the application files and builds a map of entrypoints, "
+"modules and process boundaries. Your agent uses that map to narrow the "
+"investigation to the export feature."
 msgstr ""
-"REA 응용 프로그램 파일을 읽고 엔트리 포인트,모듈 및 프로세스 경계의 맵을 작성합니다. 에이전트가 해당 맵을 사용하여 조사 범위를 "
-"내보내기 기능으로 좁힙니다."
+"Ghostwire 응용 프로그램 파일을 읽고 엔트리 포인트,모듈 및 프로세스 경계의 맵을 작성합니다. 에이전트가 해당 맵을 사용하여 조사"
+" 범위를 내보내기 기능으로 좁힙니다."
 
 #: website/public/guides/javascript/index.html:307
 msgctxt "page:guides/javascript/index.html"
@@ -4830,9 +4721,10 @@ msgstr "페이지는 메소드 이름을 알고 있습니다. 구현은 사전 �
 #, python-brace-format
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"REA records {ph0} and the literal channel {ph1}. It pairs that invocation "
-"with the single matching handler in the main process."
-msgstr "REA 기록 {ph0} 그리고 문자 그대로의 채널 {ph1}. 이 호출은 주 프로세스의 단일 일치 핸들러와 쌍을 이룹니다."
+"Ghostwire records {ph0} and the literal channel {ph1}. It pairs that "
+"invocation with the single matching handler in the main process."
+msgstr ""
+"Ghostwire 기록 {ph0} 그리고 문자 그대로의 채널 {ph1}. 이 호출은 주 프로세스의 단일 일치 핸들러와 쌍을 이룹니다."
 
 #. {ph0}: <code>csv.js</code>
 #. {ph1}: <code>notes.csv</code>
@@ -4849,9 +4741,10 @@ msgstr ""
 #: website/public/guides/javascript/index.html:369
 msgctxt "page:guides/javascript/index.html"
 msgid ""
-"Recorded by REA 4.1.0 on the downloadable example below. Source locations "
-"accompany the API, channel and handler findings."
-msgstr "녹음된 REA 4.1.0 아래 다운로드 가능한 예제에서. 소스 위치는 채널 및 핸들러 검색 결과와 함께 제공됩니다."
+"Recorded by Ghostwire 4.1.0 on the downloadable example below. Source "
+"locations accompany the API, channel and handler findings."
+msgstr ""
+"녹음된 Ghostwire 4.1.0 아래 다운로드 가능한 예제에서. 소스 위치는 채널 및 핸들러 검색 결과와 함께 제공됩니다."
 
 #: website/public/guides/javascript/index.html:375
 msgctxt "page:guides/javascript/index.html"
@@ -4892,7 +4785,7 @@ msgstr ""
 msgctxt "page:guides/javascript/index.html"
 msgid ""
 "For your own app, use the same command with its directory or ASAR path. An "
-"agent can follow a literal string, API name or IPC channel with REA's "
+"agent can follow a literal string, API name or IPC channel with Ghostwire's "
 "feature tracing tools."
 msgstr ""
 "자신의 앱의 경우 디렉터리와 동일한 명령을 사용하거나 ASAR 경로. 에이전트는 다음과 같이 리터럴 문자열,이름 또는 채널을 따를 수 "
@@ -4962,14 +4855,14 @@ msgstr "{ph0}기본 함수 따르기{ph1}{ph2}기능이 네이티브 코드에 �
 
 #: website/public/guides/javascript/index.html:6
 msgctxt "page:guides/javascript/index.html"
-msgid "JavaScript and Electron Analysis — REA"
-msgstr "JavaScript및Electron분석—REA"
+msgid "JavaScript and Electron Analysis — Ghostwire"
+msgstr "JavaScript및Electron분석—Ghostwire"
 
 #: website/public/guides/javascript/index.html:7
 msgctxt "page:guides/javascript/index.html"
 msgid ""
 "Trace a Notes CSV export through a renderer API, preload and IPC handler "
-"with REA. Includes downloadable example files and a verified analysis "
+"with Ghostwire. Includes downloadable example files and a verified analysis "
 "result."
 msgstr ""
 "추적 NotesCSV수출을 통해 렌더러 API,미리 로드하고 IPC 처리기REA. 다운로드 가능한 예제 파일과 검증 된 분석 결과를 "
@@ -5055,8 +4948,8 @@ msgstr "{ph0}당신의 에이전트를 물어{ph1}"
 #: website/public/guides/native/index.html:211
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
-msgid "{ph0}Read the REA results{ph1}"
-msgstr "{ph0}읽기 REA 결과{ph1}"
+msgid "{ph0}Read the Ghostwire results{ph1}"
+msgstr "{ph0}읽기 Ghostwire 결과{ph1}"
 
 #. {ph0}: <a href="#result">
 #. {ph1}: </a>
@@ -5093,11 +4986,11 @@ msgstr "그 안에 DX-Ball,벽돌 타격은 수평 화면 위치를 제공합니
 msgctxt "page:guides/native/index.html"
 msgid ""
 "The starting function, {ph0}, has a short decompiler result: a call to "
-"{ph1}. REA also returns its instructions and callers, which give the agent a"
-" way to investigate the missing arithmetic."
+"{ph1}. Ghostwire also returns its instructions and callers, which give the "
+"agent a way to investigate the missing arithmetic."
 msgstr ""
-"시작 기능, {ph0},짧은 디컴파일러 결과가 있습니다. {ph1}. REA 또한 지시 사항과 호출자를 반환합니다.이는 에이전트에게 "
-"누락된 계산을 조사하는 방법을 제공합니다."
+"시작 기능, {ph0},짧은 디컴파일러 결과가 있습니다. {ph1}. Ghostwire 또한 지시 사항과 호출자를 반환합니다.이는 "
+"에이전트에게 누락된 계산을 조사하는 방법을 제공합니다."
 
 #: website/public/guides/native/index.html:230
 msgctxt "page:guides/native/index.html"
@@ -5217,9 +5110,9 @@ msgstr ""
 #: website/public/guides/native/index.html:289
 msgctxt "page:guides/native/index.html"
 msgid ""
-"REA supplies the instructions, call relationship and bytes. The agent "
+"Ghostwire supplies the instructions, call relationship and bytes. The agent "
 "interprets them together."
-msgstr "REA 명령어,호출 관계 및 바이트를 제공합니다. 에이전트는 그들을 함께 해석합니다."
+msgstr "Ghostwire 명령어,호출 관계 및 바이트를 제공합니다. 에이전트는 그들을 함께 해석합니다."
 
 #: website/public/guides/native/index.html:296
 msgctxt "page:guides/native/index.html"
@@ -5234,11 +5127,11 @@ msgstr "행동에 대해 물어보십시오"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"After {ph0}connecting REA to your agent{ph1} and {ph2}setting up a native "
-"analysis tool{ph3}, provide the local executable and a question:"
+"After {ph0}connecting Ghostwire to your agent{ph1} and {ph2}setting up a "
+"native analysis tool{ph3}, provide the local executable and a question:"
 msgstr ""
-"그 후 {ph0}연결 REA 당신의 대리인에게{ph1} 그리고 {ph2}기본 분석 도구 설정{ph3},로컬 실행 파일 및 질문을 "
-"제공합니다:"
+"그 후 {ph0}연결 Ghostwire 당신의 대리인에게{ph1} 그리고 {ph2}기본 분석 도구 설정{ph3},로컬 실행 파일 및 "
+"질문을 제공합니다:"
 
 #: website/public/guides/native/index.html:308
 msgctxt "page:guides/native/index.html"
@@ -5247,8 +5140,8 @@ msgstr "어떤 분석 도구를 사용해야합니까?"
 
 #: website/public/guides/native/index.html:309
 msgctxt "page:guides/native/index.html"
-msgid "REA needs one of these to read native programs:"
-msgstr "REA 기본 프로그램을 읽기 위해 이들 중 하나가 필요합니다:"
+msgid "Ghostwire needs one of these to read native programs:"
+msgstr "Ghostwire 기본 프로그램을 읽기 위해 이들 중 하나가 필요합니다:"
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -5256,8 +5149,8 @@ msgstr "REA 기본 프로그램을 읽기 위해 이들 중 하나가 필요합�
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"{ph0}Hopper{ph1} (macOS or Linux): REA's setup detects it or offers to "
-"install it. On macOS, open Hopper once and choose demo mode or activate a "
+"{ph0}Hopper{ph1} (macOS or Linux): Ghostwire's setup detects it or offers to"
+" install it. On macOS, open Hopper once and choose demo mode or activate a "
 "license before your first analysis."
 msgstr ""
 "{ph0}Hopper{ph1} (macOS 또는 Linux): REA설치 프로그램에서 감지하거나 설치하도록 제안합니다. 시작 "
@@ -5322,21 +5215,21 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how DX-Ball calculates sound panning. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how DX-Ball calculates sound panning. "
 "Explain the calculation and show the code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 방법을 찾으려면 DX-Ball 사운드 패닝을 계산합니다. 계산을 설명하고 코드를 "
+"{ph0}›{ph1}{ph2}사용 Ghostwire 방법을 찾으려면 DX-Ball 사운드 패닝을 계산합니다. 계산을 설명하고 코드를 "
 "보여줍니다.{ph3}{ph4}{ph5}"
 
 #: website/public/guides/native/index.html:356
 msgctxt "page:guides/native/index.html"
 msgid ""
 "Example prompt. Give your agent the path to your local DX-Ball 1.07 "
-"executable. REA doesn't include DX-Ball, so use your own copy, or ask the "
-"same kind of question about another small Windows program you have."
+"executable. Ghostwire doesn't include DX-Ball, so use your own copy, or ask "
+"the same kind of question about another small Windows program you have."
 msgstr ""
-"예 프롬프트. 너의 대리인에게 너의 지방 주민에 경로를 주십시요 DX-Ball 1.07 실행 파일. REA 포함하지 않습니다 DX-"
-"Ball,그래서 당신 신 사,또는 다른 대 문 같 류 Windows 당신이 가진 프로그램."
+"예 프롬프트. 너의 대리인에게 너의 지방 주민에 경로를 주십시요 DX-Ball 1.07 실행 파일. Ghostwire 포함하지 않습니다 "
+"DX-Ball,그래서 당신 신 사,또는 다른 대 문 같 류 Windows 당신이 가진 프로그램."
 
 #: website/public/guides/native/index.html:363
 msgctxt "page:guides/native/index.html"
@@ -5383,7 +5276,7 @@ msgstr "{ph0}모든 시스템:{ph1} 파일을 터미널 창으로 드래그하�
 
 #: website/public/guides/native/index.html:382
 msgctxt "page:guides/native/index.html"
-msgid "Read the REA results"
+msgid "Read the Ghostwire results"
 msgstr "읽REA결과"
 
 #: website/public/guides/native/index.html:383
@@ -5408,10 +5301,12 @@ msgstr "호출하는 함수 팔로우"
 #, python-brace-format
 msgctxt "page:guides/native/index.html"
 msgid ""
-"REA identifies the brick-hit caller. Its earlier instructions multiply the "
-"tile coordinate by 30; adding {ph0} (20) gives the brick's screen position."
+"Ghostwire identifies the brick-hit caller. Its earlier instructions multiply"
+" the tile coordinate by 30; adding {ph0} (20) gives the brick's screen "
+"position."
 msgstr ""
-"REA 브릭 히트 호출자를 식별합니다. 이전 명령은 타일 좌표에 30 을 곱합니다. {ph0} (20)벽돌의 화면 위치를 제공합니다."
+"Ghostwire 브릭 히트 호출자를 식별합니다. 이전 명령은 타일 좌표에 30 을 곱합니다. {ph0} (20)벽돌의 화면 위치를 "
+"제공합니다."
 
 #: website/public/guides/native/index.html:411
 msgctxt "page:guides/native/index.html"
@@ -5443,9 +5338,9 @@ msgstr ""
 #: website/public/guides/native/index.html:443
 msgctxt "page:guides/native/index.html"
 msgid ""
-"The agent used REA's findings to write the C. Separate checks compared 3,205"
-" inputs against the original x86 function and reproduced all 63 compiled "
-"bytes of the complete function."
+"The agent used Ghostwire's findings to write the C. Separate checks compared"
+" 3,205 inputs against the original x86 function and reproduced all 63 "
+"compiled bytes of the complete function."
 msgstr ""
 "사용 된 에이전트 REA3,205 개의 입력을 원래의 86 함수와 비교하고 전체 함수의 63 개의 컴파일된 바이트를 모두 재현했습니다."
 
@@ -5511,15 +5406,15 @@ msgstr ""
 
 #: website/public/guides/native/index.html:6
 msgctxt "page:guides/native/index.html"
-msgid "Native Binary Analysis — REA"
-msgstr "네이티브 바이너리 분석 — REA"
+msgid "Native Binary Analysis — Ghostwire"
+msgstr "네이티브 바이너리 분석 — Ghostwire"
 
 #: website/public/guides/native/index.html:7
 msgctxt "page:guides/native/index.html"
 msgid ""
-"Recover a native calculation with REA: inspect instructions, follow a "
+"Recover a native calculation with Ghostwire: inspect instructions, follow a "
 "caller, read constants and check reconstructed C."
-msgstr "기본 계산 복구 REA:지시 사항을 검사하고,호출하는 함수를 따르고,상수를 읽고 재구성 된 것을 확인하십시오."
+msgstr "기본 계산 복구 Ghostwire:지시 사항을 검사하고,호출하는 함수를 따르고,상수를 읽고 재구성 된 것을 확인하십시오."
 
 #: website/public/guides/native/index.html:206
 msgctxt "page:guides/native/index.html"
@@ -5559,7 +5454,7 @@ msgstr "이 페이지에"
 
 #: website/public/index.html:199 website/public/index.html:253
 msgctxt "page:index.html"
-msgid "Set up REA"
+msgid "Set up Ghostwire"
 msgstr "설정REA"
 
 #. {ph0}: <a href="#setup" aria-current="location">
@@ -5567,8 +5462,8 @@ msgstr "설정REA"
 #: website/public/index.html:210
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}Set up REA{ph1}"
-msgstr "{ph0}설정 REA{ph1}"
+msgid "{ph0}Set up Ghostwire{ph1}"
+msgstr "{ph0}설정 Ghostwire{ph1}"
 
 #. {ph0}: <a href="#what-is-re">
 #. {ph1}: </a>
@@ -5583,7 +5478,7 @@ msgstr "{ph0}다시 무엇입니까?{ph1}"
 #: website/public/index.html:212
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}How REA helps{ph1}"
+msgid "{ph0}How Ghostwire helps{ph1}"
 msgstr "{ph0}REA가 돕는 방법{ph1}"
 
 #. {ph0}: <a href="#dinosaur">
@@ -5607,8 +5502,8 @@ msgstr "{ph0}계산기{ph1}"
 #: website/public/index.html:215
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "{ph0}Try REA{ph1}"
-msgstr "{ph0}시도해봐 REA{ph1}"
+msgid "{ph0}Try Ghostwire{ph1}"
+msgstr "{ph0}시도해봐 Ghostwire{ph1}"
 
 #. {ph0}: <a href="#analyze">
 #. {ph1}: </a>
@@ -5649,8 +5544,8 @@ msgstr "소프트웨어가{ph0}어떻게 작동하는지 알아보세요."
 #: website/public/index.html:229
 msgctxt "page:index.html"
 msgid ""
-"REA gives your agent the tools to inspect a program and explain what it "
-"does."
+"Ghostwire gives your agent the tools to inspect a program and explain what "
+"it does."
 msgstr "REA는 코딩 에이전트가 프로그램을 조사하고 동작을 설명할 수 있도록 분석 도구를 제공합니다."
 
 #. {ph0}: <a href="#analysis-guides">
@@ -5739,8 +5634,8 @@ msgstr "목표:충분히 기능을 이해 {ph0}그것을 설명{ph1}, {ph2}변�
 #: website/public/index.html:332
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "Before REA · You investigate it {ph0}yourself{ph1}"
-msgstr "REA 사용 전 · {ph0}직접{ph1} 조사합니다"
+msgid "Before Ghostwire · You investigate it {ph0}yourself{ph1}"
+msgstr "Ghostwire 사용 전 · {ph0}직접{ph1} 조사합니다"
 
 #. {ph0}: <span>
 #. {ph1}: </span>
@@ -5871,8 +5766,8 @@ msgstr "{ph0}당신은 명령을 디코딩 함수 호출을 따라 계산을 재
 #: website/public/index.html:484
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "With REA · You ask {ph0}your agent{ph1}"
-msgstr "REA 사용 시 · {ph0}에이전트{ph1}에게 묻습니다"
+msgid "With Ghostwire · You ask {ph0}your agent{ph1}"
+msgstr "Ghostwire 사용 시 · {ph0}에이전트{ph1}에게 묻습니다"
 
 #: website/public/index.html:488
 msgctxt "page:index.html"
@@ -5917,7 +5812,7 @@ msgstr "+후,%버튼이 걸립니다 {ph0}첫 번째 숫자의 백분율.{ph1}"
 
 #: website/public/index.html:531
 msgctxt "page:index.html"
-msgid "REA supplies"
+msgid "Ghostwire supplies"
 msgstr "REA가 제공하는 정보"
 
 #: website/public/index.html:532
@@ -6042,7 +5937,7 @@ msgstr "사용JavaScript을 재생하는 재건. 위의 코드와 설명은 읽�
 
 #: website/public/index.html:653 website/public/index.html:883
 msgctxt "page:index.html"
-msgid "REA returned"
+msgid "Ghostwire returned"
 msgstr "REA가 반환한 결과"
 
 #. {ph0}: <strong>
@@ -6081,12 +5976,12 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}예제 프롬프트*공룡 게�
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect this dinosaur game. Why does it get "
-"faster? Show the speed rule, then build a small version with an adjustable "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect this dinosaur game. Why does it get"
+" faster? Show the speed rule, then build a small version with an adjustable "
 "speed.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 이 공룡 게임을 검사합니다. 왜 더 빨리 얻을 수 있습니까? 속도 규칙을 표시 한 다음 조정 "
-"가능한 속도로 작은 버전을 만듭니다.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 이 공룡 게임을 검사합니다. 왜 더 빨리 얻을 수 있습니까? 속도 규칙을 표시 한 "
+"다음 조정 가능한 속도로 작은 버전을 만듭니다.{ph3}{ph4}{ph5}"
 
 #. {ph0}: <a href="https://wayou.github.io/t-rex-runner/" >
 #. {ph1}: </a >
@@ -6131,10 +6026,10 @@ msgstr "각 부분이 하는 일"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}01 · REA{ph1}{ph2}Read the running game’s script{ph3}{ph4}Return its "
-"actual code and settings to the agent.{ph5}"
+"{ph0}01 · Ghostwire{ph1}{ph2}Read the running game’s script{ph3}{ph4}Return "
+"its actual code and settings to the agent.{ph5}"
 msgstr ""
-"{ph0}01 · REA{ph1}{ph2}실행중인 게임의 스크립트 읽기{ph3}{ph4}실제 코드와 설정을 에이전트에 "
+"{ph0}01 · Ghostwire{ph1}{ph2}실행중인 게임의 스크립트 읽기{ph3}{ph4}실제 코드와 설정을 에이전트에 "
 "반환합니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
@@ -6178,11 +6073,11 @@ msgstr "스크립트,검사 및 분석 시도 방법을 참조하십시오"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"REA inspected the HTTP browser edition through a local debugging connection "
-"and returned the loaded {ph0}, including its source and digest."
+"Ghostwire inspected the HTTP browser edition through a local debugging "
+"connection and returned the loaded {ph0}, including its source and digest."
 msgstr ""
-"REA 로컬 디버깅 연결을 통해 <URL> 브라우저 버전을 검사하고 로드된 버전을 반환했습니다. {ph0},그 원천과 다이제스트를 "
-"포함합니다."
+"Ghostwire 로컬 디버깅 연결을 통해 <URL> 브라우저 버전을 검사하고 로드된 버전을 반환했습니다. {ph0},그 원천과 "
+"다이제스트를 포함합니다."
 
 #: website/public/index.html:757
 msgctxt "page:index.html"
@@ -6331,12 +6226,12 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}예제 프롬프트*%단추 다�
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator’s % button. Recover "
-"the rules after + and ×, then build a small calculator that uses "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator’s % button. "
+"Recover the rules after + and ×, then build a small calculator that uses "
 "both.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 검사 Windows 계산기의%버튼. +와 200 이후의 규칙을 복구 한 다음 둘 다 사용하는 "
-"작은 계산기를 만듭니다.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 검사 Windows 계산기의%버튼. +와 200 이후의 규칙을 복구 한 다음 둘 다 "
+"사용하는 작은 계산기를 만듭니다.{ph3}{ph4}{ph5}"
 
 #: website/public/index.html:933
 msgctxt "page:index.html"
@@ -6382,12 +6277,12 @@ msgstr "설치된 앱에서 작동%버튼으로"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}02 · REA reads the library{ph1}{ph2}Return the % handler’s "
+"{ph0}02 · Ghostwire reads the library{ph1}{ph2}Return the % handler’s "
 "code{ph3}{ph4}The function checks the operator and uses the constant "
 "{ph5}.{ph6}"
 msgstr ""
-"{ph0}02 · REA 도서관 읽기{ph1}{ph2}%핸들러의 코드를 반환합니다{ph3}{ph4}이 함수는 연산자를 확인하고 상수를 "
-"사용합니다 {ph5}.{ph6}"
+"{ph0}02 · Ghostwire 도서관 읽기{ph1}{ph2}%핸들러의 코드를 반환합니다{ph3}{ph4}이 함수는 연산자를 확인하고"
+" 상수를 사용합니다 {ph5}.{ph6}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -6414,9 +6309,9 @@ msgstr "실제 코드 및 답변 확인 방법 보기"
 #: website/public/index.html:1008
 msgctxt "page:index.html"
 msgid ""
-"Inspected with REA 4.1.0: Windows Calculator 11.2508.4.0, x64. The readable "
-"summary uses names from Microsoft’s public source to explain the recovered "
-"branch."
+"Inspected with Ghostwire 4.1.0: Windows Calculator 11.2508.4.0, x64. The "
+"readable summary uses names from Microsoft’s public source to explain the "
+"recovered branch."
 msgstr ""
 "검사와REA4.1.0:Windows계산기 11.2508.4.0,x64. 읽을 수있는 요약은 복구 된 지점을 설명하기 위해 마이크로 "
 "소프트의 공개 소스에서 이름을 사용합니다."
@@ -6446,8 +6341,8 @@ msgstr "첫 번째 조사"
 
 #: website/public/index.html:1033
 msgctxt "page:index.html"
-msgid "Try REA on a small app."
-msgstr "시도해봐 REA 작은 응용 프로그램에."
+msgid "Try Ghostwire on a small app."
+msgstr "시도해봐 Ghostwire 작은 응용 프로그램에."
 
 #: website/public/index.html:1034
 msgctxt "page:index.html"
@@ -6474,12 +6369,12 @@ msgstr "더 깊이 알아보고 싶나요?"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"Tell your agent what you want to understand or build. With REA, you can work"
-" together on anything from {ph0}cloning this website{ph1} to "
+"Tell your agent what you want to understand or build. With Ghostwire, you "
+"can work together on anything from {ph0}cloning this website{ph1} to "
 "{ph2}reconstructing a game from its executable.{ph3}"
 msgstr ""
-"당신이 이해하거나 구축하고 싶은 당신의 에이전트를 말한다. 함께 REA,당신은 아무것도 함께 작업 할 수 있습니다 {ph0}이 웹 사이트"
-" 복제{ph1} 에 {ph2}실행 파일에서 게임을 재구성합니다.{ph3}"
+"당신이 이해하거나 구축하고 싶은 당신의 에이전트를 말한다. 함께 Ghostwire,당신은 아무것도 함께 작업 할 수 있습니다 {ph0}이"
+" 웹 사이트 복제{ph1} 에 {ph2}실행 파일에서 게임을 재구성합니다.{ph3}"
 
 #. {ph0}: <span class="terminal-dots" aria-hidden="true" >
 #. {ph1}: <i>
@@ -6525,12 +6420,12 @@ msgstr "{ph0}{ph1}{ph2}{ph3}{ph4}{ph5}{ph6}{ph7}예제 프롬프트*게임 재�
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to reconstruct this game from its executable. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to reconstruct this game from its executable. "
 "Recover the gameplay logic in C and test it against the "
 "original.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 이 게임을 실행 파일에서 재구성합니다. 다에서 게임 플레이 로직을 복구하고 원본에 대해 "
-"테스트합니다.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 이 게임을 실행 파일에서 재구성합니다. 다에서 게임 플레이 로직을 복구하고 원본에 "
+"대해 테스트합니다.{ph3}{ph4}{ph5}"
 
 #. {ph0}: <a href="showcase/dx-ball/">
 #. {ph1}: </a>
@@ -6625,27 +6520,29 @@ msgstr "커뮤니티 참여"
 #: website/public/index.html:1164
 msgctxt "page:index.html"
 msgid ""
-"Share investigations and get help from other REA users on Discord. Follow "
-"REA on X for project updates."
-msgstr "조사를 공유하고 다른 사람의 도움을 받으십시오 REA 사용자 Discord. 팔로우 REA 프로젝트 업데이트에 대한 엑스."
+"Share investigations and get help from other Ghostwire users on Discord. "
+"Follow Ghostwire on X for project updates."
+msgstr ""
+"조사를 공유하고 다른 사람의 도움을 받으십시오 Ghostwire 사용자 Discord. 팔로우 Ghostwire 프로젝트 업데이트에 대한"
+" 엑스."
 
 #: website/public/index.html:6
 msgctxt "page:index.html"
-msgid "REA — Reverse Engineering for Your Coding Agent"
-msgstr "REA -코딩 에이전트를 위한 리버스 엔지니어링"
+msgid "Ghostwire — Reverse Engineering for Your Coding Agent"
+msgstr "Ghostwire -코딩 에이전트를 위한 리버스 엔지니어링"
 
 #: website/public/index.html:7
 msgctxt "page:index.html"
 msgid ""
 "Reverse engineer apps, binaries and browser behavior with your coding agent."
-" Follow clear guides and try interactive examples with REA."
+" Follow clear guides and try interactive examples with Ghostwire."
 msgstr ""
 "코딩 에이전트를 사용하여 앱,바이너리 및 브라우저 동작을 리버스 엔지니어링합니다. 명확한 가이드를 따라 대화 형 예제를 사용해보십시오 "
-"REA."
+"Ghostwire."
 
 #: website/public/index.html:262
 msgctxt "page:index.html"
-msgid "Copy REA installation prompt"
+msgid "Copy Ghostwire installation prompt"
 msgstr "복사REA설치 프롬프트"
 
 #: website/public/index.html:284
@@ -6730,11 +6627,11 @@ msgstr "인증자는 어떻게{ph0}로그인 코드를 생성 하시겠습니까
 #: website/public/showcase/aegis/index.html:202
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"A six-digit code changes every 30 seconds. Use REA to find the calculation "
-"in an Android APK, then rebuild it with a clock you can control."
+"A six-digit code changes every 30 seconds. Use Ghostwire to find the "
+"calculation in an Android APK, then rebuild it with a clock you can control."
 msgstr ""
-"6 자리 코드는 30 초마다 변경됩니다. 사용 REA 안드로이드에서 계산을 찾으려면 APK,그리고 당신이 제어할 수 있는 시계로 다시 "
-"만들죠."
+"6 자리 코드는 30 초마다 변경됩니다. 사용 Ghostwire 안드로이드에서 계산을 찾으려면 APK,그리고 당신이 제어할 수 있는 "
+"시계로 다시 만들죠."
 
 #: website/public/showcase/aegis/index.html:207
 msgctxt "page:showcase/aegis/index.html"
@@ -6762,11 +6659,11 @@ msgstr "에서APK코드를 재현할 수 있습니다"
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
 "{ph0}01 · Locate the feature{ph1}{ph2}3,077 classes → generating "
-"methods{ph3}{ph4}REA searches the package and traces the code used by the "
-"display and copy actions.{ph5}"
+"methods{ph3}{ph4}Ghostwire searches the package and traces the code used by "
+"the display and copy actions.{ph5}"
 msgstr ""
-"{ph0}01*기능 찾기{ph1}{ph2}3,077 개의 클래스 생성 메소드 3,077 개의 클래스 생성 메소드{ph3}{ph4}REA "
-"패키지를 검색하고 표시 및 복사 작업에 사용되는 코드를 추적합니다.{ph5}"
+"{ph0}01*기능 찾기{ph1}{ph2}3,077 개의 클래스 생성 메소드 3,077 개의 클래스 생성 "
+"메소드{ph3}{ph4}Ghostwire 패키지를 검색하고 표시 및 복사 작업에 사용되는 코드를 추적합니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -6779,11 +6676,11 @@ msgstr ""
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
 "{ph0}02 · Read the calculation{ph1}{ph2}Time + account key → six "
-"digits{ph3}{ph4}REA returns the methods and defaults. The agent explains how"
-" they fit together.{ph5}"
+"digits{ph3}{ph4}Ghostwire returns the methods and defaults. The agent "
+"explains how they fit together.{ph5}"
 msgstr ""
-"{ph0}02*계산 읽기{ph1}{ph2}시간+계정 키 6 자리 숫자{ph3}{ph4}REA 메서드 및 기본값을 반환합니다. 에이전트는 "
-"그들이 어떻게 어울리는지 설명합니다.{ph5}"
+"{ph0}02*계산 읽기{ph1}{ph2}시간+계정 키 6 자리 숫자{ph3}{ph4}Ghostwire 메서드 및 기본값을 반환합니다. "
+"에이전트는 그들이 어떻게 어울리는지 설명합니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -6828,8 +6725,8 @@ msgstr "{ph0}코드 생성기 사용해보기{ph1}"
 #: website/public/showcase/aegis/index.html:252
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
-msgid "{ph0}Find the code with REA{ph1}"
-msgstr "{ph0}코드 찾기 REA{ph1}"
+msgid "{ph0}Find the code with Ghostwire{ph1}"
+msgstr "{ph0}코드 찾기 Ghostwire{ph1}"
 
 #. {ph0}: <a href="#calculation">
 #. {ph1}: </a>
@@ -6899,7 +6796,7 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"An example prompt for the downloaded APK, with REA's Android analysis "
+"An example prompt for the downloaded APK, with Ghostwire's Android analysis "
 "configured. {ph0}Get the APK and analysis setup ↓{ph1}"
 msgstr ""
 "다운로드한 APK를 분석하는 예시 프롬프트입니다. 먼저 REA의 Android 분석 환경을 설정하세요. {ph0}APK와 분석 설정 받기"
@@ -7024,7 +6921,7 @@ msgstr "다이어그램은 59 초에 결과를 보여줍니다. 활성화 JavaSc
 
 #: website/public/showcase/aegis/index.html:395
 msgctxt "page:showcase/aegis/index.html"
-msgid "Find the code with REA"
+msgid "Find the code with Ghostwire"
 msgstr "코드를 찾으로REA"
 
 #: website/public/showcase/aegis/index.html:398
@@ -7053,11 +6950,11 @@ msgstr "생성기를 앱의 디스플레이에 연결"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"REA identifies the timestamp overload and finds the base method's callers. "
-"Inspecting {ph0} then shows the display calling {ph1}."
+"Ghostwire identifies the timestamp overload and finds the base method's "
+"callers. Inspecting {ph0} then shows the display calling {ph1}."
 msgstr ""
-"REA 타임스탬프 오버로드를 식별하고 기본 메서드의 호출자를 찾습니다. 검사 {ph0} 그런 다음 디스플레이 호출을 보여줍니다 "
-"{ph1}."
+"Ghostwire 타임스탬프 오버로드를 식별하고 기본 메서드의 호출자를 찾습니다. 검사 {ph0} 그런 다음 디스플레이 호출을 보여줍니다"
+" {ph1}."
 
 #. {ph0}: <code>com.beemdevelopment.aegis</code>
 #: website/public/showcase/aegis/index.html:466
@@ -7079,12 +6976,12 @@ msgstr "계산 읽기"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"REA returns {ph0}the clock conversion, default settings and generating "
-"methods.{ph1} The constructors set a 30-second interval and six digits; the "
-"timestamp method turns seconds into a block number."
+"Ghostwire returns {ph0}the clock conversion, default settings and generating"
+" methods.{ph1} The constructors set a 30-second interval and six digits; the"
+" timestamp method turns seconds into a block number."
 msgstr ""
-"REA 반환 {ph0}시계 변환,기본 설정 및 생성 방법.{ph1} 생성자는 30 초 간격과 6 자리 숫자를 설정합니다.타임 스탬프 "
-"방법은 초를 블록 번호로 바꿉니다."
+"Ghostwire 반환 {ph0}시계 변환,기본 설정 및 생성 방법.{ph1} 생성자는 30 초 간격과 6 자리 숫자를 설정합니다.타임 "
+"스탬프 방법은 초를 블록 번호로 바꿉니다."
 
 #. {ph0}: <span>
 #. {ph1}: </span>
@@ -7172,11 +7069,11 @@ msgstr "발전기 내부"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"The released APK puts {ph0} in {ph1}. REA follows the call from {ph2} and "
-"returns this body; the original source calls the helper {ph3}."
+"The released APK puts {ph0} in {ph1}. Ghostwire follows the call from {ph2} "
+"and returns this body; the original source calls the helper {ph3}."
 msgstr ""
-"석방 된 사람 들 APK 풋 {ph0} 그 안에 {ph1}. REA 에서 함수 호출를 다음과 {ph2} 그리고 이 몸을 반환합니다.원래의"
-" 소스는 도우미를 호출합니다. {ph3}."
+"석방 된 사람 들 APK 풋 {ph0} 그 안에 {ph1}. Ghostwire 에서 함수 호출를 다음과 {ph2} 그리고 이 몸을 "
+"반환합니다.원래의 소스는 도우미를 호출합니다. {ph3}."
 
 #: website/public/showcase/aegis/index.html:616
 msgctxt "page:showcase/aegis/index.html"
@@ -7210,11 +7107,11 @@ msgstr "재건 확인"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"We assembled the selected REA-returned Java methods in a small test program."
-" Their output matched an independent reconstruction on {ph0}133 test "
-"cases{ph1}, including time-block boundaries and codes beginning with zero."
+"We assembled the selected Ghostwire-returned Java methods in a small test "
+"program. Their output matched an independent reconstruction on {ph0}133 test"
+" cases{ph1}, including time-block boundaries and codes beginning with zero."
 msgstr ""
-"우리는 선택한 것을 조립했습니다 REA-작은 테스트 프로그램에서 자바 메소드를 반환했습니다. 그들의 출력은 독립적인 재구성과 "
+"우리는 선택한 것을 조립했습니다 Ghostwire-작은 테스트 프로그램에서 자바 메소드를 반환했습니다. 그들의 출력은 독립적인 재구성과 "
 "일치했습니다. {ph0}133 테스트 케이스{ph1} 시간 블록 경계와 0 으로 시작하는 코드를 포함합니다."
 
 #: website/public/showcase/aegis/index.html:644
@@ -7284,10 +7181,10 @@ msgstr "검사 APK 너 자신"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"{ph0}Set up REA{ph1} on macOS or Linux, then download these two files into "
-"the same folder. On Windows, use a Linux environment such as WSL."
+"{ph0}Set up Ghostwire{ph1} on macOS or Linux, then download these two files "
+"into the same folder. On Windows, use a Linux environment such as WSL."
 msgstr ""
-"{ph0}설정 REA{ph1} 시작 macOS 또는 Linux 그런 다음 이 두 파일을 동일한 폴더에 다운로드합니다. 시작 "
+"{ph0}설정 Ghostwire{ph1} 시작 macOS 또는 Linux 그런 다음 이 두 파일을 동일한 폴더에 다운로드합니다. 시작 "
 "Windows,사용 Linux 같은 환경."
 
 #. {ph0}: <code>JAVA_HOME</code>
@@ -7302,8 +7199,8 @@ msgstr "안드로이드 분석은 전체 17 이상 필요합니다. 함께 선�
 
 #: website/public/showcase/aegis/index.html:730
 msgctxt "page:showcase/aegis/index.html"
-msgid "Point REA at the provider file and inspect the APK:"
-msgstr "포인트 REA 공급자 파일에서 검사 APK:"
+msgid "Point Ghostwire at the provider file and inspect the APK:"
+msgstr "포인트 Ghostwire 공급자 파일에서 검사 APK:"
 
 #: website/public/showcase/aegis/index.html:733
 msgctxt "page:showcase/aegis/index.html"
@@ -7315,11 +7212,11 @@ msgstr "macOS / Linux"
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Your agent can continue through REA's CLI using the prompt above. For MCP, "
-"add {ph0} to the REA server's environment and reconnect it."
+"Your agent can continue through Ghostwire's CLI using the prompt above. For "
+"MCP, add {ph0} to the Ghostwire server's environment and reconnect it."
 msgstr ""
-"에이전트를 통해 계속할 수 있습니다 REA의 CLI 위의 프롬프트를 사용하여. 에 대한 MCP,추가 {ph0} 에 REA 서버의 환경을 "
-"다시 연결합니다."
+"에이전트를 통해 계속할 수 있습니다 REA의 CLI 위의 프롬프트를 사용하여. 에 대한 MCP,추가 {ph0} 에 Ghostwire "
+"서버의 환경을 다시 연결합니다."
 
 #. {ph0}: <strong >
 #. {ph1}: </strong >
@@ -7368,23 +7265,23 @@ msgstr "{ph0}6238 참조 사례{ph1} · {ph2}데모 테스트 데이터{ph3}"
 #: website/public/showcase/aegis/index.html:788
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Inspected with REA 6.1.0 on 9 October 2026. Decompiled excerpts are credited"
-" to Aegis; the diagram, readable summary and browser reconstruction are new "
-"teaching material."
+"Inspected with Ghostwire 6.1.0 on 9 October 2026. Decompiled excerpts are "
+"credited to Aegis; the diagram, readable summary and browser reconstruction "
+"are new teaching material."
 msgstr ""
-"로 검열하는 REA 6.1.0 2026 년 10 월 9 일 분해된 부분들은 Aegis;다이어그램,읽을 수 있는 요약 및 브라우저 재구성은"
-" 새로운 교육 자료입니다."
+"로 검열하는 Ghostwire 6.1.0 2026 년 10 월 9 일 분해된 부분들은 Aegis;다이어그램,읽을 수 있는 요약 및 "
+"브라우저 재구성은 새로운 교육 자료입니다."
 
 #: website/public/showcase/aegis/index.html:6
 msgctxt "page:showcase/aegis/index.html"
-msgid "Aegis APK Reverse Engineering: Login Codes — REA"
-msgstr "Aegis APK 역공학 로그인 코드—REA"
+msgid "Aegis APK Reverse Engineering: Login Codes — Ghostwire"
+msgstr "Aegis APK 역공학 로그인 코드—Ghostwire"
 
 #: website/public/showcase/aegis/index.html:7
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"Inspect the Aegis Android APK with REA, recover its six-digit login-code "
-"calculation and try a reconstruction with an adjustable clock."
+"Inspect the Aegis Android APK with Ghostwire, recover its six-digit login-"
+"code calculation and try a reconstruction with an adjustable clock."
 msgstr "검사Aegis안드로이드APK와REA,복 그 자리에 로그인 코드 계산 하고 재건을 가진 조정가능한 시계입니다."
 
 #: website/public/showcase/aegis/index.html:247
@@ -7449,9 +7346,10 @@ msgstr "깃발 찾기{ph0}바이너리."
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Use REA to inspect a small flag checker, turn its rules into equations and "
-"find an input that makes the original program print {ph0}."
-msgstr "사용 REA 작은 플래그 검사기를 검사하려면 규칙을 방정식으로 바꾸고 원래 프로그램을 인쇄하는 입력을 찾으십시오 {ph0}."
+"Use Ghostwire to inspect a small flag checker, turn its rules into equations"
+" and find an input that makes the original program print {ph0}."
+msgstr ""
+"사용 Ghostwire 작은 플래그 검사기를 검사하려면 규칙을 방정식으로 바꾸고 원래 프로그램을 인쇄하는 입력을 찾으십시오 {ph0}."
 
 #: website/public/showcase/ctf/index.html:206
 msgctxt "page:showcase/ctf/index.html"
@@ -7478,12 +7376,12 @@ msgstr "바이너리에서 체크된 답으로"
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}01 · Find the check{ph1}{ph2}Strings → checking functions{ph3}{ph4}REA "
-"finds the prompt, its references and the code that accepts or rejects an "
-"input.{ph5}"
+"{ph0}01 · Find the check{ph1}{ph2}Strings → checking "
+"functions{ph3}{ph4}Ghostwire finds the prompt, its references and the code "
+"that accepts or rejects an input.{ph5}"
 msgstr ""
-"{ph0}01*수표 찾기{ph1}{ph2}문자열에 대한 자세한 내용은 문자열에 대한 정보를 참조하십시오.{ph3}{ph4}REA "
-"프롬프트,해당 참조 및 입력을 수락하거나 거부하는 코드를 찾습니다.{ph5}"
+"{ph0}01*수표 찾기{ph1}{ph2}문자열에 대한 자세한 내용은 문자열에 대한 정보를 "
+"참조하십시오.{ph3}{ph4}Ghostwire 프롬프트,해당 참조 및 입력을 수락하거나 거부하는 코드를 찾습니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -7495,12 +7393,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}02 · Extract the rules{ph1}{ph2}36 characters · 26 sums{ph3}{ph4}REA "
-"returns the instructions and data behind each check. The agent turns them "
-"into equations.{ph5}"
+"{ph0}02 · Extract the rules{ph1}{ph2}36 characters · 26 "
+"sums{ph3}{ph4}Ghostwire returns the instructions and data behind each check."
+" The agent turns them into equations.{ph5}"
 msgstr ""
-"{ph0}02*규칙 추출{ph1}{ph2}36 자*26 합계{ph3}{ph4}REA 각 검사 뒤에 있는 지침과 데이터를 반환합니다. "
-"에이전트는 그것들을 방정식으로 바꿉니다.{ph5}"
+"{ph0}02*규칙 추출{ph1}{ph2}36 자*26 합계{ph3}{ph4}Ghostwire 각 검사 뒤에 있는 지침과 데이터를 "
+"반환합니다. 에이전트는 그것들을 방정식으로 바꿉니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
 #. {ph1}: </span >
@@ -7513,11 +7411,11 @@ msgstr ""
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "{ph0}03 · Solve and run{ph1}{ph2}Recovered flag → Correct!{ph3}{ph4}A Python"
-" script solves the equations. REA captures the original program accepting "
-"the result.{ph5}"
+" script solves the equations. Ghostwire captures the original program "
+"accepting the result.{ph5}"
 msgstr ""
 "{ph0}03*해결 및 실행{ph1}{ph2}복구 된 플래그가 올바른지 확인하십시오!{ph3}{ph4}파이썬 스크립트는 방정식을 "
-"해결합니다. REA 결과를 받아들이는 원래 프로그램을 캡처합니다.{ph5}"
+"해결합니다. Ghostwire 결과를 받아들이는 원래 프로그램을 캡처합니다.{ph5}"
 
 #: website/public/showcase/ctf/index.html:244
 msgctxt "page:showcase/ctf/index.html"
@@ -7628,12 +7526,12 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to analyze ms_flag_checker and find the flag. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to analyze ms_flag_checker and find the flag. "
 "Explain how the checks work, then verify the answer with the original "
 "program.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 그리고 플래그를 찾을 수 있습니다. 검사가 어떻게 작동하는지 설명 한 다음 원래 프로그램으로 "
-"답을 확인하십시오.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 그리고 플래그를 찾을 수 있습니다. 검사가 어떻게 작동하는지 설명 한 다음 원래 "
+"프로그램으로 답을 확인하십시오.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/ctf/index.html:295
 msgctxt "page:showcase/ctf/index.html"
@@ -7675,11 +7573,12 @@ msgstr ""
 #: website/public/showcase/ctf/index.html:373
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"These are selected results from a fresh REA analysis. The local target path "
-"is shortened for display; addresses refer to REA's imported image."
+"These are selected results from a fresh Ghostwire analysis. The local target"
+" path is shortened for display; addresses refer to Ghostwire's imported "
+"image."
 msgstr ""
-"이들은 신선한 결과에서 선택된 결과입니다. REA 분석. 로컬 대상 경로는 표시를 위해 단축됩니다.주소는 다음을 참조합니다. REA가져온"
-" 이미지입니다."
+"이들은 신선한 결과에서 선택된 결과입니다. Ghostwire 분석. 로컬 대상 경로는 표시를 위해 단축됩니다.주소는 다음을 참조합니다. "
+"REA가져온 이미지입니다."
 
 #: website/public/showcase/ctf/index.html:381
 msgctxt "page:showcase/ctf/index.html"
@@ -7778,8 +7677,8 @@ msgstr "{ph0}05{ph1} 비교"
 
 #: website/public/showcase/ctf/index.html:495
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA · selected original instructions"
-msgstr "REA·선택한 원래의 지침"
+msgid "Ghostwire · selected original instructions"
+msgstr "Ghostwire·선택한 원래의 지침"
 
 #: website/public/showcase/ctf/index.html:519
 msgctxt "page:showcase/ctf/index.html"
@@ -7894,12 +7793,12 @@ msgstr "원래 프로그램으로 답을 확인"
 #, python-brace-format
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"REA's process capture records the original executable accepting the solved "
-"flag. Changing one selected character from {ph0} to {ph1} makes the first "
-"sum 1440 instead of 1441, and the program rejects it."
+"Ghostwire's process capture records the original executable accepting the "
+"solved flag. Changing one selected character from {ph0} to {ph1} makes the "
+"first sum 1440 instead of 1441, and the program rejects it."
 msgstr ""
-"REA'프로세스 캡처'는 해결된 플래그를 받아들이는 원래 실행 파일을 기록합니다. 에서 선택한 문자 하나를 변경 {ph0} 에 {ph1}"
-" 첫 번째 합계를 만든다 1440 대신 1441,프로그램은 그것을 거부."
+"Ghostwire'프로세스 캡처'는 해결된 플래그를 받아들이는 원래 실행 파일을 기록합니다. 에서 선택한 문자 하나를 변경 {ph0} 에"
+" {ph1} 첫 번째 합계를 만든다 1440 대신 1441,프로그램은 그것을 거부."
 
 #: website/public/showcase/ctf/index.html:640
 msgctxt "page:showcase/ctf/index.html"
@@ -7933,8 +7832,8 @@ msgstr "복구된 플래그 및 캡처된 출력 표시"
 
 #: website/public/showcase/ctf/index.html:663
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA · original program output"
-msgstr "REA·원래 출력 프로그램"
+msgid "Ghostwire · original program output"
+msgstr "Ghostwire·원래 출력 프로그램"
 
 #: website/public/showcase/ctf/index.html:664
 msgctxt "page:showcase/ctf/index.html"
@@ -7956,9 +7855,9 @@ msgstr "출처,대상 신원 및 분석 세부 정보"
 #: website/public/showcase/ctf/index.html:683
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Fresh analysis and two process captures on 8 October 2026, using REA 4.1.0 "
-"with Ghidra 12.1.4 on Linux x64. The binary is a stripped x86-64 ELF, 15,248"
-" bytes."
+"Fresh analysis and two process captures on 8 October 2026, using Ghostwire "
+"4.1.0 with Ghidra 12.1.4 on Linux x64. The binary is a stripped x86-64 ELF, "
+"15,248 bytes."
 msgstr ""
 "신선한 분석 및 두 개의 프로세스를 캡처에서 8 월 2026 를 사용하여,REA4.1.0 와Ghidra12.1.4 에Linuxx64. "
 "바이너리는 86-64 엘프,15,248 바이트입니다."
@@ -7968,8 +7867,9 @@ msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "The string references, functions and constants were inspected before reading"
 " the organizers' source or solution. The Python solver and the diagram were "
-"built from those REA results."
-msgstr "문자열 참조,함수 및 상수는 조직자의 소스 또는 솔루션을 읽기 전에 검사되었습니다. 파이썬 솔버와 다이어그램은 REA 결과."
+"built from those Ghostwire results."
+msgstr ""
+"문자열 참조,함수 및 상수는 조직자의 소스 또는 솔루션을 읽기 전에 검사되었습니다. 파이썬 솔버와 다이어그램은 Ghostwire 결과."
 
 #. {ph0}: <a
 #. href="https://github.com/DownUnderCTF/Challenges_2023_Public/blob/b48f83db2984bc7fa2ec7879a32d7efb1be8d333/rev/masked-
@@ -7988,9 +7888,10 @@ msgstr "문자열 참조,함수 및 상수는 조직자의 소스 또는 솔루�
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
 "{ph0}Compare with the organizers' source{ph1} · {ph2}Challenge metadata and "
-"flag{ph3} · {ph4}REA evidence notes{ph5}"
+"flag{ph3} · {ph4}Ghostwire evidence notes{ph5}"
 msgstr ""
-"{ph0}주최자의 출처와 비교{ph1} · {ph2}챌린지 메타데이터 및 플래그{ph3} · {ph4}REA 증거 노트{ph5}"
+"{ph0}주최자의 출처와 비교{ph1} · {ph2}챌린지 메타데이터 및 플래그{ph3} · {ph4}Ghostwire 증거 "
+"노트{ph5}"
 
 #: website/public/showcase/ctf/index.html:719
 msgctxt "page:showcase/ctf/index.html"
@@ -8024,18 +7925,18 @@ msgstr ""
 
 #: website/public/showcase/ctf/index.html:758
 msgctxt "page:showcase/ctf/index.html"
-msgid "Set up REA with your coding agent"
-msgstr "설정 REA 코딩 에이전트와 함께"
+msgid "Set up Ghostwire with your coding agent"
+msgstr "설정 Ghostwire 코딩 에이전트와 함께"
 
 #: website/public/showcase/ctf/index.html:6
 msgctxt "page:showcase/ctf/index.html"
-msgid "CTF Reverse Engineering: DownUnderCTF Flag Checker — REA"
-msgstr "리버스 엔지니어링:다운 언더 코드 플래그 검사기 — REA"
+msgid "CTF Reverse Engineering: DownUnderCTF Flag Checker — Ghostwire"
+msgstr "리버스 엔지니어링:다운 언더 코드 플래그 검사기 — Ghostwire"
 
 #: website/public/showcase/ctf/index.html:7
 msgctxt "page:showcase/ctf/index.html"
 msgid ""
-"Use REA to solve DownUnderCTF's masked squares flag checker. Find the "
+"Use Ghostwire to solve DownUnderCTF's masked squares flag checker. Find the "
 "checking functions, extract the masks and compare a recovered flag with the "
 "original program."
 msgstr ""
@@ -8138,16 +8039,16 @@ msgstr "재건 DX-Ball{ph0}실행 파일에서."
 #: website/public/showcase/dx-ball/index.html:201
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"The goal is a maintainable C version of the 1996 Windows game. REA helps the"
-" agent inspect the original, one function at a time."
+"The goal is a maintainable C version of the 1996 Windows game. Ghostwire "
+"helps the agent inspect the original, one function at a time."
 msgstr ""
 "목표는 1996년에 나온 Windows 게임을 유지보수 가능한 C 코드로 재구성하는 것입니다. REA는 에이전트가 원본 함수를 하나씩 "
 "분석하도록 돕습니다."
 
 #: website/public/showcase/dx-ball/index.html:205
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Windows i386 · C · REA"
-msgstr "Windowsi386·C·REA"
+msgid "Windows i386 · C · Ghostwire"
+msgstr "Windowsi386·C·Ghostwire"
 
 #. {ph0}: <a href="../../assets/figures/dx-ball-sound-pan-investigation.svg" >
 #. {ph1}: </a >
@@ -8155,12 +8056,12 @@ msgstr "Windowsi386·C·REA"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"One function, from executable to checked C. REA supplies the instructions, "
-"callers and data reads; the reconstruction project implements and tests the "
-"result. {ph0}Open figure{ph1}"
+"One function, from executable to checked C. Ghostwire supplies the "
+"instructions, callers and data reads; the reconstruction project implements "
+"and tests the result. {ph0}Open figure{ph1}"
 msgstr ""
-"하나의 기능,실행 파일에서 확인 된 C. REA 지침,호출자 및 데이터 읽기를 제공하고 재구성 프로젝트는 결과를 구현하고 테스트합니다. "
-"{ph0}열린 그림{ph1}"
+"하나의 기능,실행 파일에서 확인 된 C. Ghostwire 지침,호출자 및 데이터 읽기를 제공하고 재구성 프로젝트는 결과를 구현하고 "
+"테스트합니다. {ph0}열린 그림{ph1}"
 
 #: website/public/showcase/dx-ball/index.html:233
 msgctxt "page:showcase/dx-ball/index.html"
@@ -8293,27 +8194,28 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how DX-Ball calculates sound panning. "
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how DX-Ball calculates sound panning. "
 "Explain the calculation and show the code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 방법을 찾으려면 DX-Ball 사운드 패닝을 계산합니다. 계산을 설명하고 코드를 "
+"{ph0}›{ph1}{ph2}사용 Ghostwire 방법을 찾으려면 DX-Ball 사운드 패닝을 계산합니다. 계산을 설명하고 코드를 "
 "보여줍니다.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/dx-ball/index.html:309
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "An example prompt for your coding agent, with the local executable "
-"available. The investigation below shows the REA queries and evidence behind"
-" the answer."
-msgstr "로컬 실행 파일을 사용할 수 있는 코딩 에이전트에 대한 예제 프롬프트입니다. 아래의 조사는 REA 답변 뒤에 쿼리 및 증거."
+"available. The investigation below shows the Ghostwire queries and evidence "
+"behind the answer."
+msgstr ""
+"로컬 실행 파일을 사용할 수 있는 코딩 에이전트에 대한 예제 프롬프트입니다. 아래의 조사는 Ghostwire 답변 뒤에 쿼리 및 증거."
 
 # Reviewed for concrete meaning, software terminology and readable sentences.
 #: website/public/showcase/dx-ball/index.html:314
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"The agent used REA to inspect the function, follow its brick-hit caller and "
-"read the constants from the executable. Those results supplied the input and"
-" arithmetic needed to write the C function below."
+"The agent used Ghostwire to inspect the function, follow its brick-hit "
+"caller and read the constants from the executable. Those results supplied "
+"the input and arithmetic needed to write the C function below."
 msgstr ""
 "에이전트는 REA로 함수를 살펴보고, 벽돌 충돌 처리 함수가 이 함수를 어떻게 호출하는지 추적한 뒤 실행 파일의 상수를 읽었습니다. 이 "
 "결과로 입력과 계산 방법을 확인하고 아래의 C 함수를 작성했습니다."
@@ -8347,8 +8249,8 @@ msgstr "출력은 전환 호출을 보여줍니다. 아래의 지침을 읽는 �
 
 #: website/public/showcase/dx-ball/index.html:347
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Three questions answered through REA"
-msgstr "세 가지 질문에 대한 답변 REA"
+msgid "Three questions answered through Ghostwire"
+msgstr "세 가지 질문에 대한 답변 Ghostwire"
 
 #: website/public/showcase/dx-ball/index.html:350
 msgctxt "page:showcase/dx-ball/index.html"
@@ -8376,11 +8278,12 @@ msgstr "호출하는 함수를 따라 입력 내용을 파악합니다"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"REA identified this caller in the first result. Its preceding instructions "
-"scale {ph0} by 30; adding 20 gives the brick's screen coordinate, {ph1}."
+"Ghostwire identified this caller in the first result. Its preceding "
+"instructions scale {ph0} by 30; adding 20 gives the brick's screen "
+"coordinate, {ph1}."
 msgstr ""
-"REA 첫 번째 결과에서 이 호출자를 식별했습니다. 이전 명령어 스케일 {ph0} 30 으로;20 을 더하면 벽돌의 화면 좌표가 "
-"나옵니다, {ph1}."
+"Ghostwire 첫 번째 결과에서 이 호출자를 식별했습니다. 이전 명령어 스케일 {ph0} 30 으로;20 을 더하면 벽돌의 화면 "
+"좌표가 나옵니다, {ph1}."
 
 #: website/public/showcase/dx-ball/index.html:398
 msgctxt "page:showcase/dx-ball/index.html"
@@ -8396,7 +8299,7 @@ msgstr "반환된 바이트는 두 개의 산술 상수와 초기 팬 스케일�
 
 #: website/public/showcase/dx-ball/index.html:427
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "From REA's findings to C"
+msgid "From Ghostwire's findings to C"
 msgstr "에서REA's 결과 C"
 
 #: website/public/showcase/dx-ball/index.html:428
@@ -8465,13 +8368,13 @@ msgstr "재구성된"
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}01 · Read the input.{ph1} The instruction view in REA's function result"
-" reads {ph2} and uses {ph3} to load the integer. Following its caller "
-"through REA establishes the screen-coordinate meaning of the C parameter "
-"{ph4}."
+"{ph0}01 · Read the input.{ph1} The instruction view in Ghostwire's function "
+"result reads {ph2} and uses {ph3} to load the integer. Following its caller "
+"through Ghostwire establishes the screen-coordinate meaning of the C "
+"parameter {ph4}."
 msgstr ""
 "{ph0}01*입력을 읽습니다.{ph1} 명령어 뷰 REA함수 결과는 {ph2} 그리고 용도 {ph3} 정수를 로드합니다. 호출자를 따라"
-" REA 화면 좌표 의미 설정 다 매개 변수 {ph4}."
+" Ghostwire 화면 좌표 의미 설정 다 매개 변수 {ph4}."
 
 #. {ph0}: <strong>
 #. {ph1}: </strong>
@@ -8484,7 +8387,8 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}02 · Multiply by 1.5625.{ph1} {ph2} reads the double at {ph3}. The "
-"bytes returned by REA's {ph4} decode to {ph5}; the C uses the same constant."
+"bytes returned by Ghostwire's {ph4} decode to {ph5}; the C uses the same "
+"constant."
 msgstr ""
 "{ph0}02*1.5625 를 곱합니다.{ph1} {ph2} 더블을 읽습니다. {ph3}. 에 의해 반환 된 바이트 REA의 {ph4} "
 "로 디코딩 {ph5};씨 같은 상수를 사용합니다."
@@ -8499,8 +8403,8 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}03 · Subtract 500.0.{ph1} {ph2} reads the double at {ph3}. REA's byte "
-"result decodes to {ph4}, shifting the calculation's center to screen "
+"{ph0}03 · Subtract 500.0.{ph1} {ph2} reads the double at {ph3}. Ghostwire's "
+"byte result decodes to {ph4}, shifting the calculation's center to screen "
 "coordinate {ph5}."
 msgstr ""
 "{ph0}03*500.0 을 뺍니다.{ph1} {ph2} 더블을 읽습니다. {ph3}. REA의 바이트 결과는 {ph4},계산의 중심을 "
@@ -8517,8 +8421,8 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}04 · Apply the stored scale.{ph1} The second {ph2} reads {ph3}. That "
-"global is named {ph4} in the maintained source. REA's second byte read "
-"establishes its initial value of {ph5}."
+"global is named {ph4} in the maintained source. Ghostwire's second byte read"
+" establishes its initial value of {ph5}."
 msgstr ""
 "{ph0}04*저장된 스케일을 적용합니다.{ph1} 두 번째 {ph2} 읽는다 {ph3}. 그 글로벌은 {ph4} 유지된 소스에서 "
 "REA의 두 번째 바이트 읽기는 초기 값을 설정합니다 {ph5}."
@@ -8533,7 +8437,7 @@ msgstr ""
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
 "{ph0}05 · Return an integer.{ph1} The call at {ph2} reaches {ph3}, "
-"identified in REA's callee results. The C casts the result to {ph4}; "
+"identified in Ghostwire's callee results. The C casts the result to {ph4}; "
 "original-x86 comparisons check the returned value."
 msgstr ""
 "{ph0}05*정수를 반환합니다.{ph1} 함수 호출 {ph2} 도달 {ph3},확인된 REA수신자 결과입니다. 결과는 다음과 같습니다 "
@@ -8555,7 +8459,7 @@ msgstr "전체 조립 및 지원 증거"
 
 #: website/public/showcase/dx-ball/index.html:574
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA result · 0x406400–0x40643e"
+msgid "Ghostwire result · 0x406400–0x40643e"
 msgstr "REA결과·0x406400–0x40643e"
 
 #: website/public/showcase/dx-ball/index.html:608
@@ -8579,7 +8483,7 @@ msgstr "데이터 읽기 설정"
 
 #: website/public/showcase/dx-ball/index.html:626
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA byte reads, decoded as little-endian doubles"
+msgid "Ghostwire byte reads, decoded as little-endian doubles"
 msgstr "REA바이트를 읽고,디코딩으로 little-endian 복식"
 
 #: website/public/showcase/dx-ball/index.html:631
@@ -8622,9 +8526,10 @@ msgstr "저장된 팬 스케일"
 #: website/public/showcase/dx-ball/index.html:655
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"Recorded with REA 4.1.0 for the hash-pinned DX-Ball 1.07 target. The linked "
-"investigation notes retain the Evidence IDs."
-msgstr "녹음된 REA 4.1.0 해시 고정 DX-Ball 1.07 목표. 관련 조사 메모에는 증거 신분증이 남아 있습니다."
+"Recorded with Ghostwire 4.1.0 for the hash-pinned DX-Ball 1.07 target. The "
+"linked investigation notes retain the Evidence IDs."
+msgstr ""
+"녹음된 Ghostwire 4.1.0 해시 고정 DX-Ball 1.07 목표. 관련 조사 메모에는 증거 신분증이 남아 있습니다."
 
 #. {ph0}: <a href="https://github.com/N0zoM1z0/dx-
 #. ball/blob/a55dca27ec0a07018c1b2c95ae2be027f7d8c3c4/src/gameplay.c#L41" >
@@ -8750,10 +8655,11 @@ msgstr "{ph0}DX-Ball 저장소{ph1}{ph2}현재 소스,진행 및 로컬 설정.{
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"{ph0}REA analysis workflow{ph1}{ph2}Follow the calculation, then use the "
-"same approach with your own binary.{ph3}"
+"{ph0}Ghostwire analysis workflow{ph1}{ph2}Follow the calculation, then use "
+"the same approach with your own binary.{ph3}"
 msgstr ""
-"{ph0}REA 분석 워크플로우{ph1}{ph2}계산을 수행 한 다음 자신의 바이너리와 동일한 접근 방식을 사용하십시오.{ph3}"
+"{ph0}Ghostwire 분석 워크플로우{ph1}{ph2}계산을 수행 한 다음 자신의 바이너리와 동일한 접근 방식을 "
+"사용하십시오.{ph3}"
 
 #. {ph0}: <a href="https://github.com/N0zoM1z0/dx-
 #. ball/blob/a55dca27ec0a07018c1b2c95ae2be027f7d8c3c4/docs/ENTITIES_OWNER.md"
@@ -8771,15 +8677,16 @@ msgstr "{ph0}입자 및 보너스 생산{ph1}{ph2}상태,큐 및 픽셀 쓰기�
 
 #: website/public/showcase/dx-ball/index.html:6
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "DX-Ball Reverse Engineering: Sound Panning — REA"
-msgstr "DX-Ball리버스 엔지니어링:음 패닝—REA"
+msgid "DX-Ball Reverse Engineering: Sound Panning — Ghostwire"
+msgstr "DX-Ball리버스 엔지니어링:음 패닝—Ghostwire"
 
 #: website/public/showcase/dx-ball/index.html:7
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"Follow a DX-Ball reconstruction from binary analysis through REA to "
+"Follow a DX-Ball reconstruction from binary analysis through Ghostwire to "
 "maintained C, original-x86 tests and matching compiled function bytes."
-msgstr "따라 DX-Ball 재건에서 바이너리 분석을 통해 REA 을 유지되 C,원래-86 테스트와 일치하는 컴파일된 기능이다."
+msgstr ""
+"따라 DX-Ball 재건에서 바이너리 분석을 통해 Ghostwire 을 유지되 C,원래-86 테스트와 일치하는 컴파일된 기능이다."
 
 #: website/public/showcase/dx-ball/index.html:208
 msgctxt "page:showcase/dx-ball/index.html"
@@ -8790,11 +8697,11 @@ msgstr "DX-Ball 사운드 팬 조사;작은 화면에서 수평으로 스크롤"
 #: website/public/showcase/dx-ball/index.html:214
 msgctxt "page:showcase/dx-ball/index.html"
 msgid ""
-"DXBALL.EXE function 0x00406400 is inspected with REA. A brick-hit caller "
-"supplies 20 plus 30 times tile_x. Instructions load x, multiply by 1.5625, "
-"subtract 500.0, apply pan_scale and return an integer. The maintained C is "
-"checked independently against the original x86 in 3,205 cases and by VC4.0 "
-"compiler replay matching 63 bytes."
+"DXBALL.EXE function 0x00406400 is inspected with Ghostwire. A brick-hit "
+"caller supplies 20 plus 30 times tile_x. Instructions load x, multiply by "
+"1.5625, subtract 500.0, apply pan_scale and return an integer. The "
+"maintained C is checked independently against the original x86 in 3,205 "
+"cases and by VC4.0 compiler replay matching 63 bytes."
 msgstr ""
 "딕스볼EXE 기능 0x00406400 검사와REA. 명령어 로드 엑스,1.5625 곱하기,500.0 빼기,팬 스케일을 적용하고 정수를 "
 "반환합니다. 3,205 개의 경우에서 63 바이트와 일치하는 4.0 컴파일러 재생에 의해 원본 86 에 대해 독립적으로 검사됩니다."
@@ -8859,8 +8766,8 @@ msgstr "{ph0}홈{ph1} /쇼케이스"
 
 #: website/public/showcase/index.html:197
 msgctxt "page:showcase/index.html"
-msgid "REA case studies."
-msgstr "REA 사례 연구."
+msgid "Ghostwire case studies."
+msgstr "Ghostwire 사례 연구."
 
 #: website/public/showcase/index.html:198
 msgctxt "page:showcase/index.html"
@@ -8883,11 +8790,11 @@ msgstr "인증자가 로그인 코드를 생성하는 방법"
 msgctxt "page:showcase/index.html"
 msgid ""
 "Find Aegis's six-digit code calculation in its released APK. Trace the "
-"generating methods with REA, then move a demo clock to see why the code "
-"changes every 30 seconds."
+"generating methods with Ghostwire, then move a demo clock to see why the "
+"code changes every 30 seconds."
 msgstr ""
-"찾기 Aegis6 자리 코드 계산은 APK. 생성 방법을 추적 REA,다음 코드가 30 초마다 변경 이유를 확인하기 위해 데모 시계를 "
-"이동합니다."
+"찾기 Aegis6 자리 코드 계산은 APK. 생성 방법을 추적 Ghostwire,다음 코드가 30 초마다 변경 이유를 확인하기 위해 데모"
+" 시계를 이동합니다."
 
 #: website/public/showcase/index.html:219
 msgctxt "page:showcase/index.html"
@@ -8907,12 +8814,12 @@ msgstr "플래그 검사기 해결"
 #: website/public/showcase/index.html:226
 msgctxt "page:showcase/index.html"
 msgid ""
-"Inspect an easy DownUnderCTF challenge with REA. Find its checking "
+"Inspect an easy DownUnderCTF challenge with Ghostwire. Find its checking "
 "functions, turn masks and sums into equations, then verify the solved flag "
 "with the original program."
 msgstr ""
-"쉬운 다운 언더크트 도전을 검사합니다. REA. 그 검사 기능을 찾아 방정식으로 마스크와 합계를 설정 한 다음 원래 프로그램으로 해결 "
-"플래그를 확인합니다."
+"쉬운 다운 언더크트 도전을 검사합니다. Ghostwire. 그 검사 기능을 찾아 방정식으로 마스크와 합계를 설정 한 다음 원래 "
+"프로그램으로 해결 플래그를 확인합니다."
 
 #: website/public/showcase/index.html:237
 msgctxt "page:showcase/index.html"
@@ -8932,7 +8839,7 @@ msgstr "DX-Ball's 운 팬 계산"
 #: website/public/showcase/index.html:244
 msgctxt "page:showcase/index.html"
 msgid ""
-"Recover a sound-pan calculation from a 1996 Windows game. REA's "
+"Recover a sound-pan calculation from a 1996 Windows game. Ghostwire's "
 "instructions, caller references and numeric constants lead to a small C "
 "function, checked against the original behavior and all 63 compiled bytes."
 msgstr ""
@@ -8982,12 +8889,12 @@ msgstr "어떻게 TH04 총알의 반지를 목표로"
 #: website/public/showcase/index.html:281
 msgctxt "page:showcase/index.html"
 msgid ""
-"Inspect the original 16-bit angle helper with REA. Match its multiply, "
-"divide and coordinate operations to readable C++, then see how they produce "
-"a ring aimed at the player."
+"Inspect the original 16-bit angle helper with Ghostwire. Match its multiply,"
+" divide and coordinate operations to readable C++, then see how they produce"
+" a ring aimed at the player."
 msgstr ""
-"원래 16 비트 각도 도우미를 검사하십시오. REA. 그 곱하기,나누기 및 좌표 연산을 읽을 수있는 C++에 일치시킨 다음 플레이어를 "
-"겨냥한 링을 어떻게 생성하는지 확인하십시오."
+"원래 16 비트 각도 도우미를 검사하십시오. Ghostwire. 그 곱하기,나누기 및 좌표 연산을 읽을 수있는 C++에 일치시킨 다음 "
+"플레이어를 겨냥한 링을 어떻게 생성하는지 확인하십시오."
 
 #: website/public/showcase/index.html:292
 msgctxt "page:showcase/index.html"
@@ -9013,16 +8920,17 @@ msgstr "가이드 읽기"
 
 #: website/public/showcase/index.html:6
 msgctxt "page:showcase/index.html"
-msgid "Reverse Engineering Case Studies — REA"
-msgstr "리버스 엔지니어링 사례 연구—REA"
+msgid "Reverse Engineering Case Studies — Ghostwire"
+msgstr "리버스 엔지니어링 사례 연구—Ghostwire"
 
 #: website/public/showcase/index.html:7
 msgctxt "page:showcase/index.html"
 msgid ""
-"Follow REA investigations through code, figures and demos: an Android "
+"Follow Ghostwire investigations through code, figures and demos: an Android "
 "authenticator, DX-Ball, Notion, TH04 and a DownUnderCTF flag checker."
 msgstr ""
-"팔로우 REA 코드,그림 및 데모를 통한 조사:안드로이드 인증 자, DX-Ball, Notion, TH04 그리고 하향식 플래그 검사기."
+"팔로우 Ghostwire 코드,그림 및 데모를 통한 조사:안드로이드 인증 자, DX-Ball, Notion, TH04 그리고 하향식 "
+"플래그 검사기."
 
 #: website/public/showcase/index.html:319
 msgctxt "page:showcase/index.html"
@@ -9065,8 +8973,8 @@ msgstr "클립보드 호출 추적 Notion사전 로드 및 주요 프로세스�
 
 #: website/public/showcase/notion/index.html:205
 msgctxt "page:showcase/notion/index.html"
-msgid "Notion Desktop 7.6.1 · JavaScript · REA"
-msgstr "Notion데스크탑 7.6.1·JavaScript·REA"
+msgid "Notion Desktop 7.6.1 · JavaScript · Ghostwire"
+msgstr "Notion데스크탑 7.6.1·JavaScript·Ghostwire"
 
 #: website/public/showcase/notion/index.html:209
 msgctxt "page:showcase/notion/index.html"
@@ -9230,10 +9138,10 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to trace how Notion copies text and HTML to the "
-"system clipboard. Show the code at each step.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to trace how Notion copies text and HTML to "
+"the system clipboard. Show the code at each step.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 추적 방법 Notion 시스템 클립보드에 텍스트를 복사합니다. 각 단계에서 코드를 "
+"{ph0}›{ph1}{ph2}사용 Ghostwire 추적 방법 Notion 시스템 클립보드에 텍스트를 복사합니다. 각 단계에서 코드를 "
 "표시합니다.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/notion/index.html:291
@@ -9245,22 +9153,23 @@ msgstr "다음과 같은 예제 프롬프트 Notion코딩 에이전트가 사용
 
 #: website/public/showcase/notion/index.html:296
 msgctxt "page:showcase/notion/index.html"
-msgid "REA finds where to start reading"
-msgstr "REA 읽기 시작 위치 찾기"
+msgid "Ghostwire finds where to start reading"
+msgstr "Ghostwire 읽기 시작 위치 찾기"
 
 #: website/public/showcase/notion/index.html:297
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"Analyzing the tab preload with REA locates the API exposed to the page and "
-"the call that sends an IPC request. Both findings come with source ranges in"
-" the minified bundle:"
+"Analyzing the tab preload with Ghostwire locates the API exposed to the page"
+" and the call that sends an IPC request. Both findings come with source "
+"ranges in the minified bundle:"
 msgstr ""
-"탭 사전 로드 분석 REA 페이지 및 요청을 보내는 호출을 찾습니다. 두 결과 모두 축소 된 번들의 소스 범위와 함께 제공됩니다:"
+"탭 사전 로드 분석 Ghostwire 페이지 및 요청을 보내는 호출을 찾습니다. 두 결과 모두 축소 된 번들의 소스 범위와 함께 "
+"제공됩니다:"
 
 #: website/public/showcase/notion/index.html:303
 msgctxt "page:showcase/notion/index.html"
-msgid "REA findings → two places to open"
-msgstr "REA 연구 결과→두 가지 장소를 오픈"
+msgid "Ghostwire findings → two places to open"
+msgstr "Ghostwire 연구 결과→두 가지 장소를 오픈"
 
 #. {ph0}: <code>analyze_javascript_application</code>
 #: website/public/showcase/notion/index.html:318
@@ -9268,11 +9177,11 @@ msgstr "REA 연구 결과→두 가지 장소를 오픈"
 msgctxt "page:showcase/notion/index.html"
 msgid ""
 "Selected fields from a fresh {ph0} result on Notion's tab preload, recorded "
-"with REA 4.1.0. Positions use the original bundle's line and zero-based "
-"column."
+"with Ghostwire 4.1.0. Positions use the original bundle's line and zero-"
+"based column."
 msgstr ""
-"새 필드에서 선택한 필드 {ph0} 에 결과 Notion의 탭 사전 로드, REA 4.1.0. 위치는 원래 번들의 선과 0 기반 열을 "
-"사용합니다."
+"새 필드에서 선택한 필드 {ph0} 에 결과 Notion의 탭 사전 로드, Ghostwire 4.1.0. 위치는 원래 번들의 선과 0 "
+"기반 열을 사용합니다."
 
 #. {ph0}: <code>invokerInMain</code>
 #. {ph1}: <code class="notion-channel">notion:clipboard:write</code>
@@ -9509,13 +9418,14 @@ msgstr ""
 #: website/public/showcase/notion/index.html:581
 msgctxt "page:showcase/notion/index.html"
 msgid ""
-"The REA result shown here is a focused analysis of the saved tab preload, "
-"recorded with the published REA 4.1.0 package. It locates the API and invoke"
-" operation. The clipboard member and matching receiver are connected by "
-"reading their wrapper implementations in the package."
+"The Ghostwire result shown here is a focused analysis of the saved tab "
+"preload, recorded with the published Ghostwire 4.1.0 package. It locates the"
+" API and invoke operation. The clipboard member and matching receiver are "
+"connected by reading their wrapper implementations in the package."
 msgstr ""
-"그 REA 여기에 표시된 결과는 저장된 탭 사전로드에 대한 집중 분석이며 게시된 탭과 함께 기록됩니다. REA 4.1.0 패키지. 이 "
-"작업을 수행하려면 다음을 수행하십시오. 클립보드 멤버와 일치하는 수신기는 패키지에서 래퍼 구현을 읽음으로써 연결됩니다."
+"그 Ghostwire 여기에 표시된 결과는 저장된 탭 사전로드에 대한 집중 분석이며 게시된 탭과 함께 기록됩니다. Ghostwire "
+"4.1.0 패키지. 이 작업을 수행하려면 다음을 수행하십시오. 클립보드 멤버와 일치하는 수신기는 패키지에서 래퍼 구현을 읽음으로써 "
+"연결됩니다."
 
 #. {ph0}: <code>422457</code>
 #: website/public/showcase/notion/index.html:588
@@ -9556,8 +9466,8 @@ msgstr "{ph0}DX-Ball 재건{ph1}{ph2}기본 지침에 따라 체크 된 C 기능
 
 #: website/public/showcase/notion/index.html:6
 msgctxt "page:showcase/notion/index.html"
-msgid "Notion Electron Reverse Engineering: Clipboard — REA"
-msgstr "NotionElectron리버스 엔지니어링:클립보드—REA"
+msgid "Notion Electron Reverse Engineering: Clipboard — Ghostwire"
+msgstr "NotionElectron리버스 엔지니어링:클립보드—Ghostwire"
 
 #: website/public/showcase/notion/index.html:7
 msgctxt "page:showcase/notion/index.html"
@@ -9642,9 +9552,11 @@ msgstr "재구성 TH04의{ph0}총알 패턴."
 #: website/public/showcase/th04/index.html:201
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"A ring of bullets starts with a short angle calculation. Use REA to inspect "
-"the original DOS function, then follow its instructions into readable C++."
-msgstr "총알의 고리는 짧은 각도 계산으로 시작됩니다. 사용 REA 원래 도스 함수를 검사하려면 해당 지침을 따라 읽을 수 있습니다."
+"A ring of bullets starts with a short angle calculation. Use Ghostwire to "
+"inspect the original DOS function, then follow its instructions into "
+"readable C++."
+msgstr ""
+"총알의 고리는 짧은 각도 계산으로 시작됩니다. 사용 Ghostwire 원래 도스 함수를 검사하려면 해당 지침을 따라 읽을 수 있습니다."
 
 #: website/public/showcase/th04/index.html:206
 msgctxt "page:showcase/th04/index.html"
@@ -9686,11 +9598,11 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"{ph0}02 · Inspect with REA{ph1}{ph2}Instructions + "
+"{ph0}02 · Inspect with Ghostwire{ph1}{ph2}Instructions + "
 "references{ph3}{ph4}Verify the loaded DOS code and read the angle "
 "calculation from the executable.{ph5}"
 msgstr ""
-"{ph0}02*검사 REA{ph1}{ph2}지침+참조{ph3}{ph4}로드된 도스 코드를 확인하고 실행 파일에서 각도 계산을 "
+"{ph0}02*검사 Ghostwire{ph1}{ph2}지침+참조{ph3}{ph4}로드된 도스 코드를 확인하고 실행 파일에서 각도 계산을 "
 "읽습니다.{ph5}"
 
 #. {ph0}: <span class="flow-label">
@@ -9727,9 +9639,10 @@ msgstr ""
 #: website/public/showcase/th04/index.html:246
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"REA returns the original code and its analysis evidence. The TH04 project "
-"supplies the maintained source and compiler checks."
-msgstr "REA 원본 코드와 해당 분석 증거를 반환합니다. 그 TH04 프로젝트는 유지되는 소스 및 컴파일러 검사를 제공합니다."
+"Ghostwire returns the original code and its analysis evidence. The TH04 "
+"project supplies the maintained source and compiler checks."
+msgstr ""
+"Ghostwire 원본 코드와 해당 분석 증거를 반환합니다. 그 TH04 프로젝트는 유지되는 소스 및 컴파일러 검사를 제공합니다."
 
 #: website/public/showcase/th04/index.html:254
 msgctxt "page:showcase/th04/index.html"
@@ -9744,13 +9657,13 @@ msgctxt "page:showcase/th04/index.html"
 msgid "{ph0}The bullet ring{ph1}"
 msgstr "{ph0}총알 반지{ph1}"
 
-#. {ph0}: <a href="#rea">
+#. {ph0}: <a href="#ghostwire">
 #. {ph1}: </a>
 #: website/public/showcase/th04/index.html:257
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "{ph0}What REA returns{ph1}"
-msgstr "{ph0}무엇 REA 반환{ph1}"
+msgid "{ph0}What Ghostwire returns{ph1}"
+msgstr "{ph0}무엇 Ghostwire 반환{ph1}"
 
 #. {ph0}: <a href="#source">
 #. {ph1}: </a>
@@ -9823,11 +9736,12 @@ msgstr "복사"
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to find how TH04 creates a ring of bullets and aims "
-"it at the player. Explain the calculation and show the code.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to find how TH04 creates a ring of bullets and"
+" aims it at the player. Explain the calculation and show the "
+"code.{ph3}{ph4}{ph5}"
 msgstr ""
-"{ph0}›{ph1}{ph2}사용 REA 방법을 찾으려면 TH04 총알 반지를 만들어 플레이어를 겨냥합니다. 계산을 설명하고 코드를 "
-"보여줍니다.{ph3}{ph4}{ph5}"
+"{ph0}›{ph1}{ph2}사용 Ghostwire 방법을 찾으려면 TH04 총알 반지를 만들어 플레이어를 겨냥합니다. 계산을 설명하고 "
+"코드를 보여줍니다.{ph3}{ph4}{ph5}"
 
 #: website/public/showcase/th04/index.html:296
 msgctxt "page:showcase/th04/index.html"
@@ -9882,7 +9796,7 @@ msgstr "이 선은 난이도와 성능 조정 전에 패턴을 선택합니다. 
 
 #: website/public/showcase/th04/index.html:359
 msgctxt "page:showcase/th04/index.html"
-msgid "What REA returns"
+msgid "What Ghostwire returns"
 msgstr "WhatREA환"
 
 #. {ph0}: <code>bullet_velocity_and_angle_set()</code>
@@ -9891,11 +9805,11 @@ msgstr "WhatREA환"
 msgctxt "page:showcase/th04/index.html"
 msgid ""
 "We inspect {ph0}, the function that sets each bullet's velocity and angle. "
-"REA returns its instructions, pseudocode and references. Three parts of that"
-" result explain the pattern."
+"Ghostwire returns its instructions, pseudocode and references. Three parts "
+"of that result explain the pattern."
 msgstr ""
-"우리는 검사 {ph0} 각 총알의 속도와 각도를 설정하는 함수입니다. REA 명령어,의사 코드 및 참조를 반환합니다. 그 결과의 세 "
-"부분이 패턴을 설명합니다."
+"우리는 검사 {ph0} 각 총알의 속도와 각도를 설정하는 함수입니다. Ghostwire 명령어,의사 코드 및 참조를 반환합니다. 그 "
+"결과의 세 부분이 패턴을 설명합니다."
 
 #: website/public/showcase/th04/index.html:368
 msgctxt "page:showcase/th04/index.html"
@@ -9938,11 +9852,11 @@ msgctxt "page:showcase/th04/index.html"
 msgid ""
 "The instruction operands expose two coordinate differences and a direction "
 "helper. Its return value is added to the relative ring angle. Source names "
-"make those addresses readable; REA lets the agent check the original "
+"make those addresses readable; Ghostwire lets the agent check the original "
 "operations behind them."
 msgstr ""
 "명령 피연산자는 두 개의 좌표 차이와 방향 도우미를 노출합니다. 그것의 반환 값은 상대 링 각도에 추가됩니다. 소스 이름을 사용하면 해당"
-" 주소를 읽을 수 있습니다; REA 에이전트가 그 뒤에 있는 원래 작업을 확인할 수 있습니다."
+" 주소를 읽을 수 있습니다; Ghostwire 에이전트가 그 뒤에 있는 원래 작업을 확인할 수 있습니다."
 
 #: website/public/showcase/th04/index.html:454
 msgctxt "page:showcase/th04/index.html"
@@ -10001,8 +9915,8 @@ msgstr "{ph0}05{ph1} 제품 정보"
 
 #: website/public/showcase/th04/index.html:510
 msgctxt "page:showcase/th04/index.html"
-msgid "REA · original 16-bit instructions"
-msgstr "REA·기존 16 비트 지침"
+msgid "Ghostwire · original 16-bit instructions"
+msgstr "Ghostwire·기존 16 비트 지침"
 
 #: website/public/showcase/th04/index.html:544
 msgctxt "page:showcase/th04/index.html"
@@ -10187,7 +10101,7 @@ msgstr "도우미 항목"
 #: website/public/showcase/th04/index.html:701
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "{ph0} in REA's loaded image"
+msgid "{ph0} in Ghostwire's loaded image"
 msgstr "{ph0} 그 안에 REA로드 된 이미지"
 
 #: website/public/showcase/th04/index.html:704
@@ -10210,8 +10124,8 @@ msgstr "기록 된 코드 검사"
 
 #: website/public/showcase/th04/index.html:712
 msgctxt "page:showcase/th04/index.html"
-msgid "REA 4.1.0 · 7 October 2026"
-msgstr "REA 4.1.0·2026 년 10 월 7 일"
+msgid "Ghostwire 4.1.0 · 7 October 2026"
+msgstr "Ghostwire 4.1.0·2026 년 10 월 7 일"
 
 #: website/public/showcase/th04/index.html:717
 msgctxt "page:showcase/th04/index.html"
@@ -10227,13 +10141,13 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"REA verified the static DOS load image at load segment {ph0}. Its addresses "
-"describe that analysis image. The function result reports 503 body bytes in "
-"two ranges across a 517-byte span; the selected instructions above lie in "
-"those reported ranges."
+"Ghostwire verified the static DOS load image at load segment {ph0}. Its "
+"addresses describe that analysis image. The function result reports 503 body"
+" bytes in two ranges across a 517-byte span; the selected instructions above"
+" lie in those reported ranges."
 msgstr ""
-"REA 로드 세그먼트에서 정적 도스 로드 이미지 확인 {ph0}. 그 주소는 분석 이미지를 설명합니다. 함수 결과는 517 바이트 범위에"
-" 걸쳐 두 범위에서 503 개의 본문 바이트를 보고합니다.위의 선택된 명령은 보고된 범위에 있습니다."
+"Ghostwire 로드 세그먼트에서 정적 도스 로드 이미지 확인 {ph0}. 그 주소는 분석 이미지를 설명합니다. 함수 결과는 517 "
+"바이트 범위에 걸쳐 두 범위에서 503 개의 본문 바이트를 보고합니다.위의 선택된 명령은 보고된 범위에 있습니다."
 
 #. {ph0}: <code>0d72e980</code>
 #: website/public/showcase/th04/index.html:729
@@ -10242,13 +10156,13 @@ msgctxt "page:showcase/th04/index.html"
 msgid ""
 "The source names and compiler checks come from TH04 checkpoint {ph0}. "
 "Earlier reconstruction observations used the project's own analysis scripts;"
-" this page adds a fresh REA inspection of the same original target. The "
-"supplied game's identity is pinned by its repository manifest, with "
+" this page adds a fresh Ghostwire inspection of the same original target. "
+"The supplied game's identity is pinned by its repository manifest, with "
 "independent pristine-dump provenance still open."
 msgstr ""
 "소스 이름과 컴파일러 검사는 TH04 체크포인트 {ph0}. 이전 재구성 관측은 프로젝트의 자체 분석 스크립트를 사용했습니다.이 페이지는"
-" 신선한 REA 동일한 원래 대상의 검사. 제공된 게임의 신원은 저장소 매니페스트에 의해 고정되어 있으며 독립적인 원시 덤프 출처가 "
-"여전히 열려 있습니다."
+" 신선한 Ghostwire 동일한 원래 대상의 검사. 제공된 게임의 신원은 저장소 매니페스트에 의해 고정되어 있으며 독립적인 원시 덤프 "
+"출처가 여전히 열려 있습니다."
 
 #: website/public/showcase/th04/index.html:737
 msgctxt "page:showcase/th04/index.html"
@@ -10328,16 +10242,16 @@ msgstr "{ph0}현재 프로젝트 상태{ph1}{ph2}도스 검증 및 별도의 기
 
 #: website/public/showcase/th04/index.html:6
 msgctxt "page:showcase/th04/index.html"
-msgid "TH04 Reverse Engineering: DOS Bullet Patterns — REA"
-msgstr "TH04리버스 엔지니어링:DOS 탄 패턴—REA"
+msgid "TH04 Reverse Engineering: DOS Bullet Patterns — Ghostwire"
+msgstr "TH04리버스 엔지니어링:DOS 탄 패턴—Ghostwire"
 
 #: website/public/showcase/th04/index.html:7
 msgctxt "page:showcase/th04/index.html"
 msgid ""
-"Inspect TH04's original 16-bit DOS code with REA. Follow the assembly and "
-"recovered C++ to see how a ring of bullets is spaced and aimed at the "
+"Inspect TH04's original 16-bit DOS code with Ghostwire. Follow the assembly "
+"and recovered C++ to see how a ring of bullets is spaced and aimed at the "
 "player."
-msgstr "검사 TH04의 원래 16 비트 도스 코드 REA. 이 게임의 목표는 가능한 한 많은 적을 파괴하는 것입니다."
+msgstr "검사 TH04의 원래 16 비트 도스 코드 Ghostwire. 이 게임의 목표는 가능한 한 많은 적을 파괴하는 것입니다."
 
 #: website/public/showcase/th04/index.html:253
 msgctxt "page:showcase/th04/index.html"
@@ -10419,7 +10333,7 @@ msgstr "코드 선택. 그것을 복사 키보드를 사용합니다."
 #: website/public/assets/main.js:148
 #, python-brace-format
 msgctxt "runtime"
-msgid "REA on GitHub ({count})"
+msgid "Ghostwire on GitHub ({count})"
 msgstr "REA에GitHub({count})"
 
 #: website/public/assets/dino-demo.js:77
@@ -10620,10 +10534,10 @@ msgstr "DX-Ball사운드 팬 조사"
 #: website/public/assets/figures/dx-ball-sound-pan-investigation.svg:3
 msgctxt "figure:dx-ball-sound-pan-investigation.svg"
 msgid ""
-"REA provides the instruction, caller and byte-read evidence for one DX-Ball "
-"function. A stack input is multiplied by 1.5625, offset by 500, scaled, and "
-"converted to an integer. Maintained C is checked in 3,205 original-x86 cases"
-" and a separate 63-byte compiler replay."
+"Ghostwire provides the instruction, caller and byte-read evidence for one "
+"DX-Ball function. A stack input is multiplied by 1.5625, offset by 500, "
+"scaled, and converted to an integer. Maintained C is checked in 3,205 "
+"original-x86 cases and a separate 63-byte compiler replay."
 msgstr ""
 "REA제공하는 지시,호출하는 함수 및 바이트 읽기에 대한 증거 하나DX-Ball기능입니다. 스택 입력에 1.5625 를 곱하고,500 을"
 " 오프셋하고,크기를 조정하고,정수로 변환합니다. 3,205 개의 원본 86 케이스와 별도의 63 바이트 컴파일러 재생에서 확인됩니다."
@@ -10709,18 +10623,18 @@ msgstr "63바이트 일치"
 #: website/public/assets/figures/rea-investigation-flow.svg:2
 #: website/public/assets/figures/rea-investigation-flow.svg:22
 msgctxt "figure:rea-investigation-flow.svg"
-msgid "REA investigation flow"
+msgid "Ghostwire investigation flow"
 msgstr "REA흐름을 조사"
 
 #: website/public/assets/figures/rea-investigation-flow.svg:3
 msgctxt "figure:rea-investigation-flow.svg"
 msgid ""
-"Ask a question about a local target. REA inspects and traces through local "
-"analysis adapters, returns evidence, and supports follow-up questions as "
-"your agent explains, implements and tests."
+"Ask a question about a local target. Ghostwire inspects and traces through "
+"local analysis adapters, returns evidence, and supports follow-up questions "
+"as your agent explains, implements and tests."
 msgstr ""
-"지역 목표에 대해 질문하십시오. REA 로컬 분석 어댑터를 통해 검사 및 추적하고,증거를 반환하고,에이전트가 설명,구현 및 테스트 할 때"
-" 후속 질문을 지원합니다."
+"지역 목표에 대해 질문하십시오. Ghostwire 로컬 분석 어댑터를 통해 검사 및 추적하고,증거를 반환하고,에이전트가 설명,구현 및 "
+"테스트 할 때 후속 질문을 지원합니다."
 
 # Reviewed for technical meaning and concise diagram labels.
 #: website/public/assets/figures/rea-investigation-flow.svg:31
@@ -11029,8 +10943,8 @@ msgstr "X에서 팔로우"
 
 #: website/public/examples/dino-lab/index.html:308
 msgctxt "page:examples/dino-lab/index.html"
-msgid "REA · selected script source"
-msgstr "REA *선택한 스크립트 소스"
+msgid "Ghostwire · selected script source"
+msgstr "Ghostwire *선택한 스크립트 소스"
 
 #: website/public/first-investigation/index.html:376
 msgctxt "page:first-investigation/index.html"
@@ -11099,22 +11013,22 @@ msgstr "스크립트 내보내기"
 
 #: website/public/guides/javascript/index.html:359
 msgctxt "page:guides/javascript/index.html"
-msgid "REA result · summary.ipc excerpt"
+msgid "Ghostwire result · summary.ipc excerpt"
 msgstr "REA결과·요약입니다.발췌"
 
 #: website/public/guides/native/index.html:386
 msgctxt "page:guides/native/index.html"
-msgid "REA instruction excerpt · 0x406409"
+msgid "Ghostwire instruction excerpt · 0x406409"
 msgstr "REA명령 발췌·0x406409"
 
 #: website/public/guides/native/index.html:400
 msgctxt "page:guides/native/index.html"
-msgid "REA caller excerpt · 0x411f5b"
+msgid "Ghostwire caller excerpt · 0x411f5b"
 msgstr "REA자 발췌·0x411f5b"
 
 #: website/public/guides/native/index.html:414
 msgctxt "page:guides/native/index.html"
-msgid "REA byte results · interpreted as little-endian doubles"
+msgid "Ghostwire byte results · interpreted as little-endian doubles"
 msgstr "REA바이트로 결합하는 것으로 해석 little-endian 복식"
 
 #: website/public/guides/native/index.html:431
@@ -11124,8 +11038,8 @@ msgstr "복구 된 C*발췌"
 
 #: website/public/index.html:234
 msgctxt "page:index.html"
-msgid "See how REA works ↓"
-msgstr "REA 사용 방식 보기 ↓"
+msgid "See how Ghostwire works ↓"
+msgstr "Ghostwire 사용 방식 보기 ↓"
 
 #: website/public/index.html:241
 msgctxt "page:index.html"
@@ -11144,8 +11058,8 @@ msgstr "%처리기의 읽을 수 있는 요약"
 
 #: website/public/index.html:987
 msgctxt "page:index.html"
-msgid "REA · selected original instructions"
-msgstr "REA·선택한 원래의 지침"
+msgid "Ghostwire · selected original instructions"
+msgstr "Ghostwire·선택한 원래의 지침"
 
 #: website/public/index.html:998
 msgctxt "page:index.html"
@@ -11160,23 +11074,23 @@ msgstr "쨩챌쨔챈쨀"
 #: website/public/showcase/aegis/index.html:401
 #: website/public/showcase/aegis/index.html:433
 msgctxt "page:showcase/aegis/index.html"
-msgid "Agent → REA"
-msgstr "에이전트→REA"
+msgid "Agent → Ghostwire"
+msgstr "에이전트→Ghostwire"
 
 #: website/public/showcase/aegis/index.html:411
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA → agent · selected results"
-msgstr "REA→에이전트·선택한 결과"
+msgid "Ghostwire → agent · selected results"
+msgstr "Ghostwire→에이전트·선택한 결과"
 
 #: website/public/showcase/aegis/index.html:447
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA → agent · methods and callers"
-msgstr "REA→에이전트·방법과 호출하는 함수"
+msgid "Ghostwire → agent · methods and callers"
+msgstr "Ghostwire→에이전트·방법과 호출하는 함수"
 
 #: website/public/showcase/aegis/index.html:517
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA · selected decompiled Java"
-msgstr "REA·선택한 디컴파일된 Java"
+msgid "Ghostwire · selected decompiled Java"
+msgstr "Ghostwire·선택한 디컴파일된 Java"
 
 #: website/public/showcase/aegis/index.html:547
 msgctxt "page:showcase/aegis/index.html"
@@ -11185,8 +11099,8 @@ msgstr "읽을 수있는 요약*에이전트의 해석"
 
 #: website/public/showcase/aegis/index.html:602
 msgctxt "page:showcase/aegis/index.html"
-msgid "REA · generateOTP, complete body"
-msgstr "REA·generateOTP,완전한 신체"
+msgid "Ghostwire · generateOTP, complete body"
+msgstr "Ghostwire·generateOTP,완전한 신체"
 
 #: website/public/showcase/aegis/index.html:720
 msgctxt "page:showcase/aegis/index.html"
@@ -11201,28 +11115,28 @@ msgstr "안드로이드 분석 공급자 다운로드"
 #: website/public/showcase/ctf/index.html:304
 #: website/public/showcase/ctf/index.html:340
 msgctxt "page:showcase/ctf/index.html"
-msgid "Agent → REA"
-msgstr "에이전트→REA"
+msgid "Agent → Ghostwire"
+msgstr "에이전트→Ghostwire"
 
 #: website/public/showcase/ctf/index.html:320
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · selected results"
-msgstr "REA→에이전트·선택한 결과"
+msgid "Ghostwire → agent · selected results"
+msgstr "Ghostwire→에이전트·선택한 결과"
 
 #: website/public/showcase/ctf/index.html:352
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · selected instructions"
-msgstr "REA→에이전트·선택 지침"
+msgid "Ghostwire → agent · selected instructions"
+msgstr "Ghostwire→에이전트·선택 지침"
 
 #: website/public/showcase/ctf/index.html:415
 msgctxt "page:showcase/ctf/index.html"
-msgid "Agent → REA · read_bytes"
-msgstr "에이전트→REA·read_bytes"
+msgid "Agent → Ghostwire · read_bytes"
+msgstr "에이전트→Ghostwire·read_bytes"
 
 #: website/public/showcase/ctf/index.html:422
 msgctxt "page:showcase/ctf/index.html"
-msgid "REA → agent · seventh entries"
-msgstr "REA→agent·일곱 번째 항목"
+msgid "Ghostwire → agent · seventh entries"
+msgstr "Ghostwire→agent·일곱 번째 항목"
 
 #: website/public/showcase/ctf/index.html:690
 msgctxt "page:showcase/ctf/index.html"
@@ -11241,7 +11155,7 @@ msgstr "다운로드 솔버"
 
 #: website/public/showcase/dx-ball/index.html:331
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA result · pseudocode excerpt"
+msgid "Ghostwire result · pseudocode excerpt"
 msgstr "REA결과·의사 발췌문"
 
 #. {ph0}: <code>analyze_function</code>
@@ -11249,29 +11163,29 @@ msgstr "REA결과·의사 발췌문"
 #: website/public/showcase/dx-ball/index.html:378
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Agent → REA · {ph0}"
-msgstr "에이전트→ REA · {ph0}"
+msgid "Agent → Ghostwire · {ph0}"
+msgstr "에이전트→ Ghostwire · {ph0}"
 
 #: website/public/showcase/dx-ball/index.html:360
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA → agent · instruction excerpt"
-msgstr "REA→에이전트·사용법 발췌문"
+msgid "Ghostwire → agent · instruction excerpt"
+msgstr "Ghostwire→에이전트·사용법 발췌문"
 
 #: website/public/showcase/dx-ball/index.html:384
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA → agent · caller excerpt"
-msgstr "REA→agent·호출하는 함수 발췌문"
+msgid "Ghostwire → agent · caller excerpt"
+msgstr "Ghostwire→agent·호출하는 함수 발췌문"
 
 #. {ph0}: <code>read_bytes</code>
 #: website/public/showcase/dx-ball/index.html:402
 #, python-brace-format
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "Agent → REA · two {ph0} requests"
-msgstr "에이전트→ REA *두 {ph0} 요청"
+msgid "Agent → Ghostwire · two {ph0} requests"
+msgstr "에이전트→ Ghostwire *두 {ph0} 요청"
 
 #: website/public/showcase/dx-ball/index.html:412
 msgctxt "page:showcase/dx-ball/index.html"
-msgid "REA byte results · decoded as doubles"
+msgid "Ghostwire byte results · decoded as doubles"
 msgstr "REA결과의 바이트·디코딩으로 복식"
 
 #: website/public/showcase/dx-ball/index.html:765
@@ -11326,7 +11240,7 @@ msgstr "실행 가능"
 
 #: website/public/showcase/index.html:252
 msgctxt "page:showcase/index.html"
-msgid "REA findings"
+msgid "Ghostwire findings"
 msgstr "REA결과"
 
 #: website/public/showcase/index.html:253
@@ -11366,7 +11280,7 @@ msgstr "원래 도스 코드"
 
 #: website/public/showcase/index.html:288
 msgctxt "page:showcase/index.html"
-msgid "REA instructions"
+msgid "Ghostwire instructions"
 msgstr "REA지침"
 
 #: website/public/showcase/index.html:289
@@ -11416,25 +11330,25 @@ msgstr "자신의 앱 분석"
 
 #: website/public/showcase/th04/index.html:371
 msgctxt "page:showcase/th04/index.html"
-msgid "Agent → REA"
-msgstr "에이전트→REA"
+msgid "Agent → Ghostwire"
+msgstr "에이전트→Ghostwire"
 
 #: website/public/showcase/th04/index.html:380
 msgctxt "page:showcase/th04/index.html"
-msgid "REA → agent · selected fields"
-msgstr "REA→에이전트·선택된 분야"
+msgid "Ghostwire → agent · selected fields"
+msgstr "Ghostwire→에이전트·선택된 분야"
 
 #. {ph0}: <code>analyze_function</code>
 #: website/public/showcase/th04/index.html:399
 #, python-brace-format
 msgctxt "page:showcase/th04/index.html"
-msgid "Agent → REA · {ph0}"
-msgstr "에이전트→ REA · {ph0}"
+msgid "Agent → Ghostwire · {ph0}"
+msgstr "에이전트→ Ghostwire · {ph0}"
 
 #: website/public/showcase/th04/index.html:405
 msgctxt "page:showcase/th04/index.html"
-msgid "REA → agent · instruction excerpt"
-msgstr "REA→에이전트·사용법 발췌문"
+msgid "Ghostwire → agent · instruction excerpt"
+msgstr "Ghostwire→에이전트·사용법 발췌문"
 
 #: website/public/showcase/th04/index.html:426
 msgctxt "page:showcase/th04/index.html"
@@ -11488,8 +11402,8 @@ msgstr "번역이 업데이트되고 있습니다. 지금 이 페이지를 영�
 #, python-brace-format
 msgctxt "page:faq/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to analyze {ph3} and explain how it exports data. "
-"Show the relevant code and source locations.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to analyze {ph3} and explain how it exports "
+"data. Show the relevant code and source locations.{ph4}{ph5}{ph6}"
 msgstr ""
 "{ph0}›{ph1}{ph2}REA로 {ph3}를 분석하고 데이터를 어떻게 내보내는지 설명해 줘. 관련 코드와 소스 위치도 보여 "
 "줘.{ph4}{ph5}{ph6}"
@@ -11497,7 +11411,7 @@ msgstr ""
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="first-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -11505,8 +11419,8 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:first-investigation/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
 "{ph0}›{ph1}{ph2}{ph3}을 사용해 REA를 설치하고 이 코딩 에이전트에 연결해 줘. 먼저 설정 변경 계획을 보여 주고 내 "
@@ -11526,18 +11440,18 @@ msgstr ""
 msgctxt "page:first-investigation/index.html"
 msgid ""
 "{ph0}›{ph1}{ph2}Download {ph3} into a new example folder and unpack it. Use "
-"REA to find what happens when I click Export notes. Show where {ph4} is "
-"written, which fields it contains, and the relevant files and "
+"Ghostwire to find what happens when I click Export notes. Show where {ph4} "
+"is written, which fields it contains, and the relevant files and "
 "lines.{ph5}{ph6}{ph7}"
 msgstr ""
-"{ph0}›{ph1}{ph2}다운로드 {ph3} 새 예제 폴더에 넣고 압축을 풉니 다. 사용 REA 노트 내보내기를 클릭하면 어떤 일이 "
-"발생하는지 찾을 수 있습니다. 어디에 표시 {ph4} 어떤 필드가 포함되어 있는지,그리고 관련 파일과 줄들이 쓰여져 "
+"{ph0}›{ph1}{ph2}다운로드 {ph3} 새 예제 폴더에 넣고 압축을 풉니 다. 사용 Ghostwire 노트 내보내기를 클릭하면 "
+"어떤 일이 발생하는지 찾을 수 있습니다. 어디에 표시 {ph4} 어떤 필드가 포함되어 있는지,그리고 관련 파일과 줄들이 쓰여져 "
 "있습니다.{ph5}{ph6}{ph7}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="agent-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -11545,8 +11459,8 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:get-started/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
 "{ph0}›{ph1}{ph2}{ph3}을 사용해 REA를 설치하고 이 코딩 에이전트에 연결해 줘. 먼저 설정 변경 계획을 보여 주고 내 "
@@ -11555,7 +11469,7 @@ msgstr ""
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="home-install-prompt" >
-#. {ph3}: <span translate="no">npx rea-agents@latest setup</span>
+#. {ph3}: <span translate="no">npx ghostwire-agent@latest setup</span>
 #. {ph4}: </span >
 #. {ph5}: <span class="terminal-cursor" aria-hidden="true">
 #. {ph6}: </span>
@@ -11563,8 +11477,8 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using {ph3}."
-" Show me the setup plan for approval, then verify the "
+"{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+"{ph3}. Show me the setup plan for approval, then verify the "
 "installation.{ph4}{ph5}{ph6}"
 msgstr ""
 "{ph0}›{ph1}{ph2}{ph3}을 사용해 REA를 설치하고 이 코딩 에이전트에 연결해 줘. 먼저 설정 변경 계획을 보여 주고 내 "
@@ -11581,9 +11495,10 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect {ph3}. Clone this website for "
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect {ph3}. Clone this website for "
 "me.{ph4}{ph5}{ph6}"
-msgstr "{ph0}›{ph1}{ph2}사용 REA 검사 {ph3}. 나를 위해이 웹 사이트를 복제.{ph4}{ph5}{ph6}"
+msgstr ""
+"{ph0}›{ph1}{ph2}사용 Ghostwire 검사 {ph3}. 나를 위해이 웹 사이트를 복제.{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span translate="no">dino-speed.js</span>
 #: website/public/examples/dino-lab/index.html:322
@@ -11681,7 +11596,7 @@ msgstr "{ph0} *라인 8-12"
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
 #. {ph2}: <span id="first-check-prompt" >
-#. {ph3}: <span translate="no">Hello, "REA"</span>
+#. {ph3}: <span translate="no">Hello, "Ghostwire"</span>
 #. {ph4}: <span translate="no">toCsv</span>
 #. {ph5}: <span translate="no">Node.js</span>
 #. {ph6}: </span >
@@ -11819,16 +11734,17 @@ msgstr "예를 들어: {ph0}계산기에서 {ph1}가 왜 220이 될까요?{ph2}"
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator. Why does {ph3} give "
-"220?{ph4}{ph5}{ph6}"
-msgstr "{ph0}›{ph1}{ph2}사용 REA 검사 Windows 계산기 왜 {ph3} 220 줘?{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator. Why does {ph3} "
+"give 220?{ph4}{ph5}{ph6}"
+msgstr ""
+"{ph0}›{ph1}{ph2}사용 Ghostwire 검사 Windows 계산기 왜 {ph3} 220 줘?{ph4}{ph5}{ph6}"
 
 #. {ph0}: <span translate="no">index.js</span>
 #: website/public/index.html:693
 #, python-brace-format
 msgctxt "page:index.html"
-msgid "REA · loaded {ph0} · selected lines"
-msgstr "REA *로드 {ph0} *선택한 라인"
+msgid "Ghostwire · loaded {ph0} · selected lines"
+msgstr "Ghostwire *로드 {ph0} *선택한 라인"
 
 #. {ph0}: <strong>
 #. {ph1}: <span translate="no">200 + 10%</span>
@@ -11854,12 +11770,12 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:index.html"
 msgid ""
-"{ph0}01 · REA reads {ph1}{ph2}{ph3}It launches the Calculator "
+"{ph0}01 · Ghostwire reads {ph1}{ph2}{ph3}It launches the Calculator "
 "app{ph4}{ph5}The code opens {ph6}. The agent then selects the installed "
 "app’s library.{ph7}"
 msgstr ""
-"{ph0}01 · REA 읽는다 {ph1}{ph2}{ph3}그것은 계산기 응용 프로그램을 시작합니다{ph4}{ph5}코드가 열립니다 "
-"{ph6}. 그런 다음 에이전트는 설치된 앱의 라이브러리를 선택합니다.{ph7}"
+"{ph0}01 · Ghostwire 읽는다 {ph1}{ph2}{ph3}그것은 계산기 응용 프로그램을 시작합니다{ph4}{ph5}코드가 "
+"열립니다 {ph6}. 그런 다음 에이전트는 설치된 앱의 라이브러리를 선택합니다.{ph7}"
 
 #. {ph0}: <span class="prompt-symbol" aria-hidden="true">
 #. {ph1}: </span >
@@ -11872,9 +11788,9 @@ msgstr ""
 #, python-brace-format
 msgctxt "page:showcase/aegis/index.html"
 msgid ""
-"{ph0}›{ph1}{ph2}Use REA to inspect {ph3}. Find how it generates the six-"
-"digit login code, explain why it changes every 30 seconds, and rebuild a "
-"small demo where I can change the time.{ph4}{ph5}{ph6}"
+"{ph0}›{ph1}{ph2}Use Ghostwire to inspect {ph3}. Find how it generates the "
+"six-digit login code, explain why it changes every 30 seconds, and rebuild a"
+" small demo where I can change the time.{ph4}{ph5}{ph6}"
 msgstr ""
 "{ph0}›{ph1}{ph2}REA로 {ph3}을 분석해 주세요. 6자리 로그인 코드가 어떻게 생성되고 왜 30초마다 바뀌는지 설명한 "
 "뒤, 시간을 바꿔 볼 수 있는 작은 데모를 만들어 주세요.{ph4}{ph5}{ph6}"
@@ -11935,9 +11851,9 @@ msgstr "다크 모드로 전환"
 msgctxt "page:guides/browser/index.html"
 msgid ""
 "For HTTP request and response bodies, use {ph0}Fiddler Everywhere: SAZ "
-"captures, MCP and public skills{ph1}. Export SAZ or HAR 1.2 for offline REA "
-"capture Evidence, or connect Everywhere's MCP server to inspect captured "
-"traffic with your agent."
+"captures, MCP and public skills{ph1}. Export SAZ or HAR 1.2 for offline "
+"Ghostwire capture Evidence, or connect Everywhere's MCP server to inspect "
+"captured traffic with your agent."
 msgstr ""
 "HTTP 요청과 응답 본문을 살펴보려면 {ph0}Fiddler Everywhere: SAZ 캡처, MCP 및 공개 스킬{ph1}을 "
 "사용하세요. SAZ ?? HAR 1.2로 내보내면 REA에서 오프라인 캡처 Evidence를 얻을 수 있으며, Everywhere의 "
@@ -13112,8 +13028,8 @@ msgstr ""
 
 #: website/public/blog/reverse-engineering-models/index.html:6
 msgctxt "page:blog/reverse-engineering-models/index.html"
-msgid "Does reverse engineering need a bigger model? | REA"
-msgstr "리버스 엔지니어링에 더 큰 모델이 필요할까? | REA"
+msgid "Does reverse engineering need a bigger model? | Ghostwire"
+msgstr "리버스 엔지니어링에 더 큰 모델이 필요할까? | Ghostwire"
 
 #: website/public/blog/reverse-engineering-models/index.html:7
 msgctxt "page:blog/reverse-engineering-models/index.html"
@@ -13154,6 +13070,157 @@ msgid ""
 "{ph0}Detailed evidence notes{ph1} include the recorded comparisons and "
 "experiment context."
 msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 담겨 있다."
+
+#: website/public/blog/index.html:77 website/public/blog/index.html:90
+#: website/public/blog/reverse-engineering-models/index.html:77
+#: website/public/blog/reverse-engineering-models/index.html:90
+#: website/public/blog/touhou-reconstruction/index.html:77
+#: website/public/blog/touhou-reconstruction/index.html:90
+#: website/public/examples/dino-lab/index.html:77
+#: website/public/examples/dino-lab/index.html:90
+#: website/public/faq/index.html:77 website/public/faq/index.html:90
+#: website/public/first-investigation/index.html:77
+#: website/public/first-investigation/index.html:90
+#: website/public/get-started/index.html:77
+#: website/public/get-started/index.html:90
+#: website/public/guides/browser/index.html:77
+#: website/public/guides/browser/index.html:90
+#: website/public/guides/index.html:77 website/public/guides/index.html:90
+#: website/public/guides/javascript/index.html:77
+#: website/public/guides/javascript/index.html:90
+#: website/public/guides/native/index.html:77
+#: website/public/guides/native/index.html:90 website/public/index.html:77
+#: website/public/index.html:90 website/public/showcase/aegis/index.html:77
+#: website/public/showcase/aegis/index.html:90
+#: website/public/showcase/ctf/index.html:77
+#: website/public/showcase/ctf/index.html:90
+#: website/public/showcase/dx-ball/index.html:77
+#: website/public/showcase/dx-ball/index.html:90
+#: website/public/showcase/index.html:77 website/public/showcase/index.html:90
+#: website/public/showcase/notion/index.html:77
+#: website/public/showcase/notion/index.html:90
+#: website/public/showcase/th04/index.html:77
+#: website/public/showcase/th04/index.html:90
+msgctxt "shared"
+msgid ""
+"Ghostwire — Find out how software works. Reverse engineering with your "
+"coding agent."
+msgstr "Ghostwire -소프트웨어가 어떻게 작동하는지 알아보십시오. 코딩 에이전트로 리버스 엔지니어링."
+
+#: website/public/blog/index.html:110
+#: website/public/blog/reverse-engineering-models/index.html:110
+#: website/public/blog/touhou-reconstruction/index.html:110
+#: website/public/examples/dino-lab/index.html:111
+#: website/public/faq/index.html:110
+#: website/public/first-investigation/index.html:110
+#: website/public/get-started/index.html:110
+#: website/public/guides/browser/index.html:110
+#: website/public/guides/index.html:110
+#: website/public/guides/javascript/index.html:110
+#: website/public/guides/native/index.html:110 website/public/index.html:112
+#: website/public/showcase/aegis/index.html:111
+#: website/public/showcase/ctf/index.html:110
+#: website/public/showcase/dx-ball/index.html:110
+#: website/public/showcase/index.html:110
+#: website/public/showcase/notion/index.html:110
+#: website/public/showcase/th04/index.html:110
+msgctxt "shared"
+msgid "Ghostwire home"
+msgstr "Ghostwire 홈"
+
+#: website/public/blog/index.html:132
+#: website/public/blog/reverse-engineering-models/index.html:132
+#: website/public/blog/touhou-reconstruction/index.html:132
+#: website/public/examples/dino-lab/index.html:133
+#: website/public/faq/index.html:132
+#: website/public/first-investigation/index.html:132
+#: website/public/get-started/index.html:132
+#: website/public/guides/browser/index.html:132
+#: website/public/guides/index.html:132
+#: website/public/guides/javascript/index.html:132
+#: website/public/guides/native/index.html:132 website/public/index.html:134
+#: website/public/showcase/aegis/index.html:133
+#: website/public/showcase/ctf/index.html:132
+#: website/public/showcase/dx-ball/index.html:132
+#: website/public/showcase/index.html:132
+#: website/public/showcase/notion/index.html:132
+#: website/public/showcase/th04/index.html:132
+msgctxt "shared"
+msgid "Ghostwire on GitHub"
+msgstr "GitHub에서 Ghostwire 보기"
+
+#: website/public/blog/index.html:152
+#: website/public/blog/reverse-engineering-models/index.html:152
+#: website/public/blog/touhou-reconstruction/index.html:152
+#: website/public/examples/dino-lab/index.html:153
+#: website/public/faq/index.html:152
+#: website/public/first-investigation/index.html:152
+#: website/public/get-started/index.html:152
+#: website/public/guides/browser/index.html:152
+#: website/public/guides/index.html:152
+#: website/public/guides/javascript/index.html:152
+#: website/public/guides/native/index.html:152 website/public/index.html:154
+#: website/public/showcase/aegis/index.html:153
+#: website/public/showcase/ctf/index.html:152
+#: website/public/showcase/dx-ball/index.html:152
+#: website/public/showcase/index.html:152
+#: website/public/showcase/notion/index.html:152
+#: website/public/showcase/th04/index.html:152
+msgctxt "shared"
+msgid "Join Ghostwire on Discord"
+msgstr "Ghostwire Discord 참여"
+
+#: website/public/blog/index.html:171
+#: website/public/blog/reverse-engineering-models/index.html:171
+#: website/public/blog/touhou-reconstruction/index.html:171
+#: website/public/examples/dino-lab/index.html:172
+#: website/public/faq/index.html:171
+#: website/public/first-investigation/index.html:171
+#: website/public/get-started/index.html:171
+#: website/public/guides/browser/index.html:171
+#: website/public/guides/index.html:171
+#: website/public/guides/javascript/index.html:171
+#: website/public/guides/native/index.html:171 website/public/index.html:173
+#: website/public/showcase/aegis/index.html:172
+#: website/public/showcase/ctf/index.html:171
+#: website/public/showcase/dx-ball/index.html:171
+#: website/public/showcase/index.html:171
+#: website/public/showcase/notion/index.html:171
+#: website/public/showcase/th04/index.html:171
+msgctxt "shared"
+msgid "Follow Ghostwire on X"
+msgstr "X에서 Ghostwire 팔로우"
+
+#, python-brace-format
+#~ msgctxt "shared"
+#~ msgid "{ph0}REA{ph1}{ph2}"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA · Reverse Engineer Anything"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid ""
+#~ "REA — Find out how software works. Reverse engineering with your coding "
+#~ "agent."
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA home"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "REA on GitHub"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "Join REA on Discord"
+#~ msgstr ""
+
+#~ msgctxt "shared"
+#~ msgid "Follow REA on X"
+#~ msgstr ""
 
 #~ msgctxt "page:blog/index.html"
 #~ msgid "By N0zoM1z0 · 13 October 2026 · Draft for review"
@@ -13228,10 +13295,10 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
 #~ "{ph0}›{ph1}{ph2}Predict the CSV for a note with id 1 and title Hello, "
-#~ "\"REA\". Then run the example’s toCsv formatter with Node.js to check it. "
-#~ "Show the prediction and actual output.{ph3}{ph4}{ph5}"
+#~ "\"Ghostwire\". Then run the example’s toCsv formatter with Node.js to check "
+#~ "it. Show the prediction and actual output.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}예측 CSV 아이디 1 과 제목이 있는 메모를 위해 안녕하세요,\"REA\". 그런 다음 예제를 "
+#~ "{ph0}›{ph1}{ph2}예측 CSV 아이디 1 과 제목이 있는 메모를 위해 안녕하세요,\"Ghostwire\". 그런 다음 예제를 "
 #~ "실행하십시오. Node.js 그것을 확인합니다. 예측 및 실제 출력을 표시합니다.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "page:first-investigation/index.html"
@@ -13296,10 +13363,11 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect Windows Calculator. Why does 200 + 10% "
-#~ "give 220?{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect Windows Calculator. Why does 200 + "
+#~ "10% give 220?{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}사용 REA 검사 Windows 계산기 왜 200+10%는 220 을 제공합니까?{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}사용 Ghostwire 검사 Windows 계산기 왜 200+10%는 220 을 "
+#~ "제공합니까?{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
@@ -13312,22 +13380,22 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}01 · REA reads calc.exe{ph1}{ph2}It launches the Calculator "
+#~ "{ph0}01 · Ghostwire reads calc.exe{ph1}{ph2}It launches the Calculator "
 #~ "app{ph3}{ph4}The code opens {ph5}. The agent then selects the installed "
 #~ "app’s library.{ph6}"
 #~ msgstr ""
-#~ "{ph0}01 · REA 석회질을 읽습니다.엑스{ph1}{ph2}그것은 계산기 응용 프로그램을 시작합니다{ph3}{ph4}코드가 열립니다"
-#~ " {ph5}. 그런 다음 에이전트는 설치된 앱의 라이브러리를 선택합니다.{ph6}"
+#~ "{ph0}01 · Ghostwire 석회질을 읽습니다.엑스{ph1}{ph2}그것은 계산기 응용 프로그램을 "
+#~ "시작합니다{ph3}{ph4}코드가 열립니다 {ph5}. 그런 다음 에이전트는 설치된 앱의 라이브러리를 선택합니다.{ph6}"
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect aegis-v3.4.3.apk. Find how it generates "
-#~ "the six-digit login code, explain why it changes every 30 seconds, and "
-#~ "rebuild a small demo where I can change the time.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect aegis-v3.4.3.apk. Find how it "
+#~ "generates the six-digit login code, explain why it changes every 30 seconds,"
+#~ " and rebuild a small demo where I can change the time.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}사용 REA 이지스-3.4.3 을 검사합니다.-아뇨 이 6 자리 로그인 코드를 생성하는 방법을 찾아 30 "
-#~ "초마다 변경 이유를 설명하고 시간을 변경할 수있는 작은 데모를 다시 작성하십시오.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}사용 Ghostwire 이지스-3.4.3 을 검사합니다.-아뇨 이 6 자리 로그인 코드를 생성하는 방법을 "
+#~ "찾아 30 초마다 변경 이유를 설명하고 시간을 변경할 수있는 작은 데모를 다시 작성하십시오.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "page:showcase/notion/index.html"
 #~ msgid "tab_browser_view/preload.js · API member"
@@ -13366,59 +13434,60 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #~ msgstr "메인예시 소스"
 
 #~ msgctxt "page:index.html"
-#~ msgid "REA · loaded index.js · selected lines"
-#~ msgstr "REA·드 인덱스입니다.선택 라인"
+#~ msgid "Ghostwire · loaded index.js · selected lines"
+#~ msgstr "Ghostwire·드 인덱스입니다.선택 라인"
 
 #, python-brace-format
 #~ msgctxt "page:faq/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to analyze /absolute/path/to/app and explain how it "
-#~ "exports data. Show the relevant code and source locations.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to analyze /absolute/path/to/app and explain "
+#~ "how it exports data. Show the relevant code and source "
+#~ "locations.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}사용 REA 앱/절대/경로/를 분석하고 데이터를 내보내는 방법을 설명합니다. 관련 코드 및 소스 위치를 "
-#~ "표시합니다.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}사용 Ghostwire 앱/절대/경로/를 분석하고 데이터를 내보내는 방법을 설명합니다. 관련 코드 및 소스 "
+#~ "위치를 표시합니다.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}설치 REA 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신 설정. "
-#~ "승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}설치 Ghostwire 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신"
+#~ " 설정. 승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:first-investigation/index.html"
 #~ msgid ""
 #~ "{ph0}›{ph1}{ph2}Download https://rea.tools/examples/notes-example.zip into a"
-#~ " new example folder and unpack it. Use REA to find what happens when I click"
-#~ " Export notes. Show where notes.csv is written, which fields it contains, "
-#~ "and the relevant files and lines.{ph3}{ph4}{ph5}"
+#~ " new example folder and unpack it. Use Ghostwire to find what happens when I"
+#~ " click Export notes. Show where notes.csv is written, which fields it "
+#~ "contains, and the relevant files and lines.{ph3}{ph4}{ph5}"
 #~ msgstr ""
 #~ "{ph0}›{ph1}{ph2}다운로드 https://rea.tools/examples/notes-example.zip 새 예제 폴더에 "
-#~ "넣고 압축을 풉니 다. 사용 REA 노트 내보내기를 클릭하면 어떤 일이 발생하는지 찾을 수 있습니다. 어디 메모를 표시합니다.그리고 관련"
-#~ " 파일과 라인.{ph3}{ph4}{ph5}"
+#~ "넣고 압축을 풉니 다. 사용 Ghostwire 노트 내보내기를 클릭하면 어떤 일이 발생하는지 찾을 수 있습니다. 어디 메모를 "
+#~ "표시합니다.그리고 관련 파일과 라인.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:get-started/index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}설치 REA 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신 설정. "
-#~ "승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}설치 Ghostwire 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신"
+#~ " 설정. 승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Install REA and connect it to this coding agent using npx "
-#~ "rea-agents@latest setup. Show me the setup plan for approval, then verify "
-#~ "the installation.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Install Ghostwire and connect it to this coding agent using "
+#~ "npx ghostwire-agent@latest setup. Show me the setup plan for approval, then "
+#~ "verify the installation.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}설치 REA 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신 설정. "
-#~ "승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}설치 Ghostwire 그리고 그것을 사용하여 이 코딩 에이전트에 연결하십시오 npx 정말이야-에이전트@최신"
+#~ " 설정. 승인을 위해 설치 계획을 표시한 다음 설치를 확인합니다.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "page:index.html"
 #~ msgid "0x5b"
@@ -13435,10 +13504,10 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}›{ph1}{ph2}Use REA to inspect https://rea.tools/. Clone this website "
-#~ "for me.{ph3}{ph4}{ph5}"
+#~ "{ph0}›{ph1}{ph2}Use Ghostwire to inspect https://rea.tools/. Clone this "
+#~ "website for me.{ph3}{ph4}{ph5}"
 #~ msgstr ""
-#~ "{ph0}›{ph1}{ph2}사용 REA 검사 https://rea.tools/. 나를 위해이 웹 사이트를 "
+#~ "{ph0}›{ph1}{ph2}사용 Ghostwire 검사 https://rea.tools/. 나를 위해이 웹 사이트를 "
 #~ "복제.{ph3}{ph4}{ph5}"
 
 #~ msgctxt "figure:ctf-mask-equation.svg"
@@ -13455,8 +13524,8 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "shared"
-#~ msgid "{ph0}REA{ph1}{ph2}Reverse Engineer Anything{ph3}"
-#~ msgstr "{ph0}REA{ph1}{ph2}리버스 엔지니어링 아무것도{ph3}"
+#~ msgid "{ph0}Ghostwire{ph1}{ph2}Reverse Engineer Anything{ph3}"
+#~ msgstr "{ph0}Ghostwire{ph1}{ph2}리버스 엔지니어링 아무것도{ph3}"
 
 #, python-brace-format
 #~ msgctxt "shared"
@@ -13479,7 +13548,7 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:examples/dino-lab/index.html"
-#~ msgid "{ph0}REA · selected script source{ph1}"
+#~ msgid "{ph0}Ghostwire · selected script source{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13535,22 +13604,23 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:guides/javascript/index.html"
-#~ msgid "{ph0}REA result · summary.ipc excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire result · summary.ipc excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA instruction excerpt · 0x406409{ph1}"
+#~ msgid "{ph0}Ghostwire instruction excerpt · 0x406409{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA caller excerpt · 0x411f5b{ph1}"
+#~ msgid "{ph0}Ghostwire caller excerpt · 0x411f5b{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:guides/native/index.html"
-#~ msgid "{ph0}REA byte results · interpreted as little-endian doubles{ph1}"
+#~ msgid ""
+#~ "{ph0}Ghostwire byte results · interpreted as little-endian doubles{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13561,12 +13631,13 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:index.html"
 #~ msgid ""
-#~ "{ph0}See how REA works ↓{ph1} {ph2}Setup guide{ph3} {ph4}Showcases →{ph5}"
+#~ "{ph0}See how Ghostwire works ↓{ph1} {ph2}Setup guide{ph3} {ph4}Showcases "
+#~ "→{ph5}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
-#~ msgid "{ph0}REA · loaded index.js · selected lines{ph1}"
+#~ msgid "{ph0}Ghostwire · loaded index.js · selected lines{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13581,7 +13652,7 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:index.html"
-#~ msgid "{ph0}REA · selected original instructions{ph1}"
+#~ msgid "{ph0}Ghostwire · selected original instructions{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13596,22 +13667,22 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA → agent · selected results{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected results{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA → agent · methods and callers{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · methods and callers{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA · selected decompiled Java{ph1}"
+#~ msgid "{ph0}Ghostwire · selected decompiled Java{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13621,7 +13692,7 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:showcase/aegis/index.html"
-#~ msgid "{ph0}REA · generateOTP, complete body{ph1}"
+#~ msgid "{ph0}Ghostwire · generateOTP, complete body{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13632,27 +13703,27 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · selected results{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected results{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · selected instructions{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected instructions{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}Agent → REA · read_bytes{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire · read_bytes{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/ctf/index.html"
-#~ msgid "{ph0}REA → agent · seventh entries{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · seventh entries{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13667,32 +13738,32 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA result · pseudocode excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire result · pseudocode excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}Agent → REA · {ph1}{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · {ph1}{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA → agent · instruction excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · instruction excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA → agent · caller excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · caller excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}Agent → REA · two {ph1} requests{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · two {ph1} requests{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/dx-ball/index.html"
-#~ msgid "{ph0}REA byte results · decoded as doubles{ph1}"
+#~ msgid "{ph0}Ghostwire byte results · decoded as doubles{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
@@ -13717,7 +13788,7 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:showcase/index.html"
 #~ msgid ""
-#~ "{ph0}Executable{ph1} {ph2}→{ph3} {ph4}REA findings{ph5} {ph6}→{ph7} "
+#~ "{ph0}Executable{ph1} {ph2}→{ph3} {ph4}Ghostwire findings{ph5} {ph6}→{ph7} "
 #~ "{ph8}Recovered C{ph9} {ph10}→{ph11} {ph12}Validation{ph13}"
 #~ msgstr ""
 
@@ -13731,7 +13802,7 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 #, python-brace-format
 #~ msgctxt "page:showcase/index.html"
 #~ msgid ""
-#~ "{ph0}Original DOS code{ph1} {ph2}→{ph3} {ph4}REA instructions{ph5} "
+#~ "{ph0}Original DOS code{ph1} {ph2}→{ph3} {ph4}Ghostwire instructions{ph5} "
 #~ "{ph6}→{ph7} {ph8}Angle calculation{ph9} {ph10}→{ph11} {ph12}Bullet "
 #~ "ring{ph13}"
 #~ msgstr ""
@@ -13773,22 +13844,22 @@ msgstr "{ph0}상세 증거 기록{ph1}에는 비교 결과와 실험 맥락이 �
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}Agent → REA{ph1}"
+#~ msgid "{ph0}Agent → Ghostwire{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}REA → agent · selected fields{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · selected fields{ph1}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}Agent → REA · {ph1}{ph2}"
+#~ msgid "{ph0}Agent → Ghostwire · {ph1}{ph2}"
 #~ msgstr ""
 
 #, python-brace-format
 #~ msgctxt "page:showcase/th04/index.html"
-#~ msgid "{ph0}REA → agent · instruction excerpt{ph1}"
+#~ msgid "{ph0}Ghostwire → agent · instruction excerpt{ph1}"
 #~ msgstr ""
 
 #, python-brace-format

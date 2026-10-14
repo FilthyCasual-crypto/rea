@@ -1,6 +1,6 @@
 # Aegis Android login-code evidence
 
-Inspection on 9 October 2026, using the published REA 6.1.0 CLI with the
+Inspection on 9 October 2026, using the published Ghostwire 6.1.0 CLI with the
 caller-supplied `jadx-headless-mcp` 0.7.1 provider and OpenJDK 21.0.12.1 on
 Linux x64. The case follows the default time-based code in
 [Aegis Authenticator](https://github.com/beemdevelopment/Aegis).
@@ -17,23 +17,23 @@ Linux x64. The case follows the default time-based code in
 - Provider source revision: `5844800a486d2248fa949b74c9896285f5b54de2`.
 
 The artifact's SHA-256 matches the official GitHub release asset digest and every
-saved REA record. The APK and provider JAR were downloaded into temporary storage.
+saved Ghostwire record. The APK and provider JAR were downloaded into temporary storage.
 They are linked from their official releases; neither file is a website asset.
 
-REA has since replaced that provider with upstream JADX 1.5.6 driven by REA's
+Ghostwire has since replaced that provider with upstream JADX 1.5.6 driven by Ghostwire's
 own bridge, selected with `REA_JADX_JAR`; the showcase's setup steps describe the
 current provider. The findings below remain the record of this 9 October
 inspection and have not been re-run with the new provider.
 
 The CLI used `REA_JADX_MCP_JAR` for its own process. The connected MCP server's
 Android provider was initially unavailable; it was not reconfigured. The page
-expresses the inspected selections as REA tool requests, using the same operation
+expresses the inspected selections as Ghostwire tool requests, using the same operation
 parameters as the successful CLI calls. Input paths and result package prefixes
 are shortened for display, as noted beside those blocks.
 
-## REA findings
+## Ghostwire findings
 
-Twenty REA operations completed successfully against this artifact. These are the
+Twenty Ghostwire operations completed successfully against this artifact. These are the
 records used for the page's main findings:
 
 | Operation                  | Finding                                                  | Evidence ID                                                           |
@@ -76,7 +76,7 @@ into the constructor, connecting that branch to the generated code.
 
 The release exposes `generateOTP` and `getHash` under `kotlin.ExceptionsKt`.
 Original-source naming alone would not identify that class in this APK.
-The call returned from `TotpInfo.getOtp(long)` supplies the helper name; REA's
+The call returned from `TotpInfo.getOtp(long)` supplies the helper name; Ghostwire's
 method inspection and reference tracing establish its calculation and callers.
 
 The base `OtpInfo.getOtp` reference list includes `EntryHolder.getOtp` and
@@ -86,7 +86,7 @@ optional period offset. The page uses the unshifted code calculation.
 
 ## Reconstruction checks
 
-A temporary JVM harness assembled six method bodies directly from saved REA
+A temporary JVM harness assembled six method bodies directly from saved Ghostwire
 results: the timestamp method, algorithm getter, hash method, generator, output
 constructor and output formatter. Imports, enclosing classes, fields, exception
 type and test driver were supplied for the harness. The original APK was not run.
@@ -114,7 +114,7 @@ The reference JSON contains public test data, not a captured account key.
 
 ## Source comparison and attribution
 
-After obtaining the calculation through REA, selected files from the matching
+After obtaining the calculation through Ghostwire, selected files from the matching
 release source were read for corroboration:
 
 - [HOTP.java](https://github.com/beemdevelopment/Aegis/blob/d6f4e5925a97e4e91593f1542085eae03432a759/app/src/main/java/com/beemdevelopment/aegis/crypto/otp/HOTP.java): counter encoding, HMAC and byte selection.
@@ -139,7 +139,7 @@ The Android provider requires a Linux or macOS host and a full JDK 17 or later,
 including `jdk.compiler`. The shell walkthrough was executed on Linux with
 JDK 21.
 
-Raw REA results, provider scratch paths, Java harness classes and the downloaded
+Raw Ghostwire results, provider scratch paths, Java harness classes and the downloaded
 binaries remain outside the public website. The public page uses generic filenames
 and the public test key. Update the release identity, selected excerpts, demo,
 reference data and these notes together when moving to another Aegis version.
