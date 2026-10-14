@@ -19,7 +19,8 @@
 </div>
 
 > [!NOTE]
-> Ghostwire is a fork of [REA](https://github.com/morluto/rea) by morluto (MIT).
+> Ghostwire is © 2026 FilthyCasual-crypto, MIT licensed, and builds on
+> [REA](https://github.com/morluto/rea) by morluto (MIT); see [LICENSE](../../LICENSE).
 > It removes the Chinese-vendor agent integrations, runs Android analysis on
 > upstream [JADX](https://github.com/skylot/jadx), and adds
 > `setup --schema-profile`. Ghostwire is not published to npm; install it from
