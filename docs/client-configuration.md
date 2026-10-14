@@ -98,6 +98,28 @@ entry was still present, doctor reported it aligned, and Claude Desktop's MCP
 log showed REA starting and answering `tools/list`. Uninstall against the real
 app is unverified.
 
+## Choosing an input schema profile
+
+Every REA tool is advertised with a name, a description and an input schema.
+Clients that load all tool definitions upfront, without deferred tool search,
+send that whole catalog to the model with every request. On this fork's
+main, with 207 tools, the model-visible part measured about 780 KB with the
+default `full` profile and about 174 KB with `compact` (descriptions plus
+input schemas; output schemas are not sent to the model). Choose the profile
+when registering a client:
+
+```bash
+rea setup --client cursor --schema-profile compact --dry-run   # review
+rea setup --client cursor --schema-profile compact --yes
+```
+
+The selection is stored in the registration's environment and kept by later
+setup and update runs; pass `--schema-profile full` to return to the default.
+Server-side validation is identical under both profiles. Prefer `compact` for
+eagerly loading clients and for providers with per-tool schema size caps.
+Keep `full` where the client defers tool definitions (Claude Code with a
+first-party endpoint), because nested parameter descriptions help the model.
+
 ## Claude Code
 
 Claude Code normally defers MCP tool definitions through tool search. It
@@ -118,11 +140,10 @@ and Claude Code reports that autocompact is thrashing. To avoid this:
 - If the endpoint forwards `tool_reference` blocks, set `ENABLE_TOOL_SEARCH=true`
   to restore deferred loading. Endpoints that do not support `tool_reference`
   content blocks will fail requests with this setting.
-- To shrink the upfront catalog, add
-  `"REA_MCP_INPUT_SCHEMA_PROFILE": "compact"` to the `env` object of the
-  `mcpServers.rea` entry in `~/.claude.json` (`$CLAUDE_CONFIG_DIR/.claude.json`
-  when that variable is set), then restart Claude Code. Setup keeps this
-  override.
+- To shrink the upfront catalog, rerun setup with
+  `rea setup --client claude_code --schema-profile compact`, then restart
+  Claude Code. This writes `"REA_MCP_INPUT_SCHEMA_PROFILE": "compact"` into the
+  `env` object of the `mcpServers.rea` entry, and later setup runs keep it.
 
 The sizes above come from REA's own `tools/list`.
 

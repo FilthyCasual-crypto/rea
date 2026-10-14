@@ -109,6 +109,11 @@ const runSetupWorkflow = async (
   if (unsupported !== undefined) return fail(unsupported);
   const initialState = await host.initialSetupState(options.readinessScope);
   let { hopperPath, providerEnvironment } = initialState;
+  if (options.inputSchemaProfile !== undefined)
+    providerEnvironment = {
+      ...providerEnvironment,
+      REA_MCP_INPUT_SCHEMA_PROFILE: options.inputSchemaProfile,
+    };
   const discovery = await discoverSetupState({
     host,
     providerEnvironment,

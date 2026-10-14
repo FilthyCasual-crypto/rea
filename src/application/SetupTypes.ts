@@ -11,6 +11,7 @@ import type {
   SetupFailureCode,
   SetupHopperInstallResult,
 } from "./SetupInstallFailure.js";
+import type { McpInputSchemaProfile } from "../config/mcpInputSchemaProfile.js";
 
 /** Exact non-secret provider variables propagated into managed registrations. */
 export type SetupProviderEnvironment = Readonly<Record<string, string>>;
@@ -193,6 +194,11 @@ export interface SetupOptions {
   readonly readinessScope?: DoctorScope;
   readonly dryRun?: boolean;
   readonly allDetectedClients?: boolean;
+  /**
+   * Advertised MCP input-schema profile written into each registration's
+   * environment. Omitted keeps whatever the existing registration selects.
+   */
+  readonly inputSchemaProfile?: McpInputSchemaProfile;
   readonly onProgress?: (event: SetupProgressEvent) => void;
 }
 

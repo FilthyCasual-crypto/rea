@@ -81,6 +81,12 @@ const registerSetupCommand = (
         .boolean()
         .default(false)
         .describe("Print the resolved plan without applying it"),
+      schemaProfile: z
+        .enum(["full", "compact"])
+        .optional()
+        .describe(
+          "Advertised tool input schemas: full, or compact for clients that load every tool definition upfront",
+        ),
       accessible: z
         .boolean()
         .default(false)
@@ -199,6 +205,7 @@ interface SetupCommandOptions {
   readonly skill?: boolean | undefined;
   readonly dryRun: boolean;
   readonly accessible: boolean;
+  readonly schemaProfile?: "full" | "compact" | undefined;
 }
 
 const runSetupCommand = async (
@@ -261,6 +268,9 @@ const setupRunOptions = (
     dryRun: options.dryRun,
     allDetectedClients: options.allDetected,
     proposeHopper: interactive || options.installHopper,
+    ...(options.schemaProfile === undefined
+      ? {}
+      : { inputSchemaProfile: options.schemaProfile }),
     ...(hasSelectedClients ? { clientIds: options.client } : {}),
     ...(options.skillClient.length > 0
       ? { skillClientIds: options.skillClient }
