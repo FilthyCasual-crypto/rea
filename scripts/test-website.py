@@ -211,7 +211,7 @@ class WebsiteMaintenanceChecks(unittest.TestCase):
             (root / "docs").mkdir()
             (root / "docs/guide.md").write_text("# Guide\n## Set up Ghostwire\n")
             page = root / "website/README.md"
-            page.write_text("[Guide](../docs/guide.md#set-up-rea)\n")
+            page.write_text("[Guide](../docs/guide.md#set-up-ghostwire)\n")
             (root / "website/.venv").mkdir()
             (root / "website/.venv/vendor.md").write_text("[File](missing.md)")
             self.assertEqual(VERIFY.check_repository_links(root), [])
