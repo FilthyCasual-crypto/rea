@@ -2,6 +2,7 @@ import { constants as bufferConstants } from "node:buffer";
 
 import type { JsonValue } from "../domain/jsonValue.js";
 import { bufferedJsonParts, jsonParts } from "../domain/jsonSerialization.js";
+import { scanJsonForAnalystDirectedText } from "../domain/analystDirectedText.js";
 
 export const MCP_RESULT_STRING_LIMIT = bufferConstants.MAX_STRING_LENGTH - 1024;
 
@@ -43,8 +44,39 @@ export const carriesTargetContentMarker = (result: {
 };
 
 // `,"_meta":{...}` added to the delivered result object.
-const TARGET_CONTENT_META_BYTES =
-  Buffer.byteLength(JSON.stringify({ _meta: TARGET_CONTENT_RESULT_META })) - 1;
+const metaBytes = (meta: Readonly<Record<string, unknown>>): number =>
+  Buffer.byteLength(JSON.stringify({ _meta: meta })) - 1;
+const TARGET_CONTENT_META_BYTES = metaBytes(TARGET_CONTENT_RESULT_META);
+
+// Bounds keep the scan proportional to what a model would read anyway; the
+// character budget covers the largest single responses Ghostwire delivers.
+const ANALYST_DIRECTED_FINDINGS = 32;
+const ANALYST_DIRECTED_CHARACTERS = 32 * 1024 * 1024;
+
+/**
+ * Target-content metadata for a successful result. Text in the result that
+ * appears to address an AI analyst is listed by JSON Pointer so hosts and
+ * agents can discount it; the result itself is unchanged.
+ */
+export const targetContentResultMeta = (
+  value: JsonValue,
+): Readonly<Record<string, unknown>> => {
+  const scan = scanJsonForAnalystDirectedText(value, {
+    maximumFindings: ANALYST_DIRECTED_FINDINGS,
+    maximumCharacters: ANALYST_DIRECTED_CHARACTERS,
+  });
+  if (scan.findings.length === 0 && !scan.truncated)
+    return TARGET_CONTENT_RESULT_META;
+  return {
+    provenance: {
+      ...TARGET_CONTENT_RESULT_META.provenance,
+      analyst_directed_text: {
+        findings: scan.findings,
+        truncated: scan.truncated,
+      },
+    },
+  };
+};
 
 /**
  * MCP representations a result carries on the wire. Successful results repeat
@@ -68,13 +100,17 @@ export const encodeToolResult = (
   value: JsonValue,
   budgetBytes: number,
   representations: ToolResultRepresentations = "structured-and-text",
-  targetContent = false,
+  targetContent: boolean | Readonly<Record<string, unknown>> = false,
 ): ToolResultEncoding => {
   const structured = representations === "structured-and-text";
   const parts: string[] = [];
   let bytes =
     (structured ? RESULT_ENVELOPE_BYTES : ERROR_RESULT_ENVELOPE_BYTES) +
-    (targetContent ? TARGET_CONTENT_META_BYTES : 0);
+    (targetContent === false
+      ? 0
+      : targetContent === true
+        ? TARGET_CONTENT_META_BYTES
+        : metaBytes(targetContent));
   let codeUnits = bytes;
   for (const part of bufferedJsonParts(jsonParts(value))) {
     const escapedPart = JSON.stringify(part);

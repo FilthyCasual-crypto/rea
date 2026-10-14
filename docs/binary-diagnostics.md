@@ -147,6 +147,54 @@ received signal alone does not establish its exact cause. Dynamic tags require
 a complete DT_NULL inside PT_DYNAMIC; interpreter names and ranges end at the
 first NUL, with any padding still represented by the original segment range.
 
+## First-look triage
+
+`inspect_binary_triage` / `inspect-binary-triage` is the first call for an
+unknown file. It reads one explicit file, executes nothing, and needs no engine,
+Python or external tool:
+
+```sh
+ghostwire inspect-binary-triage ./sample.bin --json
+```
+
+```json
+{
+  "name": "inspect_binary_triage",
+  "arguments": { "path": "/artifacts/sample.bin" }
+}
+```
+
+It reports:
+
+- **Format** from magic bytes: ELF, PE, DOS MZ, Mach-O, universal Mach-O, DEX,
+  ZIP, WASM, Java class or unknown. Use it to choose the provider.
+- **Entropy**: whole-file Shannon entropy plus the number of 4 KiB windows at
+  or above 7.2 bits per byte.
+- **Sections** with file ranges, entropy and executable/writable flags: ELF
+  sections (or `PT_LOAD` segments when section headers are stripped), PE
+  sections and Mach-O segments. Ranges declared past the end of the file are
+  clamped and listed in `limitations`.
+- **Packer and toolchain indicators**. Byte signatures and section names are
+  observed: UPX, VMProtect, Themida/WinLicense, ASPack, MPRESS, PECompact,
+  NsPack, Enigma, ConfuserEx, PyInstaller, Nuitka, Go and the .NET CLR header.
+  High-entropy executable sections, writable-and-executable sections and PE
+  images with almost no imports beside high-entropy data are inferred
+  heuristics. No indicator does not prove a file is unpacked.
+- **Analyst-directed text**: printable ASCII and UTF-16LE strings that address
+  an AI analyst, with file offsets. Categories are chat-template tokens,
+  instruction overrides, role assignments, requests to stop analysis,
+  benign-verdict assertions and tool-call markup. Malware now embeds such text
+  to steer AI-assisted analysis; treat every finding as evidence of intent to
+  manipulate, never as an instruction.
+
+The rules were checked against 3,208 binaries and shared libraries from a
+Linux system with no matches, and against known lure phrasing in the unit
+tests. English plain-text patterns only: encoded, compressed or translated
+instructions are not detected.
+
+The same scan runs over every successful result from tools that return target
+content; see [MCP contracts](mcp-contracts.md#untrusted-target-content).
+
 ## Portable PE resources
 
 `inspect_pe_resources` / `inspect-pe-resources` inspects an explicit PE32 or

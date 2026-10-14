@@ -48,6 +48,20 @@ export const PE_RESOURCES_PROVIDER = Object.freeze({
   version: "1",
 } as const);
 
+/** Provider identity for portable byte-level binary triage. */
+export const BINARY_TRIAGE_PROVIDER = Object.freeze({
+  id: "rea-binary-triage",
+  name: "Ghostwire binary triage",
+  version: "1",
+} as const);
+
+/** Provider identity for deterministic byte decoding and number conversion. */
+export const BYTE_DECODING_PROVIDER = Object.freeze({
+  id: "rea-byte-decoding",
+  name: "Ghostwire byte decoding",
+  version: "1",
+} as const);
+
 /** Provider identity for deterministic managed-code comparison workflows. */
 export const MANAGED_WORKFLOW_PROVIDER = {
   id: "rea-dotnet-workflows",

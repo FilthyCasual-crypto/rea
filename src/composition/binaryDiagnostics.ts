@@ -3,6 +3,8 @@ import { PwntoolsRecordedCrashProvider } from "../native/pwntools/PwntoolsRecord
 import { BinaryLayoutService } from "../application/binaryDiagnostics/BinaryLayoutService.js";
 import { PwntoolsLayoutProvider } from "../native/pwntools/PwntoolsLayoutProvider.js";
 import { PeResourcesService } from "../application/binaryDiagnostics/PeResourcesService.js";
+import { BinaryTriageService } from "../application/binaryDiagnostics/BinaryTriageService.js";
+import { BinaryTriageProvider } from "../native/triage/BinaryTriageProvider.js";
 import { PeResourcesProvider } from "../native/pe/PeResourcesProvider.js";
 
 /** Portable PE inspection with no engine, installation or target acquisition. */
@@ -20,3 +22,7 @@ export const createRecordedCrashService = (
   environment: Readonly<NodeJS.ProcessEnv> = process.env,
 ): RecordedCrashService =>
   new RecordedCrashService(new PwntoolsRecordedCrashProvider(environment));
+
+/** Portable byte-level triage with no engine, installation or execution. */
+export const createBinaryTriageService = (): BinaryTriageService =>
+  new BinaryTriageService(new BinaryTriageProvider());

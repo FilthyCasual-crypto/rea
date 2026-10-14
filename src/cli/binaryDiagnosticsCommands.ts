@@ -4,6 +4,7 @@ import {
   createRecordedCrashService,
   createBinaryLayoutService,
   createPeResourcesService,
+  createBinaryTriageService,
 } from "../composition/binaryDiagnostics.js";
 import { CLI_COMMANDS } from "../cliCommandNames.js";
 import { logCliCommand } from "../cliLogging.js";
@@ -11,6 +12,7 @@ import type { Logger } from "pino";
 import type { CliInstance } from "./types.js";
 import { withCommandCancellation } from "./commandCancellation.js";
 import { inspectPeResourcesInputSchema } from "../domain/native/peResources.js";
+import { inspectBinaryTriageInputSchema } from "../domain/native/binaryTriage.js";
 import { projectAnalysisError } from "../domain/analysisErrorProjection.js";
 import { finishAnalysisCommand } from "./finishAnalysisCommand.js";
 
@@ -48,6 +50,40 @@ export const registerBinaryDiagnosticsCommands = (
               pe,
               "rea-pe-resources",
               "inspect_pe_resources",
+            ),
+        );
+      }),
+  });
+  cli.command(CLI_COMMANDS.inspectBinaryTriage, {
+    description:
+      "Triage a file: format, entropy, sections, packer indicators and text aimed at AI analysts",
+    args: z.object({ path: z.string().describe("Local file to triage") }),
+    options: z.object({
+      maxFileBytes: inspectBinaryTriageInputSchema.shape.max_file_bytes,
+      minStringLength: inspectBinaryTriageInputSchema.shape.min_string_length,
+      maxFindings: inspectBinaryTriageInputSchema.shape.max_findings,
+    }),
+    run: ({ args, options }) =>
+      withCommandCancellation(async (signal) => {
+        const triage = createBinaryTriageService();
+        return await logCliCommand(
+          logger,
+          CLI_COMMANDS.inspectBinaryTriage,
+          async () =>
+            finishAnalysisCommand(
+              () =>
+                triage.inspect(
+                  {
+                    path: resolve(args.path),
+                    max_file_bytes: options.maxFileBytes,
+                    min_string_length: options.minStringLength,
+                    max_findings: options.maxFindings,
+                  },
+                  { signal },
+                ),
+              triage,
+              "rea-binary-triage",
+              "inspect_binary_triage",
             ),
         );
       }),

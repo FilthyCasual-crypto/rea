@@ -23,6 +23,11 @@ import { clearClientLocationEnvironment } from "../../fixtures/clientEnvironment
  * wraps it in `cmd.exe /d /c`, so the expected entry follows the host too.
  */
 const command = npxRegistrationCommand(process.platform);
+const registeredServer = {
+  command: command[0],
+  args: command.slice(1),
+  enabled: true,
+};
 
 beforeEach(clearClientLocationEnvironment);
 afterEach(() => vi.unstubAllEnvs());
@@ -205,11 +210,7 @@ mcp_servers:
       display: { language: "en" },
       mcp_servers: {
         other: { command: "other-server" },
-        ghostwire: {
-          command: command[0],
-          args: command.slice(1),
-          enabled: true,
-        },
+        ghostwire: registeredServer,
       },
     });
 
@@ -280,11 +281,7 @@ mcp_servers:
     expect(text.startsWith(original)).toBe(true);
     expect(parseYaml(text, { intAsBigInt: true })).toMatchObject({
       mcp_servers: {
-        ghostwire: {
-          command: command[0],
-          args: command.slice(1),
-          enabled: true,
-        },
+        ghostwire: registeredServer,
       },
     });
     expect((await systemUninstallHost(home).removeClient(client)).status).toBe(
@@ -384,11 +381,7 @@ describe("Hermes YAML empty configurations", () => {
       expect(text.slice(0, kept.length)).toBe(kept);
       expect(parseYaml(text)).toEqual({
         mcp_servers: {
-          ghostwire: {
-            command: command[0],
-            args: command.slice(1),
-            enabled: true,
-          },
+          ghostwire: registeredServer,
         },
       });
       expect(
